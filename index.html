@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="google-site-verification" content="5AK6NDQoKC49UqZ3GegnAdjBZVF4yOlKFgu3jjoMOpw" />
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>국민계산기 | 대한민국 금융 계산기 35종 모음 2026</title>
+  <meta name="description" content="연봉 실수령액, 대출이자, 퇴직금, 실업급여, 양도소득세, 증여세, 종합부동산세 등 35가지 금융 계산기를 무료로 제공합니다. 실시간 계산, AI 맞춤 분석, 다크모드 지원.">
+  <meta name="keywords" content="계산기,대출이자계산기,퇴직금계산기,연봉실수령액,실업급여계산기,양도소득세,증여세,취득세,재산세,종합부동산세">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="국민계산기 | 금융 계산기 35종 모음">
+  <meta property="og:description" content="대한민국 금융 계산기 35종을 한 곳에서. 실시간 계산 + AI 분석.">
+  <meta property="og:url" content="https://kukmincalc.com/">
+  <meta property="og:image" content="https://kukmincalc.com/assets/images/og-image.svg">
+  <meta property="og:site_name" content="국민계산기">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://kukmincalc.com/">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "국민계산기",
+    "url": "https://kukmincalc.com",
+    "description": "대한민국 금융 계산기 35종 모음",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://kukmincalc.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <style>
+    /* ===== 홈 히어로 ===== */
+    .home-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #1d4ed8 70%, #2563eb 100%);
+      color: white;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .home-hero::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .home-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(4px);
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      background: #34d399;
+      border-radius: 50%;
+      animation: pulseGlow 2s infinite;
+    }
+    .home-hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .home-hero h1 .accent {
+      background: linear-gradient(135deg, #60a5fa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    /* 히어로 검색바 */
+    .hero-search {
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    .hero-search input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3.2rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      font-size: 1rem;
+      font-family: var(--font);
+      background: rgba(255,255,255,0.08);
+      color: white;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s;
+    }
+    .hero-search input::placeholder { color: rgba(255,255,255,0.45); }
+    .hero-search input:focus {
+      outline: none;
+      border-color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+    }
+    .hero-search .icon {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      opacity: 0.5;
+    }
+
+    /* 히어로 통계 뱃지 */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat .val {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: white;
+    }
+    .hero-stat .lbl {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.15rem;
+    }
+    .hero-stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+      align-self: stretch;
+    }
+
+    /* ===== 인기 계산기 ===== */
+    .popular-section {
+      max-width: var(--max-width);
+      margin: -2rem auto 0;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .popular-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .popular-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem 1.25rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .popular-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--gradient-warm));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .popular-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      border-color: var(--primary-light);
+    }
+    .popular-card:hover::before { opacity: 1; }
+    .popular-card .p-icon {
+      width: 52px; height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+    .popular-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .popular-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+    .popular-card .hot-badge {
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      background: #fef3c7;
+      color: #92400e;
+    }
+    [data-theme="dark"] .popular-card .hot-badge {
+      background: #78350f;
+      color: #fbbf24;
+    }
+
+    /* ===== 섹션 공통 ===== */
+    .home-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 0;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .section-icon {
+      width: 40px; height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .section-header .count {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.15rem 0.6rem;
+      border-radius: 9999px;
+      background: var(--bg-alt);
+      color: var(--text-muted);
+    }
+
+    /* 카테고리 그리드 */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.75rem;
+    }
+    .cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .cat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      border-color: var(--primary-light);
+    }
+    .cat-card .c-icon {
+      width: 42px; height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .cat-card .c-info h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.15rem; }
+    .cat-card .c-info p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* 카테고리별 색상 */
+    .clr-labor { background: #eff6ff; }
+    .clr-tax { background: #fef3c7; }
+    .clr-realestate { background: #ecfdf5; }
+    .clr-finance { background: #f0f9ff; }
+    .clr-insurance { background: #fdf2f8; }
+    .clr-life { background: #faf5ff; }
+
+    [data-theme="dark"] .clr-labor { background: rgba(59,130,246,0.12); }
+    [data-theme="dark"] .clr-tax { background: rgba(245,158,11,0.12); }
+    [data-theme="dark"] .clr-realestate { background: rgba(16,185,129,0.12); }
+    [data-theme="dark"] .clr-finance { background: rgba(6,182,212,0.12); }
+    [data-theme="dark"] .clr-insurance { background: rgba(236,72,153,0.12); }
+    [data-theme="dark"] .clr-life { background: rgba(139,92,246,0.12); }
+
+    .sh-labor { background: #dbeafe; }
+    .sh-tax { background: #fef3c7; }
+    .sh-realestate { background: #d1fae5; }
+    .sh-finance { background: #e0f2fe; }
+    .sh-insurance { background: #fce7f3; }
+    .sh-life { background: #ede9fe; }
+
+    [data-theme="dark"] .sh-labor { background: rgba(59,130,246,0.2); }
+    [data-theme="dark"] .sh-tax { background: rgba(245,158,11,0.2); }
+    [data-theme="dark"] .sh-realestate { background: rgba(16,185,129,0.2); }
+    [data-theme="dark"] .sh-finance { background: rgba(6,182,212,0.2); }
+    [data-theme="dark"] .sh-insurance { background: rgba(236,72,153,0.2); }
+    [data-theme="dark"] .sh-life { background: rgba(139,92,246,0.2); }
+
+    /* ===== CTA 배너 ===== */
+    .cta-banner {
+      max-width: var(--max-width);
+      margin: 3rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .cta-inner {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb, #10b981);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-inner::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-text h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .cta-text p { font-size: 0.9rem; opacity: 0.8; }
+    .cta-features {
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .cta-feat {
+      text-align: center;
+    }
+    .cta-feat .ic {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+    .cta-feat .tx {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      white-space: nowrap;
+    }
+
+    /* ===== 홈 푸터 ===== */
+    .home-footer {
+      max-width: var(--max-width);
+      margin: 3.5rem auto 0;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem 2rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-brand .f-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand .f-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .footer-brand .f-email {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    .footer-brand .f-email a { color: var(--primary-light); }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      padding: 0.2rem 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom .copy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .footer-bottom .links {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-bottom .links a {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .footer-bottom .links a:hover { color: var(--primary); }
+
+    /* ===== 검색 결과 오버레이 ===== */
+    .search-results {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0; right: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      max-height: 360px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .search-results.active { display: block; }
+    .search-results a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.15s;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .search-results a:last-child { border-bottom: none; }
+    .search-results a:hover { background: var(--bg-alt); }
+    .search-results a .sr-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .search-results a .sr-name { font-weight: 600; font-size: 0.9rem; }
+    .search-results a .sr-desc { font-size: 0.78rem; color: var(--text-muted); }
+    .search-results .no-result {
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ===== 반응형 ===== */
+    @media (max-width: 768px) {
+      .home-hero { padding: 3rem 1rem 2.5rem; }
+      .home-hero h1 { font-size: 2rem; }
+      .hero-desc { font-size: 1rem; }
+      .hero-stats { gap: 1.25rem; }
+      .hero-stat .val { font-size: 1.3rem; }
+      .popular-grid { grid-template-columns: repeat(2, 1fr); }
+      .cat-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+      .cta-inner { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 480px) {
+      .home-hero h1 { font-size: 1.65rem; }
+      .hero-search input { padding: 0.85rem 0.85rem 0.85rem 2.8rem; font-size: 0.9rem; }
+      .popular-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .popular-card { padding: 1.15rem 1rem; }
+      .popular-card .p-icon { width: 44px; height: 44px; font-size: 1.3rem; }
+      .cat-grid { grid-template-columns: 1fr; }
+      .home-section { padding: 2rem 1rem 0; }
+      .cta-features { gap: 1rem; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <!-- ===== 히어로 ===== -->
+  <section class="home-hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="dot"></span> 2026년 최신 법령 반영</div>
+      <h1>모든 금융 계산,<br><span class="accent">한 곳에서 무료로</span></h1>
+      <p class="hero-desc">연봉, 세금, 대출, 부동산, 보험, 생활까지 — 35가지 계산기와 AI 맞춤 분석을 제공합니다</p>
+
+      <div class="hero-search" style="position:relative;">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="계산기 검색 (예: 퇴직금, 대출이자, 양도소득세...)">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="val">35종</div>
+          <div class="lbl">금융 계산기</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="val">6개</div>
+          <div class="lbl">카테고리</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="val">100%</div>
+          <div class="lbl">무료</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="val">AI</div>
+          <div class="lbl">맞춤 분석</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 인기 계산기 ===== -->
+  <section class="popular-section">
+    <div class="popular-grid" id="popularGrid"></div>
+  </section>
+
+  <!-- ===== 카테고리별 섹션 ===== -->
+  <div id="categorySections"></div>
+
+  <!-- ===== CTA 배너 ===== -->
+  <section class="cta-banner">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h3>개발자이신가요?</h3>
+        <p>35개 계산 함수를 JavaScript SDK, iframe, URL API로 무료 제공합니다</p>
+      </div>
+      <div class="cta-features">
+        <a href="docs/api.html" class="cta-feat" style="color:white;text-decoration:none;">
+          <div class="ic">📄</div>
+          <div class="tx">API 문서</div>
+        </a>
+        <a href="legal/partnership.html" class="cta-feat" style="color:white;text-decoration:none;">
+          <div class="ic">🤝</div>
+          <div class="tx">제휴 문의</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 푸터 ===== -->
+  <footer class="home-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="f-logo">💰 국민계산기</div>
+        <div class="f-desc">대한민국 금융 계산기 35종을 한 곳에서 무료로 제공합니다.<br>실시간 계산, AI 맞춤 분석, 다크모드를 지원합니다.</div>
+        <div class="f-email">문의: <a href="mailto:help@kukmincalc.com">help@kukmincalc.com</a></div>
+      </div>
+      <div class="footer-col">
+        <h4>인기 계산기</h4>
+        <a href="calculators/take-home-pay.html">연봉 실수령액</a>
+        <a href="calculators/loan-interest.html">대출이자</a>
+        <a href="calculators/severance-pay.html">퇴직금</a>
+        <a href="calculators/capital-gains-tax.html">양도소득세</a>
+        <a href="calculators/gift-tax.html">증여세</a>
+      </div>
+      <div class="footer-col">
+        <h4>카테고리</h4>
+        <a href="#cat-labor">근로·급여</a>
+        <a href="#cat-tax">세금</a>
+        <a href="#cat-realestate">부동산</a>
+        <a href="#cat-finance">대출·금융</a>
+        <a href="#cat-insurance">보험</a>
+        <a href="#cat-life">생활</a>
+      </div>
+      <div class="footer-col">
+        <h4>정보</h4>
+        <a href="legal/disclaimer.html">법적 고지</a>
+        <a href="legal/privacy.html">개인정보처리방침</a>
+        <a href="legal/partnership.html">제휴 문의</a>
+        <a href="docs/api.html">API 문서</a>
+        <a href="sitemap.xml">사이트맵</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="copy">&copy; 2026 국민계산기 (Kukmin Calculator) | kukmincalc.com</div>
+      <div class="links">
+        <a href="legal/disclaimer.html">법적 고지</a>
+        <a href="legal/privacy.html">개인정보처리방침</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--text-muted);font-size:0.72rem;margin-top:0.75rem;">본 계산 결과는 참고용이며 법적 효력이 없습니다. 정확한 금액은 관련 전문가에게 상담하세요.</p>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script>document.getElementById('header').innerHTML = getHomeHeaderHTML();</script>
+  <script>
+    const calculators = [
+      // 근로·급여
+      { id: 'take-home-pay', name: '연봉 실수령액', desc: '연봉에서 세금·4대보험 공제 후 실수령액 계산', icon: '💵', category: 'labor', tags: '연봉 월급 실수령 세후', popular: true },
+      { id: 'hourly-wage', name: '시급 계산기', desc: '월급↔시급 변환, 주휴수당 포함 계산', icon: '⏰', category: 'labor', tags: '시급 최저임금 알바 주휴수당' },
+      { id: 'overtime-pay', name: '야근수당 계산기', desc: '연장·야간·휴일 근로수당 자동 계산', icon: '🌙', category: 'labor', tags: '야근 연장근로 수당 야간' },
+      { id: 'annual-leave-pay', name: '연차수당 계산기', desc: '미사용 연차 수당 및 연차 발생일수 계산', icon: '📅', category: 'labor', tags: '연차 휴가 수당 미사용' },
+      { id: 'severance-pay', name: '퇴직금 계산기', desc: '재직기간·평균임금 기반 퇴직금 계산', icon: '🎒', category: 'labor', tags: '퇴직금 퇴직 퇴사', popular: true },
+      { id: 'unemployment', name: '실업급여 계산기', desc: '실업급여 수급액·수급기간 자동 산출', icon: '🏥', category: 'labor', tags: '실업급여 고용보험 구직급여' },
+      { id: 'pension', name: '국민연금 계산기', desc: '월 보험료 및 예상 수령액 계산', icon: '🏦', category: 'labor', tags: '국민연금 연금 노후' },
+
+      // 세금
+      { id: 'income-tax', name: '종합소득세 계산기', desc: '과세표준별 소득세·지방세 자동 계산', icon: '📊', category: 'tax', tags: '종합소득세 소득세 세금' },
+      { id: 'vat', name: '부가가치세 계산기', desc: '공급가액↔부가세 분리·합산 계산', icon: '🧾', category: 'tax', tags: '부가세 부가가치세 VAT' },
+      { id: 'capital-gains-tax', name: '양도소득세 계산기', desc: '부동산 매매 시 양도차익 기반 세금 산출', icon: '🏷️', category: 'tax', tags: '양도소득세 양도세 부동산매매' },
+      { id: 'gift-tax', name: '증여세 계산기', desc: '증여 대상별 면제한도·세율 자동 계산', icon: '🎁', category: 'tax', tags: '증여세 증여 면제한도', popular: true },
+      { id: 'inheritance-tax', name: '상속세 계산기', desc: '상속재산·공제 기반 상속세 산출', icon: '📜', category: 'tax', tags: '상속세 상속 유산' },
+      { id: 'acquisition-tax', name: '취득세 계산기', desc: '주택 수·가격별 취득세·교육세 계산', icon: '🔑', category: 'tax', tags: '취득세 부동산 매매 다주택' },
+      { id: 'property-tax', name: '재산세 계산기', desc: '공시가격 기반 재산세·도시지역분 계산', icon: '🏘️', category: 'tax', tags: '재산세 공시가격 보유세' },
+
+      // 부동산
+      { id: 'comprehensive-property-tax', name: '종합부동산세 계산기', desc: '공시가격 합산·보유 주택수별 종부세 계산', icon: '🏢', category: 'realestate', tags: '종합부동산세 종부세 보유세' },
+      { id: 'mortgage-limit', name: '주택담보대출 한도', desc: 'LTV·DTI·DSR 기반 대출 최대 한도 산출', icon: '🏠', category: 'realestate', tags: '주담대 대출한도 LTV DTI' },
+      { id: 'dsr', name: 'DSR 계산기', desc: '총부채원리금상환비율(DSR) 자동 계산', icon: '📐', category: 'realestate', tags: 'DSR 대출 부채비율' },
+      { id: 'rent-to-deposit', name: '월세↔전세 전환', desc: '전월세 전환율 기반 월세·전세 상호 변환', icon: '🔄', category: 'realestate', tags: '월세 전세 전환율 보증금' },
+      { id: 'moving-cost', name: '이사비용 계산기', desc: '집 유형·거리·층수별 이사 견적 자동 산출', icon: '🚚', category: 'realestate', tags: '이사 이사비용 포장이사' },
+      { id: 'remodel-cost', name: '인테리어 비용', desc: '평수·등급별 인테리어 예상 비용 계산', icon: '🔨', category: 'realestate', tags: '인테리어 리모델링 수리비' },
+
+      // 대출·금융
+      { id: 'loan-interest', name: '대출이자 계산기', desc: '원리금균등·원금균등·만기일시 3가지 비교', icon: '🧮', category: 'finance', tags: '대출이자 대출 원리금 원금', popular: true },
+      { id: 'prepayment-fee', name: '중도상환수수료', desc: '조기 상환 시 위약금·수수료 자동 계산', icon: '💸', category: 'finance', tags: '중도상환 수수료 위약금' },
+      { id: 'deposit-interest', name: '예적금 이자 계산기', desc: '예금·적금 이자 및 세후 수령액 계산', icon: '🏧', category: 'finance', tags: '예금 적금 이자 금리' },
+      { id: 'compound-interest', name: '복리 계산기', desc: '복리 효과 시뮬레이션·적립식 투자 계산', icon: '📈', category: 'finance', tags: '복리 투자 수익률 적립식' },
+      { id: 'exchange-rate', name: '환율 계산기', desc: '주요 통화 환율 변환 (USD, JPY, EUR 등)', icon: '💱', category: 'finance', tags: '환율 달러 엔화 유로' },
+
+      // 보험
+      { id: 'health-insurance', name: '건강보험료 계산기', desc: '직장가입자 건강보험료·장기요양보험료 계산', icon: '🏥', category: 'insurance', tags: '건강보험 장기요양 보험료' },
+      { id: 'employment-insurance', name: '고용보험료 계산기', desc: '근로자·사업주 고용보험 부담액 계산', icon: '👷', category: 'insurance', tags: '고용보험 실업 보험료' },
+      { id: 'industrial-insurance', name: '산재보험료 계산기', desc: '업종별 산업재해보상보험료 자동 산출', icon: '⛑️', category: 'insurance', tags: '산재보험 산업재해 보험료' },
+
+      // 생활
+      { id: 'car-cost', name: '자동차 유지비', desc: '유류비·보험·세금·감가상각 월별 총비용', icon: '🚗', category: 'life', tags: '자동차 유지비 기름값 보험' },
+      { id: 'wedding-cost', name: '결혼비용 계산기', desc: '예식장·식대·스드메·허니문 총비용 산출', icon: '💒', category: 'life', tags: '결혼 웨딩 결혼비용 축의금' },
+      { id: 'child-cost', name: '육아비용 계산기', desc: '연령별 어린이집·교육·의료 월별 비용', icon: '👶', category: 'life', tags: '육아 보육 양육비 교육비' },
+      { id: 'bmi', name: 'BMI 계산기', desc: '키·몸무게 기반 체질량지수·비만도 판정', icon: '⚖️', category: 'life', tags: 'BMI 비만도 체중 다이어트' },
+      { id: 'unit-converter', name: '단위 변환기', desc: 'km↔마일, kg↔파운드, 평↔㎡ 등 변환', icon: '📏', category: 'life', tags: '단위 변환 평 평방미터 마일' },
+      { id: 'tip-calculator', name: '팁/더치페이 계산기', desc: '팁 계산 및 N인 더치페이 금액 산출', icon: '🍽️', category: 'life', tags: '팁 더치페이 1/N' },
+      { id: 'date-calculator', name: '날짜 계산기 D-day', desc: 'D-day 카운트, 날짜 간 기간, 날짜 더하기', icon: '📆', category: 'life', tags: 'D-day 날짜 기간 디데이' },
+    ];
+
+    const CATEGORIES = [
+      { key: 'labor',      label: '근로·급여', icon: '💼', color: 'labor' },
+      { key: 'tax',        label: '세금',      icon: '📋', color: 'tax' },
+      { key: 'realestate', label: '부동산',    icon: '🏗️', color: 'realestate' },
+      { key: 'finance',    label: '대출·금융', icon: '💳', color: 'finance' },
+      { key: 'insurance',  label: '보험',      icon: '🛡️', color: 'insurance' },
+      { key: 'life',       label: '생활',      icon: '🌿', color: 'life' },
+    ];
+
+    // 인기 계산기 렌더
+    (function renderPopular() {
+      const popular = calculators.filter(c => c.popular);
+      document.getElementById('popularGrid').innerHTML = popular.map(c => `
+        <a href="calculators/${c.id}.html" class="popular-card">
+          <span class="hot-badge">HOT</span>
+          <div class="p-icon clr-${c.category}">${c.icon}</div>
+          <h3>${c.name}</h3>
+          <p>${c.desc}</p>
+        </a>
+      `).join('');
+    })();
+
+    // 카테고리별 섹션 렌더
+    (function renderCategories() {
+      const container = document.getElementById('categorySections');
+      container.innerHTML = CATEGORIES.map(cat => {
+        const items = calculators.filter(c => c.category === cat.key);
+        return `
+          <section class="home-section" id="cat-${cat.key}">
+            <div class="section-header">
+              <div class="section-icon sh-${cat.color}">${cat.icon}</div>
+              <h2>${cat.label}</h2>
+              <span class="count">${items.length}개</span>
+            </div>
+            <div class="cat-grid">
+              ${items.map(c => `
+                <a href="calculators/${c.id}.html" class="cat-card">
+                  <div class="c-icon clr-${c.category}">${c.icon}</div>
+                  <div class="c-info">
+                    <h3>${c.name}</h3>
+                    <p>${c.desc}</p>
+                  </div>
+                </a>
+              `).join('')}
+            </div>
+          </section>
+        `;
+      }).join('');
+    })();
+
+    // 검색 기능
+    (function initSearch() {
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('searchResults');
+
+      input.addEventListener('input', function() {
+        const q = this.value.trim().toLowerCase();
+        if (!q) {
+          results.classList.remove('active');
+          return;
+        }
+        const matched = calculators.filter(c =>
+          c.name.toLowerCase().includes(q) ||
+          c.desc.toLowerCase().includes(q) ||
+          c.tags.toLowerCase().includes(q)
+        );
+        if (matched.length === 0) {
+          results.innerHTML = '<div class="no-result">검색 결과가 없습니다</div>';
+        } else {
+          results.innerHTML = matched.map(c => `
+            <a href="calculators/${c.id}.html">
+              <span class="sr-icon">${c.icon}</span>
+              <div>
+                <div class="sr-name">${c.name}</div>
+                <div class="sr-desc">${c.desc}</div>
+              </div>
+            </a>
+          `).join('');
+        }
+        results.classList.add('active');
+      });
+
+      input.addEventListener('blur', () => {
+        setTimeout(() => results.classList.remove('active'), 200);
+      });
+      input.addEventListener('focus', () => {
+        if (input.value.trim()) input.dispatchEvent(new Event('input'));
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>종합부동산세 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 종합부동산세 자동 계산기. 공시가격 합산액과 보유 주택수를 입력하면 과세표준, 종부세, 농어촌특별세, 총 납부세액을 즉시 계산합니다.">
+  <meta property="og:title" content="종합부동산세 계산기 - 국민계산기">
+  <meta property="og:description" content="공시가격 합산·보유 주택수별 종부세를 실시간으로 계산하세요.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/comprehensive-property-tax">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/comprehensive-property-tax">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "종합부동산세 계산기",
+    "description": "공시가격 합산액과 보유 주택수를 입력하여 종합부동산세, 농어촌특별세, 총 납부세액을 자동으로 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#realestate">부동산</a> &gt;
+      <span>종합부동산세 계산기</span>
+    </nav>
+
+    <h1>🏢 종합부동산세 계산기 2026</h1>
+    <p class="page-subtitle">보유 주택의 공시가격 합산액을 입력하고 종부세 납부액을 확인하세요</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="totalPublicPrice">공시가격 합산액 (원)</label>
+        <input type="text" id="totalPublicPrice" placeholder="예: 1,500,000,000" value="1500000000">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="1000000000" data-target="totalPublicPrice">10억</button>
+          <button class="preset-btn" data-set="1500000000" data-target="totalPublicPrice">15억</button>
+          <button class="preset-btn" data-set="2000000000" data-target="totalPublicPrice">20억</button>
+          <button class="preset-btn" data-set="3000000000" data-target="totalPublicPrice">30억</button>
+        </div>
+        <small>보유한 전체 주택의 공시가격 합계를 입력하세요</small>
+      </div>
+
+      <div class="input-group">
+        <label for="numHouses">보유 주택 수</label>
+        <select id="numHouses">
+          <option value="1" selected>1주택</option>
+          <option value="2">2주택</option>
+          <option value="3">3주택 이상</option>
+        </select>
+        <small>1세대 1주택자는 공제금액 11억원, 다주택자는 6억원이 적용됩니다</small>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>종합부동산세란?</h2>
+      <p>종합부동산세(종부세)는 일정 기준을 초과하는 부동산을 보유한 사람에게 부과되는 국세입니다. 매년 6월 1일 기준으로 과세 대상이 결정되며, 12월에 납부합니다. 재산세가 지방세인 것과 달리 종부세는 국세로, 고가 부동산 보유에 대한 추가 세부담 성격을 가집니다.</p>
+
+      <h3>과세 대상 및 공제 기준</h3>
+      <p>종합부동산세는 주택분, 종합합산토지분, 별도합산토지분으로 나뉩니다. 주택분 종부세는 전국에 보유한 주택의 공시가격을 합산한 금액에서 기본공제액을 차감하여 과세표준을 산출합니다. 2026년 기준 1세대 1주택자는 11억원, 그 외(다주택자 포함)는 6억원이 기본공제액으로 적용됩니다. 1세대 1주택 고령자나 장기보유자에게는 추가 세액공제가 부여되어 최대 80%까지 세부담을 줄일 수 있습니다.</p>
+
+      <h3>세율 구조</h3>
+      <p>종부세 세율은 과세표준 구간과 보유 주택 수에 따라 달라집니다. 일반세율(1주택자 및 조정대상지역 외 2주택)은 과세표준 3억 이하 0.5%, 6억 이하 0.7%, 12억 이하 1.0%, 50억 이하 1.3%, 50억 초과 2.0%가 적용됩니다. 다주택자(3주택 이상 또는 조정대상지역 2주택)의 경우 12억 초과 구간부터 높은 세율이 적용되어 최대 5.0%까지 부과될 수 있습니다. 이는 다주택 보유에 대한 세부담을 강화하기 위한 정책입니다.</p>
+
+      <h3>농어촌특별세</h3>
+      <p>종합부동산세 납부 시 농어촌특별세가 함께 부과됩니다. 농어촌특별세는 종부세 산출세액의 20%로 계산됩니다. 따라서 실제 납부해야 할 총 세액은 종부세와 농어촌특별세를 합산한 금액입니다.</p>
+
+      <h3>절세 전략</h3>
+      <p>종부세 절세를 위해서는 다음과 같은 전략을 고려할 수 있습니다. 첫째, 1세대 1주택 요건을 충족하면 공제금액이 11억원으로 늘어납니다. 둘째, 60세 이상 고령자 공제(20~40%)와 5년 이상 장기보유 공제(20~50%)를 합산하면 최대 80%까지 세액공제를 받을 수 있습니다. 셋째, 부부 공동명의를 활용하면 각각 6억원씩 총 12억원의 공제가 가능하여 단독 명의보다 유리할 수 있습니다. 넷째, 임대주택 등록 등 정부 정책을 활용하면 세부담을 줄일 수 있는 경우도 있으므로 전문 세무사와 상담하는 것이 좋습니다. 종부세는 매년 세법 개정에 따라 세율과 공제금액이 변경될 수 있으므로 최신 법령을 확인하시기 바랍니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "종합부동산세는 누가 납부하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "매년 6월 1일 기준으로 전국에 보유한 주택의 공시가격 합산액이 기본공제액(1주택자 11억, 다주택자 6억)을 초과하는 개인 및 법인이 납부 대상입니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "종부세와 재산세는 어떻게 다른가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "재산세는 지방세로 모든 부동산 소유자에게 부과되고, 종부세는 국세로 일정 기준 이상의 고가 부동산 보유자에게만 추가로 부과됩니다. 종부세 계산 시 이미 납부한 재산세액은 공제됩니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "부부 공동명의가 종부세에 유리한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "부부 공동명의 시 각각 6억원씩 총 12억원 공제가 가능합니다. 단독 명의(1주택 11억 공제)보다 공제금액이 1억원 더 많지만, 고령자·장기보유 공제를 받지 못하므로 개별 상황에 따라 유불리가 달라집니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "종부세 납부 시기는 언제인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "종합부동산세는 매년 12월 1일부터 12월 15일까지 납부합니다. 납부세액이 250만원을 초과하면 6개월 분납이 가능합니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>종합부동산세는 누가 납부하나요?</summary>
+        <p>매년 6월 1일 기준으로 전국에 보유한 주택의 공시가격 합산액이 기본공제액(1주택자 11억, 다주택자 6억)을 초과하는 개인 및 법인이 납부 대상입니다.</p>
+      </details>
+      <details>
+        <summary>종부세와 재산세는 어떻게 다른가요?</summary>
+        <p>재산세는 지방세로 모든 부동산 소유자에게 부과되고, 종부세는 국세로 일정 기준 이상의 고가 부동산 보유자에게만 추가로 부과됩니다. 종부세 계산 시 이미 납부한 재산세액은 공제됩니다.</p>
+      </details>
+      <details>
+        <summary>부부 공동명의가 종부세에 유리한가요?</summary>
+        <p>부부 공동명의 시 각각 6억원씩 총 12억원 공제가 가능합니다. 단독 명의(1주택 11억 공제)보다 공제금액이 1억원 더 많지만, 고령자·장기보유 공제를 받지 못하므로 개별 상황에 따라 유불리가 달라집니다.</p>
+      </details>
+      <details>
+        <summary>종부세 납부 시기는 언제인가요?</summary>
+        <p>종합부동산세는 매년 12월 1일부터 12월 15일까지 납부합니다. 납부세액이 250만원을 초과하면 6개월 분납이 가능합니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="property-tax.html" class="related-card"><span class="icon">🏘️</span><h4>재산세 계산기</h4><p>공시가격 기반 재산세 계산</p></a>
+        <a href="acquisition-tax.html" class="related-card"><span class="icon">🔑</span><h4>취득세 계산기</h4><p>주택 수·가격별 취득세 계산</p></a>
+        <a href="capital-gains-tax.html" class="related-card"><span class="icon">🏷️</span><h4>양도소득세 계산기</h4><p>부동산 양도차익 세금 산출</p></a>
+        <a href="mortgage-limit.html" class="related-card"><span class="icon">🏠</span><h4>주담대 한도 계산기</h4><p>LTV·DTI·DSR 기반 한도 산출</p></a>
+        <a href="gift-tax.html" class="related-card"><span class="icon">🎁</span><h4>증여세 계산기</h4><p>증여 대상별 면제한도·세율 계산</p></a>
+        <a href="inheritance-tax.html" class="related-card"><span class="icon">📜</span><h4>상속세 계산기</h4><p>상속재산·공제 기반 세금 산출</p></a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const totalPublicPrice = parseInput(document.getElementById('totalPublicPrice').value);
+      const numHouses = parseInt(document.getElementById('numHouses').value);
+
+      const r = CalcCore.comprehensivePropertyTax(totalPublicPrice, numHouses);
+      const deduction = numHouses === 1 ? 1100000000 : 600000000;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>종합부동산세 계산 결과</h3>
+          <div class="result-item"><span>공시가격 합산</span><strong>${formatKRW(totalPublicPrice)}</strong></div>
+          <div class="result-item"><span>기본공제액</span><strong>${formatKRW(deduction)}</strong></div>
+          <div class="result-item"><span>과세표준</span><strong>${formatKRW(r.taxBase)}</strong></div>
+          <div class="result-item"><span>종부세 산출세액</span><strong>${formatKRW(r.tax)}</strong></div>
+          <div class="result-item"><span>농어촌특별세 (20%)</span><strong>${formatKRW(r.farmTax)}</strong></div>
+          <div class="result-item primary"><span>총 납부세액</span><strong>${formatKRW(r.total)}</strong></div>
+        </div>`;
+
+      // AI insight
+      let insightHTML = '';
+      if (r.total === 0) {
+        insightHTML = `
+          <div class="ai-card">
+            <h3>AI 맞춤 분석</h3>
+            <div class="insight-item"><span class="icon">✅</span><div><strong>비과세 대상</strong><p>현재 공시가격 합산액이 기본공제액(${formatKRW(deduction)}) 이하이므로 종합부동산세 과세 대상이 아닙니다.</p></div></div>
+            <div class="insight-item"><span class="icon">💡</span><div><strong>참고 사항</strong><p>종부세는 면제되지만 재산세는 별도로 부과됩니다. 재산세 계산기를 통해 확인해보세요.</p></div></div>
+          </div>`;
+      } else {
+        const monthlyEquiv = Math.round(r.total / 12);
+        insightHTML = `
+          <div class="ai-card">
+            <h3>AI 맞춤 분석</h3>
+            <div class="insight-item"><span class="icon">📊</span><div><strong>세부담 분석</strong><p>공시가격 ${formatKRW(totalPublicPrice)} 기준 연간 종부세 ${formatKRW(r.total)}이 발생합니다. 월 환산 약 ${formatKRW(monthlyEquiv)}의 세부담입니다.</p></div></div>
+            <div class="insight-item"><span class="icon">🏠</span><div><strong>1주택자 혜택</strong><p>${numHouses === 1 ? '1세대 1주택자로 11억원 공제를 적용받고 있습니다. 60세 이상이면 고령자 공제(20~40%), 5년 이상 보유 시 장기보유 공제(20~50%)를 추가로 받을 수 있어 최대 80%까지 세액공제가 가능합니다.' : '다주택자(6억원 공제)입니다. 주택 수를 줄여 1주택자가 되면 공제금액이 11억원으로 늘어나고 고령자·장기보유 공제도 받을 수 있습니다.'}</p></div></div>
+            <div class="insight-item"><span class="icon">💡</span><div><strong>절세 방법</strong><p>부부 공동명의 시 각각 6억원씩 총 12억원 공제가 가능합니다. 또한 납부세액이 250만원을 초과하면 6개월 분납이 가능하니 자금 계획에 참고하세요.</p></div></div>
+          </div>`;
+      }
+      document.getElementById('aiInsight').innerHTML = insightHTML;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

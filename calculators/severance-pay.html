@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>퇴직금 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 퇴직금 계산기. 월 평균임금과 근속기간을 입력하면 퇴직금 총액, 일평균임금, 재직일수를 자동으로 계산합니다. 근로기준법 기반 정확 산출.">
+  <meta property="og:title" content="퇴직금 계산기 - 국민계산기">
+  <meta property="og:description" content="월 평균임금·근속기간 기반 퇴직금 자동 계산">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/severance-pay">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/severance-pay">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "퇴직금 계산기",
+    "description": "월 평균임금과 근속기간을 기반으로 퇴직금을 자동 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>퇴직금 계산기</span>
+    </nav>
+
+    <h1>🎒 퇴직금 계산기 2026</h1>
+    <p class="page-subtitle">월 평균임금과 근속기간을 입력하면 퇴직금을 바로 계산합니다</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="monthlySalary">월 평균임금 (원)</label>
+        <input type="text" id="monthlySalary" value="3,500,000" placeholder="퇴직 전 3개월 평균임금">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="2500000" data-target="monthlySalary">250만</button>
+          <button class="preset-btn active" data-set="3500000" data-target="monthlySalary">350만</button>
+          <button class="preset-btn" data-set="5000000" data-target="monthlySalary">500만</button>
+          <button class="preset-btn" data-set="7000000" data-target="monthlySalary">700만</button>
+        </div>
+        <small>퇴직 전 3개월간 지급된 임금 총액 ÷ 3 (상여금·수당 포함)</small>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="years">근속년수</label>
+          <input type="number" id="years" value="5" min="0" max="50">
+        </div>
+        <div class="input-group">
+          <label for="months">근속개월수 (추가)</label>
+          <input type="number" id="months" value="0" min="0" max="11">
+        </div>
+      </div>
+
+      <div class="input-display" style="padding: 0.75rem; background: var(--bg-alt); border-radius: var(--radius-sm); margin-top: 0.5rem;">
+        📌 퇴직금 지급 요건: 계속근로기간 1년 이상, 주 15시간 이상 근무
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>퇴직금이란?</h2>
+      <p>퇴직금은 근로자퇴직급여보장법에 따라, 계속근로기간이 1년 이상이고 4주간 평균하여 1주 15시간 이상 근무한 근로자가 퇴직할 때 받는 급여입니다. 사용자는 퇴직하는 근로자에게 계속근로기간 1년에 대해 30일분 이상의 평균임금을 퇴직금으로 지급해야 합니다.</p>
+
+      <h3>퇴직금 계산 공식</h3>
+      <div class="method-card">
+        <h3>기본 산식</h3>
+        <div class="formula">퇴직금 = 1일 평균임금 x 30일 x (총 재직일수 ÷ 365)</div>
+      </div>
+      <p>여기서 1일 평균임금은 퇴직 전 3개월간 지급된 임금 총액을 해당 기간의 총 일수로 나눈 금액입니다. 월 평균임금 기준으로는 '월급 ÷ 30일'로 환산합니다.</p>
+
+      <h3>평균임금에 포함되는 항목</h3>
+      <p>기본급, 정기상여금, 연장·야간·휴일근로수당, 직책수당, 기술수당 등 근로의 대가로 지급되는 모든 금품이 포함됩니다. 다만, 경조사비, 체력단련비 등 은혜적·일시적 급여는 제외됩니다. 특히 정기적·일률적·고정적으로 지급되는 상여금은 반드시 포함해야 합니다.</p>
+
+      <h3>퇴직금 중간정산</h3>
+      <p>2012년 7월 이후 퇴직금 중간정산은 원칙적으로 금지되었습니다. 다만 무주택자의 주택 구입, 본인·배우자·부양가족의 6개월 이상 요양, 천재지변 등 법정 사유에 해당하면 예외적으로 중간정산이 가능합니다.</p>
+
+      <h3>퇴직금 지급 기한</h3>
+      <p>퇴직금은 퇴직일로부터 14일 이내에 지급해야 합니다. 다만 당사자 간 합의에 의해 연장할 수 있습니다. 기한 내 미지급 시 지연이자(연 20%)가 발생하며, 3년 이하 징역 또는 3천만원 이하 벌금에 처해질 수 있습니다.</p>
+
+      <h3>퇴직소득세</h3>
+      <p>퇴직금에는 퇴직소득세가 부과됩니다. 퇴직소득세는 근속연수에 따라 공제가 적용되며, 일반 소득세보다 낮은 세율이 적용됩니다. 근속연수가 길수록, IRP(개인형 퇴직연금)로 이체하면 추가 세제 혜택을 받을 수 있습니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "퇴직금은 누가 받을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "1년 이상 계속 근무하고, 4주 평균 주 15시간 이상 일한 근로자라면 정규직·비정규직·아르바이트 관계없이 퇴직금을 받을 수 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "1년 미만 근무해도 퇴직금을 받을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "법정 퇴직금은 1년 이상 근무 시 발생합니다. 1년 미만 근무자는 법적으로 퇴직금 청구권이 없습니다. 다만, 회사 내규에 따라 지급될 수 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "퇴직금은 언제까지 받을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "퇴직일로부터 14일 이내에 지급받아야 합니다. 3년의 소멸시효가 있으므로, 퇴직 후 3년 이내에 청구해야 합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "퇴직금에 세금이 붙나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네, 퇴직소득세가 부과됩니다. 근속연수가 길수록 세금이 줄어들며, IRP로 이체 시 추가 세제 혜택이 있습니다." }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 퇴직금은 누가 받을 수 있나요?</summary><p>1년 이상 계속 근무하고, 4주 평균 주 15시간 이상 일한 근로자라면 정규직·비정규직·아르바이트 관계없이 퇴직금을 받을 수 있습니다.</p></details>
+      <details><summary>Q2. 1년 미만 근무해도 퇴직금을 받을 수 있나요?</summary><p>법정 퇴직금은 1년 이상 근무 시 발생합니다. 1년 미만 근무자는 법적으로 퇴직금 청구권이 없습니다. 다만, 회사 내규에 따라 지급될 수 있습니다.</p></details>
+      <details><summary>Q3. 퇴직금은 언제까지 받을 수 있나요?</summary><p>퇴직일로부터 14일 이내에 지급받아야 합니다. 3년의 소멸시효가 있으므로, 퇴직 후 3년 이내에 청구해야 합니다.</p></details>
+      <details><summary>Q4. 퇴직금에 세금이 붙나요?</summary><p>네, 퇴직소득세가 부과됩니다. 근속연수가 길수록 세금이 줄어들며, IRP로 이체 시 추가 세제 혜택이 있습니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+        <a href="unemployment.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>실업급여 계산기</h4>
+          <p>수급액·기간 산출</p>
+        </a>
+        <a href="annual-leave-pay.html" class="related-card">
+          <div class="icon">📅</div>
+          <h4>연차수당 계산기</h4>
+          <p>미사용 연차 수당</p>
+        </a>
+        <a href="pension.html" class="related-card">
+          <div class="icon">🏦</div>
+          <h4>국민연금 계산기</h4>
+          <p>월 보험료 계산</p>
+        </a>
+        <a href="hourly-wage.html" class="related-card">
+          <div class="icon">⏰</div>
+          <h4>시급 계산기</h4>
+          <p>월급↔시급 변환</p>
+        </a>
+        <a href="income-tax.html" class="related-card">
+          <div class="icon">📊</div>
+          <h4>종합소득세 계산기</h4>
+          <p>소득세 자동 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const monthlySalary = parseInput(document.getElementById('monthlySalary').value);
+      const years = parseInt(document.getElementById('years').value) || 0;
+      const months = parseInt(document.getElementById('months').value) || 0;
+
+      if (monthlySalary <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const severancePay = CalcCore.severancePayFromMonthly(monthlySalary, years, months);
+      const dailySalary = Math.round(monthlySalary / 30);
+      const totalDays = years * 365 + months * 30;
+      const totalYearsDecimal = totalDays / 365;
+
+      // 연봉 환산 (월급 x 12)
+      const annualSalary = monthlySalary * 12;
+      // 퇴직금 vs 연봉 비율
+      const severanceToAnnual = (severancePay / annualSalary * 100);
+
+      const eligible = totalDays >= 365;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>퇴직금 계산 결과</h3>
+          <div class="result-item primary">
+            <span>퇴직금 총액</span>
+            <strong>${formatKRW(severancePay)}</strong>
+          </div>
+          <div class="result-item">
+            <span>퇴직금 (원 단위)</span>
+            <strong>${formatNumber(severancePay)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>1일 평균임금</span>
+            <strong>${formatNumber(dailySalary)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>월 평균임금</span>
+            <strong>${formatNumber(monthlySalary)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>총 재직일수</span>
+            <strong>${formatNumber(totalDays)}일 (${years}년 ${months}개월)</strong>
+          </div>
+          <div class="result-item ${eligible ? 'highlight' : 'warn'}">
+            <span>퇴직금 지급 요건</span>
+            <strong>${eligible ? '✅ 충족 (1년 이상)' : '❌ 미충족 (1년 미만)'}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('퇴직금 ${formatKRW(severancePay)} (월급 ${formatNumber(monthlySalary)}원, ${years}년 ${months}개월) - 국민계산기')">📋 복사</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">💰</span>
+            <div>
+              <strong>퇴직금 = 연봉의 약 ${severanceToAnnual.toFixed(1)}%</strong>
+              <p>월 평균임금 ${formatNumber(monthlySalary)}원 기준, ${years}년 ${months}개월 근속 시 퇴직금은 연봉(${formatKRW(annualSalary)})의 약 ${severanceToAnnual.toFixed(1)}%에 해당합니다. 근속 1년당 약 1개월분의 급여가 퇴직금으로 적립됩니다.</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">📋</span>
+            <div>
+              <strong>IRP 이체 시 세제 혜택</strong>
+              <p>퇴직금을 IRP(개인형 퇴직연금)로 이체하면 퇴직소득세가 이연되고, 연금으로 수령 시 30~40% 세금 감면 혜택을 받을 수 있습니다. ${severancePay >= 10000000 ? '퇴직금이 1천만원 이상이므로 IRP 활용을 적극 권장합니다.' : ''}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">⏳</span>
+            <div>
+              <strong>${eligible ? '지급 요건 충족' : '⚠️ 지급 요건 미충족'}</strong>
+              <p>${eligible ? '1년 이상 근속으로 퇴직금 수급 요건을 충족합니다. 퇴직일로부터 14일 이내 지급 요청이 가능합니다.' : '1년 미만 근속으로 법정 퇴직금 수급 요건을 충족하지 못합니다. 회사 내규에 따라 지급 여부가 달라질 수 있습니다.'}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연차수당 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 연차수당 계산기. 미사용 연차 수당, 근속연수별 법정 연차일수, 연차 발생 기준을 자동으로 계산합니다. 근로기준법 기반 정확한 계산.">
+  <meta property="og:title" content="연차수당 계산기 - 국민계산기">
+  <meta property="og:description" content="미사용 연차 수당 및 근속연수별 연차 발생일수 자동 계산">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/annual-leave-pay">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/annual-leave-pay">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "연차수당 계산기",
+    "description": "미사용 연차 수당 및 근속연수별 연차일수를 자동 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>연차수당 계산기</span>
+    </nav>
+
+    <h1>📅 연차수당 계산기 2026</h1>
+    <p class="page-subtitle">미사용 연차에 대한 수당과 근속연수별 법정 연차일수를 자동 계산합니다</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="wageInput">임금 입력 방식</label>
+        <select id="wageInput">
+          <option value="daily">일급 직접 입력</option>
+          <option value="monthly">월급에서 환산 (월급 ÷ 30)</option>
+        </select>
+      </div>
+
+      <div class="input-group" id="dailyGroup">
+        <label for="dailyWage">일급 (원)</label>
+        <input type="text" id="dailyWage" value="100,000" placeholder="일급 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="70000" data-target="dailyWage">7만</button>
+          <button class="preset-btn active" data-set="100000" data-target="dailyWage">10만</button>
+          <button class="preset-btn" data-set="130000" data-target="dailyWage">13만</button>
+          <button class="preset-btn" data-set="170000" data-target="dailyWage">17만</button>
+        </div>
+      </div>
+
+      <div class="input-group hidden" id="monthlyGroup">
+        <label for="monthlySalary">월급 (원)</label>
+        <input type="text" id="monthlySalary" value="3,000,000" placeholder="월급 입력">
+        <small>일급 = 월급 ÷ 30일로 환산합니다</small>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="totalYears">총 근속년수</label>
+          <input type="number" id="totalYears" value="3" min="0" max="40">
+        </div>
+        <div class="input-group">
+          <label for="totalMonths">추가 근속개월수</label>
+          <input type="number" id="totalMonths" value="0" min="0" max="11">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="unusedDays">미사용 연차일수</label>
+        <input type="number" id="unusedDays" value="5" min="0" max="25">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="3" data-target="unusedDays">3일</button>
+          <button class="preset-btn active" data-set="5" data-target="unusedDays">5일</button>
+          <button class="preset-btn" data-set="10" data-target="unusedDays">10일</button>
+          <button class="preset-btn" data-set="15" data-target="unusedDays">15일</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>연차수당이란?</h2>
+      <p>연차수당은 근로기준법에 의해 발생한 연차유급휴가를 사용하지 못한 경우, 미사용 연차에 대해 통상임금(또는 평균임금) 기준으로 지급하는 수당입니다. 사용자가 연차사용 촉진 조치를 취하지 않았다면, 미사용 연차에 대한 수당 지급 의무가 발생합니다.</p>
+
+      <h3>연차 발생 기준</h3>
+      <p>1년 미만 근로자: 1개월 개근 시 1일의 유급휴가가 발생하여, 최대 11일까지 사용할 수 있습니다. 1년 이상 근로자: 1년간 80% 이상 출근하면 15일의 유급휴가가 발생합니다. 3년 이상 계속 근로 시 최초 1년을 초과하는 매 2년마다 1일씩 가산되며, 최대 25일까지 늘어납니다.</p>
+
+      <h3>연차수당 계산 공식</h3>
+      <div class="method-card">
+        <h3>기본 산식</h3>
+        <div class="formula">연차수당 = 1일 통상임금(일급) x 미사용 연차일수</div>
+      </div>
+      <p>월급제 근로자의 경우 일급은 통상 '월 통상임금 ÷ 30일' 또는 '월 통상임금 ÷ 월 소정근로일수'로 산정합니다. 회사 규정에 따라 산정 방식이 다를 수 있으므로 취업규칙을 확인하는 것이 좋습니다.</p>
+
+      <h3>연차사용 촉진제도</h3>
+      <p>사용자가 근로기준법 제61조에 따른 연차사용 촉진 절차(연차 사용 시기 지정 통보 등)를 이행한 경우, 근로자가 연차를 사용하지 않더라도 미사용 연차수당 지급 의무가 면제됩니다. 반대로 촉진 절차를 밟지 않은 경우에는 반드시 미사용 연차수당을 지급해야 합니다.</p>
+
+      <h3>퇴직 시 연차수당</h3>
+      <p>퇴직 시에는 당해 연도에 발생한 연차 중 미사용분에 대해 수당을 지급받을 수 있습니다. 이는 퇴직금과 별도로 산정되며, 근로관계 종료일까지의 재직비율에 따라 비례 계산될 수 있습니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "연차수당은 언제 지급되나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "연차 사용기한이 만료된 후 미사용분에 대해 지급됩니다. 퇴직 시에는 퇴직금과 함께 정산됩니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "입사 1년 미만인데 연차가 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네, 1년 미만 근로자도 1개월 개근 시 1일의 유급휴가가 발생합니다. 최대 11일까지 가능합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "연차는 최대 몇 일까지 발생하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "법정 최대 연차일수는 25일입니다. 1년차 15일에서 시작해 매 2년마다 1일씩 가산되어 최대 25일이 됩니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "연차사용 촉진이란 무엇인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "사용자가 근로자에게 미사용 연차 사용 시기를 지정하도록 서면 촉구하는 제도입니다. 이를 이행하면 미사용 연차수당 지급 의무가 면제됩니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "연차수당에 세금이 붙나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네, 연차수당은 근로소득에 해당하므로 소득세와 4대보험료가 부과됩니다. 실수령액은 세후 금액으로 달라집니다." }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 연차수당은 언제 지급되나요?</summary><p>연차 사용기한이 만료된 후 미사용분에 대해 지급됩니다. 퇴직 시에는 퇴직금과 함께 정산됩니다.</p></details>
+      <details><summary>Q2. 입사 1년 미만인데 연차가 있나요?</summary><p>네, 1년 미만 근로자도 1개월 개근 시 1일의 유급휴가가 발생합니다. 최대 11일까지 가능합니다.</p></details>
+      <details><summary>Q3. 연차는 최대 몇 일까지 발생하나요?</summary><p>법정 최대 연차일수는 25일입니다. 1년차 15일에서 시작해 매 2년마다 1일씩 가산되어 최대 25일이 됩니다.</p></details>
+      <details><summary>Q4. 연차사용 촉진이란 무엇인가요?</summary><p>사용자가 근로자에게 미사용 연차 사용 시기를 지정하도록 서면 촉구하는 제도입니다. 이를 이행하면 미사용 연차수당 지급 의무가 면제됩니다.</p></details>
+      <details><summary>Q5. 연차수당에 세금이 붙나요?</summary><p>네, 연차수당은 근로소득에 해당하므로 소득세와 4대보험료가 부과됩니다. 실수령액은 세후 금액으로 달라집니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+        <a href="hourly-wage.html" class="related-card">
+          <div class="icon">⏰</div>
+          <h4>시급 계산기</h4>
+          <p>월급↔시급 변환</p>
+        </a>
+        <a href="overtime-pay.html" class="related-card">
+          <div class="icon">🌙</div>
+          <h4>야근수당 계산기</h4>
+          <p>연장근로 수당 계산</p>
+        </a>
+        <a href="severance-pay.html" class="related-card">
+          <div class="icon">🎒</div>
+          <h4>퇴직금 계산기</h4>
+          <p>퇴직금 자동 산출</p>
+        </a>
+        <a href="unemployment.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>실업급여 계산기</h4>
+          <p>수급액·기간 산출</p>
+        </a>
+        <a href="pension.html" class="related-card">
+          <div class="icon">🏦</div>
+          <h4>국민연금 계산기</h4>
+          <p>월 보험료 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    const wageInputSelect = document.getElementById('wageInput');
+    const dailyGroupDiv = document.getElementById('dailyGroup');
+    const monthlyGroupDiv = document.getElementById('monthlyGroup');
+
+    wageInputSelect.addEventListener('change', function() {
+      if (this.value === 'daily') {
+        dailyGroupDiv.classList.remove('hidden');
+        monthlyGroupDiv.classList.add('hidden');
+      } else {
+        dailyGroupDiv.classList.add('hidden');
+        monthlyGroupDiv.classList.remove('hidden');
+      }
+      calculate();
+    });
+
+    function calculate() {
+      const wageMode = wageInputSelect.value;
+      let dailyWage;
+
+      if (wageMode === 'daily') {
+        dailyWage = parseInput(document.getElementById('dailyWage').value);
+      } else {
+        const monthly = parseInput(document.getElementById('monthlySalary').value);
+        dailyWage = Math.round(monthly / 30);
+      }
+
+      const totalYears = parseInt(document.getElementById('totalYears').value) || 0;
+      const totalMonths = parseInt(document.getElementById('totalMonths').value) || 0;
+      const unusedDays = parseInt(document.getElementById('unusedDays').value) || 0;
+
+      if (dailyWage <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const leavePay = CalcCore.annualLeavePay(dailyWage, unusedDays);
+      const leaveCount = CalcCore.annualLeaveCount(totalYears, totalMonths);
+
+      // 근속년수별 연차 발생 표
+      const yearsDisplay = totalYears + (totalMonths > 0 ? totalMonths / 12 : 0);
+      const usedDays = Math.max(0, leaveCount - unusedDays);
+      const useRate = leaveCount > 0 ? (usedDays / leaveCount * 100) : 0;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>연차수당 계산 결과</h3>
+          <div class="result-item primary">
+            <span>연차수당 합계</span>
+            <strong>${formatNumber(leavePay)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>1일 통상임금 (일급)</span>
+            <strong>${formatNumber(dailyWage)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>미사용 연차일수</span>
+            <strong>${unusedDays}일</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>법정 발생 연차일수</span>
+            <strong>${leaveCount}일</strong>
+          </div>
+          <div class="result-item">
+            <span>근속기간</span>
+            <strong>${totalYears}년 ${totalMonths}개월</strong>
+          </div>
+          <div class="result-item">
+            <span>사용한 연차 (추정)</span>
+            <strong>${usedDays}일 (사용률 ${useRate.toFixed(0)}%)</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('연차수당 ${formatNumber(leavePay)}원 (일급 ${formatNumber(dailyWage)}원 x ${unusedDays}일) - 국민계산기')">📋 복사</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">📅</span>
+            <div>
+              <strong>근속 ${totalYears}년차 → 법정 연차 ${leaveCount}일</strong>
+              <p>${totalYears < 1 ? '1년 미만 근로자로, 매월 개근 시 1일씩 최대 11일의 연차가 발생합니다.' : totalYears <= 3 ? '기본 연차 15일이 부여됩니다. 3년 이상 근속 시 가산 연차가 발생합니다.' : '기본 15일 + 가산 ' + (leaveCount - 15) + '일이 적용되었습니다. 최대 25일까지 가능합니다.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">💰</span>
+            <div>
+              <strong>미사용 ${unusedDays}일 → ${formatKRW(leavePay)}</strong>
+              <p>${unusedDays > leaveCount * 0.5 ? '연차 사용률이 낮습니다. 워라밸을 위해 적극적인 연차 사용을 권장합니다.' : '적정한 연차 사용률입니다. 남은 연차도 계획적으로 활용하세요.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">⚠️</span>
+            <div>
+              <strong>연차사용 촉진 여부 확인</strong>
+              <p>회사가 연차사용 촉진 절차(서면 통보)를 이행한 경우, 미사용 연차수당 지급 의무가 면제될 수 있습니다. 회사의 촉진 절차 이행 여부를 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

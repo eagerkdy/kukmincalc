@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팁/더치페이 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 팁/더치페이 계산기 - 총금액, 팁 비율, 인원수를 입력하면 팁 금액과 1인당 부담액을 자동 계산합니다. 국가별 팁 문화 안내 포함.">
+  <meta property="og:title" content="팁/더치페이 계산기 - 국민계산기">
+  <meta property="og:description" content="팁 금액과 더치페이 1인당 금액을 자동 계산합니다. 해외 여행 시 팁 문화 안내도 제공합니다.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/tip-calculator">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/tip-calculator">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "팁/더치페이 계산기",
+    "description": "팁 금액과 더치페이 1인당 금액을 자동 계산합니다. 국가별 팁 문화 정보도 제공합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt; <a href="../index.html#life">생활</a> &gt; <span>팁/더치페이 계산기</span>
+    </nav>
+
+    <h1>💳 팁/더치페이 계산기 2026</h1>
+    <p class="page-subtitle">총금액과 팁 비율, 인원수를 입력하면 팁 금액과 1인당 부담액을 자동으로 계산합니다.</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="totalAmount">총 금액 (원)</label>
+        <input type="text" id="totalAmount" placeholder="예: 100,000" inputmode="numeric">
+        <div class="input-display" id="totalAmountDisplay"></div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-add="10000" data-target="totalAmount">+1만</button>
+          <button class="preset-btn" data-add="50000" data-target="totalAmount">+5만</button>
+          <button class="preset-btn" data-add="100000" data-target="totalAmount">+10만</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="tipPercent">팁 비율 (%)</label>
+        <input type="text" id="tipPercent" placeholder="예: 10" inputmode="numeric" value="0">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="0" data-target="tipPercent">0%</button>
+          <button class="preset-btn" data-set="10" data-target="tipPercent">10%</button>
+          <button class="preset-btn" data-set="15" data-target="tipPercent">15%</button>
+          <button class="preset-btn" data-set="20" data-target="tipPercent">20%</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="numPeople">인원수 (명)</label>
+        <input type="text" id="numPeople" placeholder="예: 4" inputmode="numeric" value="2">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="2" data-target="numPeople">2명</button>
+          <button class="preset-btn" data-set="3" data-target="numPeople">3명</button>
+          <button class="preset-btn" data-set="4" data-target="numPeople">4명</button>
+          <button class="preset-btn" data-set="5" data-target="numPeople">5명</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>팁/더치페이 안내</h2>
+      <p>팁(Tip, 봉사료)은 서비스에 대한 감사의 표시로 지불하는 추가 금액입니다. 한국에서는 팁 문화가 일반적이지 않지만, 해외 여행 시 반드시 알아야 할 문화입니다. 더치페이(Dutch Pay)는 각자 비용을 균등하게 나누어 지불하는 방식으로, 한국에서도 모임이나 회식에서 자주 사용됩니다. 이 계산기는 팁 금액 산출과 인원수에 따른 1인당 부담액을 빠르게 계산해 줍니다.</p>
+
+      <h3>한국의 봉사료 문화</h3>
+      <p>한국은 기본적으로 팁을 주지 않는 문화입니다. 대부분의 음식점, 카페, 택시 등에서 별도의 팁이 필요 없습니다. 다만 고급 호텔이나 레스토랑에서는 봉사료(Service Charge) 10%가 가격에 포함되어 있는 경우가 있습니다. 이는 메뉴판이나 영수증에 별도로 표시됩니다. 최근에는 배달 서비스나 대리운전 등에서 팁 기능을 제공하는 앱이 늘어나고 있습니다.</p>
+
+      <h3>주요 국가별 팁 문화</h3>
+      <p><strong>미국:</strong> 팁 문화가 가장 발달한 나라입니다. 레스토랑에서 15~20%의 팁이 사실상 필수이며, 서비스가 좋으면 25%까지 주기도 합니다. 바에서는 음료 1잔당 1~2달러, 호텔 룸서비스는 15~20%, 벨보이는 짐 1개당 2~3달러가 관례입니다. 택시는 15~20%가 일반적입니다.</p>
+      <p><strong>유럽:</strong> 나라별로 다르지만 일반적으로 5~15% 수준입니다. 프랑스와 이탈리아는 봉사료가 가격에 포함된 경우가 많아 추가 팁은 선택 사항이며, 잔돈을 남기는 정도입니다. 영국은 10~15% 정도를 관례로 합니다. 독일은 5~10% 정도이며, 현금으로 직접 주는 것을 선호합니다.</p>
+      <p><strong>일본:</strong> 팁을 주지 않는 문화이며, 오히려 팁을 주면 실례가 될 수 있습니다. 모든 서비스 비용이 가격에 포함되어 있습니다. 다만 전통 료칸(여관)에서는 심부케이(심부름값)를 봉투에 넣어 전달하는 관례가 있습니다.</p>
+      <p><strong>동남아시아:</strong> 태국, 베트남, 필리핀 등에서는 10~15% 정도의 팁이 환영받습니다. 관광지에서는 특히 팁이 기대되는 경우가 많습니다. 다만 싱가포르는 팁 문화가 거의 없습니다.</p>
+
+      <h3>더치페이 에티켓</h3>
+      <p>한국에서 더치페이는 점점 보편화되고 있습니다. 모바일 송금(카카오페이, 토스 등)의 발달로 더 편리해졌습니다. 금액이 정확히 나누어떨어지지 않을 경우 올림하여 계산하거나, 나이가 많은 사람이 잔액을 부담하는 것이 일반적입니다. 비즈니스 미팅에서는 초대한 측이 비용을 부담하는 것이 관례입니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "미국 여행 시 팁은 얼마나 줘야 하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "미국 레스토랑에서는 세전 금액의 15~20%가 기본입니다. 서비스가 좋으면 20~25%까지 줍니다. 바에서는 음료 1잔당 1~2달러, 호텔 벨보이는 짐 1개당 2~3달러가 관례입니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "더치페이 시 남은 잔액은 어떻게 처리하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "금액이 정확히 나누어떨어지지 않을 경우 올림하여 계산하거나, 결제를 대표로 한 사람이 잔액을 부담하는 것이 일반적입니다. 카카오페이나 토스 등 모바일 송금을 활용하면 원 단위까지 정확하게 나눌 수 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "팁을 카드로 결제할 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "대부분의 해외 식당에서는 카드 결제 시 팁을 추가할 수 있습니다. 영수증에 팁 금액을 직접 기입하는 방식이며, 총 결제 금액에 합산됩니다. 다만 현금 팁을 선호하는 곳도 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "한국에서도 팁을 줘야 하는 경우가 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "한국에서는 일반적으로 팁이 필요 없습니다. 다만 특급 호텔, 고급 레스토랑에서 봉사료 10%가 별도로 부과되는 경우가 있으며, 이는 가격에 자동 포함됩니다." }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>미국 여행 시 팁은 얼마나 줘야 하나요?</summary>
+        <p>미국 레스토랑에서는 세전 금액의 15~20%가 기본입니다. 서비스가 좋으면 20~25%까지 줍니다. 바에서는 음료 1잔당 1~2달러, 호텔 벨보이는 짐 1개당 2~3달러, 택시는 15~20%가 관례입니다. 팁을 주지 않으면 매우 무례하게 여겨집니다.</p>
+      </details>
+      <details>
+        <summary>더치페이 시 남은 잔액은 어떻게 처리하나요?</summary>
+        <p>금액이 정확히 나누어떨어지지 않을 경우 올림하여 계산하거나, 결제를 대표로 한 사람이 잔액을 부담하는 것이 일반적입니다. 카카오페이나 토스 등 모바일 송금을 활용하면 원 단위까지 정확하게 나눌 수 있어 편리합니다.</p>
+      </details>
+      <details>
+        <summary>팁을 카드로 결제할 수 있나요?</summary>
+        <p>대부분의 해외 식당에서는 카드 결제 시 팁을 추가할 수 있습니다. 영수증에 팁 금액과 총 결제 금액을 직접 기입하는 방식이며, 총액이 카드에서 결제됩니다. 다만 현금 팁을 선호하는 종업원도 있으니 소액 현금을 준비하면 좋습니다.</p>
+      </details>
+      <details>
+        <summary>한국에서도 팁을 줘야 하는 경우가 있나요?</summary>
+        <p>한국에서는 일반적으로 팁이 필요 없습니다. 다만 특급 호텔, 고급 레스토랑에서 봉사료 10%가 별도로 부과되는 경우가 있으며, 이는 가격에 자동 포함됩니다. 최근에는 배달 앱이나 대리운전 앱에서 팁 기능을 제공하는 경우가 늘고 있습니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="unit-converter.html" class="related-card">
+          <div class="icon">📐</div>
+          <h4>단위 변환기</h4>
+          <p>길이·무게·면적 변환</p>
+        </a>
+        <a href="car-cost.html" class="related-card">
+          <div class="icon">🚗</div>
+          <h4>자동차 유지비</h4>
+          <p>월/연간 차량 유지비</p>
+        </a>
+        <a href="wedding-cost.html" class="related-card">
+          <div class="icon">💒</div>
+          <h4>결혼비용 계산기</h4>
+          <p>결혼 총비용 산출</p>
+        </a>
+        <a href="bmi.html" class="related-card">
+          <div class="icon">⚖️</div>
+          <h4>BMI 계산기</h4>
+          <p>체질량지수 계산</p>
+        </a>
+        <a href="date-calculator.html" class="related-card">
+          <div class="icon">📅</div>
+          <h4>날짜 계산기</h4>
+          <p>D-day 계산</p>
+        </a>
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const totalAmount = parseInput(document.getElementById('totalAmount').value);
+      const tipPercent = parseInput(document.getElementById('tipPercent').value);
+      const numPeople = Math.max(1, parseInput(document.getElementById('numPeople').value));
+
+      document.getElementById('totalAmountDisplay').textContent = totalAmount > 0 ? formatKRW(totalAmount) : '';
+
+      if (totalAmount <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.tipCalculator(totalAmount, tipPercent, numPeople);
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>계산 결과</h3>
+          <div class="result-item">
+            <span>원래 금액</span>
+            <strong>${formatKRW(totalAmount)}</strong>
+          </div>
+          <div class="result-item">
+            <span>팁 금액 (${tipPercent}%)</span>
+            <strong>${formatKRW(r.tip)}</strong>
+          </div>
+          <div class="result-item">
+            <span>팁 포함 총액</span>
+            <strong>${formatKRW(r.totalWithTip)}</strong>
+          </div>
+          <div class="result-item primary">
+            <span>1인당 금액 (${numPeople}명)</span>
+            <strong>${formatKRW(r.perPerson)}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('팁/더치페이 계산: 총액 ${formatKRW(totalAmount)}, 팁 ${tipPercent}% = ${formatKRW(r.tip)}, 총 ${formatKRW(r.totalWithTip)}, ${numPeople}명 → 1인당 ${formatKRW(r.perPerson)}')">📋 결과 복사</button>
+          </div>
+        </div>`;
+
+      // AI 인사이트 - 국가별 팁 문화
+      let tips = [];
+
+      if (tipPercent > 0) {
+        tips.push({
+          icon: '🌍',
+          title: '국가별 팁 비율 비교',
+          text: `현재 설정: ${tipPercent}%. 미국(15~25%), 유럽(5~15%), 한국(0%, 봉사료 별도), 일본(0%). ${tipPercent >= 15 ? '미국 수준의 팁입니다.' : tipPercent >= 10 ? '유럽 수준의 팁입니다.' : '가벼운 팁 수준입니다.'}`
+        });
+      } else {
+        tips.push({
+          icon: '🌍',
+          title: '국가별 팁 문화',
+          text: '한국·일본은 팁 없음, 미국은 15~25% 필수, 유럽은 5~15% 권장. 해외 여행 시 방문 국가의 팁 문화를 미리 확인하세요.'
+        });
+      }
+
+      // 다른 팁 비율 비교
+      const tip10 = CalcCore.tipCalculator(totalAmount, 10, numPeople);
+      const tip15 = CalcCore.tipCalculator(totalAmount, 15, numPeople);
+      const tip20 = CalcCore.tipCalculator(totalAmount, 20, numPeople);
+
+      tips.push({
+        icon: '📊',
+        title: '팁 비율별 1인당 금액',
+        text: `10% 팁: ${formatKRW(tip10.perPerson)}/인, 15% 팁: ${formatKRW(tip15.perPerson)}/인, 20% 팁: ${formatKRW(tip20.perPerson)}/인`
+      });
+
+      // 10원 단위 올림 안내
+      const rounded = Math.ceil(r.perPerson / 1000) * 1000;
+      if (rounded !== r.perPerson) {
+        tips.push({
+          icon: '💡',
+          title: '편의상 1,000원 단위 올림',
+          text: `1인당 ${formatKRW(r.perPerson)} → ${formatKRW(rounded)}로 올림하면 깔끔합니다. 차액 ${formatKRW(rounded - r.perPerson)}/인 (총 ${formatKRW((rounded - r.perPerson) * numPeople)}).`
+        });
+      }
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 맞춤 분석</h3>
+          ${tips.map(t => `
+            <div class="insight-item">
+              <span class="icon">${t.icon}</span>
+              <div><strong>${t.title}</strong><p>${t.text}</p></div>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

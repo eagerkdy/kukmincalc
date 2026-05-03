@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시급 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 시급 계산기. 월급에서 시급 변환, 시급에서 월급 변환, 주휴수당 포함 계산. 2026년 최저시급 10,030원 기준 자동 비교.">
+  <meta property="og:title" content="시급 계산기 - 국민계산기">
+  <meta property="og:description" content="월급↔시급 상호변환, 주휴수당 포함 실시간 계산">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/hourly-wage">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/hourly-wage">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "시급 계산기",
+    "description": "월급↔시급 상호변환 및 주휴수당 포함 계산. 2026년 최저시급 10,030원 기준 비교.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>시급 계산기</span>
+    </nav>
+
+    <h1>⏰ 시급 계산기 2026</h1>
+    <p class="page-subtitle">월급↔시급 상호변환 및 주휴수당 포함 계산 | 2026 최저시급 10,030원</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="calcMode">계산 방식</label>
+        <select id="calcMode">
+          <option value="monthlyToHourly">월급 → 시급 변환</option>
+          <option value="hourlyToMonthly">시급 → 월급 변환</option>
+        </select>
+      </div>
+
+      <div class="input-group" id="monthlyGroup">
+        <label for="monthlySalary">월급 (원)</label>
+        <input type="text" id="monthlySalary" value="2,500,000" placeholder="월급 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="2096270" data-target="monthlySalary">최저월급</button>
+          <button class="preset-btn active" data-set="2500000" data-target="monthlySalary">250만</button>
+          <button class="preset-btn" data-set="3000000" data-target="monthlySalary">300만</button>
+          <button class="preset-btn" data-set="4000000" data-target="monthlySalary">400만</button>
+        </div>
+      </div>
+
+      <div class="input-group hidden" id="hourlyGroup">
+        <label for="hourlyWage">시급 (원)</label>
+        <input type="text" id="hourlyWage" value="10,030" placeholder="시급 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn active" data-set="10030" data-target="hourlyWage">최저시급</button>
+          <button class="preset-btn" data-set="12000" data-target="hourlyWage">12,000</button>
+          <button class="preset-btn" data-set="15000" data-target="hourlyWage">15,000</button>
+          <button class="preset-btn" data-set="20000" data-target="hourlyWage">20,000</button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="weeklyHours">주 근무시간</label>
+        <input type="number" id="weeklyHours" value="40" min="1" max="68" step="1">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="15" data-target="weeklyHours">15시간</button>
+          <button class="preset-btn" data-set="20" data-target="weeklyHours">20시간</button>
+          <button class="preset-btn" data-set="30" data-target="weeklyHours">30시간</button>
+          <button class="preset-btn active" data-set="40" data-target="weeklyHours">40시간</button>
+        </div>
+        <small>주 15시간 이상 근무 시 주휴수당 발생</small>
+      </div>
+
+      <div class="input-display" style="padding: 0.75rem; background: var(--bg-alt); border-radius: var(--radius-sm); margin-top: 0.5rem;">
+        📌 2026년 최저시급: <strong>10,030원</strong> (전년 대비 1.7% 인상)
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>시급 계산 방법 안내</h2>
+      <p>시급은 근로자가 1시간 일한 대가로 받는 임금입니다. 우리나라 근로기준법에서는 최저임금 이상의 시급을 지급하도록 규정하고 있으며, 2026년 최저시급은 시간당 10,030원입니다. 월급을 시급으로 환산하거나 시급으로 월급을 계산할 때는 '월 소정근로시간'을 기준으로 합니다.</p>
+
+      <h3>월 소정근로시간 계산</h3>
+      <p>월 소정근로시간은 주 소정근로시간에 주휴시간을 더한 뒤 월 평균 주수(4.345주)를 곱하여 산출합니다. 예를 들어 주 40시간 근무 시: (40시간 + 주휴 8시간) x 4.345 = 약 209시간입니다. 주 15시간 이상 근무하는 경우 주휴일(유급휴일)이 발생하므로 주휴시간 8시간이 추가됩니다.</p>
+
+      <h3>주휴수당이란?</h3>
+      <p>주휴수당은 1주 15시간 이상 근무한 근로자에게 유급으로 주어지는 주휴일(통상 일요일)에 대한 임금입니다. 주 40시간 근무 기준, 일 8시간분의 주휴수당이 발생합니다. 주 근무시간이 40시간 미만이면 비례 계산됩니다. 즉, 주 20시간 근무자의 주휴수당은 20/40 x 8 = 4시간분이 됩니다.</p>
+
+      <h3>최저임금 위반 판단</h3>
+      <p>최저임금 위반 여부는 시급으로 환산하여 판단합니다. 월급제 근로자의 경우 월급 ÷ 월 소정근로시간이 최저시급(10,030원) 이상이어야 합니다. 2026년 최저시급 기준 주 40시간 근무자의 최저 월급은 약 2,096,270원입니다.</p>
+
+      <h3>알바·파트타임 근로자</h3>
+      <p>주 15시간 미만 단시간 근로자(초단시간 근로자)는 주휴수당, 연차유급휴가, 퇴직금 적용이 제외됩니다. 다만 최저시급은 동일하게 적용됩니다. 알바생도 4주 평균 주 15시간 이상 근무하면 주휴수당을 받을 수 있으므로 근무시간 관리가 중요합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "2026년 최저시급은 얼마인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "2026년 최저시급은 시간당 10,030원입니다. 전년 대비 약 1.7% 인상되었습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "주휴수당은 누가 받을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "1주 15시간 이상 근무하고 소정근로일을 개근한 근로자라면 정규직·비정규직·알바 관계없이 주휴수당을 받을 수 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "월급을 시급으로 어떻게 환산하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "월급 ÷ 월 소정근로시간으로 계산합니다. 주 40시간 기준 월 소정근로시간은 약 209시간(주휴 포함)입니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "최저임금에 포함되지 않는 수당은?",
+            "acceptedAnswer": { "@type": "Answer", "text": "상여금(월 환산액의 5% 초과분), 복리후생비(식비·교통비 등 월 환산액의 3% 초과분)는 최저임금에 산입되지 않습니다." }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 2026년 최저시급은 얼마인가요?</summary><p>2026년 최저시급은 시간당 10,030원입니다. 전년 대비 약 1.7% 인상되었습니다.</p></details>
+      <details><summary>Q2. 주휴수당은 누가 받을 수 있나요?</summary><p>1주 15시간 이상 근무하고 소정근로일을 개근한 근로자라면 정규직·비정규직·알바 관계없이 주휴수당을 받을 수 있습니다.</p></details>
+      <details><summary>Q3. 월급을 시급으로 어떻게 환산하나요?</summary><p>월급 ÷ 월 소정근로시간으로 계산합니다. 주 40시간 기준 월 소정근로시간은 약 209시간(주휴 포함)입니다.</p></details>
+      <details><summary>Q4. 최저임금에 포함되지 않는 수당은?</summary><p>상여금(월 환산액의 5% 초과분), 복리후생비(식비·교통비 등 월 환산액의 3% 초과분)는 최저임금에 산입되지 않습니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+        <a href="overtime-pay.html" class="related-card">
+          <div class="icon">🌙</div>
+          <h4>야근수당 계산기</h4>
+          <p>연장근로 수당 계산</p>
+        </a>
+        <a href="annual-leave-pay.html" class="related-card">
+          <div class="icon">📅</div>
+          <h4>연차수당 계산기</h4>
+          <p>미사용 연차 수당</p>
+        </a>
+        <a href="severance-pay.html" class="related-card">
+          <div class="icon">🎒</div>
+          <h4>퇴직금 계산기</h4>
+          <p>퇴직금 자동 산출</p>
+        </a>
+        <a href="pension.html" class="related-card">
+          <div class="icon">🏦</div>
+          <h4>국민연금 계산기</h4>
+          <p>월 보험료 계산</p>
+        </a>
+        <a href="unemployment.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>실업급여 계산기</h4>
+          <p>수급액·기간 산출</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    const MIN_WAGE_2026 = 10030;
+    const modeSelect = document.getElementById('calcMode');
+    const monthlyGroup = document.getElementById('monthlyGroup');
+    const hourlyGroup = document.getElementById('hourlyGroup');
+
+    modeSelect.addEventListener('change', function() {
+      if (this.value === 'monthlyToHourly') {
+        monthlyGroup.classList.remove('hidden');
+        hourlyGroup.classList.add('hidden');
+      } else {
+        monthlyGroup.classList.add('hidden');
+        hourlyGroup.classList.remove('hidden');
+      }
+      calculate();
+    });
+
+    function calculate() {
+      const mode = modeSelect.value;
+      const weeklyHours = parseFloat(document.getElementById('weeklyHours').value) || 40;
+      const hasWeeklyHoliday = weeklyHours >= 15;
+      const weeklyHolidayHours = hasWeeklyHoliday ? (weeklyHours >= 40 ? 8 : weeklyHours / 5) : 0;
+      const monthlyHours = (weeklyHours + weeklyHolidayHours) * 4.345;
+
+      let hourly, monthly, weeklyHolidayPay;
+
+      if (mode === 'monthlyToHourly') {
+        monthly = parseInput(document.getElementById('monthlySalary').value);
+        if (monthly <= 0) { document.getElementById('result').innerHTML = ''; document.getElementById('aiInsight').innerHTML = ''; return; }
+        const result = CalcCore.hourlyWage(monthly, weeklyHours);
+        hourly = result.hourly;
+      } else {
+        hourly = parseInput(document.getElementById('hourlyWage').value);
+        if (hourly <= 0) { document.getElementById('result').innerHTML = ''; document.getElementById('aiInsight').innerHTML = ''; return; }
+        const result = CalcCore.hourlyToMonthly(hourly, weeklyHours);
+        monthly = result.monthly;
+      }
+
+      weeklyHolidayPay = Math.round(hourly * weeklyHolidayHours * 4.345);
+      const dailyPay = Math.round(hourly * (weeklyHours / 5));
+      const weeklyPay = Math.round(hourly * weeklyHours);
+      const isAboveMinWage = hourly >= MIN_WAGE_2026;
+      const minWageRatio = (hourly / MIN_WAGE_2026 * 100);
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>시급 ↔ 월급 변환 결과</h3>
+          <div class="result-item primary">
+            <span>${mode === 'monthlyToHourly' ? '환산 시급' : '환산 월급'}</span>
+            <strong>${mode === 'monthlyToHourly' ? formatNumber(hourly) + '원' : formatNumber(monthly) + '원'}</strong>
+          </div>
+          <div class="result-item">
+            <span>${mode === 'monthlyToHourly' ? '입력 월급' : '입력 시급'}</span>
+            <strong>${mode === 'monthlyToHourly' ? formatNumber(monthly) + '원' : formatNumber(hourly) + '원'}</strong>
+          </div>
+          <div class="result-item">
+            <span>일급 (${weeklyHours >= 40 ? 8 : Math.round(weeklyHours/5)}시간)</span>
+            <strong>${formatNumber(dailyPay)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>주급 (${weeklyHours}시간)</span>
+            <strong>${formatNumber(weeklyPay)}원</strong>
+          </div>
+          <div class="result-item ${hasWeeklyHoliday ? 'highlight' : ''}">
+            <span>월 주휴수당</span>
+            <strong>${hasWeeklyHoliday ? formatNumber(weeklyHolidayPay) + '원' : '해당없음'}</strong>
+          </div>
+          <div class="result-item">
+            <span>월 소정근로시간 (주휴포함)</span>
+            <strong>${Math.round(monthlyHours)}시간</strong>
+          </div>
+          <div class="result-item ${isAboveMinWage ? 'highlight' : 'warn'}">
+            <span>최저임금 ${isAboveMinWage ? '충족' : '미달'}</span>
+            <strong>${isAboveMinWage ? '✅ 적법' : '❌ 위반'} (${formatNumber(hourly)}원 vs ${formatNumber(MIN_WAGE_2026)}원)</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('시급 ${formatNumber(hourly)}원 = 월급 ${formatNumber(monthly)}원 (주${weeklyHours}h, 주휴포함) - 국민계산기')">📋 복사</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">💰</span>
+            <div>
+              <strong>최저임금 대비 ${minWageRatio.toFixed(1)}%</strong>
+              <p>현재 시급은 2026년 최저시급(${formatNumber(MIN_WAGE_2026)}원) 대비 ${minWageRatio.toFixed(1)}% 수준입니다. ${hourly >= MIN_WAGE_2026 ? '최저임금 기준을 충족합니다.' : '⚠️ 최저임금 미달입니다. 사업주는 최저임금법 위반으로 3년 이하 징역 또는 2천만원 이하 벌금에 처해질 수 있습니다.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">🕐</span>
+            <div>
+              <strong>주휴수당 ${hasWeeklyHoliday ? '월 ' + formatNumber(weeklyHolidayPay) + '원' : '미해당'}</strong>
+              <p>${hasWeeklyHoliday ? '주 ' + weeklyHours + '시간 근무로 주휴수당이 발생합니다. 월급에 이미 포함되어 있는지 확인하세요.' : '주 15시간 미만 근무로 주휴수당이 발생하지 않습니다.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">📋</span>
+            <div>
+              <strong>연봉 환산 약 ${formatKRW(monthly * 12)}</strong>
+              <p>월급 ${formatNumber(monthly)}원 기준 연봉은 약 ${formatKRW(monthly * 12)}입니다. 실수령액은 4대보험·세금 공제 후 달라집니다.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

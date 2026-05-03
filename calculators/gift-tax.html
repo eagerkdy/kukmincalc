@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>증여세 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 증여세 계산기 - 증여재산가액과 수증자 관계를 입력하면 면제한도, 과세표준, 증여세를 자동 계산합니다. 배우자·자녀·미성년자별 면제한도 적용.">
+  <meta property="og:title" content="증여세 계산기 - 국민계산기">
+  <meta property="og:description" content="증여세 자동 계산 - 수증자 관계별 면제한도, 누진세율 적용, 실효세율 확인">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/gift-tax">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/gift-tax">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "증여세 계산기",
+    "description": "증여재산가액과 수증자 관계를 입력하면 면제한도, 과세표준, 증여세를 자동 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt; <a href="../index.html#tax">세금</a> &gt; <span>증여세 계산기</span>
+    </nav>
+
+    <h1>🎁 증여세 계산기 2026</h1>
+    <p class="page-subtitle">증여재산가액, 수증자와의 관계, 이전 증여액을 입력하면 면제한도와 증여세를 자동으로 계산합니다.</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="giftAmount">증여재산 가액 (원)</label>
+        <input type="text" id="giftAmount" placeholder="예: 300,000,000" inputmode="numeric">
+        <div class="input-display" id="giftAmountDisplay"></div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="50000000" data-target="giftAmount">5,000만</button>
+          <button class="preset-btn" data-set="100000000" data-target="giftAmount">1억</button>
+          <button class="preset-btn" data-set="300000000" data-target="giftAmount">3억</button>
+          <button class="preset-btn" data-set="500000000" data-target="giftAmount">5억</button>
+          <button class="preset-btn" data-set="1000000000" data-target="giftAmount">10억</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="relation">수증자(받는 사람)와의 관계</label>
+        <select id="relation">
+          <option value="spouse">배우자 (면제 6억)</option>
+          <option value="child" selected>성년 자녀 (면제 5,000만)</option>
+          <option value="minor">미성년 자녀 (면제 2,000만)</option>
+          <option value="grandchild">손자녀 (면제 5,000만)</option>
+          <option value="other">기타 친족 (면제 1,000만)</option>
+        </select>
+        <small>면제한도는 10년간 합산 적용됩니다.</small>
+      </div>
+      <div class="input-group">
+        <label for="previousGifts">이전 10년 내 증여액 (원)</label>
+        <input type="text" id="previousGifts" placeholder="같은 증여자로부터 10년 내 받은 증여 합계" inputmode="numeric" value="0">
+        <div class="input-display" id="previousGiftsDisplay"></div>
+        <small>동일인으로부터 10년 이내 받은 증여재산은 합산하여 과세합니다.</small>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>증여세란?</h2>
+      <p>증여세는 타인으로부터 재산을 무상으로 받은 경우(증여받은 경우) 그 재산의 가액에 대해 수증자(받는 사람)가 납부하는 세금입니다. 부동산, 현금, 주식, 채권 등 모든 재산이 증여세 과세 대상이며, 시가를 기준으로 평가합니다. 증여일이 속하는 달의 말일로부터 3개월 이내에 신고·납부해야 합니다.</p>
+
+      <h3>수증자 관계별 증여재산 공제한도</h3>
+      <p>증여세는 수증자와 증여자의 관계에 따라 일정 금액을 공제(면제)합니다. 이 공제한도는 10년간 합산하여 적용됩니다. 즉, 같은 사람으로부터 10년 동안 받은 총 증여액이 공제한도를 초과하면 그 초과분에 대해 증여세가 부과됩니다.</p>
+      <ul>
+        <li>배우자: 6억원</li>
+        <li>직계존비속(성년 자녀): 5,000만원</li>
+        <li>직계존비속(미성년 자녀): 2,000만원</li>
+        <li>기타 친족(6촌 이내 혈족, 4촌 이내 인척): 1,000만원</li>
+      </ul>
+
+      <h3>증여세 세율</h3>
+      <p>증여세는 상속세와 동일한 누진세율이 적용됩니다. 과세표준에 따라 10%에서 50%까지 5단계로 구분됩니다.</p>
+      <ul>
+        <li>1억원 이하: 10%</li>
+        <li>1억원 초과 ~ 5억원: 20% (누진공제 1,000만원)</li>
+        <li>5억원 초과 ~ 10억원: 30% (누진공제 6,000만원)</li>
+        <li>10억원 초과 ~ 30억원: 40% (누진공제 1억 6,000만원)</li>
+        <li>30억원 초과: 50% (누진공제 4억 6,000만원)</li>
+      </ul>
+
+      <h3>증여세 절세 전략</h3>
+      <p>증여세 절세의 핵심은 시간을 활용하는 것입니다. 10년마다 공제한도가 초기화되므로, 장기적으로 분할 증여하면 세 부담을 크게 줄일 수 있습니다. 예를 들어 성년 자녀에게 10년마다 5,000만원씩 증여하면 총 1억원을 무세로 이전할 수 있습니다. 또한 재산 가치가 낮을 때 미리 증여하면 향후 가치 상승분에 대한 세금을 절감할 수 있습니다.</p>
+
+      <h3>증여 추정 및 주의사항</h3>
+      <p>국세청은 자금 출처가 불분명한 재산 취득, 채무의 면제 등을 증여로 추정할 수 있습니다. 가족 간 부동산 거래 시 시가보다 현저히 낮은 가격으로 거래하면 시가와의 차액이 증여로 간주될 수 있습니다. 배우자나 직계존비속 간 부동산 양도 시에도 증여 추정 규정이 적용되므로 주의가 필요합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "증여세 신고 기한은 언제인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "증여일이 속하는 달의 말일부터 3개월 이내에 신고·납부해야 합니다. 기한 내 신고하면 산출세액의 3% 신고세액공제를 받을 수 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "부모 모두에게 각각 증여받을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "직계존비속 공제는 증여자 그룹별로 적용됩니다. 아버지와 어머니 모두 직계존속이므로 10년간 합산 5,000만원(성년)이 한도입니다. 별도로 적용되지 않습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "현금 증여도 신고해야 하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네, 현금 증여도 반드시 신고해야 합니다. 은행 이체 내역, 현금 인출 내역 등을 국세청이 추적할 수 있으며, 미신고 시 가산세가 부과됩니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "증여세와 상속세 중 어떤 것이 유리한가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "세율은 동일하지만, 상속세는 일괄공제(5억~10억)가 크고, 증여세는 10년마다 공제를 반복할 수 있습니다. 재산 규모와 시기에 따라 달라지므로 세무사 상담이 필요합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "자녀에게 부동산을 시가보다 싸게 팔 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "시가의 70% 미만 또는 시가와 3억원 이상 차이 나면 그 차액이 증여로 간주됩니다. 적정 거래가격을 설정해야 증여세 추가 부담을 피할 수 있습니다." }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>증여세 신고 기한은 언제인가요?</summary>
+        <p>증여일이 속하는 달의 말일부터 3개월 이내에 신고·납부해야 합니다. 기한 내 신고하면 산출세액의 3% 신고세액공제를 받을 수 있으므로 반드시 기한 내 신고하는 것이 유리합니다.</p>
+      </details>
+      <details>
+        <summary>부모 모두에게 각각 증여받을 수 있나요?</summary>
+        <p>직계존비속 공제는 증여자 그룹별로 적용됩니다. 아버지와 어머니 모두 직계존속이므로 10년간 합산 5,000만원(성년)이 한도입니다. 다만 외조부모, 조부모 등 세대를 건너뛴 증여는 세대생략 할증(30%)이 적용됩니다.</p>
+      </details>
+      <details>
+        <summary>현금 증여도 신고해야 하나요?</summary>
+        <p>네, 현금 증여도 반드시 신고해야 합니다. 국세청은 금융실명거래 정보를 통해 자금 흐름을 추적합니다. 미신고 시 무신고 가산세(20%)와 납부불성실 가산세가 부과됩니다.</p>
+      </details>
+      <details>
+        <summary>증여세와 상속세 중 어떤 것이 유리한가요?</summary>
+        <p>세율은 동일(10~50%)하지만, 상속세는 기본공제가 크고(최소 5억~10억), 증여세는 10년마다 공제를 반복 활용할 수 있습니다. 장기적인 절세 계획이 필요하며, 재산 규모에 따라 전문가 상담을 받는 것이 좋습니다.</p>
+      </details>
+      <details>
+        <summary>자녀에게 부동산을 시가보다 싸게 팔 수 있나요?</summary>
+        <p>시가의 70% 미만이거나 시가와 3억원 이상 차이가 나면 그 차액이 증여로 간주될 수 있습니다. 감정평가를 받아 적정 거래가격을 설정하고, 실제 대금 지급 증빙을 확보해야 합니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="inheritance-tax.html" class="related-card">
+          <div class="icon">📜</div>
+          <h4>상속세 계산기</h4>
+          <p>상속세 자동 산출</p>
+        </a>
+        <a href="capital-gains-tax.html" class="related-card">
+          <div class="icon">🏷️</div>
+          <h4>양도소득세 계산기</h4>
+          <p>부동산 매매 세금</p>
+        </a>
+        <a href="property-tax.html" class="related-card">
+          <div class="icon">🏘️</div>
+          <h4>재산세 계산기</h4>
+          <p>보유 재산세 계산</p>
+        </a>
+        <a href="acquisition-tax.html" class="related-card">
+          <div class="icon">🔑</div>
+          <h4>취득세 계산기</h4>
+          <p>부동산 취득세 계산</p>
+        </a>
+        <a href="income-tax.html" class="related-card">
+          <div class="icon">📊</div>
+          <h4>종합소득세 계산기</h4>
+          <p>소득세 자동 계산</p>
+        </a>
+        <a href="comprehensive-property-tax.html" class="related-card">
+          <div class="icon">🏢</div>
+          <h4>종합부동산세</h4>
+          <p>종부세 자동 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const giftAmount = parseInput(document.getElementById('giftAmount').value);
+      const relation = document.getElementById('relation').value;
+      const previousGifts = parseInput(document.getElementById('previousGifts').value);
+
+      document.getElementById('giftAmountDisplay').textContent = giftAmount > 0 ? formatKRW(giftAmount) : '';
+      document.getElementById('previousGiftsDisplay').textContent = previousGifts > 0 ? formatKRW(previousGifts) : '';
+
+      if (giftAmount <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.giftTax(giftAmount, relation, previousGifts);
+
+      const relationNames = { spouse: '배우자', child: '성년 자녀', grandchild: '손자녀', minor: '미성년 자녀', other: '기타 친족' };
+      const relationName = relationNames[relation] || '기타';
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>증여세 계산 결과 (${relationName})</h3>
+          <div class="result-item">
+            <span>증여재산 가액</span>
+            <strong>${formatKRW(giftAmount)}</strong>
+          </div>
+          <div class="result-item">
+            <span>10년 내 기증여액</span>
+            <strong>${formatKRW(previousGifts)}</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>면제한도 (10년)</span>
+            <strong>${formatKRW(r.exemption)}</strong>
+          </div>
+          <div class="result-item">
+            <span>과세표준</span>
+            <strong>${formatKRW(r.taxable)}</strong>
+          </div>
+          <div class="result-item primary">
+            <span>증여세</span>
+            <strong>${formatKRW(r.tax)}</strong>
+          </div>
+          <div class="result-item">
+            <span>실효세율</span>
+            <strong>${formatPercent(r.effectiveRate)}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('증여세 계산결과: 증여액 ${formatKRW(giftAmount)} (${relationName}), 면제한도 ${formatKRW(r.exemption)}, 증여세 ${formatKRW(r.tax)}, 실효세율 ${formatPercent(r.effectiveRate)}')">📋 결과 복사</button>
+          </div>
+        </div>`;
+
+      // AI 인사이트
+      let tips = [];
+      if (r.taxable === 0) {
+        tips.push({ icon: '🎉', title: '면제한도 이내', text: `증여금액이 ${relationName} 면제한도(${formatKRW(r.exemption)}) 이내이므로 증여세가 없습니다. 단, 신고는 하는 것이 향후 자금출처 증명에 유리합니다.` });
+      } else {
+        tips.push({ icon: '📌', title: '과세표준 기준 세율', text: `과세표준 ${formatKRW(r.taxable)}에 대해 증여세 ${formatKRW(r.tax)}이 산출되었습니다. 기한 내 신고 시 3% 세액공제를 받을 수 있습니다.` });
+
+        const remainingExemption = Math.max(0, r.exemption - previousGifts);
+        if (remainingExemption > 0 && remainingExemption < r.exemption) {
+          tips.push({ icon: '⚠️', title: '기증여액 주의', text: `10년 내 기증여액 ${formatKRW(previousGifts)}이 반영되어 남은 면제한도는 ${formatKRW(remainingExemption)}입니다.` });
+        }
+      }
+
+      tips.push({ icon: '💡', title: '10년 분할 증여 전략', text: `면제한도는 10년마다 초기화됩니다. 장기적으로 분할 증여하면 큰 절세 효과를 얻을 수 있습니다. ${relationName}에게 10년마다 ${formatKRW(r.exemption)}까지 무세 이전이 가능합니다.` });
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 증여세 인사이트</h3>
+          ${tips.map(t => `
+            <div class="insight-item">
+              <span class="icon">${t.icon}</span>
+              <div><strong>${t.title}</strong><p>${t.text}</p></div>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

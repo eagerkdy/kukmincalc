@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>야근수당 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 야근수당(연장근로수당) 계산기. 연장근로·야간근로·휴일근로 할증률 자동 적용. 시급 또는 월급 기반 야근수당을 정확하게 계산합니다.">
+  <meta property="og:title" content="야근수당 계산기 - 국민계산기">
+  <meta property="og:description" content="연장·야간·휴일 근로수당 할증률 자동 계산">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/overtime-pay">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/overtime-pay">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "야근수당 계산기",
+    "description": "연장근로·야간근로·휴일근로 할증수당을 자동 계산합니다. 2026년 근로기준법 기준.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>야근수당 계산기</span>
+    </nav>
+
+    <h1>🌙 야근수당 계산기 2026</h1>
+    <p class="page-subtitle">연장·야간·휴일 근로수당 할증률을 자동 적용하여 정확히 계산합니다</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="wageMode">임금 입력 방식</label>
+        <select id="wageMode">
+          <option value="hourly">시급 직접 입력</option>
+          <option value="monthly">월급에서 시급 환산</option>
+        </select>
+      </div>
+
+      <div class="input-group" id="hourlyInput">
+        <label for="hourlyWage">시급 (원)</label>
+        <input type="text" id="hourlyWage" value="15,000" placeholder="시급 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="10030" data-target="hourlyWage">최저시급</button>
+          <button class="preset-btn active" data-set="15000" data-target="hourlyWage">15,000</button>
+          <button class="preset-btn" data-set="20000" data-target="hourlyWage">20,000</button>
+          <button class="preset-btn" data-set="30000" data-target="hourlyWage">30,000</button>
+        </div>
+      </div>
+
+      <div class="input-group hidden" id="monthlyInput">
+        <label for="monthlySalary">월급 (원)</label>
+        <input type="text" id="monthlySalary" value="3,000,000" placeholder="월급 입력">
+        <small>월급 ÷ 209시간(주40h 기준)으로 시급 환산</small>
+      </div>
+
+      <div class="input-group">
+        <label for="overtimeHours">연장근로 시간 (시간)</label>
+        <input type="number" id="overtimeHours" value="10" min="0" max="200" step="0.5">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="5" data-target="overtimeHours">5시간</button>
+          <button class="preset-btn active" data-set="10" data-target="overtimeHours">10시간</button>
+          <button class="preset-btn" data-set="20" data-target="overtimeHours">20시간</button>
+          <button class="preset-btn" data-set="40" data-target="overtimeHours">40시간</button>
+        </div>
+        <small>법정근로시간(주 40시간) 초과 근로시간</small>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="isNight">야간근로 (22시~06시)</label>
+          <select id="isNight">
+            <option value="0">아니오</option>
+            <option value="1">예</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="isHoliday">휴일근로</label>
+          <select id="isHoliday">
+            <option value="0">아니오 (평일)</option>
+            <option value="1">예 (휴일)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>야근수당(연장근로수당) 계산 방법</h2>
+      <p>야근수당은 법정근로시간(주 40시간, 1일 8시간)을 초과하여 근무한 경우 통상임금에 할증률을 적용하여 지급하는 수당입니다. 근로기준법 제56조에 따라 사용자는 연장·야간·휴일 근로에 대해 통상임금의 50% 이상을 가산하여 지급해야 합니다.</p>
+
+      <h3>할증률 기준</h3>
+      <div class="method-card">
+        <h3>연장근로 (150%)</h3>
+        <p>법정근로시간 초과 시: 통상임금 x 1.5배</p>
+        <div class="formula">야근수당 = 시급 x 연장시간 x 1.5</div>
+      </div>
+      <div class="method-card">
+        <h3>야간근로 (200%)</h3>
+        <p>22:00~06:00 사이 연장근로 시: 통상임금 x 2.0배</p>
+        <div class="formula">야간수당 = 시급 x 야간시간 x 2.0 (연장 50% + 야간 50%)</div>
+      </div>
+      <div class="method-card">
+        <h3>휴일근로 (200%)</h3>
+        <p>휴일 연장근로 시: 통상임금 x 2.0배</p>
+        <div class="formula">휴일수당 = 시급 x 휴일시간 x 2.0 (휴일 50% + 연장 50%)</div>
+      </div>
+      <div class="method-card">
+        <h3>휴일 야간근로 (250%)</h3>
+        <p>휴일 22:00~06:00 연장근로: 통상임금 x 2.5배</p>
+        <div class="formula">휴일야간수당 = 시급 x 시간 x 2.5 (휴일 50% + 연장 50% + 야간 50%)</div>
+      </div>
+
+      <h3>주의사항</h3>
+      <p>5인 미만 사업장은 연장·야간·휴일 근로 할증수당 의무가 면제됩니다. 다만, 근로계약서에 별도 약정이 있으면 그에 따릅니다. 또한 연장근로는 당사자 간 합의 하에 1주 12시간까지 가능하며, 이를 초과하면 근로기준법 위반입니다. 포괄임금제 근로자의 경우에도 실제 초과근로시간이 포괄 약정 시간을 넘으면 추가 수당을 청구할 수 있습니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "야근수당은 어떻게 계산하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "기본 연장근로수당은 통상시급의 1.5배입니다. 야간(22시~06시)은 2.0배, 휴일근로는 2.0배, 휴일+야간은 2.5배가 적용됩니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "포괄임금제인데 야근수당을 받을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "포괄임금제라도 약정된 초과근로시간을 넘어선 근무에 대해서는 추가 수당을 청구할 수 있습니다. 실제 근무시간 기록이 중요합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "5인 미만 사업장도 야근수당을 줘야 하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "근로기준법상 5인 미만 사업장은 연장·야간·휴일 근로 할증수당 의무가 면제됩니다. 다만 근로계약서에 명시된 경우 지급 의무가 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "연장근로 한도는 몇 시간인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "근로기준법상 연장근로는 당사자 합의 하에 1주 12시간까지 가능합니다. 특별한 사정이 있는 경우 고용노동부 인가를 받아 연장할 수 있습니다." }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 야근수당은 어떻게 계산하나요?</summary><p>기본 연장근로수당은 통상시급의 1.5배입니다. 야간(22시~06시)은 2.0배, 휴일근로는 2.0배, 휴일+야간은 2.5배가 적용됩니다.</p></details>
+      <details><summary>Q2. 포괄임금제인데 야근수당을 받을 수 있나요?</summary><p>포괄임금제라도 약정된 초과근로시간을 넘어선 근무에 대해서는 추가 수당을 청구할 수 있습니다. 실제 근무시간 기록이 중요합니다.</p></details>
+      <details><summary>Q3. 5인 미만 사업장도 야근수당을 줘야 하나요?</summary><p>근로기준법상 5인 미만 사업장은 연장·야간·휴일 근로 할증수당 의무가 면제됩니다. 다만 근로계약서에 명시된 경우 지급 의무가 있습니다.</p></details>
+      <details><summary>Q4. 연장근로 한도는 몇 시간인가요?</summary><p>근로기준법상 연장근로는 당사자 합의 하에 1주 12시간까지 가능합니다. 특별한 사정이 있는 경우 고용노동부 인가를 받아 연장할 수 있습니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="hourly-wage.html" class="related-card">
+          <div class="icon">⏰</div>
+          <h4>시급 계산기</h4>
+          <p>월급↔시급 변환</p>
+        </a>
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+        <a href="annual-leave-pay.html" class="related-card">
+          <div class="icon">📅</div>
+          <h4>연차수당 계산기</h4>
+          <p>미사용 연차 수당</p>
+        </a>
+        <a href="severance-pay.html" class="related-card">
+          <div class="icon">🎒</div>
+          <h4>퇴직금 계산기</h4>
+          <p>퇴직금 자동 산출</p>
+        </a>
+        <a href="unemployment.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>실업급여 계산기</h4>
+          <p>수급액·기간 산출</p>
+        </a>
+        <a href="pension.html" class="related-card">
+          <div class="icon">🏦</div>
+          <h4>국민연금 계산기</h4>
+          <p>월 보험료 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    const wageModeSelect = document.getElementById('wageMode');
+    const hourlyInputDiv = document.getElementById('hourlyInput');
+    const monthlyInputDiv = document.getElementById('monthlyInput');
+
+    wageModeSelect.addEventListener('change', function() {
+      if (this.value === 'hourly') {
+        hourlyInputDiv.classList.remove('hidden');
+        monthlyInputDiv.classList.add('hidden');
+      } else {
+        hourlyInputDiv.classList.add('hidden');
+        monthlyInputDiv.classList.remove('hidden');
+      }
+      calculate();
+    });
+
+    function calculate() {
+      const wageMode = wageModeSelect.value;
+      let hourly;
+
+      if (wageMode === 'hourly') {
+        hourly = parseInput(document.getElementById('hourlyWage').value);
+      } else {
+        const monthly = parseInput(document.getElementById('monthlySalary').value);
+        const result = CalcCore.hourlyWage(monthly, 40);
+        hourly = result.hourly;
+      }
+
+      const overtimeHours = parseFloat(document.getElementById('overtimeHours').value) || 0;
+      const isNight = document.getElementById('isNight').value === '1';
+      const isHoliday = document.getElementById('isHoliday').value === '1';
+
+      if (hourly <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const overtimePay = CalcCore.overtimePay(hourly, overtimeHours, isNight, isHoliday);
+
+      // 할증률 계산
+      let rate = 1.5;
+      let rateLabel = '연장근로 150%';
+      if (isNight && isHoliday) { rate = 2.5; rateLabel = '휴일+야간 250%'; }
+      else if (isHoliday) { rate = 2.0; rateLabel = '휴일근로 200%'; }
+      else if (isNight) { rate = 2.0; rateLabel = '야간근로 200%'; }
+
+      const basePay = Math.round(hourly * overtimeHours);
+      const premiumPay = overtimePay - basePay;
+      const monthlyBase = wageMode === 'monthly' ? parseInput(document.getElementById('monthlySalary').value) : Math.round(hourly * 209);
+      const totalWithBase = monthlyBase + overtimePay;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>야근수당 계산 결과</h3>
+          <div class="result-item primary">
+            <span>야근수당 합계</span>
+            <strong>${formatNumber(overtimePay)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>기본 시급</span>
+            <strong>${formatNumber(hourly)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>연장근로 시간</span>
+            <strong>${overtimeHours}시간</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>적용 할증률</span>
+            <strong>${rateLabel}</strong>
+          </div>
+          <div class="result-item">
+            <span>기본급 (${overtimeHours}h x ${formatNumber(hourly)}원)</span>
+            <strong>${formatNumber(basePay)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>할증 가산분</span>
+            <strong>+${formatNumber(premiumPay)}원</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>월급 + 야근수당 합계</span>
+            <strong>${formatNumber(totalWithBase)}원</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('야근수당 ${formatNumber(overtimePay)}원 (시급 ${formatNumber(hourly)}원 x ${overtimeHours}h x ${rate}배) - 국민계산기')">📋 복사</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">⚖️</span>
+            <div>
+              <strong>할증률 x${rate} 적용</strong>
+              <p>${isHoliday && isNight ? '휴일 야간근로로 최고 할증률(250%)이 적용됩니다. 시급 대비 2.5배의 수당을 받습니다.' : isHoliday ? '휴일근로로 200% 할증이 적용됩니다. 평일 연장근로(150%)보다 높은 수당입니다.' : isNight ? '야간근로(22시~06시)로 200% 할증이 적용됩니다. 건강 관리에 유의하세요.' : '기본 연장근로 150% 할증이 적용됩니다.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">📊</span>
+            <div>
+              <strong>월급 대비 야근수당 비중 ${(overtimePay / monthlyBase * 100).toFixed(1)}%</strong>
+              <p>기본 월급(${formatNumber(monthlyBase)}원) 대비 야근수당이 ${(overtimePay / monthlyBase * 100).toFixed(1)}%를 차지합니다. ${overtimePay / monthlyBase > 0.3 ? '야근이 과도합니다. 업무 효율화를 검토해보세요.' : '적정 범위의 연장근로입니다.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">⏱️</span>
+            <div>
+              <strong>주당 연장근로 약 ${(overtimeHours / 4.345).toFixed(1)}시간</strong>
+              <p>월 ${overtimeHours}시간 기준 주당 약 ${(overtimeHours / 4.345).toFixed(1)}시간의 연장근로입니다. ${overtimeHours / 4.345 > 12 ? '⚠️ 주 12시간 연장근로 한도를 초과할 수 있으니 확인하세요.' : '법정 연장근로 한도(주 12시간) 이내입니다.'}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

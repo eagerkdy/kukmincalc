@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>국민연금 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 국민연금 계산기. 월 소득을 입력하면 근로자 부담금, 사업주 부담금, 기준소득월액을 자동으로 계산합니다. 2026년 최신 기준소득월액 상·하한 반영.">
+  <meta property="og:title" content="국민연금 계산기 - 국민계산기">
+  <meta property="og:description" content="월 소득 기반 국민연금 보험료 자동 계산. 근로자·사업주 부담금 산출.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/pension">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/pension">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "국민연금 계산기",
+    "description": "2026년 기준 국민연금 보험료를 자동 계산합니다. 근로자·사업주 부담금 및 기준소득월액 산출.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>국민연금 계산기</span>
+    </nav>
+
+    <h1>🏦 국민연금 계산기 2026</h1>
+    <p class="page-subtitle">월 소득을 입력하면 국민연금 보험료를 바로 확인합니다 | 2026년 기준</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="monthlySalary">월 소득 (원)</label>
+        <input type="text" id="monthlySalary" value="4,000,000" placeholder="월 소득 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="2000000" data-target="monthlySalary">200만</button>
+          <button class="preset-btn" data-set="3000000" data-target="monthlySalary">300만</button>
+          <button class="preset-btn active" data-set="4000000" data-target="monthlySalary">400만</button>
+          <button class="preset-btn" data-set="5000000" data-target="monthlySalary">500만</button>
+        </div>
+        <small>세전 월 급여 (비과세 제외)</small>
+      </div>
+
+      <div class="input-display" style="padding: 0.75rem; background: var(--bg-alt); border-radius: var(--radius-sm); margin-top: 0.5rem;">
+        📌 2026년 기준 | 보험료율: 9% (근로자 4.5% + 사업주 4.5%) | 기준소득월액: 37만~590만원
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>국민연금이란?</h2>
+      <p>국민연금은 대한민국 4대 사회보험 중 하나로, 노후에 소득활동이 어려운 경우 안정적인 소득을 보장하기 위한 공적 연금제도입니다. 국민연금법에 따라 18세 이상 60세 미만의 국내 거주 국민은 의무 가입 대상이며, 근로자와 사업주가 각각 4.5%씩 총 9%의 보험료를 부담합니다.</p>
+
+      <h3>보험료 계산 방법</h3>
+      <div class="method-card">
+        <h3>국민연금 보험료</h3>
+        <div class="formula">월 보험료 = 기준소득월액 x 9% (근로자 4.5% + 사업주 4.5%)</div>
+      </div>
+      <p>기준소득월액은 실제 소득에 기반하여 산정되며, 2026년 기준 하한은 월 37만원, 상한은 월 590만원입니다. 소득이 37만원 미만이면 37만원, 590만원 초과이면 590만원으로 산정됩니다. 따라서 근로자 최대 부담액은 월 265,500원(590만 x 4.5%)입니다.</p>
+
+      <h3>기준소득월액 결정</h3>
+      <p>기준소득월액은 매년 7월에 전년도 소득을 기준으로 재산정됩니다. 전년도 소득신고 내용과 국세청 소득자료를 활용하여 결정하며, 소득 변동 시 정산 과정을 거칩니다. 상·하한액은 물가상승률 등을 반영하여 매년 조정됩니다.</p>
+
+      <h3>수급 조건</h3>
+      <p>국민연금은 최소 10년(120개월) 이상 가입해야 노령연금을 수급할 수 있습니다. 수급 개시 연령은 출생연도에 따라 다르며, 1969년 이후 출생자는 만 65세부터 수급합니다. 조기수령(최대 5년 앞당김) 시 연금액이 감액되고, 연기수령(최대 5년 미룸) 시 연금액이 증가합니다.</p>
+
+      <h3>직장가입자 vs 지역가입자</h3>
+      <p>직장가입자는 근로자와 사업주가 각각 4.5%씩 부담하므로 본인 부담은 4.5%입니다. 지역가입자(자영업자, 프리랜서 등)는 9%를 전액 본인이 부담합니다. 임의가입자와 임의계속가입자 제도도 있어, 소득이 없거나 60세 이후에도 가입을 유지할 수 있습니다.</p>
+
+      <h3>국민연금 개혁 동향</h3>
+      <p>국민연금 재정 안정성 확보를 위해 보험료율 인상과 수급 연령 조정 등의 개혁이 논의되고 있습니다. 현재 9%인 보험료율을 단계적으로 인상하는 방안이 검토되고 있으며, 장기적으로 수급 수준과 재정 균형을 맞추기 위한 다양한 제도 변경이 예상됩니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "국민연금 보험료율은 몇 퍼센트인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "2026년 기준 총 9%이며, 직장가입자는 근로자 4.5% + 사업주 4.5%로 분담합니다. 지역가입자는 9%를 전액 본인이 부담합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "국민연금 최대 보험료는 얼마인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "2026년 기준소득월액 상한 590만원 기준, 근로자 최대 부담액은 월 265,500원입니다. 사업주 부담분까지 합치면 총 531,000원입니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "국민연금은 몇 년 납부해야 받을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "최소 10년(120개월) 이상 가입해야 노령연금을 수급할 수 있습니다. 10년 미만 가입 시 반환일시금으로 돌려받습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "국민연금을 조기에 받을 수 있나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네, 수급 개시 연령보다 최대 5년 앞당겨 조기노령연금을 받을 수 있습니다. 다만 1년 앞당길 때마다 연금액이 6%씩 감액됩니다." }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 국민연금 보험료율은 몇 퍼센트인가요?</summary><p>2026년 기준 총 9%이며, 직장가입자는 근로자 4.5% + 사업주 4.5%로 분담합니다. 지역가입자는 9%를 전액 본인이 부담합니다.</p></details>
+      <details><summary>Q2. 국민연금 최대 보험료는 얼마인가요?</summary><p>2026년 기준소득월액 상한 590만원 기준, 근로자 최대 부담액은 월 265,500원입니다. 사업주 부담분까지 합치면 총 531,000원입니다.</p></details>
+      <details><summary>Q3. 국민연금은 몇 년 납부해야 받을 수 있나요?</summary><p>최소 10년(120개월) 이상 가입해야 노령연금을 수급할 수 있습니다. 10년 미만 가입 시 반환일시금으로 돌려받습니다.</p></details>
+      <details><summary>Q4. 국민연금을 조기에 받을 수 있나요?</summary><p>네, 수급 개시 연령보다 최대 5년 앞당겨 조기노령연금을 받을 수 있습니다. 다만 1년 앞당길 때마다 연금액이 6%씩 감액됩니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+        <a href="health-insurance.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>건강보험료 계산기</h4>
+          <p>건강보험료 계산</p>
+        </a>
+        <a href="employment-insurance.html" class="related-card">
+          <div class="icon">👷</div>
+          <h4>고용보험료 계산기</h4>
+          <p>고용보험 부담액</p>
+        </a>
+        <a href="severance-pay.html" class="related-card">
+          <div class="icon">🎒</div>
+          <h4>퇴직금 계산기</h4>
+          <p>퇴직금 자동 산출</p>
+        </a>
+        <a href="unemployment.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>실업급여 계산기</h4>
+          <p>수급액·기간 산출</p>
+        </a>
+        <a href="hourly-wage.html" class="related-card">
+          <div class="icon">⏰</div>
+          <h4>시급 계산기</h4>
+          <p>월급↔시급 변환</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const monthlySalary = parseInput(document.getElementById('monthlySalary').value);
+
+      if (monthlySalary <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.pension(monthlySalary);
+
+      const isUpperCapped = monthlySalary > 5900000;
+      const isLowerCapped = monthlySalary < 370000;
+      const annualEmployee = r.employee * 12;
+      const annualTotal = r.total * 12;
+      const salaryRatio = (r.employee / monthlySalary * 100);
+
+      // 예상 수급액 간이 추정 (20년 가입 기준)
+      const estimatedMonthlyPension20 = Math.round(r.base * 0.009 * 20 + 330000 * 0.5);
+      const estimatedMonthlyPension30 = Math.round(r.base * 0.009 * 30 + 330000 * 0.5);
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>국민연금 보험료 계산 결과</h3>
+          <div class="result-item primary">
+            <span>근로자 부담금 (월)</span>
+            <strong>${formatNumber(r.employee)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>사업주 부담금 (월)</span>
+            <strong>${formatNumber(r.employer)}원</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>합계 (월)</span>
+            <strong>${formatNumber(r.total)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>기준소득월액</span>
+            <strong>${formatNumber(r.base)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>적용 여부</span>
+            <strong>${isUpperCapped ? '상한 적용 (590만원)' : isLowerCapped ? '하한 적용 (37만원)' : '실제 소득 적용'}</strong>
+          </div>
+          <div class="result-item">
+            <span>근로자 연간 부담액</span>
+            <strong>${formatKRW(annualEmployee)}</strong>
+          </div>
+          <div class="result-item">
+            <span>총 연간 보험료 (노사 합계)</span>
+            <strong>${formatKRW(annualTotal)}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('국민연금: 근로자 월 ${formatNumber(r.employee)}원 / 사업주 월 ${formatNumber(r.employer)}원 (기준소득 ${formatNumber(r.base)}원) - 국민계산기')">📋 복사</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">📊</span>
+            <div>
+              <strong>월급 대비 부담률 ${salaryRatio.toFixed(2)}%</strong>
+              <p>월 소득 ${formatNumber(monthlySalary)}원 중 ${salaryRatio.toFixed(2)}%인 ${formatNumber(r.employee)}원이 국민연금으로 공제됩니다. ${isUpperCapped ? '상한액이 적용되어 실제 소득 대비 부담률이 4.5%보다 낮습니다.' : isLowerCapped ? '하한액이 적용되어 실제 소득 대비 부담률이 4.5%보다 높습니다.' : '기준 요율 4.5%가 그대로 적용됩니다.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">👴</span>
+            <div>
+              <strong>예상 노령연금 (간이 추정)</strong>
+              <p>현재 기준소득월액으로 20년 가입 시 월 약 ${formatNumber(estimatedMonthlyPension20)}원, 30년 가입 시 월 약 ${formatNumber(estimatedMonthlyPension30)}원의 노령연금이 예상됩니다. (실제 수급액은 전체 가입기간 평균소득, 물가상승률 등에 따라 달라집니다.)</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">💡</span>
+            <div>
+              <strong>절세 팁: 연금저축·IRP 활용</strong>
+              <p>국민연금 외에 개인연금저축(연 600만원)과 IRP(연 900만원)에 추가 납입하면 연간 최대 148.5만원의 세액공제 혜택을 받을 수 있습니다. 노후 대비와 절세를 동시에 할 수 있는 방법입니다.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

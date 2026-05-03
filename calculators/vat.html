@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부가가치세 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 부가가치세(VAT) 계산기 - 부가세 포함/미포함 금액에서 공급가액과 부가세를 자동 분리·합산합니다. 세금계산서 발행 시 필수 도구.">
+  <meta property="og:title" content="부가가치세 계산기 - 국민계산기">
+  <meta property="og:description" content="부가세 포함·미포함 금액 자동 변환, 공급가액과 부가세 분리 계산기">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/vat">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/vat">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "부가가치세 계산기",
+    "description": "부가세 포함/미포함 금액에서 공급가액과 부가세를 자동 분리 및 합산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt; <a href="../index.html#tax">세금</a> &gt; <span>부가가치세 계산기</span>
+    </nav>
+
+    <h1>🧾 부가가치세 계산기 2026</h1>
+    <p class="page-subtitle">부가세 포함 또는 미포함 금액을 입력하면 공급가액, 부가세, 합계를 자동 계산합니다.</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="vatType">계산 방식</label>
+        <select id="vatType">
+          <option value="include">부가세 포함 금액 → 분리</option>
+          <option value="exclude">부가세 미포함 금액 → 합산</option>
+        </select>
+        <small>"포함" 선택 시 입력한 금액에서 부가세를 분리하고, "미포함" 선택 시 부가세를 더합니다.</small>
+      </div>
+      <div class="input-group">
+        <label for="vatAmount">금액 (원)</label>
+        <input type="text" id="vatAmount" placeholder="예: 1,100,000" inputmode="numeric">
+        <div class="input-display" id="vatAmountDisplay"></div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="100000" data-target="vatAmount">10만</button>
+          <button class="preset-btn" data-set="500000" data-target="vatAmount">50만</button>
+          <button class="preset-btn" data-set="1100000" data-target="vatAmount">110만</button>
+          <button class="preset-btn" data-set="5500000" data-target="vatAmount">550만</button>
+          <button class="preset-btn" data-set="11000000" data-target="vatAmount">1,100만</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>부가가치세(VAT)란?</h2>
+      <p>부가가치세(Value Added Tax, VAT)는 상품이나 서비스의 거래 과정에서 발생하는 부가가치에 대해 부과하는 간접세입니다. 대한민국의 부가가치세율은 10%이며, 최종 소비자가 부담하고 사업자가 대리 징수하여 국가에 납부합니다. 부가가치세는 1977년 도입된 이후 대한민국 세수의 핵심 세목 중 하나입니다.</p>
+
+      <h3>부가세 포함과 미포함의 차이</h3>
+      <p>일상에서 접하는 가격 표시에는 '부가세 포함(VAT 포함)'과 '부가세 별도(+VAT)'가 있습니다. 부가세 포함 가격은 이미 10%의 세금이 포함된 최종 가격이며, 부가세 별도 가격은 공급가액만 표시된 것으로 여기에 10%를 더해야 실제 결제 금액이 됩니다.</p>
+
+      <div class="method-card">
+        <h3>계산 공식</h3>
+        <div class="formula">
+          <p><strong>부가세 포함 → 분리:</strong> 공급가액 = 총액 / 1.1 | 부가세 = 총액 - 공급가액</p>
+          <p><strong>부가세 미포함 → 합산:</strong> 부가세 = 공급가액 x 10% | 합계 = 공급가액 + 부가세</p>
+        </div>
+      </div>
+
+      <h3>부가가치세 신고 및 납부</h3>
+      <p>일반과세자는 1년에 2번(1월, 7월), 간이과세자는 1년에 1번(1월) 부가가치세를 신고·납부합니다. 1기는 1월~6월 매출에 대해 7월 25일까지, 2기는 7월~12월 매출에 대해 다음 해 1월 25일까지 신고합니다. 예정신고(4월, 10월)도 있으며, 직전 과세기간 납부세액의 50%를 미리 납부하거나 확정 금액으로 예정신고할 수 있습니다.</p>
+
+      <h3>면세와 영세율</h3>
+      <p>부가가치세가 면제되는 재화·용역이 있습니다. 기초생활필수품(미가공 식료품, 수돗물), 의료·교육 서비스, 도서·신문 등은 부가세가 면제됩니다. 영세율(0%)은 수출재화, 국제운송 등에 적용되며, 매입세액 환급이 가능하다는 점에서 면세와 다릅니다.</p>
+
+      <h3>세금계산서 발행</h3>
+      <p>사업자 간 거래 시 세금계산서를 발행해야 합니다. 전자세금계산서 의무발행 대상(직전 연도 공급가액 합계 8,000만원 이상)은 국세청 전자세금계산서 시스템을 통해 발행해야 하며, 미발행 시 공급가액의 2% 가산세가 부과됩니다. 세금계산서에는 공급가액과 부가세가 구분 기재되어야 합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "부가가치세 10%는 누가 부담하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "최종 소비자가 부담합니다. 사업자는 소비자에게 받은 부가세(매출세액)에서 본인이 지불한 부가세(매입세액)를 차감한 금액을 국가에 납부합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "간이과세자도 부가세를 내야 하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "연 매출 8,000만원 미만 간이과세자는 업종별 부가가치율(15~40%)을 곱한 금액의 10%를 납부합니다. 연 매출 4,800만원 미만이면 납부의무가 면제됩니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "부가세 환급은 어떻게 받나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "매입세액이 매출세액보다 클 경우 환급을 받을 수 있습니다. 사업 초기 시설투자 등으로 매입이 많을 때 주로 발생하며, 신고 후 30일 이내 환급됩니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "세금계산서와 계산서의 차이는 무엇인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "세금계산서는 부가가치세가 과세되는 거래에 발행하며 공급가액과 부가세가 구분됩니다. 계산서는 면세사업자가 발행하며 부가세 항목이 없습니다." }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>부가가치세 10%는 누가 부담하나요?</summary>
+        <p>최종 소비자가 부담합니다. 사업자는 소비자에게 받은 부가세(매출세액)에서 본인이 지불한 부가세(매입세액)를 차감한 금액을 국가에 납부합니다. 이것을 '전단계세액공제법'이라 합니다.</p>
+      </details>
+      <details>
+        <summary>간이과세자도 부가세를 내야 하나요?</summary>
+        <p>연 매출 8,000만원 미만 간이과세자는 업종별 부가가치율(15~40%)을 곱한 금액의 10%를 납부합니다. 연 매출 4,800만원 미만이면 납부의무가 면제됩니다. 다만 세금계산서 발급은 가능합니다.</p>
+      </details>
+      <details>
+        <summary>부가세 환급은 어떻게 받나요?</summary>
+        <p>매입세액이 매출세액보다 클 경우 환급을 받을 수 있습니다. 사업 초기 시설투자 등으로 매입이 많을 때 주로 발생하며, 확정신고 후 30일 이내 환급됩니다. 조기환급(수출, 시설투자)은 15일 이내 처리됩니다.</p>
+      </details>
+      <details>
+        <summary>세금계산서와 계산서의 차이는 무엇인가요?</summary>
+        <p>세금계산서는 부가가치세가 과세되는 거래에 발행하며 공급가액과 부가세가 구분됩니다. 계산서는 면세사업자가 발행하며 부가세 항목이 없습니다. 두 가지 모두 적격증빙으로 인정됩니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="income-tax.html" class="related-card">
+          <div class="icon">📊</div>
+          <h4>종합소득세 계산기</h4>
+          <p>소득세 자동 계산</p>
+        </a>
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+        <a href="capital-gains-tax.html" class="related-card">
+          <div class="icon">🏷️</div>
+          <h4>양도소득세 계산기</h4>
+          <p>부동산 매매 세금</p>
+        </a>
+        <a href="gift-tax.html" class="related-card">
+          <div class="icon">🎁</div>
+          <h4>증여세 계산기</h4>
+          <p>증여 시 세금 계산</p>
+        </a>
+        <a href="acquisition-tax.html" class="related-card">
+          <div class="icon">🔑</div>
+          <h4>취득세 계산기</h4>
+          <p>부동산 취득세 계산</p>
+        </a>
+        <a href="tip-calculator.html" class="related-card">
+          <div class="icon">🍽️</div>
+          <h4>더치페이 계산기</h4>
+          <p>N분의1 금액 산출</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const amount = parseInput(document.getElementById('vatAmount').value);
+      const type = document.getElementById('vatType').value;
+
+      document.getElementById('vatAmountDisplay').textContent = amount > 0 ? formatKRW(amount) : '';
+
+      if (amount <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.vat(amount, type);
+      const typeLabel = type === 'include' ? '부가세 포함 → 분리' : '부가세 미포함 → 합산';
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>부가가치세 계산 결과 (${typeLabel})</h3>
+          <div class="result-item">
+            <span>공급가액</span>
+            <strong>${formatKRW(r.supply)}</strong>
+          </div>
+          <div class="result-item">
+            <span>부가가치세 (10%)</span>
+            <strong>${formatKRW(r.vat)}</strong>
+          </div>
+          <div class="result-item primary">
+            <span>합계 (총액)</span>
+            <strong>${formatKRW(r.total)}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('부가세 계산결과: 공급가액 ${formatNumber(r.supply)}원, 부가세 ${formatNumber(r.vat)}원, 합계 ${formatNumber(r.total)}원')">📋 결과 복사</button>
+          </div>
+        </div>`;
+
+      // AI 인사이트
+      let tips = [];
+      if (type === 'include') {
+        tips.push({ icon: '📌', title: '부가세 분리 결과', text: `입력하신 ${formatKRW(amount)}에서 공급가액 ${formatKRW(r.supply)}과 부가세 ${formatKRW(r.vat)}이 분리되었습니다. 세금계산서 발행 시 이 금액을 사용하세요.` });
+      } else {
+        tips.push({ icon: '📌', title: '부가세 합산 결과', text: `공급가액 ${formatKRW(amount)}에 부가세 ${formatKRW(r.vat)}을 더한 총 결제금액은 ${formatKRW(r.total)}입니다.` });
+      }
+      tips.push({ icon: '💡', title: '세금계산서 팁', text: '사업자 간 거래 시에는 반드시 세금계산서를 주고받아야 매입세액공제를 받을 수 있습니다. 전자세금계산서 의무발행 대상인지도 확인하세요.' });
+      tips.push({ icon: '🔄', title: '역으로 계산해보기', text: type === 'include' ? '상단 "계산 방식"을 "미포함 → 합산"으로 바꾸면 공급가액에서 총액을 계산할 수 있습니다.' : '상단 "계산 방식"을 "포함 → 분리"로 바꾸면 총액에서 공급가액을 분리할 수 있습니다.' });
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 부가세 인사이트</h3>
+          ${tips.map(t => `
+            <div class="insight-item">
+              <span class="icon">${t.icon}</span>
+              <div><strong>${t.title}</strong><p>${t.text}</p></div>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <!-- Modern: 계산기 아이콘 + 그라데이션 강조 -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="4" width="40" height="40" rx="10" fill="url(#grad)"/>
+  <!-- 계산기 화면 -->
+  <rect x="8" y="10" width="28" height="10" rx="2" fill="white" opacity="0.9"/>
+  <!-- 버튼 그리드 -->
+  <rect x="8" y="24" width="6" height="5" rx="1" fill="white" opacity="0.5"/>
+  <rect x="17" y="24" width="6" height="5" rx="1" fill="white" opacity="0.5"/>
+  <rect x="26" y="24" width="6" height="5" rx="1" fill="white" opacity="0.5"/>
+  <rect x="8" y="32" width="6" height="5" rx="1" fill="white" opacity="0.5"/>
+  <rect x="17" y="32" width="6" height="5" rx="1" fill="white" opacity="0.5"/>
+  <rect x="26" y="32" width="6" height="5" rx="1" fill="#10b981" opacity="0.8"/>
+  <!-- 텍스트 -->
+  <text x="52" y="22" fill="#1e3a8a" font-family="'Noto Sans KR',sans-serif" font-weight="900" font-size="18">국민계산기</text>
+  <text x="52" y="38" fill="#64748b" font-family="'Noto Sans KR',sans-serif" font-weight="400" font-size="10">35가지 금융 계산, 한 곳에서</text>
+</svg>

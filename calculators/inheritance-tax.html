@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상속세 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 상속세 계산기 - 총상속재산, 채무, 배우자·자녀 공제를 반영하여 상속세를 자동 계산합니다. 기본공제, 배우자공제, 일괄공제 자동 비교 적용.">
+  <meta property="og:title" content="상속세 계산기 - 국민계산기">
+  <meta property="og:description" content="상속세 자동 계산 - 기본공제, 배우자공제, 일괄공제 자동 비교 적용, 상속세 누진세율 계산">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/inheritance-tax">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/inheritance-tax">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "상속세 계산기",
+    "description": "총상속재산에서 채무와 각종 공제를 반영하여 상속세를 자동 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt; <a href="../index.html#tax">세금</a> &gt; <span>상속세 계산기</span>
+    </nav>
+
+    <h1>📜 상속세 계산기 2026</h1>
+    <p class="page-subtitle">총상속재산, 채무, 장례비, 가족 구성을 입력하면 각종 공제를 반영하여 상속세를 자동 계산합니다.</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="totalAssets">총 상속재산 가액 (원)</label>
+        <input type="text" id="totalAssets" placeholder="예: 2,000,000,000" inputmode="numeric">
+        <div class="input-display" id="totalAssetsDisplay"></div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="500000000" data-target="totalAssets">5억</button>
+          <button class="preset-btn" data-set="1000000000" data-target="totalAssets">10억</button>
+          <button class="preset-btn" data-set="2000000000" data-target="totalAssets">20억</button>
+          <button class="preset-btn" data-set="5000000000" data-target="totalAssets">50억</button>
+          <button class="preset-btn" data-set="10000000000" data-target="totalAssets">100억</button>
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="debts">채무 (원)</label>
+          <input type="text" id="debts" placeholder="피상속인의 채무 합계" inputmode="numeric" value="0">
+          <div class="input-display" id="debtsDisplay"></div>
+          <small>대출금, 미납 세금, 임대보증금 등</small>
+        </div>
+        <div class="input-group">
+          <label for="funeralCost">장례비 (원)</label>
+          <input type="text" id="funeralCost" placeholder="장례비용" inputmode="numeric" value="0">
+          <div class="input-display" id="funeralCostDisplay"></div>
+          <small>최대 1,500만원까지 공제 가능</small>
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="hasSpouse">배우자 유무</label>
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem 0;">
+            <input type="checkbox" id="hasSpouse" checked style="width:auto;transform:scale(1.3);">
+            <label for="hasSpouse" style="font-weight:400;margin-bottom:0;">배우자 있음</label>
+          </div>
+          <small>배우자 있으면 배우자공제(최소 5억) 적용</small>
+        </div>
+        <div class="input-group">
+          <label for="children">자녀 수</label>
+          <input type="number" id="children" value="2" min="0" max="10" step="1">
+          <small>자녀 1인당 5,000만원 인적공제</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>상속세란?</h2>
+      <p>상속세는 사망으로 인해 피상속인(사망자)의 재산이 상속인에게 이전될 때 부과되는 세금입니다. 대한민국 상속세는 유산세 방식으로, 피상속인의 전체 상속재산에 대해 하나의 세액을 산출한 후 상속인 각자의 상속분에 따라 안분하여 납부합니다. 상속개시일(사망일)이 속하는 달의 말일부터 6개월 이내에 신고·납부해야 합니다.</p>
+
+      <h3>상속세 공제 체계</h3>
+      <p>상속세에는 다양한 공제 항목이 있어 실제 과세되는 금액은 총 상속재산보다 적습니다. 주요 공제 항목은 다음과 같습니다.</p>
+      <ul>
+        <li><strong>기본공제:</strong> 2억원 (모든 상속에 적용)</li>
+        <li><strong>인적공제:</strong> 자녀 1인당 5,000만원, 미성년자 공제, 연로자 공제, 장애인 공제</li>
+        <li><strong>일괄공제:</strong> 5억원 (기본공제 + 인적공제의 합과 비교하여 큰 금액 적용)</li>
+        <li><strong>배우자공제:</strong> 최소 5억원, 최대 30억원 (법정상속지분 한도)</li>
+        <li><strong>금융재산공제:</strong> 순금융재산의 20% (최대 2억원)</li>
+        <li><strong>가업상속공제:</strong> 최대 600억원 (중소기업 가업승계 시)</li>
+      </ul>
+
+      <h3>상속세 세율</h3>
+      <p>상속세는 증여세와 동일한 누진세율(10~50%)이 적용됩니다. 과세표준 1억원 이하는 10%, 5억원 이하는 20%, 10억원 이하는 30%, 30억원 이하는 40%, 30억원 초과는 50%입니다. 세대를 건너뛴 상속(손자녀에게 직접 상속)은 산출세액의 30%(미성년 상속인이 20억 초과 상속 시 40%)가 할증됩니다.</p>
+
+      <h3>상속세 납부 방법</h3>
+      <p>상속세는 일시납부가 원칙이지만, 납부세액이 큰 경우 연부연납(최대 5년, 가업상속은 최대 20년 분납)이나 물납(부동산, 유가증권으로 납부)이 가능합니다. 연부연납을 신청하면 납부세액의 1/6 이상을 먼저 납부하고 나머지를 분할 납부할 수 있습니다. 기한 내 신고하면 산출세액의 3% 신고세액공제를 받을 수 있습니다.</p>
+
+      <h3>상속 계획의 중요성</h3>
+      <p>상속세 부담을 줄이기 위해서는 사전에 체계적인 상속 계획을 세우는 것이 중요합니다. 생전 증여를 통한 사전 이전, 보험 활용, 가업승계 요건 충족, 배우자 상속 비율 조정 등 다양한 전략이 있습니다. 다만 상속개시 전 10년 이내(상속인 외의 자는 5년 이내) 증여재산은 상속재산에 합산되므로 장기적인 계획이 필요합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "상속세 신고 기한은 언제인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "상속개시일(사망일)이 속하는 달의 말일부터 6개월 이내입니다. 피상속인이 비거주자인 경우 9개월 이내입니다. 기한 내 신고 시 3% 세액공제 혜택이 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "상속세를 내지 않아도 되는 경우는?",
+            "acceptedAnswer": { "@type": "Answer", "text": "배우자와 자녀가 있는 경우 공제 합계가 최소 10억원 이상이므로, 총 상속재산이 10억원 이하라면 상속세가 발생하지 않을 수 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "배우자 상속공제는 어떻게 계산하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "배우자가 실제 상속받은 금액(법정상속지분 한도)에서 최소 5억원, 최대 30억원까지 공제됩니다. 배우자가 상속을 포기해도 최소 5억원은 공제됩니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "아파트 가격은 어떻게 평가하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "아파트는 국토교통부 실거래가, 감정평가액, 매매사례가 등 시가로 평가합니다. 시가를 확인하기 어려운 경우 기준시가(공시가격)로 평가할 수 있습니다." }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>상속세 신고 기한은 언제인가요?</summary>
+        <p>상속개시일(사망일)이 속하는 달의 말일부터 6개월 이내입니다. 예를 들어 3월에 사망하면 9월 30일까지 신고해야 합니다. 기한 내 신고하면 산출세액의 3% 세액공제 혜택이 있으므로 반드시 기한을 지키세요.</p>
+      </details>
+      <details>
+        <summary>상속세를 내지 않아도 되는 경우는?</summary>
+        <p>배우자와 자녀가 있는 경우 일괄공제 5억원 + 배우자공제 최소 5억원 = 10억원 이상의 공제가 적용됩니다. 따라서 총 상속재산이 이 공제 합계 이하라면 상속세가 발생하지 않습니다. 다만 신고 의무는 있을 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>배우자 상속공제는 어떻게 계산하나요?</summary>
+        <p>배우자가 실제 상속받은 금액을 기준으로 법정상속지분 한도 내에서 최소 5억원, 최대 30억원까지 공제됩니다. 배우자가 상속을 포기하더라도 최소 5억원은 공제 적용됩니다.</p>
+      </details>
+      <details>
+        <summary>아파트 가격은 어떻게 평가하나요?</summary>
+        <p>상속세 신고 시 아파트는 시가(실거래가, 감정평가액, 매매사례가 등)로 평가합니다. 상속개시일 전후 6개월 이내의 매매·감정·수용가액이 시가로 인정됩니다. 시가 확인이 어려운 경우 공시가격으로 평가할 수 있습니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="gift-tax.html" class="related-card">
+          <div class="icon">🎁</div>
+          <h4>증여세 계산기</h4>
+          <p>증여 시 세금 계산</p>
+        </a>
+        <a href="capital-gains-tax.html" class="related-card">
+          <div class="icon">🏷️</div>
+          <h4>양도소득세 계산기</h4>
+          <p>부동산 매매 세금</p>
+        </a>
+        <a href="property-tax.html" class="related-card">
+          <div class="icon">🏘️</div>
+          <h4>재산세 계산기</h4>
+          <p>보유 재산세 계산</p>
+        </a>
+        <a href="comprehensive-property-tax.html" class="related-card">
+          <div class="icon">🏢</div>
+          <h4>종합부동산세</h4>
+          <p>종부세 자동 계산</p>
+        </a>
+        <a href="income-tax.html" class="related-card">
+          <div class="icon">📊</div>
+          <h4>종합소득세 계산기</h4>
+          <p>소득세 자동 계산</p>
+        </a>
+        <a href="acquisition-tax.html" class="related-card">
+          <div class="icon">🔑</div>
+          <h4>취득세 계산기</h4>
+          <p>부동산 취득세 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const totalAssets = parseInput(document.getElementById('totalAssets').value);
+      const debts = parseInput(document.getElementById('debts').value);
+      const funeralCost = parseInput(document.getElementById('funeralCost').value);
+      const hasSpouse = document.getElementById('hasSpouse').checked;
+      const children = parseInt(document.getElementById('children').value) || 0;
+
+      document.getElementById('totalAssetsDisplay').textContent = totalAssets > 0 ? formatKRW(totalAssets) : '';
+      document.getElementById('debtsDisplay').textContent = debts > 0 ? formatKRW(debts) : '';
+      document.getElementById('funeralCostDisplay').textContent = funeralCost > 0 ? formatKRW(funeralCost) : '';
+
+      if (totalAssets <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.inheritanceTax(totalAssets, debts, funeralCost, hasSpouse, children);
+      const effectiveRate = totalAssets > 0 ? (r.tax / totalAssets * 100) : 0;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>상속세 계산 결과</h3>
+          <div class="result-item">
+            <span>총 상속재산</span>
+            <strong>${formatKRW(totalAssets)}</strong>
+          </div>
+          <div class="result-item">
+            <span>순상속재산 (채무·장례비 차감)</span>
+            <strong>${formatKRW(r.netAssets)}</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>공제 합계</span>
+            <strong>${formatKRW(r.totalDeduction)}</strong>
+          </div>
+          <div class="result-item">
+            <span>과세표준</span>
+            <strong>${formatKRW(r.taxable)}</strong>
+          </div>
+          <div class="result-item primary">
+            <span>상속세</span>
+            <strong>${formatKRW(r.tax)}</strong>
+          </div>
+          <div class="result-item">
+            <span>실효세율</span>
+            <strong>${formatPercent(effectiveRate)}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('상속세 계산결과: 총 상속재산 ${formatKRW(totalAssets)}, 공제합계 ${formatKRW(r.totalDeduction)}, 과세표준 ${formatKRW(r.taxable)}, 상속세 ${formatKRW(r.tax)}')">📋 결과 복사</button>
+          </div>
+        </div>`;
+
+      // AI 인사이트
+      let tips = [];
+      if (r.taxable === 0) {
+        tips.push({ icon: '🎉', title: '상속세 비과세', text: `순상속재산 ${formatKRW(r.netAssets)}이 공제합계 ${formatKRW(r.totalDeduction)} 이하이므로 상속세가 발생하지 않습니다.` });
+      } else {
+        tips.push({ icon: '📌', title: '과세표준 및 세율', text: `과세표준 ${formatKRW(r.taxable)}에 대해 상속세 ${formatKRW(r.tax)}이 산출되었습니다. 실효세율은 ${formatPercent(effectiveRate)}입니다.` });
+
+        if (r.tax > 10000000) {
+          tips.push({ icon: '💡', title: '연부연납 가능', text: `납부세액이 1,000만원을 초과하므로 연부연납(최대 5년 분납)을 신청할 수 있습니다. 신고 시 함께 신청하세요.` });
+        }
+      }
+
+      if (hasSpouse) {
+        tips.push({ icon: '👫', title: '배우자공제 활용', text: '배우자의 실제 상속지분을 늘리면 배우자공제(최대 30억)를 더 크게 받을 수 있습니다. 다만 향후 배우자 사망 시 2차 상속세도 고려해야 합니다.' });
+      } else {
+        tips.push({ icon: '⚠️', title: '배우자 없는 경우', text: '배우자공제가 적용되지 않아 일괄공제(5억원)만 적용됩니다. 사전 증여를 통한 재산 이전을 검토해 보세요.' });
+      }
+
+      tips.push({ icon: '📋', title: '신고 기한', text: '상속세 신고 기한은 사망일이 속하는 달의 말일로부터 6개월입니다. 기한 내 신고하면 3% 세액공제 혜택이 있습니다.' });
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 상속세 인사이트</h3>
+          ${tips.map(t => `
+            <div class="insight-item">
+              <span class="icon">${t.icon}</span>
+              <div><strong>${t.title}</strong><p>${t.text}</p></div>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

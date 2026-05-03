@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>월세↔전세 전환 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 월세와 전세를 전환율 기준으로 상호 변환하는 계산기입니다. 전월세 전환율을 적용하여 월세를 전세보증금으로, 전세보증금을 월세로 즉시 계산합니다.">
+  <meta property="og:title" content="월세↔전세 전환 계산기 - 국민계산기">
+  <meta property="og:description" content="전월세 전환율 기반으로 월세와 전세를 상호 변환하세요.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/rent-to-deposit">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/rent-to-deposit">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "월세↔전세 전환 계산기",
+    "description": "전월세 전환율을 기반으로 월세와 전세보증금을 상호 변환하여 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#realestate">부동산</a> &gt;
+      <span>월세↔전세 전환 계산기</span>
+    </nav>
+
+    <h1>🔄 월세↔전세 전환 계산기 2026</h1>
+    <p class="page-subtitle">전월세 전환율을 적용하여 월세와 전세를 자유롭게 변환하세요</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="direction">변환 방향</label>
+        <select id="direction">
+          <option value="rentToDeposit">월세 → 전세 (월세를 전세보증금으로)</option>
+          <option value="depositToRent">전세 → 월세 (전세보증금을 월세로)</option>
+        </select>
+      </div>
+
+      <div class="input-group" id="amountGroup">
+        <label for="amount" id="amountLabel">월세 금액 (원)</label>
+        <input type="text" id="amount" placeholder="예: 500,000" value="500000">
+        <div class="preset-buttons" id="presetBtns">
+          <button class="preset-btn" data-set="300000" data-target="amount">30만</button>
+          <button class="preset-btn" data-set="500000" data-target="amount">50만</button>
+          <button class="preset-btn" data-set="800000" data-target="amount">80만</button>
+          <button class="preset-btn" data-set="1000000" data-target="amount">100만</button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="conversionRate">전월세 전환율 (%)</label>
+        <input type="number" id="conversionRate" step="0.1" value="4.5" min="0.1" max="20">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="3.5" data-target="conversionRate">3.5%</button>
+          <button class="preset-btn" data-set="4.5" data-target="conversionRate">4.5%</button>
+          <button class="preset-btn" data-set="5.5" data-target="conversionRate">5.5%</button>
+        </div>
+        <small>2026년 법정 전월세 전환율 상한: 기준금리(3.0%) + 대통령령(2.0%) = 5.0%</small>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>전월세 전환이란?</h2>
+      <p>전월세 전환은 전세보증금과 월세를 상호 변환하는 것을 말합니다. 임대인이 전세를 월세로 전환하거나, 임차인이 보증금 일부를 월세로 전환할 때 사용됩니다. 전환 시 적용되는 비율을 전월세 전환율이라고 하며, 이는 임대차 계약의 경제성을 판단하는 중요한 기준입니다.</p>
+
+      <h3>전환 공식</h3>
+      <div class="method-card">
+        <h3>월세 → 전세 변환</h3>
+        <div class="formula">전세보증금 = 월세 x 12개월 / (전환율 / 100)</div>
+      </div>
+      <div class="method-card">
+        <h3>전세 → 월세 변환</h3>
+        <div class="formula">월세 = 전세보증금 x (전환율 / 100) / 12개월</div>
+      </div>
+
+      <h3>전월세 전환율이란?</h3>
+      <p>전월세 전환율은 보증금을 월세로, 또는 월세를 보증금으로 전환할 때 적용되는 연간 수익률 개념의 비율입니다. 예를 들어 전환율 5%는 보증금 1억원을 월세로 전환하면 연간 500만원, 월 약 41.7만원의 월세가 된다는 뜻입니다. 주택임대차보호법에서는 전환율 상한을 기준금리 + 대통령령으로 정한 비율(2%)로 제한하고 있습니다.</p>
+
+      <h3>법정 전환율 상한</h3>
+      <p>2026년 기준 법정 전월세 전환율 상한은 한국은행 기준금리(3.0%) + 대통령령 비율(2.0%) = 5.0%입니다. 이 상한을 초과하는 전환은 무효이며, 임차인은 초과 부분의 반환을 청구할 수 있습니다. 다만 실제 시장에서의 전환율은 지역, 주택 유형, 시장 상황에 따라 다양하게 형성됩니다.</p>
+
+      <h3>전세 vs 월세 유불리 판단</h3>
+      <p>전세와 월세의 유불리는 전환율과 예금금리를 비교하여 판단할 수 있습니다. 전환율이 예금금리보다 높으면 전세가 유리하고, 낮으면 월세가 유리합니다. 예를 들어 전환율 5%인데 예금금리가 3%라면 보증금을 예금에 넣어 3%의 이자를 받는 것보다 5% 기준으로 월세를 줄이는 전세가 더 유리합니다. 다만 전세는 큰 목돈이 필요하고 전세사기 위험 등 비금전적 요소도 고려해야 합니다.</p>
+
+      <h3>반전세(보증금 + 월세)</h3>
+      <p>반전세는 전세보증금의 일부를 월세로 전환한 형태입니다. 예를 들어 전세 3억원 주택을 보증금 1억 + 월세로 계약하면, 차액 2억원에 대해 전환율을 적용하여 월세를 산정합니다. 반전세는 임차인의 초기 자금 부담을 줄이면서도 임대인에게 안정적인 수익을 제공하는 절충안으로 최근 많이 활용되고 있습니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "전월세 전환율은 어떻게 결정되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "전월세 전환율은 시장 상황에 따라 결정되지만, 법정 상한(기준금리+2%)을 초과할 수 없습니다. 지역별, 주택 유형별로 다르며 한국부동산원에서 매월 통계를 발표합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "전세가 유리한가요, 월세가 유리한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "전환율이 예금금리보다 높으면 전세가, 낮으면 월세가 유리합니다. 다만 전세는 큰 목돈이 필요하고 전세사기 위험이 있으며, 월세는 지속적 비용 지출이라는 각각의 장단점이 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "법정 전환율을 초과하면 어떻게 되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "법정 전환율 상한을 초과하는 전환은 효력이 없습니다. 임차인은 초과 지급한 차임의 반환을 청구할 수 있으며, 임대인에게 과태료가 부과될 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "반전세는 어떻게 계산하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "반전세는 전체 전세금에서 실제 납부한 보증금을 뺀 차액에 전환율을 적용하여 월세를 산정합니다. 예: (전세 3억 - 보증금 1억) x 전환율 5% / 12 = 월세 약 83만원"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "월세 세액공제를 받을 수 있나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "총급여 7,000만원 이하(종합소득 6,000만원 이하)의 무주택 세대주가 국민주택규모 이하 주택에 거주하면 월세의 15~17%를 세액공제 받을 수 있습니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>전월세 전환율은 어떻게 결정되나요?</summary>
+        <p>전월세 전환율은 시장 상황에 따라 결정되지만, 법정 상한(기준금리+2%)을 초과할 수 없습니다. 지역별, 주택 유형별로 다르며 한국부동산원에서 매월 통계를 발표합니다.</p>
+      </details>
+      <details>
+        <summary>전세가 유리한가요, 월세가 유리한가요?</summary>
+        <p>전환율이 예금금리보다 높으면 전세가, 낮으면 월세가 유리합니다. 다만 전세는 큰 목돈이 필요하고 전세사기 위험이 있으며, 월세는 지속적 비용 지출이라는 각각의 장단점이 있습니다.</p>
+      </details>
+      <details>
+        <summary>법정 전환율을 초과하면 어떻게 되나요?</summary>
+        <p>법정 전환율 상한을 초과하는 전환은 효력이 없습니다. 임차인은 초과 지급한 차임의 반환을 청구할 수 있으며, 임대인에게 과태료가 부과될 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>반전세는 어떻게 계산하나요?</summary>
+        <p>반전세는 전체 전세금에서 실제 납부한 보증금을 뺀 차액에 전환율을 적용하여 월세를 산정합니다. 예: (전세 3억 - 보증금 1억) x 전환율 5% / 12 = 월세 약 83만원</p>
+      </details>
+      <details>
+        <summary>월세 세액공제를 받을 수 있나요?</summary>
+        <p>총급여 7,000만원 이하(종합소득 6,000만원 이하)의 무주택 세대주가 국민주택규모 이하 주택에 거주하면 월세의 15~17%를 세액공제 받을 수 있습니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="mortgage-limit.html" class="related-card"><span class="icon">🏠</span><h4>주담대 한도 계산기</h4><p>LTV·DTI·DSR 기반 한도 산출</p></a>
+        <a href="moving-cost.html" class="related-card"><span class="icon">🚚</span><h4>이사비용 계산기</h4><p>이사 견적 자동 산출</p></a>
+        <a href="remodel-cost.html" class="related-card"><span class="icon">🔨</span><h4>인테리어 비용</h4><p>평수·등급별 비용 계산</p></a>
+        <a href="deposit-interest.html" class="related-card"><span class="icon">🏧</span><h4>예적금 이자 계산기</h4><p>예금·적금 이자 계산</p></a>
+        <a href="comprehensive-property-tax.html" class="related-card"><span class="icon">🏢</span><h4>종부세 계산기</h4><p>종합부동산세 자동 계산</p></a>
+        <a href="dsr.html" class="related-card"><span class="icon">📐</span><h4>DSR 계산기</h4><p>총부채원리금상환비율 계산</p></a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    // Direction change - update labels and presets
+    document.getElementById('direction').addEventListener('change', function () {
+      const isRentToDeposit = this.value === 'rentToDeposit';
+      document.getElementById('amountLabel').textContent = isRentToDeposit ? '월세 금액 (원)' : '전세보증금 (원)';
+      const presetBtns = document.getElementById('presetBtns');
+      if (isRentToDeposit) {
+        document.getElementById('amount').value = '500000';
+        presetBtns.innerHTML = `
+          <button class="preset-btn" data-set="300000" data-target="amount">30만</button>
+          <button class="preset-btn" data-set="500000" data-target="amount">50만</button>
+          <button class="preset-btn" data-set="800000" data-target="amount">80만</button>
+          <button class="preset-btn" data-set="1000000" data-target="amount">100만</button>`;
+      } else {
+        document.getElementById('amount').value = '200000000';
+        presetBtns.innerHTML = `
+          <button class="preset-btn" data-set="100000000" data-target="amount">1억</button>
+          <button class="preset-btn" data-set="200000000" data-target="amount">2억</button>
+          <button class="preset-btn" data-set="300000000" data-target="amount">3억</button>
+          <button class="preset-btn" data-set="500000000" data-target="amount">5억</button>`;
+      }
+      initPresets();
+      calculate();
+    });
+
+    function calculate() {
+      const direction = document.getElementById('direction').value;
+      const amount = parseInput(document.getElementById('amount').value);
+      const conversionRate = parseFloat(document.getElementById('conversionRate').value) || 4.5;
+
+      let resultHTML = '';
+      let insightHTML = '';
+
+      if (direction === 'rentToDeposit') {
+        const r = CalcCore.rentToDeposit(amount, conversionRate);
+        const annualRent = amount * 12;
+
+        resultHTML = `
+          <div class="result-card">
+            <h3>월세 → 전세 전환 결과</h3>
+            <div class="result-item"><span>입력 월세</span><strong>${formatKRW(amount)}</strong></div>
+            <div class="result-item"><span>연간 월세 합계</span><strong>${formatKRW(annualRent)}</strong></div>
+            <div class="result-item"><span>적용 전환율</span><strong>${conversionRate}%</strong></div>
+            <div class="result-item primary"><span>전환 전세보증금</span><strong>${formatKRW(r.deposit)}</strong></div>
+          </div>`;
+
+        const depositInterest = Math.round(r.deposit * 0.035 / 12);
+        insightHTML = `
+          <div class="ai-card">
+            <h3>AI 맞춤 분석</h3>
+            <div class="insight-item"><span class="icon">📊</span><div><strong>전환 분석</strong><p>월세 ${formatKRW(amount)}은 전환율 ${conversionRate}% 기준으로 전세보증금 ${formatKRW(r.deposit)}에 해당합니다. 전세로 전환하면 매월 ${formatKRW(amount)}의 월세 지출을 절약할 수 있습니다.</p></div></div>
+            <div class="insight-item"><span class="icon">💰</span><div><strong>기회비용 비교</strong><p>전세보증금 ${formatKRW(r.deposit)}을 예금(연 3.5% 가정)에 넣으면 월 이자 약 ${formatKRW(depositInterest)}입니다. ${depositInterest < amount ? '이자보다 월세가 더 크므로 전세가 경제적으로 유리합니다.' : '이자가 월세보다 크므로 월세가 경제적으로 유리할 수 있습니다.'}</p></div></div>
+            <div class="insight-item"><span class="icon">💡</span><div><strong>전환율 시세</strong><p>현재 전환율 ${conversionRate}%를 적용했습니다. 법정 상한은 5.0%(기준금리 3.0% + 2.0%)이며, 전환율이 높을수록 같은 월세에 대해 더 적은 보증금으로 전환됩니다.</p></div></div>
+          </div>`;
+
+      } else {
+        const r = CalcCore.depositToRent(amount, conversionRate);
+        const annualRent = r.monthlyRent * 12;
+
+        resultHTML = `
+          <div class="result-card">
+            <h3>전세 → 월세 전환 결과</h3>
+            <div class="result-item"><span>입력 전세보증금</span><strong>${formatKRW(amount)}</strong></div>
+            <div class="result-item"><span>적용 전환율</span><strong>${conversionRate}%</strong></div>
+            <div class="result-item"><span>연간 월세 합계</span><strong>${formatKRW(annualRent)}</strong></div>
+            <div class="result-item primary"><span>전환 월세</span><strong>${formatKRW(r.monthlyRent)}</strong></div>
+          </div>`;
+
+        const depositInterest = Math.round(amount * 0.035 / 12);
+        insightHTML = `
+          <div class="ai-card">
+            <h3>AI 맞춤 분석</h3>
+            <div class="insight-item"><span class="icon">📊</span><div><strong>전환 분석</strong><p>전세보증금 ${formatKRW(amount)}은 전환율 ${conversionRate}% 기준으로 월세 ${formatKRW(r.monthlyRent)}에 해당합니다. 연간 ${formatKRW(annualRent)}의 월세 지출이 발생합니다.</p></div></div>
+            <div class="insight-item"><span class="icon">💰</span><div><strong>기회비용 비교</strong><p>보증금 ${formatKRW(amount)}을 예금(연 3.5% 가정)에 넣으면 월 이자 약 ${formatKRW(depositInterest)}입니다. ${depositInterest < r.monthlyRent ? '월세가 이자보다 크므로 전세가 유리합니다.' : '이자가 월세보다 크므로 월세 전환이 유리할 수 있습니다.'}</p></div></div>
+            <div class="insight-item"><span class="icon">💡</span><div><strong>월세 세액공제</strong><p>월세 전환 시 총급여 7,000만원 이하 무주택 세대주는 월세의 15~17%(최대 750만원 한도)를 세액공제 받을 수 있습니다. 연간 최대 약 ${formatKRW(Math.min(annualRent, 7500000) * 0.17)} 절세가 가능합니다.</p></div></div>
+          </div>`;
+      }
+
+      document.getElementById('result').innerHTML = resultHTML;
+      document.getElementById('aiInsight').innerHTML = insightHTML;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

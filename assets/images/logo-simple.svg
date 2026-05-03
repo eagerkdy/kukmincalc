@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <!-- Simple: 깔끔한 원형 아이콘 + 타이포 -->
+  <circle cx="24" cy="24" r="22" fill="#1e3a8a"/>
+  <text x="24" y="30" text-anchor="middle" fill="white" font-family="'Noto Sans KR',sans-serif" font-weight="700" font-size="20">K</text>
+  <text x="56" y="32" fill="#1e3a8a" font-family="'Noto Sans KR',sans-serif" font-weight="800" font-size="22">국민계산기</text>
+</svg>

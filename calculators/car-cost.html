@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자동차 유지비 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 자동차 유지비 계산기 - 유류비, 보험료, 정비비, 세금, 감가상각까지 월/연 총 유지비용을 한눈에 확인하세요. 연료 종류별 비교와 절약 팁 제공.">
+  <meta property="og:title" content="자동차 유지비 계산기 - 국민계산기">
+  <meta property="og:description" content="자동차 월/연 유지비 자동 계산 - 유류비, 보험료, 정비비, 세금, 감가상각 포함 총비용을 확인하세요.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/car-cost">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/car-cost">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "자동차 유지비 계산기",
+    "description": "2026년 자동차 유지비를 유류비, 보험료, 정비비, 세금, 감가상각 항목별로 자동 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt; <a href="../index.html#life">생활</a> &gt; <span>자동차 유지비 계산기</span>
+    </nav>
+
+    <h1>🚗 자동차 유지비 계산기 2026</h1>
+    <p class="page-subtitle">차량 정보와 주행 습관을 입력하면 월/연간 자동차 유지비를 항목별로 자동 계산합니다.</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="carPrice">차량 가격 (원)</label>
+        <input type="text" id="carPrice" placeholder="예: 30,000,000" inputmode="numeric">
+        <div class="input-display" id="carPriceDisplay"></div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="20000000" data-target="carPrice">2,000만</button>
+          <button class="preset-btn" data-set="30000000" data-target="carPrice">3,000만</button>
+          <button class="preset-btn" data-set="50000000" data-target="carPrice">5,000만</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="fuelType">연료 종류</label>
+        <select id="fuelType">
+          <option value="gasoline">휘발유</option>
+          <option value="diesel">경유</option>
+          <option value="lpg">LPG</option>
+          <option value="electric">전기</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="kmPerMonth">월 주행거리 (km)</label>
+        <input type="text" id="kmPerMonth" placeholder="예: 1,000" inputmode="numeric" value="1000">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="500" data-target="kmPerMonth">500km</button>
+          <button class="preset-btn" data-set="1000" data-target="kmPerMonth">1,000km</button>
+          <button class="preset-btn" data-set="2000" data-target="kmPerMonth">2,000km</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="fuelEfficiency">연비 (km/L, 전기차: km/kWh)</label>
+        <input type="text" id="fuelEfficiency" placeholder="예: 12" inputmode="numeric" value="12">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="8" data-target="fuelEfficiency">8</button>
+          <button class="preset-btn" data-set="12" data-target="fuelEfficiency">12</button>
+          <button class="preset-btn" data-set="16" data-target="fuelEfficiency">16</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="fuelPrice">유가 (원/L, 전기: 원/kWh)</label>
+        <input type="text" id="fuelPrice" placeholder="예: 1,650" inputmode="numeric" value="1650">
+        <small>휘발유 평균 ~1,650원, 경유 ~1,500원, LPG ~1,000원, 전기 ~300원/kWh</small>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>자동차 유지비란?</h2>
+      <p>자동차 유지비는 차량을 소유하고 운행하면서 발생하는 모든 비용을 말합니다. 많은 분들이 차량 구매 시 차량 가격만 고려하지만, 실제로는 구매 후 발생하는 유지비가 차량 구매 비용보다 훨씬 크기 때문에 반드시 사전에 계산해 보아야 합니다. 유지비에는 크게 유류비, 자동차보험료, 정비비, 자동차세, 감가상각비 등이 포함됩니다.</p>
+
+      <h3>주요 유지비 항목별 설명</h3>
+      <p><strong>유류비:</strong> 자동차 유지비 중 가장 큰 비중을 차지하는 항목입니다. 월 주행거리, 차량 연비, 연료 종류에 따라 크게 달라집니다. 2026년 기준 휘발유 평균 가격은 리터당 약 1,650원, 경유는 약 1,500원, LPG는 약 1,000원 수준입니다. 전기차의 경우 kWh당 약 300원으로 내연기관 대비 유류비가 크게 절감됩니다.</p>
+      <p><strong>자동차보험료:</strong> 의무보험(책임보험)과 임의보험(종합보험)으로 나뉩니다. 차량 가격, 운전자 연령, 사고 이력, 보장 범위에 따라 달라지며, 일반적으로 차량 가격의 3~5% 수준입니다. 운전 경력이 쌓이고 무사고 할인이 적용되면 보험료가 점차 낮아집니다.</p>
+      <p><strong>정비비:</strong> 엔진오일 교환, 타이어 교체, 브레이크 패드 교체, 각종 소모품 교체 등에 드는 비용입니다. 차량의 연식과 주행거리에 따라 증가하며, 국산차는 상대적으로 정비비가 저렴하고 수입차는 비용이 높은 편입니다.</p>
+      <p><strong>자동차세:</strong> 배기량에 따라 부과되는 지방세로, 비영업용 승용차 기준 1,000cc 이하는 cc당 80원, 1,600cc 이하는 140원, 1,600cc 초과는 200원이 적용됩니다. 전기차는 비영업용 기준 연간 130,000원의 정액 자동차세가 부과됩니다.</p>
+      <p><strong>감가상각비:</strong> 차량의 가치 하락분을 비용으로 인식한 것입니다. 일반적으로 신차는 첫 해에 약 15~20%, 이후 매년 10~15%씩 가치가 하락합니다. 중고차로 판매할 때 실질적으로 체감하게 되는 비용이므로 계획적으로 관리하는 것이 중요합니다.</p>
+
+      <h3>유지비 절약 팁</h3>
+      <p>경제적인 운전 습관(에코 드라이빙), 정기적인 타이어 공기압 점검, 불필요한 공회전 줄이기, 주유 할인 카드 활용, 자동차보험 비교 견적 등을 통해 연간 수십만 원에서 수백만 원까지 절약할 수 있습니다. 또한 출퇴근 거리가 짧다면 전기차나 하이브리드 차량으로의 전환도 고려해 볼 만합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "자동차 유지비에서 가장 큰 비중을 차지하는 항목은?",
+            "acceptedAnswer": { "@type": "Answer", "text": "일반적으로 유류비가 가장 큰 비중을 차지합니다. 월 주행거리가 1,000km 이상인 경우 월 유류비만 10만 원 이상 발생할 수 있습니다. 다만 차량 가격이 높을수록 감가상각비의 비중도 커집니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "전기차로 바꾸면 유지비가 얼마나 절약되나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "전기차는 내연기관 대비 유류비가 약 60~70% 절감됩니다. 또한 엔진오일 교환 등의 정비비가 없어 추가 절감이 가능합니다. 다만 배터리 교체 비용과 충전 인프라를 고려해야 합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "자동차보험료를 줄이는 방법은?",
+            "acceptedAnswer": { "@type": "Answer", "text": "여러 보험사 비교 견적, 블랙박스 할인, 마일리지 특약, 안전운전 할인, 다자녀 할인 등을 활용하면 보험료를 10~30%까지 절감할 수 있습니다. 또한 무사고 경력이 쌓이면 자동으로 할인율이 높아집니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "차량 감가상각은 어떻게 계산하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "일반적으로 정률법을 적용하여 첫 해 15~20%, 이후 매년 10~15% 수준으로 감가합니다. 예를 들어 3,000만 원 차량은 1년 후 약 2,550만 원, 3년 후 약 1,800만 원 정도의 시세가 형성됩니다." }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>자동차 유지비에서 가장 큰 비중을 차지하는 항목은?</summary>
+        <p>일반적으로 유류비가 가장 큰 비중을 차지합니다. 월 주행거리가 1,000km 이상인 경우 월 유류비만 10만 원 이상 발생할 수 있습니다. 다만 차량 가격이 높을수록 감가상각비의 비중도 커집니다. 전체 유지비를 줄이려면 연비 좋은 차량 선택과 효율적인 운전 습관이 중요합니다.</p>
+      </details>
+      <details>
+        <summary>전기차로 바꾸면 유지비가 얼마나 절약되나요?</summary>
+        <p>전기차는 내연기관 대비 유류비가 약 60~70% 절감됩니다. 또한 엔진오일 교환 등의 정비비가 없어 추가 절감이 가능합니다. 다만 배터리 교체 비용(10년 이후 발생 가능)과 충전 인프라 접근성을 종합적으로 고려해야 합니다.</p>
+      </details>
+      <details>
+        <summary>자동차보험료를 줄이는 방법은?</summary>
+        <p>여러 보험사 비교 견적, 블랙박스 할인, 마일리지 특약, 안전운전 할인, 다자녀 할인 등을 활용하면 보험료를 10~30%까지 절감할 수 있습니다. 또한 무사고 경력이 쌓이면 자동으로 할인율이 높아집니다.</p>
+      </details>
+      <details>
+        <summary>차량 감가상각은 어떻게 계산하나요?</summary>
+        <p>일반적으로 정률법을 적용하여 첫 해 15~20%, 이후 매년 10~15% 수준으로 감가합니다. 예를 들어 3,000만 원 차량은 1년 후 약 2,550만 원, 3년 후 약 1,800만 원 정도의 시세가 형성됩니다. 인기 차종이나 수요가 많은 색상은 감가율이 상대적으로 낮습니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="tip-calculator.html" class="related-card">
+          <div class="icon">💳</div>
+          <h4>팁/더치페이 계산기</h4>
+          <p>모임 비용 정확히 나누기</p>
+        </a>
+        <a href="unit-converter.html" class="related-card">
+          <div class="icon">📐</div>
+          <h4>단위 변환기</h4>
+          <p>길이·무게·면적 변환</p>
+        </a>
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+        <a href="wedding-cost.html" class="related-card">
+          <div class="icon">💒</div>
+          <h4>결혼비용 계산기</h4>
+          <p>결혼 총비용 산출</p>
+        </a>
+        <a href="child-cost.html" class="related-card">
+          <div class="icon">👶</div>
+          <h4>육아비용 계산기</h4>
+          <p>자녀 양육비 계산</p>
+        </a>
+        <a href="income-tax.html" class="related-card">
+          <div class="icon">📊</div>
+          <h4>종합소득세 계산기</h4>
+          <p>소득세 자동 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const carPrice = parseInput(document.getElementById('carPrice').value);
+      const fuelType = document.getElementById('fuelType').value;
+      const kmPerMonth = parseInput(document.getElementById('kmPerMonth').value);
+      const fuelEfficiency = parseInput(document.getElementById('fuelEfficiency').value);
+      const fuelPrice = parseInput(document.getElementById('fuelPrice').value);
+
+      document.getElementById('carPriceDisplay').textContent = carPrice > 0 ? formatKRW(carPrice) : '';
+
+      if (carPrice <= 0 || fuelEfficiency <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.carCost(carPrice, fuelType, kmPerMonth, fuelEfficiency, fuelPrice);
+      const annualTotal = r.totalWithDepr * 12;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>자동차 유지비 계산 결과</h3>
+          <div class="result-item">
+            <span>월 유류비</span>
+            <strong>${formatKRW(r.fuelCost)}</strong>
+          </div>
+          <div class="result-item">
+            <span>월 보험료</span>
+            <strong>${formatKRW(r.insurance)}</strong>
+          </div>
+          <div class="result-item">
+            <span>월 정비비</span>
+            <strong>${formatKRW(r.maintenance)}</strong>
+          </div>
+          <div class="result-item">
+            <span>월 자동차세</span>
+            <strong>${formatKRW(r.tax)}</strong>
+          </div>
+          <div class="result-item">
+            <span>월 감가상각비</span>
+            <strong>${formatKRW(r.depreciation)}</strong>
+          </div>
+          <div class="result-item primary">
+            <span>월 총 유지비 (감가상각 포함)</span>
+            <strong>${formatKRW(r.totalWithDepr)}</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>연 총 유지비</span>
+            <strong>${formatKRW(annualTotal)}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('자동차 유지비 계산결과: 월 유류비 ${formatKRW(r.fuelCost)}, 월 총비용 ${formatKRW(r.totalWithDepr)}, 연 총비용 ${formatKRW(annualTotal)}')">📋 결과 복사</button>
+          </div>
+        </div>`;
+
+      // AI 인사이트
+      const monthlyTransport = 65000; // 서울 교통카드 정기권 기준
+      const transportSaving = r.totalWithDepr - monthlyTransport;
+
+      // 전기차 전환 시 절감
+      let evSaving = 0;
+      if (fuelType !== 'electric') {
+        const evFuelCost = Math.round((kmPerMonth / 6) * 300); // 전기차 연비 6km/kWh, 300원/kWh
+        evSaving = r.fuelCost - evFuelCost;
+      }
+
+      let tips = [];
+      tips.push({
+        icon: '🚌',
+        title: '대중교통 대비 비용',
+        text: transportSaving > 0
+          ? `월 대중교통비(정기권 약 ${formatNumber(monthlyTransport)}원) 대비 월 ${formatKRW(transportSaving)} 더 지출하고 있습니다. 연간으로는 약 ${formatKRW(transportSaving * 12)}의 차이입니다.`
+          : `자동차 유지비가 대중교통비보다 저렴한 상황입니다.`
+      });
+
+      if (fuelType !== 'electric') {
+        tips.push({
+          icon: '⚡',
+          title: '전기차 전환 시 절감액',
+          text: `현재 연료 대비 전기차로 전환하면 월 유류비를 약 ${formatKRW(evSaving)} 절감할 수 있습니다. 연간 약 ${formatKRW(evSaving * 12)} 절약이 가능합니다.`
+        });
+      }
+
+      tips.push({
+        icon: '💡',
+        title: '유지비 절약 팁',
+        text: '에코 드라이빙, 정기 정비, 보험 비교 견적, 주유 할인 카드 활용으로 연간 50~100만 원까지 절약이 가능합니다.'
+      });
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 맞춤 분석</h3>
+          ${tips.map(t => `
+            <div class="insight-item">
+              <span class="icon">${t.icon}</span>
+              <div><strong>${t.title}</strong><p>${t.text}</p></div>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

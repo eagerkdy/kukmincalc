@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인테리어 비용 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 인테리어(리모델링) 비용 자동 계산기. 면적(㎡)과 시공 등급을 입력하면 평수 변환, 평당 단가, 예상 총비용을 즉시 계산합니다. 기본부터 럭셔리까지.">
+  <meta property="og:title" content="인테리어 비용 계산기 - 국민계산기">
+  <meta property="og:description" content="면적과 시공 등급에 따른 인테리어 예상 비용을 자동 계산합니다.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/remodel-cost">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/remodel-cost">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "인테리어 비용 계산기",
+    "description": "면적(㎡)과 시공 등급(기본/표준/프리미엄/럭셔리)을 입력하여 인테리어 예상 비용을 자동으로 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#realestate">부동산</a> &gt;
+      <span>인테리어 비용 계산기</span>
+    </nav>
+
+    <h1>🔨 인테리어 비용 계산기 2026</h1>
+    <p class="page-subtitle">면적과 시공 등급을 선택하면 인테리어 예상 비용을 자동으로 산출합니다</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="area">면적 (㎡)</label>
+        <input type="number" id="area" value="84" min="1" max="1000" step="0.1">
+        <div class="input-display" id="pyeongDisplay">약 25.4평</div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="33" data-target="area">10평 (33㎡)</button>
+          <button class="preset-btn" data-set="59" data-target="area">18평 (59㎡)</button>
+          <button class="preset-btn" data-set="84" data-target="area">25평 (84㎡)</button>
+          <button class="preset-btn" data-set="115" data-target="area">35평 (115㎡)</button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="level">시공 등급</label>
+        <select id="level">
+          <option value="basic">기본 (평당 약 300만원)</option>
+          <option value="standard" selected>표준 (평당 약 500만원)</option>
+          <option value="premium">프리미엄 (평당 약 800만원)</option>
+          <option value="luxury">럭셔리 (평당 약 1,200만원)</option>
+        </select>
+        <small>등급별 포함 범위와 자재 품질이 다릅니다</small>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>인테리어 비용 산정 기준</h2>
+      <p>인테리어(리모델링) 비용은 면적(평수)과 시공 등급에 따라 크게 달라집니다. 본 계산기는 2026년 기준 평당 단가를 적용하여 예상 총비용을 산출합니다. 실제 비용은 시공 범위, 자재 선택, 업체, 지역에 따라 차이가 있으므로 참고용으로 활용하시기 바랍니다.</p>
+
+      <h3>등급별 시공 범위</h3>
+      <div class="method-card">
+        <h3>기본 등급 (평당 약 300만원)</h3>
+        <p>도배, 장판, 화장실 부분 수리, 조명 교체, 기본 페인트 작업이 포함됩니다. 최소한의 비용으로 분위기를 바꾸고 싶을 때 적합합니다. 구조 변경이나 바닥재 교체는 포함되지 않습니다.</p>
+      </div>
+      <div class="method-card">
+        <h3>표준 등급 (평당 약 500만원)</h3>
+        <p>도배, 바닥재(강마루/강화마루), 화장실 전체 리모델링, 주방 싱크대 교체, 조명 교체, 몰딩 작업이 포함됩니다. 가장 많이 선택하는 등급으로 가성비가 좋습니다.</p>
+      </div>
+      <div class="method-card">
+        <h3>프리미엄 등급 (평당 약 800만원)</h3>
+        <p>표준 등급의 모든 항목 + 원목마루, 시스템 에어컨 배관, 중문 설치, 붙박이장, 타일 시공, 고급 조명, 전기/배관 부분 교체가 포함됩니다. 고급스러운 마감을 원하는 경우 적합합니다.</p>
+      </div>
+      <div class="method-card">
+        <h3>럭셔리 등급 (평당 약 1,200만원)</h3>
+        <p>프리미엄 등급의 모든 항목 + 구조 변경(철거/신설), 전체 배관 교체, 수입 자재, 맞춤 가구, 스마트홈 시스템, 고급 수전/위생도기가 포함됩니다. 완전한 공간 재설계가 가능합니다.</p>
+      </div>
+
+      <h3>인테리어 비용 절감 팁</h3>
+      <p>인테리어 비용을 절약하기 위해서는 몇 가지 전략이 있습니다. 첫째, 최소 3곳 이상의 업체에서 견적을 받아 비교하세요. 둘째, 부분 시공을 활용하여 꼭 필요한 공간만 시공하면 비용을 크게 줄일 수 있습니다. 셋째, 자재를 직접 구매(자재 직구)하면 업체 마진을 절약할 수 있습니다. 넷째, 비수기(겨울)에 시공하면 업체 경쟁으로 할인을 받을 수 있습니다. 다만 너무 저렴한 견적은 자재 품질이나 시공 퀄리티에서 문제가 될 수 있으므로 포트폴리오와 후기를 반드시 확인하세요.</p>
+
+      <h3>추가 비용 항목</h3>
+      <p>인테리어 시공비 외에도 이사비용, 임시 거주비(시공 기간), 폐기물 처리비, 가전/가구 구매비 등 부대비용이 발생합니다. 일반적으로 시공비의 10~20%를 추가 비용으로 예비 책정하는 것이 안전합니다. 또한 아파트의 경우 관리사무소 동의, 시공 시간 제한 등 규정을 사전에 확인해야 합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "인테리어 시공 기간은 얼마나 걸리나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "기본 등급은 1~2주, 표준 등급은 3~4주, 프리미엄은 4~6주, 럭셔리는 8~12주 정도 소요됩니다. 구조 변경이 포함되면 기간이 더 길어집니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "올수리와 부분수리 중 어떤 것이 좋은가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "입주 전이라면 올수리가 효율적이고 통일감 있는 마감이 가능합니다. 거주 중이면 부분수리(화장실, 주방 등)가 비용과 불편을 줄일 수 있습니다. 20년 이상 된 주택은 배관 문제가 있을 수 있어 올수리를 권장합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "인테리어 업체 선정 시 주의사항은?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "사업자등록증 확인, 포트폴리오 및 시공 사례 확인, 최소 3곳 비교 견적, 계약서 상세 항목 확인(자재 브랜드, A/S 기간 등), 중간금·잔금 비율 확인 등이 중요합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "셀프 인테리어로 비용을 얼마나 아낄 수 있나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "도배, 페인트, 조명 교체 등 간단한 작업은 셀프로 하면 인건비(전체의 30~40%)를 절약할 수 있습니다. 다만 배관, 전기, 타일 등 전문 기술이 필요한 작업은 전문가에게 맡기는 것이 안전합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "인테리어 비용 대출이 가능한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "주택 인테리어 전용 대출 상품은 드물지만, 신용대출이나 주택담보대출 추가 실행을 통해 자금을 마련할 수 있습니다. 일부 인테리어 업체에서는 카드 할부나 제휴 금융 상품을 제공하기도 합니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>인테리어 시공 기간은 얼마나 걸리나요?</summary>
+        <p>기본 등급은 1~2주, 표준 등급은 3~4주, 프리미엄은 4~6주, 럭셔리는 8~12주 정도 소요됩니다. 구조 변경이 포함되면 기간이 더 길어집니다.</p>
+      </details>
+      <details>
+        <summary>올수리와 부분수리 중 어떤 것이 좋은가요?</summary>
+        <p>입주 전이라면 올수리가 효율적이고 통일감 있는 마감이 가능합니다. 거주 중이면 부분수리(화장실, 주방 등)가 비용과 불편을 줄일 수 있습니다. 20년 이상 된 주택은 배관 문제가 있을 수 있어 올수리를 권장합니다.</p>
+      </details>
+      <details>
+        <summary>인테리어 업체 선정 시 주의사항은?</summary>
+        <p>사업자등록증 확인, 포트폴리오 및 시공 사례 확인, 최소 3곳 비교 견적, 계약서 상세 항목 확인(자재 브랜드, A/S 기간 등), 중간금·잔금 비율 확인 등이 중요합니다.</p>
+      </details>
+      <details>
+        <summary>셀프 인테리어로 비용을 얼마나 아낄 수 있나요?</summary>
+        <p>도배, 페인트, 조명 교체 등 간단한 작업은 셀프로 하면 인건비(전체의 30~40%)를 절약할 수 있습니다. 다만 배관, 전기, 타일 등 전문 기술이 필요한 작업은 전문가에게 맡기는 것이 안전합니다.</p>
+      </details>
+      <details>
+        <summary>인테리어 비용 대출이 가능한가요?</summary>
+        <p>주택 인테리어 전용 대출 상품은 드물지만, 신용대출이나 주택담보대출 추가 실행을 통해 자금을 마련할 수 있습니다. 일부 인테리어 업체에서는 카드 할부나 제휴 금융 상품을 제공하기도 합니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="moving-cost.html" class="related-card"><span class="icon">🚚</span><h4>이사비용 계산기</h4><p>주거형태·거리별 견적 산출</p></a>
+        <a href="rent-to-deposit.html" class="related-card"><span class="icon">🔄</span><h4>월세↔전세 전환</h4><p>전월세 전환율 기반 변환</p></a>
+        <a href="mortgage-limit.html" class="related-card"><span class="icon">🏠</span><h4>주담대 한도 계산기</h4><p>LTV·DTI·DSR 기반 한도 산출</p></a>
+        <a href="acquisition-tax.html" class="related-card"><span class="icon">🔑</span><h4>취득세 계산기</h4><p>주택 수별 취득세 계산</p></a>
+        <a href="loan-interest.html" class="related-card"><span class="icon">🧮</span><h4>대출이자 계산기</h4><p>상환방식별 이자 비교</p></a>
+        <a href="unit-converter.html" class="related-card"><span class="icon">📏</span><h4>단위 변환기</h4><p>평↔㎡ 등 단위 변환</p></a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const area = parseFloat(document.getElementById('area').value) || 84;
+      const level = document.getElementById('level').value;
+
+      const r = CalcCore.remodelCost(area, level);
+      const pyeong = r.pyeong;
+      const perPyeongPrices = { basic: 3000000, standard: 5000000, premium: 8000000, luxury: 12000000 };
+      const perPyeong = perPyeongPrices[level];
+
+      // Update pyeong display
+      document.getElementById('pyeongDisplay').textContent = `약 ${pyeong}평`;
+
+      const levelNames = { basic: '기본', standard: '표준', premium: '프리미엄', luxury: '럭셔리' };
+      const levelName = levelNames[level];
+
+      // Estimate breakdown
+      const bathroomRatio = 0.25;
+      const kitchenRatio = 0.20;
+      const floorRatio = 0.20;
+      const wallRatio = 0.15;
+      const otherRatio = 0.20;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>인테리어 비용 계산 결과</h3>
+          <div class="result-item"><span>면적</span><strong>${area}㎡ (${pyeong}평)</strong></div>
+          <div class="result-item"><span>시공 등급</span><strong>${levelName}</strong></div>
+          <div class="result-item"><span>평당 단가</span><strong>${formatKRW(perPyeong)}</strong></div>
+          <div class="result-item primary"><span>예상 총비용</span><strong>${formatKRW(r.cost)}</strong></div>
+          <div class="result-item"><span>화장실 (약 ${(bathroomRatio*100).toFixed(0)}%)</span><strong>${formatKRW(Math.round(r.cost * bathroomRatio))}</strong></div>
+          <div class="result-item"><span>주방 (약 ${(kitchenRatio*100).toFixed(0)}%)</span><strong>${formatKRW(Math.round(r.cost * kitchenRatio))}</strong></div>
+          <div class="result-item"><span>바닥재 (약 ${(floorRatio*100).toFixed(0)}%)</span><strong>${formatKRW(Math.round(r.cost * floorRatio))}</strong></div>
+          <div class="result-item"><span>벽면/도배 (약 ${(wallRatio*100).toFixed(0)}%)</span><strong>${formatKRW(Math.round(r.cost * wallRatio))}</strong></div>
+          <div class="result-item"><span>기타 (조명, 몰딩 등)</span><strong>${formatKRW(Math.round(r.cost * otherRatio))}</strong></div>
+        </div>`;
+
+      // AI insight
+      const levelDetails = {
+        basic: '도배, 장판, 화장실 부분 수리, 조명 교체가 포함됩니다. 구조 변경이나 바닥재 교체는 미포함입니다.',
+        standard: '도배, 바닥재(강마루), 화장실 전체, 주방 싱크대, 조명, 몰딩이 포함됩니다. 가장 인기 있는 가성비 등급입니다.',
+        premium: '원목마루, 시스템 에어컨 배관, 중문, 붙박이장, 타일 시공, 고급 조명이 포함됩니다.',
+        luxury: '구조 변경, 전체 배관 교체, 수입 자재, 맞춤 가구, 스마트홈 시스템이 포함됩니다.'
+      };
+
+      const estimatedDuration = { basic: '1~2주', standard: '3~4주', premium: '4~6주', luxury: '8~12주' };
+      const contingency = Math.round(r.cost * 0.15);
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>AI 맞춤 분석</h3>
+          <div class="insight-item"><span class="icon">📊</span><div><strong>${levelName} 등급 포함 항목</strong><p>${levelDetails[level]}</p></div></div>
+          <div class="insight-item"><span class="icon">🕐</span><div><strong>예상 시공 기간</strong><p>${pyeong}평 ${levelName} 등급 기준 약 ${estimatedDuration[level]} 소요됩니다. 시공 기간 동안 임시 거주 비용도 고려해야 합니다.</p></div></div>
+          <div class="insight-item"><span class="icon">💡</span><div><strong>비용 절감 팁</strong><p>1) 부분 시공(화장실+주방만)으로 비용 절약, 2) 자재 직구로 마진 절감, 3) 비수기(겨울) 시공 할인, 4) 최소 3곳 견적 비교를 권장합니다. 예비비 약 ${formatKRW(contingency)}(15%)을 별도 확보하세요.</p></div></div>
+        </div>`;
+    }
+
+    // Live pyeong conversion on area input
+    document.getElementById('area').addEventListener('input', function () {
+      const area = parseFloat(this.value) || 0;
+      const pyeong = Math.round(area / 3.3058 * 10) / 10;
+      document.getElementById('pyeongDisplay').textContent = `약 ${pyeong}평`;
+    });
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

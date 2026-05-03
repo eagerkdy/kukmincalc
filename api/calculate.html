@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>국민계산기 API</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans KR', monospace, sans-serif; background: #f8fafc; color: #1e293b; padding: 2rem; }
+    pre { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; }
+    .error { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; padding: 1rem; border-radius: 8px; }
+    .meta { color: #64748b; font-size: 0.85rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="meta" id="meta"></div>
+  <pre id="output">Loading...</pre>
+
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    (function() {
+      const params = Object.fromEntries(new URLSearchParams(window.location.search));
+      const fn = params.fn;
+      delete params.fn;
+      const callback = params.callback;
+      delete params.callback;
+      const metaEl = document.getElementById('meta');
+      const outputEl = document.getElementById('output');
+
+      if (!fn) {
+        const info = {
+          service: "국민계산기 API",
+          version: "1.0",
+          docs: "https://kukmincalc.com/docs/api.html",
+          usage: "?fn=함수명&param1=값1&param2=값2",
+          available_functions: Object.keys(CalcCore).filter(k => typeof CalcCore[k] === 'function')
+        };
+        metaEl.textContent = "국민계산기 API v1.0 — 사용 가능한 함수 목록";
+        outputEl.textContent = JSON.stringify(info, null, 2);
+        return;
+      }
+
+      if (typeof CalcCore[fn] !== 'function') {
+        const err = { success: false, error: "Unknown function: " + fn, available: Object.keys(CalcCore).filter(k => typeof CalcCore[k] === 'function') };
+        outputEl.className = 'error';
+        outputEl.textContent = JSON.stringify(err, null, 2);
+        return;
+      }
+
+      // 파라미터 타입 자동 변환
+      const args = Object.entries(params).map(([key, val]) => {
+        if (val === 'true') return true;
+        if (val === 'false') return false;
+        if (!isNaN(val) && val !== '') return parseFloat(val);
+        return val;
+      });
+
+      try {
+        const result = CalcCore[fn](...args);
+        const response = {
+          success: true,
+          function: fn,
+          params: params,
+          data: result,
+          timestamp: new Date().toISOString(),
+          credit: "국민계산기 (https://kukmincalc.com)"
+        };
+
+        metaEl.textContent = `CalcCore.${fn}(${args.join(', ')})`;
+        outputEl.textContent = JSON.stringify(response, null, 2);
+
+        // JSONP 콜백 지원
+        if (callback && /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(callback)) {
+          document.write(`<script>${callback}(${JSON.stringify(response)})<\/script>`);
+          return;
+        }
+
+        // postMessage (iframe 사용 시 부모에게 결과 전달)
+        if (window.parent !== window) {
+          window.parent.postMessage({ type: 'gukmin-calc-result', ...response }, '*');
+        }
+
+      } catch (e) {
+        const err = { success: false, error: e.message, function: fn, params: params };
+        outputEl.className = 'error';
+        outputEl.textContent = JSON.stringify(err, null, 2);
+      }
+    })();
+  </script>
+</body>
+</html>

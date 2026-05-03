@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이사비용 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 이사비용 자동 견적 계산기. 주거형태, 이동거리, 층수, 엘리베이터 유무, 이사 시즌을 입력하면 예상 이사비용과 포장이사 추가금을 즉시 계산합니다.">
+  <meta property="og:title" content="이사비용 계산기 - 국민계산기">
+  <meta property="og:description" content="주거형태·거리·층수별 이사 견적을 자동으로 산출합니다.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/moving-cost">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/moving-cost">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "이사비용 계산기",
+    "description": "주거형태, 이동거리, 층수, 엘리베이터 유무, 시즌을 고려한 이사비용 예상 견적을 자동으로 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#realestate">부동산</a> &gt;
+      <span>이사비용 계산기</span>
+    </nav>
+
+    <h1>🚚 이사비용 계산기 2026</h1>
+    <p class="page-subtitle">주거 형태와 조건을 입력하면 예상 이사비용을 자동으로 산출합니다</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="houseType">주거 형태</label>
+        <select id="houseType">
+          <option value="1room">원룸</option>
+          <option value="2room">투룸 (1.5룸 포함)</option>
+          <option value="3room" selected>쓰리룸 (아파트 25평형)</option>
+          <option value="4room">포룸 (아파트 35평형 이상)</option>
+          <option value="house">주택 (빌라/단독)</option>
+        </select>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="distance">이동 거리 (km)</label>
+          <input type="number" id="distance" value="10" min="1" max="1000">
+          <div class="preset-buttons">
+            <button class="preset-btn" data-set="5" data-target="distance">5km</button>
+            <button class="preset-btn" data-set="20" data-target="distance">20km</button>
+            <button class="preset-btn" data-set="50" data-target="distance">50km</button>
+            <button class="preset-btn" data-set="200" data-target="distance">200km</button>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="floor">층수</label>
+          <input type="number" id="floor" value="5" min="1" max="60">
+          <div class="preset-buttons">
+            <button class="preset-btn" data-set="1" data-target="floor">1층</button>
+            <button class="preset-btn" data-set="5" data-target="floor">5층</button>
+            <button class="preset-btn" data-set="10" data-target="floor">10층</button>
+            <button class="preset-btn" data-set="20" data-target="floor">20층</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="hasElevator">엘리베이터 유무</label>
+          <select id="hasElevator">
+            <option value="true" selected>있음</option>
+            <option value="false">없음</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="season">이사 시즌</label>
+          <select id="season">
+            <option value="normal" selected>일반 (비수기)</option>
+            <option value="peak">성수기 (2~3월, 8~9월)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>이사비용 산정 기준</h2>
+      <p>이사비용은 주거 형태(짐의 양), 이동 거리, 층수, 엘리베이터 유무, 이사 시즌 등 여러 요소에 의해 결정됩니다. 본 계산기는 2026년 기준 평균적인 이사 견적을 산출하며, 실제 비용은 이사업체, 지역, 짐의 양에 따라 달라질 수 있습니다.</p>
+
+      <h3>주거 형태별 기본 비용</h3>
+      <p>이사비용의 기본이 되는 것은 주거 형태입니다. 짐의 양에 따라 필요한 차량 크기와 인원이 달라집니다. 원룸은 약 30만원, 투룸은 약 50만원, 쓰리룸(25평형)은 약 80만원, 포룸(35평형 이상)은 약 120만원, 주택/빌라는 약 200만원이 기본 비용으로 산정됩니다. 이는 일반 이사(반포장) 기준이며, 포장이사 선택 시 50~100% 추가됩니다.</p>
+
+      <h3>거리에 따른 할증</h3>
+      <p>이동 거리가 30km를 초과하면 약 30%의 추가 비용이 발생하며, 100km를 초과하는 장거리 이사의 경우 약 80%까지 할증될 수 있습니다. 특히 시도 간 장거리 이사는 고속도로 통행료, 유류비, 추가 인건비가 반영됩니다.</p>
+
+      <h3>층수 및 엘리베이터</h3>
+      <p>고층 이사에서 엘리베이터가 없는 경우 추가 인건비와 시간이 소요됩니다. 엘리베이터 없이 3층 이상인 경우 약 20%의 추가 비용이 발생합니다. 엘리베이터가 있는 아파트의 경우 층수에 관계없이 추가 비용이 발생하지 않습니다. 다만 사다리차가 필요한 경우(엘리베이터에 가구가 들어가지 않는 경우) 별도 비용(5~15만원)이 발생할 수 있습니다.</p>
+
+      <h3>이사 시즌(성수기)</h3>
+      <p>2~3월(신학기, 입학)과 8~9월(가을 이사)은 이사 성수기로 수요가 급증합니다. 성수기에는 기본 비용의 약 50%가 할증되며, 주말과 월말에는 추가 할증이 있을 수 있습니다. 비용을 절약하려면 비수기인 4~7월, 10~1월 평일에 이사하는 것이 좋습니다.</p>
+
+      <h3>포장이사 vs 일반이사</h3>
+      <p>포장이사는 짐 포장부터 운반, 정리까지 업체가 전담하는 서비스로, 일반이사(반포장) 대비 50~100% 비용이 추가됩니다. 맞벌이 가정이나 짐이 많은 경우 포장이사가 편리하지만, 비용을 절약하려면 직접 포장 후 운반만 맡기는 일반이사를 선택할 수 있습니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "이사 성수기는 언제인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "2~3월(신학기·입학 시즌)과 8~9월(가을 이사 시즌)이 대표적인 성수기입니다. 이 시기에는 비용이 50% 이상 할증될 수 있으며 예약도 어렵습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "포장이사와 일반이사의 차이는?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "포장이사는 짐 포장~운반~정리까지 업체가 전담하며, 일반이사(반포장)는 짐을 직접 포장하고 운반만 업체에 맡깁니다. 포장이사가 50~100% 더 비쌉니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "이사비용을 줄이는 방법은?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "비수기 평일에 이사하고, 불필요한 짐을 사전 정리하며, 3곳 이상 견적을 비교하세요. 반포장이사를 선택하거나 용달 이사(원룸)를 활용하면 비용을 크게 절약할 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "이사 중 파손이 발생하면 어떻게 하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "이사업체는 운송물 파손에 대한 배상 의무가 있습니다. 이사 전 귀중품과 고가 물품을 사진으로 기록하고, 이사 후 즉시 확인하세요. 문제 발생 시 한국소비자원에 분쟁조정을 신청할 수 있습니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>이사 성수기는 언제인가요?</summary>
+        <p>2~3월(신학기·입학 시즌)과 8~9월(가을 이사 시즌)이 대표적인 성수기입니다. 이 시기에는 비용이 50% 이상 할증될 수 있으며 예약도 어렵습니다.</p>
+      </details>
+      <details>
+        <summary>포장이사와 일반이사의 차이는?</summary>
+        <p>포장이사는 짐 포장~운반~정리까지 업체가 전담하며, 일반이사(반포장)는 짐을 직접 포장하고 운반만 업체에 맡깁니다. 포장이사가 50~100% 더 비쌉니다.</p>
+      </details>
+      <details>
+        <summary>이사비용을 줄이는 방법은?</summary>
+        <p>비수기 평일에 이사하고, 불필요한 짐을 사전 정리하며, 3곳 이상 견적을 비교하세요. 반포장이사를 선택하거나 용달 이사(원룸)를 활용하면 비용을 크게 절약할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>이사 중 파손이 발생하면 어떻게 하나요?</summary>
+        <p>이사업체는 운송물 파손에 대한 배상 의무가 있습니다. 이사 전 귀중품과 고가 물품을 사진으로 기록하고, 이사 후 즉시 확인하세요. 문제 발생 시 한국소비자원에 분쟁조정을 신청할 수 있습니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="remodel-cost.html" class="related-card"><span class="icon">🔨</span><h4>인테리어 비용</h4><p>평수·등급별 비용 계산</p></a>
+        <a href="rent-to-deposit.html" class="related-card"><span class="icon">🔄</span><h4>월세↔전세 전환</h4><p>전월세 전환율 기반 변환</p></a>
+        <a href="mortgage-limit.html" class="related-card"><span class="icon">🏠</span><h4>주담대 한도 계산기</h4><p>LTV·DTI·DSR 기반 한도 산출</p></a>
+        <a href="acquisition-tax.html" class="related-card"><span class="icon">🔑</span><h4>취득세 계산기</h4><p>주택 수별 취득세 계산</p></a>
+        <a href="comprehensive-property-tax.html" class="related-card"><span class="icon">🏢</span><h4>종부세 계산기</h4><p>종합부동산세 자동 계산</p></a>
+        <a href="property-tax.html" class="related-card"><span class="icon">🏘️</span><h4>재산세 계산기</h4><p>공시가격 기반 재산세 계산</p></a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const houseType = document.getElementById('houseType').value;
+      const distance = parseInt(document.getElementById('distance').value) || 10;
+      const floor = parseInt(document.getElementById('floor').value) || 1;
+      const hasElevator = document.getElementById('hasElevator').value === 'true';
+      const season = document.getElementById('season').value;
+
+      const r = CalcCore.movingCost(houseType, distance, floor, hasElevator, season);
+      const baseCost = r.cost;
+      const packagingExtra = Math.round(baseCost * 0.7); // 포장이사 추가금 (~70%)
+      const totalWithPackaging = baseCost + packagingExtra;
+
+      const houseTypeNames = { '1room': '원룸', '2room': '투룸', '3room': '쓰리룸', '4room': '포룸', 'house': '주택' };
+      const typeName = houseTypeNames[houseType] || houseType;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>이사비용 계산 결과</h3>
+          <div class="result-item"><span>주거 형태</span><strong>${typeName}</strong></div>
+          <div class="result-item"><span>이동 거리</span><strong>${formatNumber(distance)}km</strong></div>
+          <div class="result-item"><span>층수 / 엘리베이터</span><strong>${floor}층 / ${hasElevator ? '있음' : '없음'}</strong></div>
+          <div class="result-item"><span>시즌</span><strong>${season === 'peak' ? '성수기' : '일반(비수기)'}</strong></div>
+          <div class="result-item primary"><span>일반이사 예상비용</span><strong>${formatKRW(baseCost)}</strong></div>
+          <div class="result-item"><span>포장이사 추가금</span><strong>+${formatKRW(packagingExtra)}</strong></div>
+          <div class="result-item primary"><span>포장이사 총 예상비용</span><strong>${formatKRW(totalWithPackaging)}</strong></div>
+        </div>`;
+
+      // AI insight
+      let tips = [];
+      if (season === 'peak') tips.push('성수기(2~3월, 8~9월) 할증이 적용되었습니다. 비수기로 일정 조정 시 약 30~50% 절약 가능합니다.');
+      if (!hasElevator && floor > 3) tips.push('엘리베이터 없는 고층('+floor+'층) 할증이 적용되었습니다. 사다리차 사용 시 별도 5~15만원이 추가될 수 있습니다.');
+      if (distance > 100) tips.push('장거리('+distance+'km) 할증이 적용되었습니다. 고속도로 통행료와 유류비가 포함됩니다.');
+      else if (distance > 30) tips.push('중거리('+distance+'km) 할증이 적용되었습니다.');
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>AI 맞춤 분석</h3>
+          <div class="insight-item"><span class="icon">📊</span><div><strong>비용 구성</strong><p>${typeName} 기준 일반이사 ${formatKRW(baseCost)}, 포장이사 시 약 ${formatKRW(totalWithPackaging)}으로 예상됩니다. 실제 비용은 짐의 양과 업체에 따라 ±20% 차이가 날 수 있습니다.</p></div></div>
+          ${tips.length > 0 ? `<div class="insight-item"><span class="icon">⚠️</span><div><strong>할증 요인</strong><p>${tips.join(' ')}</p></div></div>` : ''}
+          <div class="insight-item"><span class="icon">💡</span><div><strong>절약 팁</strong><p>1) 최소 3곳 이상 견적 비교, 2) 비수기 평일 이사, 3) 불필요한 짐 사전 정리, 4) 소형 짐은 직접 운반, 5) 이사 후기가 좋은 업체 선택을 권장합니다. 원룸은 용달이사가 가장 경제적입니다.</p></div></div>
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

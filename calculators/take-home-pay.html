@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연봉 실수령액 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 연봉 실수령액 계산기. 연봉에서 국민연금, 건강보험, 고용보험, 소득세 등 공제 후 실제 월급 수령액을 정확하게 계산합니다. 부양가족·비과세 반영.">
+  <meta property="og:title" content="연봉 실수령액 계산기 - 국민계산기">
+  <meta property="og:description" content="연봉에서 4대보험·세금 공제 후 실수령액을 실시간 계산합니다.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/take-home-pay">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/take-home-pay">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "연봉 실수령액 계산기",
+    "description": "2026년 연봉에서 4대보험·소득세 공제 후 월 실수령액을 자동 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>연봉 실수령액 계산기</span>
+    </nav>
+
+    <h1>💵 연봉 실수령액 계산기 2026</h1>
+    <p class="page-subtitle">연봉에서 4대보험·세금 공제 후 실제 수령액을 바로 확인하세요</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="annualSalary">연봉 (원)</label>
+        <input type="text" id="annualSalary" value="50,000,000" placeholder="연봉 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="30000000" data-target="annualSalary">3,000만</button>
+          <button class="preset-btn active" data-set="50000000" data-target="annualSalary">5,000만</button>
+          <button class="preset-btn" data-set="70000000" data-target="annualSalary">7,000만</button>
+          <button class="preset-btn" data-set="100000000" data-target="annualSalary">1억</button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="dependents">부양가족 수 (본인 포함)</label>
+          <input type="number" id="dependents" value="1" min="1" max="20">
+        </div>
+        <div class="input-group">
+          <label for="children">20세 이하 자녀 수</label>
+          <input type="number" id="children" value="0" min="0" max="10">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="nonTaxable">비과세액 (월, 원)</label>
+        <input type="text" id="nonTaxable" value="200,000" placeholder="식대 등 비과세">
+        <small>식대 20만원 등 비과세 항목 합계</small>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>연봉 실수령액이란?</h2>
+      <p>연봉 실수령액이란 근로자가 회사로부터 받기로 한 연봉(총 급여)에서 국민연금, 건강보험, 장기요양보험, 고용보험 등 4대 사회보험료와 소득세, 지방소득세를 공제한 후 실제로 통장에 입금되는 금액을 의미합니다. 흔히 '세후 월급'이라고도 부르며, 취업·이직 시 가장 궁금한 정보 중 하나입니다.</p>
+
+      <h3>4대 사회보험 공제 항목</h3>
+      <p>국민연금은 과세 기준소득월액의 4.5%(근로자 부담분)가 공제되며, 2026년 기준 상한액은 월 265,500원입니다. 건강보험료는 보수월액의 3.545%가 부과되고, 장기요양보험료는 건강보험료의 12.95%가 추가됩니다. 고용보험료는 월 급여의 0.9%가 근로자 부담입니다.</p>
+
+      <h3>소득세 계산 방식</h3>
+      <p>근로소득세는 과세표준 구간별 누진세율(6%~45%)이 적용됩니다. 2026년 기준 1,400만원 이하 6%, 5,000만원 이하 15%, 8,800만원 이하 24%, 1.5억원 이하 35%, 3억원 이하 38%, 5억원 이하 40%, 10억원 이하 42%, 10억원 초과 45%입니다. 지방소득세는 소득세의 10%가 추가 부과됩니다.</p>
+
+      <h3>부양가족 공제</h3>
+      <p>부양가족 1인당 연 150만원의 기본공제가 적용되며, 20세 이하 자녀가 있으면 자녀세액공제(1인당 15만원)가 추가로 적용됩니다. 부양가족이 많을수록 소득세 부담이 줄어 실수령액이 증가합니다.</p>
+
+      <h3>비과세 소득</h3>
+      <p>식대(월 20만원 한도), 자가운전보조금(월 20만원 한도), 출산·보육수당(월 20만원 한도) 등은 비과세 소득으로 4대보험·소득세 산정 시 제외됩니다. 비과세 금액이 클수록 공제액이 줄어 실수령액이 높아집니다. 2026년부터 식대 비과세 한도가 월 20만원으로 유지되고 있으므로, 본인의 비과세 항목을 정확히 확인하는 것이 중요합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "연봉 5000만원이면 실수령액은 얼마인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "부양가족 1인, 비과세 20만원 기준으로 연봉 5,000만원의 월 실수령액은 약 350만원 내외입니다. 부양가족 수와 비과세 항목에 따라 달라질 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "연봉과 월급의 차이는 무엇인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "연봉은 1년간 받기로 한 총 급여(세전)이며, 월급은 연봉을 12로 나눈 금액입니다. 실수령 월급은 여기서 4대보험과 세금을 공제한 금액입니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "4대보험 요율은 매년 바뀌나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "네, 국민연금·건강보험·장기요양보험·고용보험 요율은 정부 고시에 따라 매년 조정됩니다. 본 계산기는 2026년 최신 요율을 반영합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "비과세 항목에는 어떤 것이 포함되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "대표적인 비과세 항목으로 식대(월 20만원), 자가운전보조금(월 20만원), 출산·보육수당(월 20만원), 생산직 야간근로수당 등이 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "실수령액을 높이려면 어떻게 해야 하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "비과세 항목(식대, 자가운전보조금 등)을 최대한 활용하고, 부양가족 공제를 정확히 반영하며, 연금저축·IRP 등 세액공제 상품을 활용하면 실수령액을 높일 수 있습니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 연봉 5000만원이면 실수령액은 얼마인가요?</summary><p>부양가족 1인, 비과세 20만원 기준으로 연봉 5,000만원의 월 실수령액은 약 350만원 내외입니다. 부양가족 수와 비과세 항목에 따라 달라질 수 있습니다.</p></details>
+      <details><summary>Q2. 연봉과 월급의 차이는 무엇인가요?</summary><p>연봉은 1년간 받기로 한 총 급여(세전)이며, 월급은 연봉을 12로 나눈 금액입니다. 실수령 월급은 여기서 4대보험과 세금을 공제한 금액입니다.</p></details>
+      <details><summary>Q3. 4대보험 요율은 매년 바뀌나요?</summary><p>네, 국민연금·건강보험·장기요양보험·고용보험 요율은 정부 고시에 따라 매년 조정됩니다. 본 계산기는 2026년 최신 요율을 반영합니다.</p></details>
+      <details><summary>Q4. 비과세 항목에는 어떤 것이 포함되나요?</summary><p>대표적인 비과세 항목으로 식대(월 20만원), 자가운전보조금(월 20만원), 출산·보육수당(월 20만원), 생산직 야간근로수당 등이 있습니다.</p></details>
+      <details><summary>Q5. 실수령액을 높이려면 어떻게 해야 하나요?</summary><p>비과세 항목(식대, 자가운전보조금 등)을 최대한 활용하고, 부양가족 공제를 정확히 반영하며, 연금저축·IRP 등 세액공제 상품을 활용하면 실수령액을 높일 수 있습니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="hourly-wage.html" class="related-card">
+          <div class="icon">⏰</div>
+          <h4>시급 계산기</h4>
+          <p>월급↔시급 변환</p>
+        </a>
+        <a href="severance-pay.html" class="related-card">
+          <div class="icon">🎒</div>
+          <h4>퇴직금 계산기</h4>
+          <p>퇴직금 자동 산출</p>
+        </a>
+        <a href="pension.html" class="related-card">
+          <div class="icon">🏦</div>
+          <h4>국민연금 계산기</h4>
+          <p>월 보험료 계산</p>
+        </a>
+        <a href="unemployment.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>실업급여 계산기</h4>
+          <p>수급액·기간 산출</p>
+        </a>
+        <a href="income-tax.html" class="related-card">
+          <div class="icon">📊</div>
+          <h4>종합소득세 계산기</h4>
+          <p>소득세 자동 계산</p>
+        </a>
+        <a href="overtime-pay.html" class="related-card">
+          <div class="icon">🌙</div>
+          <h4>야근수당 계산기</h4>
+          <p>연장근로 수당 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const annualSalary = parseInput(document.getElementById('annualSalary').value);
+      const dependents = parseInt(document.getElementById('dependents').value) || 1;
+      const children = parseInt(document.getElementById('children').value) || 0;
+      const nonTaxable = parseInput(document.getElementById('nonTaxable').value);
+
+      if (annualSalary <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.takeHomePay(annualSalary, dependents, children, nonTaxable);
+      const takeHomeRate = (r.takeHome / r.monthly * 100);
+      const avgSalary = 42000000; // 2026년 평균 연봉 추정
+      const vsAvg = ((annualSalary / avgSalary - 1) * 100);
+      const insuranceRate = ((r.nationalPension + r.healthInsurance + r.longTermCare + r.employmentIns) / r.monthly * 100);
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>월 실수령액 계산 결과</h3>
+          <div class="result-item primary">
+            <span>월 실수령액</span>
+            <strong>${formatNumber(r.takeHome)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>월 급여 (세전)</span>
+            <strong>${formatNumber(r.monthly)}원</strong>
+          </div>
+          <div class="result-item warn">
+            <span>월 공제합계</span>
+            <strong>-${formatNumber(r.totalDeduction)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>국민연금</span>
+            <strong>${formatNumber(r.nationalPension)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>건강보험</span>
+            <strong>${formatNumber(r.healthInsurance)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>장기요양보험</span>
+            <strong>${formatNumber(r.longTermCare)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>고용보험</span>
+            <strong>${formatNumber(r.employmentIns)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>소득세</span>
+            <strong>${formatNumber(r.incomeTax)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>지방소득세</span>
+            <strong>${formatNumber(r.localTax)}원</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>연간 실수령액</span>
+            <strong>${formatKRW(r.annualTakeHome)}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('연봉 ${formatKRW(annualSalary)} → 월 실수령액 ${formatNumber(r.takeHome)}원 (국민계산기)')">📋 복사</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">📊</span>
+            <div>
+              <strong>실수령률 ${takeHomeRate.toFixed(1)}%</strong>
+              <p>세전 월급 대비 ${takeHomeRate.toFixed(1)}%를 실제 수령합니다. ${takeHomeRate >= 85 ? '비교적 높은 실수령률입니다.' : takeHomeRate >= 75 ? '평균적인 실수령률입니다.' : '높은 연봉 구간으로 세금 부담이 큰 편입니다.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">📈</span>
+            <div>
+              <strong>평균 연봉 대비 ${vsAvg >= 0 ? '+' : ''}${vsAvg.toFixed(1)}%</strong>
+              <p>2026년 직장인 평균 연봉(약 4,200만원) 대비 ${vsAvg >= 0 ? vsAvg.toFixed(0) + '% 높은' : Math.abs(vsAvg).toFixed(0) + '% 낮은'} 수준입니다.</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">🛡️</span>
+            <div>
+              <strong>4대보험 부담률 ${insuranceRate.toFixed(1)}%</strong>
+              <p>월 급여의 ${insuranceRate.toFixed(1)}%가 4대 사회보험료로 공제됩니다. 국민연금 ${formatNumber(r.nationalPension)}원이 가장 큰 비중을 차지합니다.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

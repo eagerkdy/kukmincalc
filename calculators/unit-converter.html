@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>단위 변환기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 단위 변환기 - 길이, 무게, 면적, 온도, 부피 등 주요 단위를 실시간으로 변환합니다. km↔마일, kg↔파운드, 평↔제곱미터, 섭씨↔화씨 등 지원.">
+  <meta property="og:title" content="단위 변환기 - 국민계산기">
+  <meta property="og:description" content="단위 실시간 변환 - 길이, 무게, 면적, 온도, 부피 등 다양한 단위를 간편하게 변환하세요.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/unit-converter">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/unit-converter">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "단위 변환기",
+    "description": "길이, 무게, 면적, 온도, 부피 등 주요 단위를 실시간으로 변환합니다.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt; <a href="../index.html#life">생활</a> &gt; <span>단위 변환기</span>
+    </nav>
+
+    <h1>📐 단위 변환기 2026</h1>
+    <p class="page-subtitle">다양한 단위를 실시간으로 변환합니다. 길이, 무게, 면적, 온도, 부피를 지원합니다.</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="convertValue">변환할 값</label>
+        <input type="text" id="convertValue" placeholder="숫자를 입력하세요" inputmode="decimal" value="1">
+      </div>
+      <div class="input-group">
+        <label for="convertType">변환 유형</label>
+        <select id="convertType">
+          <option value="length">길이</option>
+          <option value="weight">무게</option>
+          <option value="area">면적</option>
+          <option value="temperature">온도</option>
+          <option value="volume">부피</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="fromUnit">변환 전 단위</label>
+        <select id="fromUnit"></select>
+      </div>
+      <div class="input-group">
+        <label for="toUnit">변환 후 단위</label>
+        <select id="toUnit"></select>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>단위 변환이란?</h2>
+      <p>단위 변환은 동일한 물리량을 서로 다른 측정 체계로 표현하는 것입니다. 국제적으로 SI(국제단위계)가 표준으로 사용되지만, 나라와 분야에 따라 다양한 단위가 쓰이고 있어 변환이 필요합니다. 특히 해외 여행, 온라인 쇼핑, 요리, 부동산 거래, 과학 실험 등 일상생활에서 단위 변환이 자주 필요합니다.</p>
+
+      <h3>주요 단위 변환 기준</h3>
+      <p><strong>길이:</strong> 한국에서는 미터법(km, m, cm)을 표준으로 사용하지만, 미국에서는 마일(mile), 피트(ft), 인치(inch)를 일상적으로 사용합니다. 1km = 0.621371마일, 1m = 3.28084피트, 1cm = 0.393701인치입니다. 자동차 속도 표시, 키 표현 등에서 자주 변환이 필요합니다.</p>
+      <p><strong>무게:</strong> 한국은 킬로그램(kg)을 사용하지만 미국과 영국에서는 파운드(lb)를 주로 사용합니다. 1kg = 2.20462lb입니다. 해외 쇼핑이나 스포츠 분야에서 자주 쓰입니다.</p>
+      <p><strong>면적:</strong> 한국에서는 제곱미터(m^2)가 공식 단위이지만 부동산 거래에서는 여전히 '평'이 널리 사용됩니다. 1평 = 3.3058m^2이며, 아파트 분양이나 인테리어 시 꼭 필요한 변환입니다. 국토교통부에서는 공식적으로 제곱미터를 사용하도록 권장하고 있습니다.</p>
+      <p><strong>온도:</strong> 한국은 섭씨(Celsius)를 사용하지만 미국에서는 화씨(Fahrenheit)를 사용합니다. 변환 공식은 화씨 = 섭씨 x 9/5 + 32입니다. 예를 들어 체온 36.5도C는 화씨 97.7도F에 해당합니다. 해외 날씨 확인이나 의학 관련 문서에서 자주 필요합니다.</p>
+      <p><strong>부피:</strong> 리터(L)가 한국 표준이지만, 미국에서는 갤런(gallon)을 사용합니다. 1리터 = 0.264172갤런(미국 기준)이며, 음료, 연료량 등에서 변환이 필요합니다.</p>
+
+      <h3>일상에서 자주 사용하는 변환</h3>
+      <p>부동산: 33m^2 = 약 10평, 66m^2 = 약 20평, 84m^2 = 약 25.4평, 99m^2 = 약 30평, 132m^2 = 약 40평. 체중: 60kg = 약 132lb. 온도: 0도C = 32도F, 100도C = 212도F. 거리: 100km = 약 62마일.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "1평은 몇 제곱미터(m2)인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "1평은 약 3.3058제곱미터(m2)입니다. 반대로 1제곱미터는 약 0.3025평입니다. 아파트 84m2는 약 25.4평에 해당합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "섭씨와 화씨 변환 공식은?",
+            "acceptedAnswer": { "@type": "Answer", "text": "화씨 = 섭씨 x 9/5 + 32, 섭씨 = (화씨 - 32) x 5/9입니다. 예를 들어 섭씨 25도는 화씨 77도이고, 화씨 100도는 섭씨 약 37.8도입니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "1마일은 몇 킬로미터인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "1마일(mile)은 약 1.60934킬로미터(km)입니다. 미국 도로 속도 제한 65mph는 약 105km/h에 해당합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "1파운드는 몇 킬로그램인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "1파운드(lb)는 약 0.4536킬로그램(kg)입니다. 반대로 1kg은 약 2.2046파운드입니다. 해외 직구나 운동 기구 무게 표시에서 자주 필요한 변환입니다." }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>1평은 몇 제곱미터(m2)인가요?</summary>
+        <p>1평은 약 3.3058제곱미터(m2)입니다. 반대로 1제곱미터는 약 0.3025평입니다. 아파트 84m2는 약 25.4평에 해당합니다. 부동산 매물 확인 시 이 변환을 자주 사용합니다.</p>
+      </details>
+      <details>
+        <summary>섭씨와 화씨 변환 공식은?</summary>
+        <p>화씨 = 섭씨 x 9/5 + 32, 섭씨 = (화씨 - 32) x 5/9입니다. 예를 들어 섭씨 25도는 화씨 77도이고, 화씨 100도는 섭씨 약 37.8도입니다. 미국 여행 시 날씨 확인에 유용합니다.</p>
+      </details>
+      <details>
+        <summary>1마일은 몇 킬로미터인가요?</summary>
+        <p>1마일(mile)은 약 1.60934킬로미터(km)입니다. 미국 도로 속도 제한 65mph는 약 105km/h에 해당합니다. 해외 내비게이션 사용 시 유용한 변환입니다.</p>
+      </details>
+      <details>
+        <summary>1파운드는 몇 킬로그램인가요?</summary>
+        <p>1파운드(lb)는 약 0.4536킬로그램(kg)입니다. 반대로 1kg은 약 2.2046파운드입니다. 해외 직구 상품의 무게 확인이나 운동 기구 무게 표시에서 자주 필요한 변환입니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="bmi.html" class="related-card">
+          <div class="icon">⚖️</div>
+          <h4>BMI 계산기</h4>
+          <p>체질량지수 계산</p>
+        </a>
+        <a href="tip-calculator.html" class="related-card">
+          <div class="icon">💳</div>
+          <h4>팁/더치페이 계산기</h4>
+          <p>비용 정확히 나누기</p>
+        </a>
+        <a href="date-calculator.html" class="related-card">
+          <div class="icon">📅</div>
+          <h4>날짜 계산기</h4>
+          <p>D-day 계산</p>
+        </a>
+        <a href="car-cost.html" class="related-card">
+          <div class="icon">🚗</div>
+          <h4>자동차 유지비</h4>
+          <p>월/연간 차량 유지비</p>
+        </a>
+        <a href="child-cost.html" class="related-card">
+          <div class="icon">👶</div>
+          <h4>육아비용 계산기</h4>
+          <p>자녀 양육비 계산</p>
+        </a>
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    // 단위 그룹 정의
+    const unitGroups = {
+      length: [
+        { value: 'km', label: '킬로미터 (km)' },
+        { value: 'mile', label: '마일 (mile)' },
+        { value: 'm', label: '미터 (m)' },
+        { value: 'ft', label: '피트 (ft)' },
+        { value: 'cm', label: '센티미터 (cm)' },
+        { value: 'inch', label: '인치 (inch)' }
+      ],
+      weight: [
+        { value: 'kg', label: '킬로그램 (kg)' },
+        { value: 'lb', label: '파운드 (lb)' }
+      ],
+      area: [
+        { value: 'pyeong', label: '평' },
+        { value: 'm2', label: '제곱미터 (m2)' }
+      ],
+      temperature: [
+        { value: 'celsius', label: '섭씨 (°C)' },
+        { value: 'fahrenheit', label: '화씨 (°F)' }
+      ],
+      volume: [
+        { value: 'L', label: '리터 (L)' },
+        { value: 'gal', label: '갤런 (gallon)' }
+      ]
+    };
+
+    function updateUnitOptions() {
+      const type = document.getElementById('convertType').value;
+      const fromSelect = document.getElementById('fromUnit');
+      const toSelect = document.getElementById('toUnit');
+      const units = unitGroups[type];
+
+      fromSelect.innerHTML = units.map(u => `<option value="${u.value}">${u.label}</option>`).join('');
+      toSelect.innerHTML = units.map(u => `<option value="${u.value}">${u.label}</option>`).join('');
+
+      // 기본 두 번째 옵션 선택
+      if (units.length > 1) {
+        toSelect.selectedIndex = 1;
+      }
+    }
+
+    // 변환 유형 변경 시 옵션 업데이트
+    document.getElementById('convertType').addEventListener('change', function() {
+      updateUnitOptions();
+      calculate();
+    });
+
+    // 초기 옵션 설정
+    updateUnitOptions();
+
+    function calculate() {
+      const value = parseFloat(document.getElementById('convertValue').value) || 0;
+      const from = document.getElementById('fromUnit').value;
+      const to = document.getElementById('toUnit').value;
+
+      if (from === to) {
+        document.getElementById('result').innerHTML = `
+          <div class="result-card">
+            <h3>변환 결과</h3>
+            <div class="result-item primary">
+              <span>결과</span>
+              <strong>${value} (동일 단위)</strong>
+            </div>
+          </div>`;
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.unitConvert(value, from, to);
+
+      // 단위 라벨 가져오기
+      const type = document.getElementById('convertType').value;
+      const units = unitGroups[type];
+      const fromLabel = units.find(u => u.value === from)?.label || from;
+      const toLabel = units.find(u => u.value === to)?.label || to;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>변환 결과</h3>
+          <div class="result-item">
+            <span>입력값</span>
+            <strong>${value} ${fromLabel}</strong>
+          </div>
+          <div class="result-item primary">
+            <span>변환 결과</span>
+            <strong>${r.result} ${toLabel}</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('${value} ${fromLabel} = ${r.result} ${toLabel}')">📋 결과 복사</button>
+          </div>
+        </div>`;
+
+      // AI 인사이트 - 역변환 및 참고 정보
+      let tips = [];
+
+      // 역변환
+      const reverse = CalcCore.unitConvert(r.result, to, from);
+      tips.push({
+        icon: '🔄',
+        title: '역변환',
+        text: `${r.result} ${toLabel} = ${reverse.result} ${fromLabel}`
+      });
+
+      // 유형별 참고 정보
+      const typeInfo = {
+        length: { icon: '📏', title: '참고: 주요 길이 변환', text: '1km = 0.621마일, 1m = 3.281피트, 1cm = 0.394인치. 마라톤(42.195km) = 약 26.2마일입니다.' },
+        weight: { icon: '⚖️', title: '참고: 주요 무게 변환', text: '1kg = 2.205파운드, 1lb = 0.454kg. 복싱 라이트급 체중 제한(61.2kg = 약 135lb).' },
+        area: { icon: '🏠', title: '참고: 주요 면적 변환', text: '국민평형 84m2 = 약 25.4평, 59m2 = 약 17.9평, 114m2 = 약 34.5평.' },
+        temperature: { icon: '🌡️', title: '참고: 주요 온도 변환', text: '체온 36.5°C = 97.7°F, 물 끓는점 100°C = 212°F, 영하 0°C = 32°F.' },
+        volume: { icon: '🧪', title: '참고: 주요 부피 변환', text: '1리터 = 0.264갤런, 1갤런 = 3.785리터. 미국 휘발유 1갤런 ≈ 한국 약 3.8리터.' }
+      };
+      tips.push(typeInfo[type]);
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 참고 정보</h3>
+          ${tips.map(t => `
+            <div class="insight-item">
+              <span class="icon">${t.icon}</span>
+              <div><strong>${t.title}</strong><p>${t.text}</p></div>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

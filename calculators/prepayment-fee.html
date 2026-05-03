@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>중도상환수수료 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 중도상환수수료 계산기. 대출 조기 상환 시 발생하는 위약금(중도상환수수료)을 잔여기간·수수료율 기반으로 정확하게 계산합니다.">
+  <meta property="og:title" content="중도상환수수료 계산기 - 국민계산기">
+  <meta property="og:description" content="대출 조기 상환 시 중도상환수수료를 잔여기간 기반으로 자동 계산합니다.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/prepayment-fee">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/prepayment-fee">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "중도상환수수료 계산기",
+    "description": "대출 조기 상환 시 중도상환수수료를 잔여기간·수수료율 기반으로 정확 계산.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#finance">대출·금융</a> &gt;
+      <span>중도상환수수료 계산기</span>
+    </nav>
+
+    <h1>💸 중도상환수수료 계산기 2026</h1>
+    <p class="page-subtitle">대출 조기 상환 시 발생하는 위약금(수수료)을 미리 계산하세요</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="repayAmount">중도상환 금액 (원)</label>
+        <input type="text" id="repayAmount" value="30,000,000" placeholder="상환할 금액 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="10000000" data-target="repayAmount">1,000만</button>
+          <button class="preset-btn active" data-set="30000000" data-target="repayAmount">3,000만</button>
+          <button class="preset-btn" data-set="50000000" data-target="repayAmount">5,000만</button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="feeRate">수수료율 (%)</label>
+          <input type="text" id="feeRate" value="1.5" placeholder="수수료율 입력">
+          <small>일반적으로 1.0%~1.5% (은행별 상이)</small>
+        </div>
+        <div class="input-group">
+          <label for="remainMonths">잔여기간 (개월)</label>
+          <input type="number" id="remainMonths" value="24" min="1" max="600" placeholder="남은 개월 수">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="totalMonths">총 대출기간 (개월)</label>
+        <input type="number" id="totalMonths" value="36" min="1" max="600" placeholder="전체 대출 기간">
+        <small>대출 시작부터 만기까지의 전체 기간</small>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>중도상환수수료란?</h2>
+      <p>중도상환수수료는 대출 계약 기간 중 약정 만기 전에 대출금을 조기 상환할 때 금융기관에 지급해야 하는 위약금 성격의 수수료입니다. 금융기관은 대출을 실행할 때 일정 기간 동안의 이자 수익을 예상하고 자금을 운용하는데, 조기 상환 시 예상 수익이 줄어들기 때문에 이를 보전하기 위한 비용입니다.</p>
+
+      <h3>수수료 계산 원리</h3>
+      <p>중도상환수수료는 일반적으로 '상환금액 x 수수료율 x (잔여기간/전체기간)'의 공식으로 계산됩니다. 잔여기간이 짧을수록, 즉 만기에 가까울수록 수수료가 줄어드는 구조입니다. 이는 대출 초기에 상환할수록 은행의 손실이 크기 때문입니다.</p>
+
+      <h3>수수료율 기준</h3>
+      <p>2026년 현재 대부분의 은행에서 적용하는 중도상환수수료율은 고정금리 대출의 경우 1.2~1.5%, 변동금리 대출의 경우 0.5~1.0% 수준입니다. 인터넷전문은행이나 일부 시중은행은 중도상환수수료를 면제하는 상품도 출시하고 있으므로, 대출 실행 전 확인하는 것이 좋습니다.</p>
+
+      <h3>면제 조건</h3>
+      <p>일반적으로 대출 실행일로부터 3년이 경과하면 중도상환수수료가 면제됩니다. 또한 연간 상환한도(보통 대출잔액의 10~50%) 내에서는 수수료 없이 상환할 수 있는 경우가 많습니다. 은행별로 조건이 다르므로 반드시 대출 약관을 확인하세요.</p>
+
+      <h3>절약 전략</h3>
+      <p>중도상환수수료를 최소화하려면 첫째, 수수료 면제 기간(보통 3년) 이후에 상환하는 것이 가장 효과적입니다. 둘째, 연간 무료 상환한도를 활용하여 분할 상환하는 방법이 있습니다. 셋째, 중도상환수수료가 없는 대출 상품으로 대환하는 것도 고려해볼 수 있습니다. 2026년에는 중도상환수수료 면제 상품이 늘어나는 추세이므로, 다양한 금융기관의 상품을 비교하는 것이 중요합니다.</p>
+
+      <h3>중도상환수수료와 이자 절감 비교</h3>
+      <p>중도상환 시 수수료를 내더라도 남은 기간의 이자를 절약할 수 있으므로, 수수료와 절감 이자를 비교하여 순이익이 발생하면 조기 상환이 유리합니다. 특히 금리가 높은 대출일수록 조기 상환의 이점이 큽니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "중도상환수수료는 언제 면제되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "대부분의 금융기관에서 대출 실행일로부터 3년이 경과하면 중도상환수수료가 면제됩니다. 일부 상품은 1년 또는 5년 기준인 경우도 있으므로 대출 약관을 확인하세요."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "부분 상환도 수수료가 부과되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "네, 부분 상환도 중도상환수수료 대상입니다. 다만 연간 무료 상환한도(대출잔액의 10~50%) 내에서는 면제됩니다. 한도를 초과하는 금액에 대해서만 수수료가 부과됩니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "수수료를 내더라도 중도상환이 유리한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "중도상환수수료보다 남은 기간의 이자 절감액이 크다면 유리합니다. 특히 금리가 높거나 잔여 기간이 길수록 조기 상환의 이점이 큽니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "중도상환수수료율은 은행마다 다른가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "네, 은행별·상품별로 다릅니다. 고정금리는 1.2~1.5%, 변동금리는 0.5~1.0%가 일반적입니다. 인터넷전문은행은 수수료가 낮거나 면제인 경우도 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "대환대출 시에도 중도상환수수료가 발생하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "네, 기존 대출을 상환하는 것이므로 중도상환수수료가 발생할 수 있습니다. 대환 시 절감되는 이자와 수수료를 비교하여 순이익을 계산해보시기 바랍니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 중도상환수수료는 언제 면제되나요?</summary><p>대부분의 금융기관에서 대출 실행일로부터 3년이 경과하면 중도상환수수료가 면제됩니다. 일부 상품은 1년 또는 5년 기준인 경우도 있으므로 대출 약관을 확인하세요.</p></details>
+      <details><summary>Q2. 부분 상환도 수수료가 부과되나요?</summary><p>네, 부분 상환도 중도상환수수료 대상입니다. 다만 연간 무료 상환한도(대출잔액의 10~50%) 내에서는 면제됩니다. 한도를 초과하는 금액에 대해서만 수수료가 부과됩니다.</p></details>
+      <details><summary>Q3. 수수료를 내더라도 중도상환이 유리한가요?</summary><p>중도상환수수료보다 남은 기간의 이자 절감액이 크다면 유리합니다. 특히 금리가 높거나 잔여 기간이 길수록 조기 상환의 이점이 큽니다.</p></details>
+      <details><summary>Q4. 중도상환수수료율은 은행마다 다른가요?</summary><p>네, 은행별·상품별로 다릅니다. 고정금리는 1.2~1.5%, 변동금리는 0.5~1.0%가 일반적입니다. 인터넷전문은행은 수수료가 낮거나 면제인 경우도 있습니다.</p></details>
+      <details><summary>Q5. 대환대출 시에도 중도상환수수료가 발생하나요?</summary><p>네, 기존 대출을 상환하는 것이므로 중도상환수수료가 발생할 수 있습니다. 대환 시 절감되는 이자와 수수료를 비교하여 순이익을 계산해보시기 바랍니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="loan-interest.html" class="related-card">
+          <div class="icon">🧮</div>
+          <h4>대출이자 계산기</h4>
+          <p>상환방식별 이자 비교</p>
+        </a>
+        <a href="deposit-interest.html" class="related-card">
+          <div class="icon">🏧</div>
+          <h4>예적금 이자 계산기</h4>
+          <p>예금·적금 이자 계산</p>
+        </a>
+        <a href="compound-interest.html" class="related-card">
+          <div class="icon">📈</div>
+          <h4>복리 계산기</h4>
+          <p>복리 수익 시뮬레이션</p>
+        </a>
+        <a href="mortgage-limit.html" class="related-card">
+          <div class="icon">🏠</div>
+          <h4>주택담보대출 한도</h4>
+          <p>LTV·DTI 기반 한도</p>
+        </a>
+        <a href="dsr.html" class="related-card">
+          <div class="icon">📐</div>
+          <h4>DSR 계산기</h4>
+          <p>총부채상환비율 계산</p>
+        </a>
+        <a href="exchange-rate.html" class="related-card">
+          <div class="icon">💱</div>
+          <h4>환율 계산기</h4>
+          <p>주요 통화 환율 변환</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const amount = parseInput(document.getElementById('repayAmount').value);
+      const feeRate = parseFloat(document.getElementById('feeRate').value) || 0;
+      const remainMonths = parseInt(document.getElementById('remainMonths').value) || 0;
+      const totalMonths = parseInt(document.getElementById('totalMonths').value) || 36;
+
+      if (amount <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const fee = CalcCore.prepaymentFee(amount, feeRate, remainMonths, totalMonths);
+      const remainRatio = (remainMonths / totalMonths * 100);
+      const effectiveRate = amount > 0 ? (fee / amount * 100) : 0;
+
+      // Calculate interest savings (assume 4.5% rate for comparison)
+      const assumedRate = 4.5;
+      const monthlySavedInterest = amount * (assumedRate / 100 / 12);
+      const totalSavedInterest = Math.round(monthlySavedInterest * remainMonths);
+      const netBenefit = totalSavedInterest - fee;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>중도상환수수료 계산 결과</h3>
+          <div class="result-item primary">
+            <span>중도상환수수료</span>
+            <strong>${formatNumber(fee)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>상환금액</span>
+            <strong>${formatNumber(amount)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>적용 수수료율</span>
+            <strong>${feeRate}%</strong>
+          </div>
+          <div class="result-item">
+            <span>잔여기간 비율</span>
+            <strong>${remainRatio.toFixed(1)}%</strong>
+          </div>
+          <div class="result-item">
+            <span>실질 수수료율</span>
+            <strong>${effectiveRate.toFixed(2)}%</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>예상 이자 절감액 (연 ${assumedRate}% 기준)</span>
+            <strong>${formatNumber(totalSavedInterest)}원</strong>
+          </div>
+          <div class="result-item ${netBenefit >= 0 ? 'highlight' : 'warn'}">
+            <span>순이익 (절감이자 - 수수료)</span>
+            <strong>${netBenefit >= 0 ? '+' : ''}${formatNumber(netBenefit)}원</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('중도상환 ${formatKRW(amount)} → 수수료 ${formatNumber(fee)}원 (국민계산기)')">📋 복사</button>
+          </div>
+        </div>
+      `;
+
+      const freeMonths = totalMonths - remainMonths;
+      const monthsTo3Year = Math.max(0, 36 - freeMonths);
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">📊</span>
+            <div>
+              <strong>${netBenefit >= 0 ? '중도상환이 유리합니다' : '수수료가 절감이자보다 큽니다'}</strong>
+              <p>${netBenefit >= 0 ? `연 ${assumedRate}% 금리 기준, 중도상환 시 이자 ${formatNumber(totalSavedInterest)}원을 절약하여 수수료(${formatNumber(fee)}원) 차감 후에도 ${formatNumber(netBenefit)}원의 순이익이 발생합니다.` : `현재 잔여기간이 짧아 이자 절감 효과(${formatNumber(totalSavedInterest)}원)보다 수수료(${formatNumber(fee)}원)가 더 큽니다. 만기까지 유지하는 것이 유리할 수 있습니다.`}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">⏰</span>
+            <div>
+              <strong>수수료 면제까지 ${monthsTo3Year > 0 ? monthsTo3Year + '개월 남음' : '이미 면제 대상'}</strong>
+              <p>${monthsTo3Year > 0 ? `대출 실행 후 ${freeMonths}개월 경과하였습니다. 3년(36개월) 면제 기준으로 ${monthsTo3Year}개월 더 기다리면 수수료 없이 상환할 수 있습니다.` : '대출 실행 후 3년이 경과하여 중도상환수수료가 면제되는 시점입니다. 약관을 확인하시기 바랍니다.'}</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">💡</span>
+            <div>
+              <strong>연간 무료 상환한도 활용 팁</strong>
+              <p>대부분의 은행에서 연간 대출잔액의 10~50% 이내 무료 상환을 허용합니다. 무료 한도를 먼저 활용하고, 나머지를 수수료 면제 시점에 상환하는 전략이 효과적입니다.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

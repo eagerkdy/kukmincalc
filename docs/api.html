@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API 문서 | 국민계산기</title>
+  <meta name="description" content="국민계산기 API 문서. JavaScript SDK, iframe 임베드, URL 파라미터 API로 35개 금융 계산 함수를 외부에서 활용할 수 있습니다.">
+  <meta property="og:title" content="API 문서 - 국민계산기">
+  <meta property="og:description" content="35개 금융 계산 함수를 JavaScript SDK, iframe, URL 파라미터로 활용하세요.">
+  <meta property="og:url" content="https://kukmincalc.com/docs/api">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/docs/api">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <style>
+    .api-hero {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-md) var(--space-lg);
+    }
+    .api-hero h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: var(--space-xs);
+    }
+    .api-hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .api-section {
+      background: var(--bg-card);
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-lg);
+      border: 1px solid var(--border);
+    }
+    .api-section h2 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-xs);
+      border-bottom: 2px solid var(--border);
+    }
+    .api-section h3 {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin: var(--space-md) 0 var(--space-xs);
+    }
+    .api-section p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: var(--space-sm);
+      font-size: 0.95rem;
+    }
+
+    .code-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: var(--space-md);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: var(--space-sm) 0;
+      position: relative;
+    }
+    [data-theme="dark"] .code-block {
+      background: #0f172a;
+      border: 1px solid var(--border);
+    }
+    .code-block .comment { color: #64748b; }
+    .code-block .keyword { color: #7dd3fc; }
+    .code-block .string { color: #86efac; }
+    .code-block .func { color: #fbbf24; }
+    .code-block .number { color: #f9a8d4; }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #94a3b8;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-family: var(--font);
+      transition: all var(--transition);
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.2); color: #e2e8f0; }
+
+    .method-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: var(--space-md);
+    }
+    .method-tab {
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg);
+      color: var(--text-light);
+      font-size: 0.875rem;
+      font-weight: 500;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .method-tab:hover { border-color: var(--primary-light); color: var(--primary); }
+    .method-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .method-content { display: none; }
+    .method-content.active { display: block; }
+
+    .func-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: var(--space-sm) 0;
+    }
+    .func-table th, .func-table td {
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .func-table th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+    .func-table tr:nth-child(even) { background: var(--bg-alt); }
+    .func-table tr:hover { background: var(--border-light); }
+    .func-table code {
+      background: var(--bg-alt);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--primary);
+    }
+    [data-theme="dark"] .func-table code {
+      background: #0f172a;
+    }
+    .func-table .param-opt { color: var(--text-muted); font-style: italic; }
+
+    .category-badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: white;
+      margin-right: 0.3rem;
+    }
+    .badge-labor { background: #3b82f6; }
+    .badge-tax { background: #ef4444; }
+    .badge-realestate { background: #10b981; }
+    .badge-finance { background: #f59e0b; }
+    .badge-insurance { background: #8b5cf6; }
+    .badge-life { background: #06b6d4; }
+
+    .toc {
+      background: var(--bg-alt);
+      padding: var(--space-md);
+      border-radius: var(--radius);
+      margin-bottom: var(--space-lg);
+    }
+    .toc h3 { margin: 0 0 var(--space-xs); font-size: 1rem; color: var(--text); }
+    .toc ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; }
+    .toc a { color: var(--primary-light); font-size: 0.85rem; }
+    .toc a:hover { color: var(--primary); }
+
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .try-btn {
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      background: var(--secondary);
+      color: white;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity var(--transition);
+    }
+    .try-btn:hover { opacity: 0.85; color: white; }
+
+    @media (max-width: 768px) {
+      .api-hero h1 { font-size: 1.6rem; }
+      .toc ul { grid-template-columns: 1fr; }
+      .method-tabs { flex-wrap: wrap; }
+      .func-table { font-size: 0.8rem; }
+      .func-table th, .func-table td { padding: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page" style="max-width:1000px;">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <span>API 문서</span>
+    </nav>
+
+    <div class="api-hero">
+      <h1>국민계산기 API</h1>
+      <p class="subtitle">35개 금융 계산 함수를 JavaScript SDK, iframe, URL 파라미터로 자유롭게 활용하세요</p>
+    </div>
+
+    <!-- 목차 -->
+    <div class="toc">
+      <h3>목차</h3>
+      <ul>
+        <li><a href="#overview">개요</a></li>
+        <li><a href="#usage">사용 방법</a></li>
+        <li><a href="#reference">함수 레퍼런스</a></li>
+        <li><a href="#examples">사용 예시</a></li>
+      </ul>
+    </div>
+
+    <!-- 1. 개요 -->
+    <section class="api-section" id="overview">
+      <h2>개요</h2>
+      <p>국민계산기 API는 연봉 실수령액, 대출이자, 세금, 부동산, 보험, 생활 등 <strong>35개 금융 계산 함수</strong>를
+        외부 서비스에서 손쉽게 활용할 수 있도록 제공합니다.</p>
+      <p>모든 계산은 <code>CalcCore</code> 객체에 구현되어 있으며, 별도의 API 키나 인증 없이 무료로 사용할 수 있습니다.</p>
+
+      <h3>주요 특징</h3>
+      <ul style="padding-left:1.5rem; margin-bottom:var(--space-sm);">
+        <li style="color:var(--text-light); margin-bottom:0.3rem; font-size:0.9rem;">인증 불필요 &mdash; API 키 없이 바로 사용</li>
+        <li style="color:var(--text-light); margin-bottom:0.3rem; font-size:0.9rem;">서버 비용 제로 &mdash; 클라이언트 사이드 JavaScript로 동작</li>
+        <li style="color:var(--text-light); margin-bottom:0.3rem; font-size:0.9rem;">35개 함수 &mdash; 근로, 세금, 부동산, 금융, 보험, 생활 6개 카테고리</li>
+        <li style="color:var(--text-light); margin-bottom:0.3rem; font-size:0.9rem;">3가지 연동 방식 &mdash; SDK / iframe / URL 파라미터</li>
+      </ul>
+    </section>
+
+    <!-- 2. 사용 방법 -->
+    <section class="api-section" id="usage">
+      <h2>사용 방법</h2>
+
+      <div class="method-tabs">
+        <button class="method-tab active" data-method="sdk">JavaScript SDK</button>
+        <button class="method-tab" data-method="iframe">iframe 임베드</button>
+        <button class="method-tab" data-method="url">URL 파라미터</button>
+      </div>
+
+      <!-- SDK -->
+      <div class="method-content active" id="method-sdk">
+        <h3>1. JavaScript SDK</h3>
+        <p><code>calculator-core.js</code> 파일을 로드하면 <code>CalcCore</code> 전역 객체를 통해 모든 계산 함수를 직접 호출할 수 있습니다.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">복사</button>
+<span class="comment">&lt;!-- 1. 스크립트 로드 --&gt;</span>
+&lt;<span class="keyword">script</span> <span class="func">src</span>=<span class="string">"https://kukmincalc.com/assets/js/calculator-core.js"</span>&gt;&lt;/<span class="keyword">script</span>&gt;
+
+<span class="comment">&lt;!-- 2. 함수 호출 --&gt;</span>
+&lt;<span class="keyword">script</span>&gt;
+  <span class="comment">// 연봉 실수령액 계산</span>
+  <span class="keyword">const</span> result = <span class="func">CalcCore.takeHomePay</span>(<span class="number">50000000</span>);
+  console.log(result.takeHome);   <span class="comment">// 월 실수령액</span>
+  console.log(result.totalDeduction); <span class="comment">// 월 공제액</span>
+
+  <span class="comment">// 대출이자 계산 (원리금균등)</span>
+  <span class="keyword">const</span> loan = <span class="func">CalcCore.loanEqualPayment</span>(<span class="number">100000000</span>, <span class="number">3.5</span>, <span class="number">360</span>);
+  console.log(loan.monthly);      <span class="comment">// 월 상환액</span>
+&lt;/<span class="keyword">script</span>&gt;
+        </div>
+      </div>
+
+      <!-- iframe -->
+      <div class="method-content" id="method-iframe">
+        <h3>2. iframe 임베드</h3>
+        <p>특정 계산기 페이지를 <code>&lt;iframe&gt;</code>으로 삽입하여 사이트 내에 계산기를 그대로 임베드할 수 있습니다.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">복사</button>
+<span class="comment">&lt;!-- 연봉 실수령액 계산기 임베드 --&gt;</span>
+&lt;<span class="keyword">iframe</span>
+  <span class="func">src</span>=<span class="string">"https://kukmincalc.com/calculators/take-home-pay.html"</span>
+  <span class="func">width</span>=<span class="string">"100%"</span>
+  <span class="func">height</span>=<span class="string">"800"</span>
+  <span class="func">frameborder</span>=<span class="string">"0"</span>
+  <span class="func">style</span>=<span class="string">"border: 1px solid #e2e8f0; border-radius: 12px;"</span>
+&gt;&lt;/<span class="keyword">iframe</span>&gt;
+        </div>
+
+        <p>URL 파라미터 API를 iframe으로 사용하면 <code>postMessage</code>를 통해 계산 결과를 받을 수 있습니다.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">복사</button>
+<span class="comment">&lt;!-- API iframe + postMessage 결과 수신 --&gt;</span>
+&lt;<span class="keyword">iframe</span>
+  <span class="func">id</span>=<span class="string">"calcFrame"</span>
+  <span class="func">src</span>=<span class="string">"https://kukmincalc.com/api/calculate.html?fn=takeHomePay&amp;annualSalary=50000000"</span>
+  <span class="func">style</span>=<span class="string">"display:none"</span>
+&gt;&lt;/<span class="keyword">iframe</span>&gt;
+
+&lt;<span class="keyword">script</span>&gt;
+  window.addEventListener(<span class="string">'message'</span>, <span class="keyword">function</span>(e) {
+    <span class="keyword">if</span> (e.data &amp;&amp; e.data.type === <span class="string">'gukmin-calc-result'</span>) {
+      console.log(e.data.data); <span class="comment">// 계산 결과</span>
+    }
+  });
+&lt;/<span class="keyword">script</span>&gt;
+        </div>
+      </div>
+
+      <!-- URL 파라미터 -->
+      <div class="method-content" id="method-url">
+        <h3>3. URL 파라미터 API</h3>
+        <p>URL 쿼리 파라미터로 함수명과 인자를 전달하면 JSON 결과를 화면에 표시합니다.</p>
+
+        <h3>엔드포인트</h3>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">복사</button>
+https://kukmincalc.com/api/calculate.html?fn=<span class="func">함수명</span>&amp;<span class="func">param1</span>=<span class="number">값1</span>&amp;<span class="func">param2</span>=<span class="number">값2</span>
+        </div>
+
+        <h3>요청 예시</h3>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">복사</button>
+<span class="comment">// 연봉 실수령액</span>
+/api/calculate.html?fn=takeHomePay&amp;annualSalary=<span class="number">50000000</span>
+
+<span class="comment">// 대출이자 (원리금균등)</span>
+/api/calculate.html?fn=loanEqualPayment&amp;principal=<span class="number">100000000</span>&amp;rate=<span class="number">3.5</span>&amp;months=<span class="number">360</span>
+
+<span class="comment">// BMI 계산</span>
+/api/calculate.html?fn=bmi&amp;height=<span class="number">175</span>&amp;weight=<span class="number">70</span>
+        </div>
+
+        <h3>응답 형식</h3>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">복사</button>
+{
+  <span class="string">"success"</span>: <span class="keyword">true</span>,
+  <span class="string">"function"</span>: <span class="string">"takeHomePay"</span>,
+  <span class="string">"params"</span>: { <span class="string">"annualSalary"</span>: <span class="string">"50000000"</span> },
+  <span class="string">"data"</span>: {
+    <span class="string">"monthly"</span>: <span class="number">4166667</span>,
+    <span class="string">"takeHome"</span>: <span class="number">3476498</span>,
+    <span class="string">"totalDeduction"</span>: <span class="number">690169</span>,
+    ...
+  },
+  <span class="string">"timestamp"</span>: <span class="string">"2026-02-16T..."</span>,
+  <span class="string">"credit"</span>: <span class="string">"국민계산기 (https://kukmincalc.com)"</span>
+}
+        </div>
+
+        <p><strong>참고:</strong> 함수명 없이 엔드포인트에 접속하면 사용 가능한 함수 목록을 반환합니다.
+          <a href="../api/calculate.html" class="try-btn" target="_blank">직접 확인</a></p>
+      </div>
+    </section>
+
+    <!-- 3. 함수 레퍼런스 -->
+    <section class="api-section" id="reference">
+      <h2>함수 레퍼런스 (35개)</h2>
+      <p>모든 함수는 <code>CalcCore.함수명(인자)</code>로 호출하며, 객체(Object)를 반환합니다.</p>
+
+      <!-- 근로/급여 -->
+      <h3><span class="category-badge badge-labor">근로</span> 근로/급여 (10개)</h3>
+      <div class="table-wrapper">
+        <table class="func-table">
+          <thead>
+            <tr><th>함수명</th><th>파라미터</th><th>반환값</th><th>테스트</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>takeHomePay</code></td>
+              <td>annualSalary, <span class="param-opt">dependents=1, childUnder20=0, nonTaxable=200000</span></td>
+              <td>monthly, takeHome, totalDeduction, nationalPension, healthInsurance, longTermCare, employmentIns, incomeTax, localTax, annualTakeHome</td>
+              <td><a href="../api/calculate.html?fn=takeHomePay&annualSalary=50000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>hourlyWage</code></td>
+              <td>monthlySalary, <span class="param-opt">weeklyHours=40</span></td>
+              <td>hourly, monthlyHours</td>
+              <td><a href="../api/calculate.html?fn=hourlyWage&monthlySalary=2500000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>hourlyToMonthly</code></td>
+              <td>hourlyWage, <span class="param-opt">weeklyHours=40</span></td>
+              <td>monthly, monthlyHours</td>
+              <td><a href="../api/calculate.html?fn=hourlyToMonthly&hourlyWage=10030" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>overtimePay</code></td>
+              <td>hourlyWage, overtimeHours, <span class="param-opt">isNight=false, isHoliday=false</span></td>
+              <td>Number (수당 금액)</td>
+              <td><a href="../api/calculate.html?fn=overtimePay&hourlyWage=15000&overtimeHours=10" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>annualLeavePay</code></td>
+              <td>dailyWage, unusedDays</td>
+              <td>Number (연차수당 금액)</td>
+              <td><a href="../api/calculate.html?fn=annualLeavePay&dailyWage=100000&unusedDays=5" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>annualLeaveCount</code></td>
+              <td>totalYears, totalMonths</td>
+              <td>Number (연차 일수)</td>
+              <td><a href="../api/calculate.html?fn=annualLeaveCount&totalYears=3&totalMonths=36" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>severancePay</code></td>
+              <td>avgDailySalary, totalDays</td>
+              <td>Number (퇴직금 금액)</td>
+              <td><a href="../api/calculate.html?fn=severancePay&avgDailySalary=100000&totalDays=730" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>severancePayFromMonthly</code></td>
+              <td>monthlySalary, years, <span class="param-opt">months=0</span></td>
+              <td>Number (퇴직금 금액)</td>
+              <td><a href="../api/calculate.html?fn=severancePayFromMonthly&monthlySalary=3000000&years=3" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>unemployment</code></td>
+              <td>avgDailySalary, age, workYears</td>
+              <td>daily, days, total, monthly</td>
+              <td><a href="../api/calculate.html?fn=unemployment&avgDailySalary=80000&age=35&workYears=5" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>pension</code></td>
+              <td>monthlySalary</td>
+              <td>base, employee, employer, total</td>
+              <td><a href="../api/calculate.html?fn=pension&monthlySalary=3000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 세금 -->
+      <h3><span class="category-badge badge-tax">세금</span> 세금 (6개)</h3>
+      <div class="table-wrapper">
+        <table class="func-table">
+          <thead>
+            <tr><th>함수명</th><th>파라미터</th><th>반환값</th><th>테스트</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>incomeTax</code></td>
+              <td>totalIncome, <span class="param-opt">deductions=0</span></td>
+              <td>tax, localTax, total, effectiveRate</td>
+              <td><a href="../api/calculate.html?fn=incomeTax&totalIncome=50000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>vat</code></td>
+              <td>supplyValue, <span class="param-opt">type='include'</span></td>
+              <td>supply, vat, total</td>
+              <td><a href="../api/calculate.html?fn=vat&supplyValue=11000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>capitalGainsTax</code></td>
+              <td>salePrice, buyPrice, <span class="param-opt">expenses=0, holdingYears=1, isOneHouse=false</span></td>
+              <td>gain, taxableGain, tax, localTax, total, longTermDeduction</td>
+              <td><a href="../api/calculate.html?fn=capitalGainsTax&salePrice=800000000&buyPrice=500000000&expenses=10000000&holdingYears=5" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>giftTax</code></td>
+              <td>giftAmount, <span class="param-opt">relation='child', previousGifts=0</span></td>
+              <td>exemption, taxable, tax, effectiveRate</td>
+              <td><a href="../api/calculate.html?fn=giftTax&giftAmount=200000000&relation=child" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>inheritanceTax</code></td>
+              <td>totalAssets, <span class="param-opt">debts=0, funeralCost=0, spouse=true, children=1</span></td>
+              <td>netAssets, totalDeduction, taxable, tax</td>
+              <td><a href="../api/calculate.html?fn=inheritanceTax&totalAssets=2000000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>acquisitionTax</code></td>
+              <td>price, <span class="param-opt">area=85, isFirstHome=true, numHouses=0</span></td>
+              <td>rate, acqTax, eduTax, specialTax, total</td>
+              <td><a href="../api/calculate.html?fn=acquisitionTax&price=500000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 부동산 -->
+      <h3><span class="category-badge badge-realestate">부동산</span> 부동산 (8개)</h3>
+      <div class="table-wrapper">
+        <table class="func-table">
+          <thead>
+            <tr><th>함수명</th><th>파라미터</th><th>반환값</th><th>테스트</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>propertyTax</code></td>
+              <td>publicPrice</td>
+              <td>taxBase, propertyTax, cityTax, eduTax, total</td>
+              <td><a href="../api/calculate.html?fn=propertyTax&publicPrice=500000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>comprehensivePropertyTax</code></td>
+              <td>totalPublicPrice, <span class="param-opt">numHouses=1</span></td>
+              <td>taxBase, tax, farmTax, total</td>
+              <td><a href="../api/calculate.html?fn=comprehensivePropertyTax&totalPublicPrice=1500000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>mortgageLimit</code></td>
+              <td>housePrice, annualIncome, <span class="param-opt">existingDebt=0, ltv=0.7, dti=0.4, dsr=0.4</span></td>
+              <td>ltvLimit, dtiLimit, dsrLimit, limit</td>
+              <td><a href="../api/calculate.html?fn=mortgageLimit&housePrice=700000000&annualIncome=60000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>dsr</code></td>
+              <td>annualIncome, loans (배열 &mdash; SDK에서만 사용 가능)</td>
+              <td>totalAnnualPayment, dsr</td>
+              <td>&mdash;</td>
+            </tr>
+            <tr>
+              <td><code>rentToDeposit</code></td>
+              <td>monthlyRent, <span class="param-opt">conversionRate=4.5</span></td>
+              <td>deposit</td>
+              <td><a href="../api/calculate.html?fn=rentToDeposit&monthlyRent=500000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>depositToRent</code></td>
+              <td>deposit, <span class="param-opt">conversionRate=4.5</span></td>
+              <td>monthlyRent</td>
+              <td><a href="../api/calculate.html?fn=depositToRent&deposit=200000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>movingCost</code></td>
+              <td><span class="param-opt">houseType='1room', distance=10, floor=1, hasElevator=true, season='normal'</span></td>
+              <td>cost</td>
+              <td><a href="../api/calculate.html?fn=movingCost&houseType=2room&distance=20&floor=5" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>remodelCost</code></td>
+              <td>area, <span class="param-opt">level='standard'</span></td>
+              <td>cost, pyeong</td>
+              <td><a href="../api/calculate.html?fn=remodelCost&area=85" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 대출/금융 -->
+      <h3><span class="category-badge badge-finance">금융</span> 대출/금융 (7개)</h3>
+      <div class="table-wrapper">
+        <table class="func-table">
+          <thead>
+            <tr><th>함수명</th><th>파라미터</th><th>반환값</th><th>테스트</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>loanEqualPayment</code></td>
+              <td>principal, rate, months, <span class="param-opt">grace=0</span></td>
+              <td>monthly, total, interest, graceMonthly</td>
+              <td><a href="../api/calculate.html?fn=loanEqualPayment&principal=100000000&rate=3.5&months=360" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>loanEqualPrincipal</code></td>
+              <td>principal, rate, months, <span class="param-opt">grace=0</span></td>
+              <td>firstMonthly, lastMonthly, totalInterest, total</td>
+              <td><a href="../api/calculate.html?fn=loanEqualPrincipal&principal=100000000&rate=3.5&months=360" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>loanBullet</code></td>
+              <td>principal, rate, months</td>
+              <td>monthly, total, interest, finalPayment</td>
+              <td><a href="../api/calculate.html?fn=loanBullet&principal=100000000&rate=3.5&months=360" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>prepaymentFee</code></td>
+              <td>amount, <span class="param-opt">rate=1.5, remainingMonths=0, totalMonths=36, type='fixed'</span></td>
+              <td>Number (수수료 금액)</td>
+              <td><a href="../api/calculate.html?fn=prepaymentFee&amount=50000000&rate=1.5&remainingMonths=12&totalMonths=36" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>depositInterest</code></td>
+              <td>principal, annualRate, months, <span class="param-opt">type='deposit', taxRate=0.154</span></td>
+              <td>interest, tax, afterTax, total (적금: +totalDeposit)</td>
+              <td><a href="../api/calculate.html?fn=depositInterest&principal=10000000&annualRate=4.0&months=12" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>compoundInterest</code></td>
+              <td>principal, annualRate, years, <span class="param-opt">compoundPerYear=12, monthlyAdd=0</span></td>
+              <td>amount, totalInvested, interest</td>
+              <td><a href="../api/calculate.html?fn=compoundInterest&principal=10000000&annualRate=7&years=10" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>exchangeRate</code></td>
+              <td>amount, rate, <span class="param-opt">direction='to_krw'</span></td>
+              <td>result</td>
+              <td><a href="../api/calculate.html?fn=exchangeRate&amount=1000&rate=1350" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 보험 -->
+      <h3><span class="category-badge badge-insurance">보험</span> 보험 (3개)</h3>
+      <div class="table-wrapper">
+        <table class="func-table">
+          <thead>
+            <tr><th>함수명</th><th>파라미터</th><th>반환값</th><th>테스트</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>healthInsurance</code></td>
+              <td>monthlySalary</td>
+              <td>health, longTerm, employeeHealth, employeeLong, employeeTotal</td>
+              <td><a href="../api/calculate.html?fn=healthInsurance&monthlySalary=3000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>employmentInsurance</code></td>
+              <td>monthlySalary, <span class="param-opt">companySize='small'</span></td>
+              <td>employee, employer, total</td>
+              <td><a href="../api/calculate.html?fn=employmentInsurance&monthlySalary=3000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>industrialInsurance</code></td>
+              <td>monthlySalary, <span class="param-opt">industryRate=0.007</span></td>
+              <td>premium, rate</td>
+              <td><a href="../api/calculate.html?fn=industrialInsurance&monthlySalary=3000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 생활 -->
+      <h3><span class="category-badge badge-life">생활</span> 생활 (7개)</h3>
+      <div class="table-wrapper">
+        <table class="func-table">
+          <thead>
+            <tr><th>함수명</th><th>파라미터</th><th>반환값</th><th>테스트</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>carCost</code></td>
+              <td>carPrice, <span class="param-opt">fuelType='gasoline', kmPerMonth=1000, fuelEfficiency=12, fuelPrice=1650</span></td>
+              <td>fuelCost, insurance, maintenance, tax, depreciation, total, totalWithDepr</td>
+              <td><a href="../api/calculate.html?fn=carCost&carPrice=30000000" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>weddingCost</code></td>
+              <td><span class="param-opt">hallType='hotel', guests=200, giftPerPerson=50000</span></td>
+              <td>hallCost, mealCost, photoCost, dressCost, honeymoon, total, expectedGift, netCost</td>
+              <td><a href="../api/calculate.html?fn=weddingCost&hallType=hotel&guests=200" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>childCost</code></td>
+              <td><span class="param-opt">age=0, region='seoul'</span></td>
+              <td>daycare/education, food, medical, misc, total, annual</td>
+              <td><a href="../api/calculate.html?fn=childCost&age=3&region=seoul" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>bmi</code></td>
+              <td>height, weight</td>
+              <td>bmi, category, normalMin, normalMax</td>
+              <td><a href="../api/calculate.html?fn=bmi&height=175&weight=70" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>unitConvert</code></td>
+              <td>value, from, to</td>
+              <td>result</td>
+              <td><a href="../api/calculate.html?fn=unitConvert&value=100&from=km&to=mile" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>tipCalculator</code></td>
+              <td>totalAmount, <span class="param-opt">tipPercent=0, numPeople=1</span></td>
+              <td>tip, totalWithTip, perPerson</td>
+              <td><a href="../api/calculate.html?fn=tipCalculator&totalAmount=50000&tipPercent=10&numPeople=4" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+            <tr>
+              <td><code>dateCalculator</code></td>
+              <td>startDate, endDate</td>
+              <td>days, weeks, months, years</td>
+              <td><a href="../api/calculate.html?fn=dateCalculator&startDate=2026-01-01&endDate=2026-12-31" class="try-btn" target="_blank">Try</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-top:var(--space-sm);">
+        <em>* 이탤릭 파라미터는 선택 사항(기본값 존재). URL 파라미터 API에서 배열 인자(loans)를 받는 <code>dsr</code> 함수는 SDK 방식에서만 사용 가능합니다.</em>
+      </p>
+    </section>
+
+    <!-- 4. 사용 예시 -->
+    <section class="api-section" id="examples">
+      <h2>사용 예시</h2>
+
+      <h3>연봉 실수령액 + 결과 표시</h3>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">복사</button>
+&lt;<span class="keyword">script</span> <span class="func">src</span>=<span class="string">"https://kukmincalc.com/assets/js/calculator-core.js"</span>&gt;&lt;/<span class="keyword">script</span>&gt;
+&lt;<span class="keyword">script</span>&gt;
+  <span class="keyword">const</span> salary = <span class="number">60000000</span>; <span class="comment">// 연봉 6천만원</span>
+  <span class="keyword">const</span> r = <span class="func">CalcCore.takeHomePay</span>(salary, <span class="number">2</span>, <span class="number">1</span>);
+
+  document.getElementById(<span class="string">'result'</span>).innerHTML = <span class="string">`
+    월급: ${(r.monthly).toLocaleString()}원
+    실수령액: ${r.takeHome.toLocaleString()}원
+    공제합계: ${r.totalDeduction.toLocaleString()}원
+    ── 4대보험 ──
+    국민연금: ${r.nationalPension.toLocaleString()}원
+    건강보험: ${r.healthInsurance.toLocaleString()}원
+    장기요양: ${r.longTermCare.toLocaleString()}원
+    고용보험: ${r.employmentIns.toLocaleString()}원
+    ── 세금 ──
+    소득세: ${r.incomeTax.toLocaleString()}원
+    지방세: ${r.localTax.toLocaleString()}원
+  `</span>;
+&lt;/<span class="keyword">script</span>&gt;
+&lt;<span class="keyword">pre</span> <span class="func">id</span>=<span class="string">"result"</span>&gt;&lt;/<span class="keyword">pre</span>&gt;
+      </div>
+
+      <h3>대출 상환 방식 비교</h3>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">복사</button>
+<span class="keyword">const</span> P = <span class="number">300000000</span>, R = <span class="number">4.0</span>, M = <span class="number">360</span>;
+
+<span class="keyword">const</span> ep = <span class="func">CalcCore.loanEqualPayment</span>(P, R, M);
+<span class="keyword">const</span> ec = <span class="func">CalcCore.loanEqualPrincipal</span>(P, R, M);
+<span class="keyword">const</span> bl = <span class="func">CalcCore.loanBullet</span>(P, R, M);
+
+console.table({
+  <span class="string">'원리금균등'</span>: { <span class="string">월상환</span>: ep.monthly, <span class="string">총이자</span>: ep.interest },
+  <span class="string">'원금균등'</span>:   { <span class="string">월상환</span>: ec.firstMonthly, <span class="string">총이자</span>: ec.totalInterest },
+  <span class="string">'만기일시'</span>:   { <span class="string">월상환</span>: bl.monthly, <span class="string">총이자</span>: bl.interest },
+});
+      </div>
+
+      <h3>iframe postMessage 연동</h3>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">복사</button>
+<span class="comment">// 부모 페이지에서 결과 수신</span>
+window.addEventListener(<span class="string">'message'</span>, (e) => {
+  <span class="keyword">if</span> (e.data?.type === <span class="string">'gukmin-calc-result'</span> &amp;&amp; e.data.success) {
+    console.log(<span class="string">`함수: ${e.data.function}`</span>);
+    console.log(<span class="string">'결과:'</span>, e.data.data);
+  }
+});
+
+<span class="comment">// 동적으로 계산 요청</span>
+<span class="keyword">function</span> <span class="func">calculate</span>(fn, params) {
+  <span class="keyword">const</span> qs = <span class="keyword">new</span> URLSearchParams({ fn, ...params });
+  <span class="keyword">const</span> frame = document.getElementById(<span class="string">'calcFrame'</span>);
+  frame.src = <span class="string">`https://kukmincalc.com/api/calculate.html?${qs}`</span>;
+}
+
+<span class="func">calculate</span>(<span class="string">'bmi'</span>, { height: <span class="number">175</span>, weight: <span class="number">68</span> });
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    // 사용 방법 탭 전환
+    document.querySelectorAll('.method-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.method-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.method-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('method-' + tab.dataset.method).classList.add('active');
+      });
+    });
+
+    // 코드 복사
+    function copyCode(btn) {
+      const block = btn.parentElement;
+      const text = block.textContent.replace('복사', '').trim();
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '복사됨!';
+        setTimeout(() => { btn.textContent = '복사'; }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>

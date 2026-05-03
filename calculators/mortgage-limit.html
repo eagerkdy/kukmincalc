@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주택담보대출 한도 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 주택담보대출 한도를 LTV, DTI, DSR 기준으로 자동 계산합니다. 주택가격, 연소득, 기존대출을 입력하면 최대 대출 가능 금액을 즉시 확인하세요.">
+  <meta property="og:title" content="주택담보대출 한도 계산기 - 국민계산기">
+  <meta property="og:description" content="LTV·DTI·DSR 기반 주택담보대출 최대 한도를 실시간 계산합니다.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/mortgage-limit">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/mortgage-limit">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "주택담보대출 한도 계산기",
+    "description": "LTV, DTI, DSR 규제 기준에 따른 주택담보대출 최대 한도를 자동으로 계산합니다.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#realestate">부동산</a> &gt;
+      <span>주택담보대출 한도 계산기</span>
+    </nav>
+
+    <h1>🏠 주택담보대출 한도 계산기 2026</h1>
+    <p class="page-subtitle">LTV, DTI, DSR 규제를 모두 반영하여 최대 대출 가능 금액을 확인하세요</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="housePrice">주택 가격 (원)</label>
+        <input type="text" id="housePrice" placeholder="예: 700,000,000" value="700000000">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="500000000" data-target="housePrice">5억</button>
+          <button class="preset-btn" data-set="700000000" data-target="housePrice">7억</button>
+          <button class="preset-btn" data-set="1000000000" data-target="housePrice">10억</button>
+          <button class="preset-btn" data-set="1500000000" data-target="housePrice">15억</button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="annualIncome">연소득 (원)</label>
+        <input type="text" id="annualIncome" placeholder="예: 60,000,000" value="60000000">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="40000000" data-target="annualIncome">4천만</button>
+          <button class="preset-btn" data-set="60000000" data-target="annualIncome">6천만</button>
+          <button class="preset-btn" data-set="80000000" data-target="annualIncome">8천만</button>
+          <button class="preset-btn" data-set="100000000" data-target="annualIncome">1억</button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="existingDebt">기존 대출 연간 상환액 (원)</label>
+        <input type="text" id="existingDebt" placeholder="예: 5,000,000" value="0">
+        <small>신용대출, 카드론, 자동차 할부 등 기존 대출의 연간 원리금 상환액 합계</small>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="ltv">LTV (담보인정비율)</label>
+          <select id="ltv">
+            <option value="0.40">40% (투기지역)</option>
+            <option value="0.50">50% (투기과열)</option>
+            <option value="0.60">60% (조정대상)</option>
+            <option value="0.70" selected>70% (비규제)</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="dti">DTI (총부채상환비율)</label>
+          <select id="dti">
+            <option value="0.40" selected>40%</option>
+            <option value="0.50">50%</option>
+            <option value="0.60">60%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="dsrRate">DSR (총부채원리금상환비율)</label>
+        <select id="dsrRate">
+          <option value="0.40" selected>40% (은행권)</option>
+          <option value="0.50">50% (비은행권)</option>
+          <option value="0.60">60% (서민금융)</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>주택담보대출 한도 산출 기준</h2>
+      <p>주택담보대출 한도는 LTV(Loan to Value, 담보인정비율), DTI(Debt to Income, 총부채상환비율), DSR(Debt Service Ratio, 총부채원리금상환비율) 세 가지 규제 기준 중 가장 낮은 금액으로 결정됩니다. 이 세 가지 기준은 부동산 시장 안정과 차입자 보호를 위해 정부가 설정한 규제 장치입니다.</p>
+
+      <h3>LTV (담보인정비율)</h3>
+      <p>LTV는 주택 가격 대비 대출 가능 비율입니다. 예를 들어 10억원짜리 주택에 LTV 70%가 적용되면 최대 7억원까지 대출이 가능합니다. 지역별로 다르게 적용되며, 투기지역 40%, 투기과열지구 50%, 조정대상지역 60%, 비규제지역 70%가 기본 한도입니다. 무주택 서민에게는 우대 LTV가 적용될 수 있으며, 다주택자에게는 추가 제한이 가해집니다.</p>
+
+      <h3>DTI (총부채상환비율)</h3>
+      <p>DTI는 연소득 대비 주택담보대출의 연간 원리금상환액과 기타 대출의 이자상환액 합계 비율입니다. 연소득이 6,000만원이고 DTI 한도가 40%라면, 연간 대출 상환액이 2,400만원을 넘지 않는 범위에서 대출이 가능합니다. DTI는 주담대의 원금상환분과 다른 대출의 이자상환분만 고려합니다.</p>
+
+      <h3>DSR (총부채원리금상환비율)</h3>
+      <p>DSR은 DTI보다 엄격한 기준으로, 모든 대출의 원금과 이자 상환액을 합산하여 연소득과 비교합니다. 2026년 현재 은행권은 40%, 비은행권은 50%가 기본 적용됩니다. 신용대출, 카드론, 학자금대출 등 모든 부채가 포함되기 때문에 기존 대출이 많을수록 주택담보대출 한도가 줄어듭니다. DSR 규제 강화로 실질적으로 가장 중요한 대출 한도 결정 기준이 되었습니다.</p>
+
+      <h3>한도 결정 방식</h3>
+      <p>최종 대출 한도는 LTV 한도, DTI 한도, DSR 한도 중 가장 작은 금액으로 결정됩니다. 실제 대출 시에는 은행별 내부 심사 기준, 소득 증빙 방식, 신용등급 등이 추가로 반영되어 한도가 달라질 수 있으므로, 본 계산기의 결과는 참고용으로 활용하시기 바랍니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "LTV, DTI, DSR 중 어떤 것이 가장 중요한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "세 기준 중 가장 낮은 금액이 실제 대출 한도가 됩니다. 2026년 현재 DSR 규제가 가장 엄격하게 적용되고 있어 실질적으로 DSR이 가장 중요한 기준입니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "DSR에 포함되는 대출은 어떤 것이 있나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "주택담보대출뿐만 아니라 신용대출, 카드론, 자동차 할부, 학자금대출, 전세자금대출 등 모든 금융기관 대출의 원리금 상환액이 포함됩니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "규제지역에 따라 대출 한도가 어떻게 달라지나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "투기지역은 LTV 40%, 투기과열지구는 50%, 조정대상지역은 60%, 비규제지역은 70%가 적용됩니다. 규제지역일수록 대출 한도가 낮아집니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "대출 한도를 늘릴 방법이 있나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "기존 대출을 상환하여 DSR 비율을 낮추거나, 대출 기간을 늘려 연간 상환액을 줄이는 방법이 있습니다. 또한 부부합산 소득을 증빙하거나, 보금자리론 등 정책 모기지를 활용할 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "실제 은행에서 받을 수 있는 금액도 같나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "본 계산기는 규제 기준에 따른 이론적 최대 한도를 보여줍니다. 실제 은행 심사 시에는 신용등급, 소득 안정성, 담보 평가액, 은행 내부 규정 등이 추가로 반영되어 한도가 달라질 수 있습니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>LTV, DTI, DSR 중 어떤 것이 가장 중요한가요?</summary>
+        <p>세 기준 중 가장 낮은 금액이 실제 대출 한도가 됩니다. 2026년 현재 DSR 규제가 가장 엄격하게 적용되고 있어 실질적으로 DSR이 가장 중요한 기준입니다.</p>
+      </details>
+      <details>
+        <summary>DSR에 포함되는 대출은 어떤 것이 있나요?</summary>
+        <p>주택담보대출뿐만 아니라 신용대출, 카드론, 자동차 할부, 학자금대출, 전세자금대출 등 모든 금융기관 대출의 원리금 상환액이 포함됩니다.</p>
+      </details>
+      <details>
+        <summary>규제지역에 따라 대출 한도가 어떻게 달라지나요?</summary>
+        <p>투기지역은 LTV 40%, 투기과열지구는 50%, 조정대상지역은 60%, 비규제지역은 70%가 적용됩니다. 규제지역일수록 대출 한도가 낮아집니다.</p>
+      </details>
+      <details>
+        <summary>대출 한도를 늘릴 방법이 있나요?</summary>
+        <p>기존 대출을 상환하여 DSR 비율을 낮추거나, 대출 기간을 늘려 연간 상환액을 줄이는 방법이 있습니다. 또한 부부합산 소득을 증빙하거나, 보금자리론 등 정책 모기지를 활용할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>실제 은행에서 받을 수 있는 금액도 같나요?</summary>
+        <p>본 계산기는 규제 기준에 따른 이론적 최대 한도를 보여줍니다. 실제 은행 심사 시에는 신용등급, 소득 안정성, 담보 평가액, 은행 내부 규정 등이 추가로 반영되어 한도가 달라질 수 있습니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="dsr.html" class="related-card"><span class="icon">📐</span><h4>DSR 계산기</h4><p>총부채원리금상환비율 계산</p></a>
+        <a href="loan-interest.html" class="related-card"><span class="icon">🧮</span><h4>대출이자 계산기</h4><p>상환방식별 이자 비교</p></a>
+        <a href="comprehensive-property-tax.html" class="related-card"><span class="icon">🏢</span><h4>종부세 계산기</h4><p>종합부동산세 자동 계산</p></a>
+        <a href="acquisition-tax.html" class="related-card"><span class="icon">🔑</span><h4>취득세 계산기</h4><p>주택 수별 취득세 계산</p></a>
+        <a href="rent-to-deposit.html" class="related-card"><span class="icon">🔄</span><h4>월세↔전세 전환</h4><p>전월세 전환율 기반 변환</p></a>
+        <a href="take-home-pay.html" class="related-card"><span class="icon">💵</span><h4>연봉 실수령액</h4><p>세후 실수령액 계산</p></a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const housePrice = parseInput(document.getElementById('housePrice').value);
+      const annualIncome = parseInput(document.getElementById('annualIncome').value);
+      const existingDebt = parseInput(document.getElementById('existingDebt').value);
+      const ltv = parseFloat(document.getElementById('ltv').value);
+      const dti = parseFloat(document.getElementById('dti').value);
+      const dsr = parseFloat(document.getElementById('dsrRate').value);
+
+      const r = CalcCore.mortgageLimit(housePrice, annualIncome, existingDebt, ltv, dti, dsr);
+
+      // Determine which is the binding constraint
+      const limits = [
+        { name: 'LTV', value: r.ltvLimit },
+        { name: 'DTI', value: r.dtiLimit },
+        { name: 'DSR', value: r.dsrLimit }
+      ];
+      const binding = limits.reduce((min, cur) => cur.value < min.value ? cur : min);
+
+      const ltvClass = binding.name === 'LTV' ? 'primary' : '';
+      const dtiClass = binding.name === 'DTI' ? 'primary' : '';
+      const dsrClass = binding.name === 'DSR' ? 'primary' : '';
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>주택담보대출 한도 계산 결과</h3>
+          <div class="result-item ${ltvClass}"><span>LTV 한도 (${(ltv*100).toFixed(0)}%)</span><strong>${formatKRW(Math.max(0, r.ltvLimit))}</strong></div>
+          <div class="result-item ${dtiClass}"><span>DTI 한도 (${(dti*100).toFixed(0)}%)</span><strong>${r.dtiLimit > 0 ? formatKRW(r.dtiLimit) : '산출 불가'}</strong></div>
+          <div class="result-item ${dsrClass}"><span>DSR 한도 (${(dsr*100).toFixed(0)}%)</span><strong>${r.dsrLimit > 0 ? formatKRW(r.dsrLimit) : '산출 불가'}</strong></div>
+          <div class="result-item primary"><span>최종 대출 한도 (최소값)</span><strong>${formatKRW(r.limit)}</strong></div>
+          <div class="result-item"><span>제한 기준</span><strong>${binding.name}</strong></div>
+        </div>`;
+
+      // AI insight
+      const ltvPct = housePrice > 0 ? (r.limit / housePrice * 100).toFixed(1) : 0;
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>AI 맞춤 분석</h3>
+          <div class="insight-item"><span class="icon">📊</span><div><strong>한도 제한 요인</strong><p>${binding.name}가 최종 한도를 결정하고 있습니다. ${binding.name === 'DSR' ? '기존 대출 상환액을 줄이면 한도가 늘어날 수 있습니다.' : binding.name === 'LTV' ? '주택 가격 대비 담보인정비율이 한도를 결정합니다. 비규제지역 주택을 선택하면 LTV가 높아집니다.' : 'DTI 기준으로 한도가 결정됩니다. 대출 기간을 늘려 연간 상환액을 줄이면 한도가 늘어날 수 있습니다.'}</p></div></div>
+          <div class="insight-item"><span class="icon">🏠</span><div><strong>주택가격 대비</strong><p>주택가격 ${formatKRW(housePrice)} 대비 최대 ${ltvPct}%인 ${formatKRW(r.limit)}까지 대출이 가능합니다. 나머지 ${formatKRW(housePrice - r.limit)}은 자기자금으로 준비해야 합니다.</p></div></div>
+          <div class="insight-item"><span class="icon">💡</span><div><strong>한도 증가 팁</strong><p>보금자리론, 디딤돌대출 등 정책 모기지는 일반 대출보다 LTV·DTI 한도가 높을 수 있습니다. 부부합산 소득 증빙이나 대출 기간 연장(30~40년)도 한도 증가에 도움됩니다.</p></div></div>
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

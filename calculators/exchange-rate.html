@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>환율 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 환율 계산기. 미국 달러(USD), 일본 엔(JPY), 유로(EUR), 중국 위안(CNY), 영국 파운드(GBP) 등 주요 통화를 원화로 빠르게 환산합니다.">
+  <meta property="og:title" content="환율 계산기 - 국민계산기">
+  <meta property="og:description" content="USD, JPY, EUR, CNY, GBP 등 주요 통화를 원화로 실시간 환산합니다.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/exchange-rate">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/exchange-rate">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "환율 계산기",
+    "description": "주요 통화(USD, JPY, EUR, CNY, GBP) 환율 변환 계산기.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#finance">대출·금융</a> &gt;
+      <span>환율 계산기</span>
+    </nav>
+
+    <h1>💱 환율 계산기 2026</h1>
+    <p class="page-subtitle">주요 통화의 환율을 빠르게 변환하세요 (기본 환율은 참고용)</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="exchangeAmount">금액</label>
+        <input type="text" id="exchangeAmount" value="1,000" placeholder="변환할 금액 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="100" data-target="exchangeAmount">100</button>
+          <button class="preset-btn active" data-set="1000" data-target="exchangeAmount">1,000</button>
+          <button class="preset-btn" data-set="10000" data-target="exchangeAmount">10,000</button>
+          <button class="preset-btn" data-set="100000" data-target="exchangeAmount">100,000</button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="currency">통화</label>
+          <select id="currency">
+            <option value="USD" selected>USD (미국 달러)</option>
+            <option value="JPY">JPY (일본 엔)</option>
+            <option value="EUR">EUR (유로)</option>
+            <option value="CNY">CNY (중국 위안)</option>
+            <option value="GBP">GBP (영국 파운드)</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="direction">변환 방향</label>
+          <select id="direction">
+            <option value="to_krw" selected>외화 → 원화 (KRW)</option>
+            <option value="to_foreign">원화 (KRW) → 외화</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="manualRate">적용 환율 (원)</label>
+        <input type="text" id="manualRate" value="1,350" placeholder="환율 입력">
+        <small>기본값은 참고용입니다. 실시간 환율은 은행·환전소에서 확인하세요.</small>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>환율 계산 가이드</h2>
+      <p>환율 계산기는 해외여행, 해외직구, 무역, 유학, 해외투자 등 다양한 상황에서 외화와 원화를 빠르게 변환하기 위한 도구입니다. 환율은 실시간으로 변동하므로, 본 계산기의 기본 환율은 참고용이며 실제 거래 시에는 은행이나 환전소의 최신 환율을 확인해야 합니다.</p>
+
+      <h3>매매기준율과 현찰환율</h3>
+      <p>은행에서 제시하는 환율에는 여러 종류가 있습니다. 매매기준율은 은행 간 외환 거래의 기준이 되는 환율이고, 현찰 사실 때(살 때) 환율과 현찰 팔 때 환율은 개인이 실제 환전할 때 적용됩니다. 통상 현찰 매매 시 매매기준율 대비 1.5~1.75%의 환전수수료(스프레드)가 적용되어, 살 때는 더 비싸고 팔 때는 더 싸게 거래됩니다.</p>
+
+      <h3>주요 통화별 특징</h3>
+      <p>미국 달러(USD)는 세계 기축통화로, 국제 무역과 금융의 기준이 됩니다. 일본 엔(JPY)은 안전자산으로 분류되어 글로벌 위기 시 강세를 보이는 경향이 있습니다. 유로(EUR)는 유럽연합 통화로 달러 다음으로 많이 거래됩니다. 중국 위안(CNY)은 중국의 경제 규모에 따라 중요성이 커지고 있으며, 영국 파운드(GBP)는 유럽 내 주요 통화입니다.</p>
+
+      <h3>환율 변동 요인</h3>
+      <p>환율은 양국 간의 경제 기초체력(펀더멘털), 금리 차이, 무역수지, 외국인 투자 흐름, 정치적 안정성, 중앙은행의 정책 등 다양한 요인에 의해 결정됩니다. 특히 한국의 경우 수출 의존도가 높아 무역수지와 달러 수요가 환율에 큰 영향을 미칩니다.</p>
+
+      <h3>환전 절약 팁</h3>
+      <p>환전 수수료를 절약하려면 첫째, 인터넷·모바일 뱅킹을 통한 환전이 창구 대비 50~90% 수수료 우대를 받을 수 있습니다. 둘째, 환율이 유리한 시점을 노려 미리 환전해두는 것이 좋습니다. 셋째, 해외직구 시에는 신용카드 해외결제 환율(카드사 매매기준율 + 수수료)을 확인하세요. 넷째, 대금결제용이라면 외화통장을 활용하여 환전 시점을 조절할 수 있습니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "환율 계산기의 환율은 실시간인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "아닙니다. 본 계산기의 기본 환율은 참고용 값입니다. 실시간 환율은 은행, 한국은행, 네이버 금융 등에서 확인하시고, 수동으로 환율을 입력하여 정확한 계산이 가능합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "은행 환전 수수료는 얼마인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "일반적으로 매매기준율 대비 1.5~1.75%의 스프레드가 적용됩니다. 인터넷뱅킹으로 환전하면 50~90% 수수료 우대를 받을 수 있어 약 0.15~0.88% 수준으로 줄일 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "해외여행 시 현금과 카드 중 무엇이 유리한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "소액은 현금이 편리하지만, 큰 금액은 해외결제 수수료가 낮은 카드(토스, 트래블로그 등)가 유리합니다. 카드 결제 시 '현지 통화 결제'를 선택해야 환율이 유리합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "엔화(JPY) 환율은 왜 다르게 표시되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "엔화는 단위가 크기 때문에 보통 100엔 기준 환율을 표시합니다. 본 계산기에서는 1엔당 환율을 사용합니다. 예를 들어 100엔당 920원이면 1엔당 9.2원입니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 환율 계산기의 환율은 실시간인가요?</summary><p>아닙니다. 본 계산기의 기본 환율은 참고용 값입니다. 실시간 환율은 은행, 한국은행, 네이버 금융 등에서 확인하시고, 수동으로 환율을 입력하여 정확한 계산이 가능합니다.</p></details>
+      <details><summary>Q2. 은행 환전 수수료는 얼마인가요?</summary><p>일반적으로 매매기준율 대비 1.5~1.75%의 스프레드가 적용됩니다. 인터넷뱅킹으로 환전하면 50~90% 수수료 우대를 받을 수 있어 약 0.15~0.88% 수준으로 줄일 수 있습니다.</p></details>
+      <details><summary>Q3. 해외여행 시 현금과 카드 중 무엇이 유리한가요?</summary><p>소액은 현금이 편리하지만, 큰 금액은 해외결제 수수료가 낮은 카드(토스, 트래블로그 등)가 유리합니다. 카드 결제 시 '현지 통화 결제'를 선택해야 환율이 유리합니다.</p></details>
+      <details><summary>Q4. 엔화(JPY) 환율은 왜 다르게 표시되나요?</summary><p>엔화는 단위가 크기 때문에 보통 100엔 기준 환율을 표시합니다. 본 계산기에서는 1엔당 환율을 사용합니다. 예를 들어 100엔당 920원이면 1엔당 9.2원입니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="deposit-interest.html" class="related-card">
+          <div class="icon">🏧</div>
+          <h4>예적금 이자 계산기</h4>
+          <p>예금·적금 이자 계산</p>
+        </a>
+        <a href="compound-interest.html" class="related-card">
+          <div class="icon">📈</div>
+          <h4>복리 계산기</h4>
+          <p>복리 수익 시뮬레이션</p>
+        </a>
+        <a href="loan-interest.html" class="related-card">
+          <div class="icon">🧮</div>
+          <h4>대출이자 계산기</h4>
+          <p>상환방식별 이자 비교</p>
+        </a>
+        <a href="unit-converter.html" class="related-card">
+          <div class="icon">📏</div>
+          <h4>단위 변환기</h4>
+          <p>km, kg, 평 등 변환</p>
+        </a>
+        <a href="tip-calculator.html" class="related-card">
+          <div class="icon">🍽️</div>
+          <h4>팁/더치페이 계산기</h4>
+          <p>팁·N인 더치페이</p>
+        </a>
+        <a href="income-tax.html" class="related-card">
+          <div class="icon">📊</div>
+          <h4>종합소득세 계산기</h4>
+          <p>소득세 자동 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    const defaultRates = {
+      USD: 1350,
+      JPY: 9.2,
+      EUR: 1450,
+      CNY: 185,
+      GBP: 1700
+    };
+
+    const currencyNames = {
+      USD: '미국 달러',
+      JPY: '일본 엔',
+      EUR: '유로',
+      CNY: '중국 위안',
+      GBP: '영국 파운드'
+    };
+
+    const currencySymbols = {
+      USD: '$',
+      JPY: '\u00a5',
+      EUR: '\u20ac',
+      CNY: '\u00a5',
+      GBP: '\u00a3'
+    };
+
+    // Update default rate when currency changes
+    document.getElementById('currency').addEventListener('change', function() {
+      document.getElementById('manualRate').value = formatNumber(defaultRates[this.value]);
+    });
+
+    function calculate() {
+      const amount = parseInput(document.getElementById('exchangeAmount').value);
+      const currency = document.getElementById('currency').value;
+      const direction = document.getElementById('direction').value;
+      const rate = parseInput(document.getElementById('manualRate').value);
+
+      if (amount <= 0 || rate <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.exchangeRate(amount, rate, direction);
+      const cName = currencyNames[currency];
+      const cSymbol = currencySymbols[currency];
+
+      let fromLabel, toLabel, fromVal, toVal;
+      if (direction === 'to_krw') {
+        fromLabel = `${cSymbol}${formatNumber(amount)} ${currency}`;
+        toLabel = `${formatNumber(r.result)}원 (KRW)`;
+        fromVal = amount;
+        toVal = r.result;
+      } else {
+        fromLabel = `${formatNumber(amount)}원 (KRW)`;
+        toLabel = `${cSymbol}${r.result.toLocaleString('ko-KR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${currency}`;
+        fromVal = amount;
+        toVal = r.result;
+      }
+
+      // Calculate all currencies for comparison
+      const allResults = {};
+      Object.keys(defaultRates).forEach(cur => {
+        const curRate = cur === currency ? rate : defaultRates[cur];
+        if (direction === 'to_krw') {
+          allResults[cur] = CalcCore.exchangeRate(amount, curRate, 'to_krw');
+        } else {
+          allResults[cur] = CalcCore.exchangeRate(amount, curRate, 'to_foreign');
+        }
+      });
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>환율 변환 결과</h3>
+          <div class="result-item primary">
+            <span>${direction === 'to_krw' ? '원화 환산액' : cName + ' 환산액'}</span>
+            <strong>${direction === 'to_krw' ? formatNumber(r.result) + '원' : cSymbol + r.result.toLocaleString('ko-KR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong>
+          </div>
+          <div class="result-item">
+            <span>변환 전</span>
+            <strong>${fromLabel}</strong>
+          </div>
+          <div class="result-item">
+            <span>적용 환율</span>
+            <strong>1 ${currency} = ${formatNumber(rate)}원</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('${fromLabel} → ${toLabel} (국민계산기)')">📋 복사</button>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--space-md);">
+          <h3 style="color:var(--primary);margin-bottom:var(--space-sm);font-size:1.1rem;">주요 통화 환산 비교</h3>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>통화</th>
+                <th>기준 환율</th>
+                <th>${direction === 'to_krw' ? '원화 환산' : '외화 환산'}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${Object.keys(defaultRates).map(cur => {
+                const curRate = cur === currency ? rate : defaultRates[cur];
+                const res = allResults[cur];
+                return `<tr${cur === currency ? ' style="font-weight:700;"' : ''}>
+                  <td>${currencySymbols[cur]} ${cur} (${currencyNames[cur]})</td>
+                  <td>${formatNumber(curRate)}원</td>
+                  <td>${direction === 'to_krw' ? formatNumber(res.result) + '원' : currencySymbols[cur] + res.result.toLocaleString('ko-KR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                </tr>`;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      // Spread (buy/sell difference)
+      const spread = rate * 0.0175;
+      const buyRate = rate + spread;
+      const sellRate = rate - spread;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">📊</span>
+            <div>
+              <strong>${cName}(${currency}) 환율 참고 정보</strong>
+              <p>현재 적용 환율: 1 ${currency} = ${formatNumber(rate)}원. 이 환율은 참고용이며, 실제 환전 시에는 은행의 매매기준율과 환전수수료(스프레드)가 적용됩니다.</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">💰</span>
+            <div>
+              <strong>예상 환전 비용 (스프레드 1.75% 기준)</strong>
+              <p>현찰 살 때: 약 ${formatNumber(Math.round(buyRate))}원/${currency} | 현찰 팔 때: 약 ${formatNumber(Math.round(sellRate))}원/${currency}. 인터넷뱅킹 이용 시 수수료 50~90% 우대 가능합니다.</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">💡</span>
+            <div>
+              <strong>환전 절약 팁</strong>
+              <p>${direction === 'to_krw' ? '외화를 원화로 환전할 때는 환율이 높을수록 유리합니다. 환율 상승 시점을 노려 환전하세요.' : '원화를 외화로 환전할 때는 환율이 낮을수록 유리합니다.'} 모바일뱅킹 환전 우대, 환율 알림 서비스를 활용하면 최적 시점에 환전할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

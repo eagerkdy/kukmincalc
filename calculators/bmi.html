@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 BMI 계산기 - 키와 몸무게로 체질량지수(BMI)를 계산하고 비만도를 판정합니다. 정상 체중 범위, 건강 조언, 목표 체중까지 감량/증량 필요량 안내.">
+  <meta property="og:title" content="BMI 계산기 - 국민계산기">
+  <meta property="og:description" content="BMI(체질량지수) 자동 계산 - 키와 몸무게를 입력하면 비만도 판정과 건강 조언을 제공합니다.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/bmi">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/bmi">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "BMI 계산기",
+    "description": "키와 몸무게로 BMI(체질량지수)를 계산하고 비만도를 판정합니다. 건강 체중 범위와 조언을 제공합니다.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt; <a href="../index.html#life">생활</a> &gt; <span>BMI 계산기</span>
+    </nav>
+
+    <h1>⚖️ BMI 계산기 2026</h1>
+    <p class="page-subtitle">키와 몸무게를 입력하면 BMI(체질량지수)를 계산하고 비만도를 판정합니다.</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="height">키 (cm)</label>
+        <input type="text" id="height" placeholder="예: 170" inputmode="numeric">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="160" data-target="height">160cm</button>
+          <button class="preset-btn" data-set="170" data-target="height">170cm</button>
+          <button class="preset-btn" data-set="180" data-target="height">180cm</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="weight">몸무게 (kg)</label>
+        <input type="text" id="weight" placeholder="예: 70" inputmode="numeric">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="50" data-target="weight">50kg</button>
+          <button class="preset-btn" data-set="60" data-target="weight">60kg</button>
+          <button class="preset-btn" data-set="70" data-target="weight">70kg</button>
+          <button class="preset-btn" data-set="80" data-target="weight">80kg</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>BMI(체질량지수)란?</h2>
+      <p>BMI(Body Mass Index, 체질량지수)는 키와 몸무게의 관계를 이용하여 체지방의 정도를 추정하는 지표입니다. 벨기에 통계학자 아돌프 케틀레(Adolphe Quetelet)가 고안한 것으로, 체중(kg)을 키(m)의 제곱으로 나누어 계산합니다. 세계보건기구(WHO)와 대한비만학회에서 비만도 판정의 기본 지표로 사용하고 있으며, 간편하게 자신의 체중 상태를 확인할 수 있는 방법입니다.</p>
+
+      <h3>BMI 계산 공식</h3>
+      <p>BMI = 체중(kg) / [키(m)]^2. 예를 들어, 키 170cm, 체중 70kg인 사람의 BMI는 70 / (1.7 x 1.7) = 24.2입니다. BMI는 성별과 연령에 관계없이 동일한 공식을 사용하지만, 판정 기준은 인종에 따라 다를 수 있습니다.</p>
+
+      <h3>대한비만학회 BMI 기준 (아시아-태평양 기준)</h3>
+      <p>아시아인은 서양인에 비해 동일한 BMI에서도 체지방률이 더 높은 경향이 있어, WHO 기준보다 낮은 기준점을 적용합니다.</p>
+      <ul>
+        <li><strong>저체중:</strong> BMI 18.5 미만 - 영양 부족이나 건강 문제가 있을 수 있으며, 면역력 저하 위험</li>
+        <li><strong>정상:</strong> BMI 18.5~22.9 - 건강한 체중 범위이며, 대사질환 위험이 가장 낮음</li>
+        <li><strong>과체중:</strong> BMI 23~24.9 - 비만 전 단계로, 식이조절과 운동을 권장</li>
+        <li><strong>비만:</strong> BMI 25~29.9 - 당뇨, 고혈압, 심혈관 질환 위험 증가</li>
+        <li><strong>고도비만:</strong> BMI 30 이상 - 심각한 건강 위험으로 의료적 관리 필요</li>
+      </ul>
+
+      <h3>BMI의 한계</h3>
+      <p>BMI는 간편하지만 한계가 있습니다. 근육량이 많은 운동선수는 BMI가 높게 나올 수 있고, 노인이나 근육량이 적은 사람은 BMI가 정상이어도 체지방률이 높을 수 있습니다. 따라서 BMI와 함께 허리둘레, 체지방률, 골격근량 등을 종합적으로 고려하는 것이 정확한 건강 평가에 도움이 됩니다. 인바디(체성분 분석기) 측정을 주기적으로 받아보는 것도 좋은 방법입니다.</p>
+
+      <h3>건강한 체중 관리 방법</h3>
+      <p>건강한 체중 관리를 위해서는 균형 잡힌 식단, 규칙적인 운동, 충분한 수면, 스트레스 관리가 중요합니다. 급격한 다이어트보다는 주당 0.5~1kg 정도의 완만한 감량이 요요 현상을 방지하고 건강을 유지하는 데 효과적입니다. 과체중이나 비만인 경우 체중의 5~10%만 감량해도 혈압, 혈당, 콜레스테롤 수치가 개선되는 효과가 있습니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "정상 BMI 범위는 얼마인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "대한비만학회 기준 정상 BMI는 18.5~22.9입니다. 아시아인은 서양인보다 낮은 기준을 적용하며, WHO 기준(18.5~24.9)과 차이가 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "BMI가 정상이면 건강한 것인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "BMI가 정상 범위라도 체지방률이 높거나 내장지방이 많을 수 있습니다. BMI는 참고 지표일 뿐이며, 체성분 분석, 허리둘레 측정 등을 함께 고려해야 정확한 건강 상태를 파악할 수 있습니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "근육이 많은 사람은 BMI가 높게 나오나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "네, BMI는 체중과 키만으로 계산하므로 근육량이 많은 운동선수나 보디빌더는 비만으로 판정될 수 있습니다. 이런 경우 체지방률 측정이 더 정확한 지표입니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "이상적인 체중은 어떻게 계산하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "BMI 22를 기준으로 이상적인 체중을 산출합니다. 이상적 체중(kg) = 22 x 키(m)^2. 예를 들어 키 170cm라면 22 x 1.7 x 1.7 = 63.6kg이 이상적 체중입니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "어린이와 청소년의 BMI도 같은 기준인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "아닙니다. 어린이와 청소년은 성장기이므로 성별, 연령별 백분위수를 사용하여 판정합니다. 같은 나이와 성별의 아이들 중 85~95백분위수는 과체중, 95백분위수 이상은 비만으로 판정합니다." }
+          }
+        ]
+      }
+      </script>
+      <details>
+        <summary>정상 BMI 범위는 얼마인가요?</summary>
+        <p>대한비만학회 기준 정상 BMI는 18.5~22.9입니다. 아시아인은 서양인보다 낮은 기준을 적용하며, WHO 기준(18.5~24.9)과 차이가 있습니다. 한국인의 건강 체중 유지를 위해서는 아시아-태평양 기준을 따르는 것이 권장됩니다.</p>
+      </details>
+      <details>
+        <summary>BMI가 정상이면 건강한 것인가요?</summary>
+        <p>BMI가 정상 범위라도 체지방률이 높거나 내장지방이 많을 수 있습니다(마른 비만). BMI는 참고 지표일 뿐이며, 체성분 분석, 허리둘레 측정 등을 함께 고려해야 정확한 건강 상태를 파악할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>근육이 많은 사람은 BMI가 높게 나오나요?</summary>
+        <p>네, BMI는 체중과 키만으로 계산하므로 근육량이 많은 운동선수나 보디빌더는 비만으로 판정될 수 있습니다. 이런 경우 체지방률 측정이 더 정확한 지표입니다. 인바디 등 체성분 분석 장비를 이용하세요.</p>
+      </details>
+      <details>
+        <summary>이상적인 체중은 어떻게 계산하나요?</summary>
+        <p>BMI 22를 기준으로 이상적인 체중을 산출합니다. 이상적 체중(kg) = 22 x 키(m)^2. 예를 들어 키 170cm라면 22 x 1.7 x 1.7 = 63.6kg이 이상적 체중입니다. 다만 이는 참고치이며 개인의 체형과 근육량에 따라 다를 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>어린이와 청소년의 BMI도 같은 기준인가요?</summary>
+        <p>아닙니다. 어린이와 청소년은 성장기이므로 성별, 연령별 백분위수를 사용하여 판정합니다. 같은 나이와 성별의 아이들 중 85~95백분위수는 과체중, 95백분위수 이상은 비만으로 판정합니다. 소아과 전문의와 상담하는 것이 좋습니다.</p>
+      </details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="unit-converter.html" class="related-card">
+          <div class="icon">📐</div>
+          <h4>단위 변환기</h4>
+          <p>길이·무게·면적 변환</p>
+        </a>
+        <a href="child-cost.html" class="related-card">
+          <div class="icon">👶</div>
+          <h4>육아비용 계산기</h4>
+          <p>자녀 양육비 계산</p>
+        </a>
+        <a href="car-cost.html" class="related-card">
+          <div class="icon">🚗</div>
+          <h4>자동차 유지비</h4>
+          <p>월/연간 차량 유지비</p>
+        </a>
+        <a href="tip-calculator.html" class="related-card">
+          <div class="icon">💳</div>
+          <h4>팁/더치페이 계산기</h4>
+          <p>비용 정확히 나누기</p>
+        </a>
+        <a href="date-calculator.html" class="related-card">
+          <div class="icon">📅</div>
+          <h4>날짜 계산기</h4>
+          <p>D-day 계산</p>
+        </a>
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 실수령액 계산</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    function calculate() {
+      const height = parseInput(document.getElementById('height').value);
+      const weight = parseInput(document.getElementById('weight').value);
+
+      if (height <= 0 || weight <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const r = CalcCore.bmi(height, weight);
+
+      // 색상 코드
+      let colorClass = '';
+      let colorStyle = '';
+      if (r.category === '정상') {
+        colorClass = 'bmi-normal';
+        colorStyle = 'color: #10b981;';
+      } else if (r.category === '과체중') {
+        colorClass = 'bmi-overweight';
+        colorStyle = 'color: #f59e0b;';
+      } else if (r.category === '비만') {
+        colorClass = 'bmi-obese';
+        colorStyle = 'color: #ef4444;';
+      } else if (r.category === '고도비만') {
+        colorClass = 'bmi-severe';
+        colorStyle = 'color: #dc2626;';
+      } else {
+        colorClass = 'bmi-underweight';
+        colorStyle = 'color: #3b82f6;';
+      }
+
+      // BMI 게이지 바 위치 계산 (0~40 범위)
+      const gaugePercent = Math.min(100, Math.max(0, (r.bmi / 40) * 100));
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>BMI 계산 결과</h3>
+          <div class="result-item primary">
+            <span>BMI 수치</span>
+            <strong style="${colorStyle}">${r.bmi}</strong>
+          </div>
+          <div class="result-item">
+            <span>판정</span>
+            <strong style="${colorStyle}">${r.category}</strong>
+          </div>
+          <div style="margin: 1rem 0; padding: 0.75rem; background: var(--bg-secondary, #f5f5f5); border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px; color: var(--text-secondary, #666);">
+              <span>저체중</span><span>정상</span><span>과체중</span><span>비만</span><span>고도비만</span>
+            </div>
+            <div style="position: relative; height: 12px; background: linear-gradient(to right, #3b82f6 0%, #10b981 25%, #10b981 45%, #f59e0b 55%, #ef4444 70%, #dc2626 100%); border-radius: 6px;">
+              <div style="position: absolute; top: -4px; left: ${gaugePercent}%; width: 20px; height: 20px; background: white; border: 3px solid #333; border-radius: 50%; transform: translateX(-50%);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 4px; color: var(--text-secondary, #666);">
+              <span>0</span><span>18.5</span><span>23</span><span>25</span><span>30</span><span>40</span>
+            </div>
+          </div>
+          <div class="result-item">
+            <span>정상 체중 범위 (키 ${height}cm 기준)</span>
+            <strong>${r.normalMin}kg ~ ${r.normalMax}kg</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('BMI 계산결과: 키 ${height}cm, 몸무게 ${weight}kg → BMI ${r.bmi} (${r.category}), 정상 체중 범위 ${r.normalMin}~${r.normalMax}kg')">📋 결과 복사</button>
+          </div>
+        </div>`;
+
+      // AI 인사이트
+      let tips = [];
+
+      // 건강 조언
+      const adviceMap = {
+        '저체중': { icon: '🍽️', title: '체중 증량 권장', text: `BMI ${r.bmi}로 저체중 상태입니다. 균형 잡힌 식단으로 칼로리 섭취를 늘리고, 근력 운동을 통해 건강하게 체중을 늘리세요. 면역력 저하, 영양결핍 위험이 있으므로 의료 상담을 권장합니다.` },
+        '정상': { icon: '✅', title: '건강한 체중입니다', text: `BMI ${r.bmi}로 정상 범위에 있습니다. 현재 체중을 유지하면서 규칙적인 운동과 균형 잡힌 식단을 지속하세요. 주 3~5회, 30분 이상의 유산소 운동을 권장합니다.` },
+        '과체중': { icon: '⚠️', title: '체중 관리 필요', text: `BMI ${r.bmi}로 과체중 상태입니다. 식이조절과 규칙적인 운동으로 정상 체중으로 감량하는 것을 권장합니다. 하루 300~500kcal 정도 줄이면 주당 0.5kg 감량이 가능합니다.` },
+        '비만': { icon: '🚨', title: '적극적 관리 필요', text: `BMI ${r.bmi}로 비만 상태입니다. 당뇨, 고혈압, 심혈관 질환 위험이 증가하므로 적극적인 체중 관리가 필요합니다. 의료 전문가 상담과 함께 식이요법, 운동 계획을 수립하세요.` },
+        '고도비만': { icon: '🏥', title: '의료적 관리 권장', text: `BMI ${r.bmi}로 고도비만 상태입니다. 심각한 건강 위험이 있으므로 반드시 비만 전문 의료기관에서 상담을 받으세요. 약물 치료나 수술적 치료가 필요할 수 있습니다.` }
+      };
+
+      tips.push(adviceMap[r.category]);
+
+      // 목표 체중 계산
+      const idealWeight = Math.round(22 * (height / 100) * (height / 100) * 10) / 10;
+      const diff = Math.round((weight - idealWeight) * 10) / 10;
+
+      if (diff > 0) {
+        tips.push({
+          icon: '🎯',
+          title: '목표 체중까지',
+          text: `이상 체중(BMI 22 기준) ${idealWeight}kg까지 ${diff}kg 감량이 필요합니다. 주당 0.5kg씩 감량하면 약 ${Math.ceil(diff / 0.5)}주(약 ${Math.ceil(diff / 2)}개월)가 소요됩니다.`
+        });
+      } else if (diff < 0) {
+        tips.push({
+          icon: '🎯',
+          title: '목표 체중까지',
+          text: `이상 체중(BMI 22 기준) ${idealWeight}kg까지 ${Math.abs(diff)}kg 증량이 필요합니다. 균형 잡힌 식사와 근력 운동을 통해 건강하게 체중을 늘리세요.`
+        });
+      } else {
+        tips.push({
+          icon: '🎯',
+          title: '이상적인 체중',
+          text: `현재 체중이 이상 체중(BMI 22 기준) ${idealWeight}kg에 매우 가깝습니다. 현재 생활 습관을 잘 유지하세요.`
+        });
+      }
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 건강 분석</h3>
+          ${tips.map(t => `
+            <div class="insight-item">
+              <span class="icon">${t.icon}</span>
+              <div><strong>${t.title}</strong><p>${t.text}</p></div>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

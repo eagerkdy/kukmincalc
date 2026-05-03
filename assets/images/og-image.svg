@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- OG Image: 소셜미디어 공유용 썸네일 1200x630 -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+  </defs>
+  <!-- 배경 -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- 상단 장식 라인 -->
+  <rect y="0" width="1200" height="6" fill="url(#accent)"/>
+  <!-- 로고 아이콘 (계산기) -->
+  <rect x="480" y="120" width="80" height="80" rx="18" fill="url(#accent)"/>
+  <rect x="492" y="130" width="56" height="22" rx="4" fill="white" opacity="0.9"/>
+  <rect x="492" y="158" width="12" height="10" rx="2" fill="white" opacity="0.5"/>
+  <rect x="510" y="158" width="12" height="10" rx="2" fill="white" opacity="0.5"/>
+  <rect x="528" y="158" width="12" height="10" rx="2" fill="white" opacity="0.5"/>
+  <rect x="492" y="174" width="12" height="10" rx="2" fill="white" opacity="0.5"/>
+  <rect x="510" y="174" width="12" height="10" rx="2" fill="white" opacity="0.5"/>
+  <rect x="528" y="174" width="12" height="10" rx="2" fill="#10b981"/>
+  <!-- 동전 아이콘 -->
+  <circle cx="680" cy="160" r="38" fill="none" stroke="url(#accent)" stroke-width="3"/>
+  <text x="680" y="170" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="700" font-size="30">\u20A9</text>
+  <!-- 타이틀 -->
+  <text x="600" y="290" text-anchor="middle" fill="white" font-family="'Noto Sans KR',sans-serif" font-weight="900" font-size="64">국민계산기</text>
+  <!-- 서브타이틀 -->
+  <text x="600" y="350" text-anchor="middle" fill="#94a3b8" font-family="'Noto Sans KR',sans-serif" font-weight="400" font-size="28">대한민국 금융 계산기 35종 모음</text>
+  <!-- 키워드 뱃지들 -->
+  <rect x="200" y="400" width="120" height="40" rx="20" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="260" y="425" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="16">연봉 실수령</text>
+  <rect x="340" y="400" width="100" height="40" rx="20" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="390" y="425" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="16">대출이자</text>
+  <rect x="460" y="400" width="100" height="40" rx="20" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="510" y="425" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="16">양도소득세</text>
+  <rect x="580" y="400" width="80" height="40" rx="20" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="620" y="425" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="16">증여세</text>
+  <rect x="680" y="400" width="100" height="40" rx="20" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="730" y="425" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="16">퇴직금</text>
+  <rect x="800" y="400" width="120" height="40" rx="20" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="860" y="425" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="16">종합부동산세</text>
+  <!-- 하단 URL -->
+  <text x="600" y="540" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-weight="500" font-size="22">kukmincalc.com</text>
+  <!-- 하단 장식 -->
+  <rect y="610" width="1200" height="20" fill="url(#accent)" opacity="0.3"/>
+</svg>

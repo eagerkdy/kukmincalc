@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제휴 문의 | 국민계산기</title>
+  <meta name="description" content="국민계산기와 함께할 파트너를 찾습니다. 디스플레이 광고, API 연계, 콘텐츠 제휴, 브랜디드 컨텐츠 문의.">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .partner-page { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+
+    .partner-hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #10b981 100%);
+      color: white;
+      padding: var(--space-2xl) var(--space-lg);
+      border-radius: var(--radius-xl);
+      text-align: center;
+      margin-bottom: var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .partner-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .partner-hero h1 { font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem; }
+    .partner-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 500px; margin: 0 auto; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-lg) 0;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-md);
+      text-align: center;
+    }
+    .stat-card .num { font-size: 1.8rem; font-weight: 900; color: var(--primary); }
+    .stat-card .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    .section { margin-bottom: var(--space-xl); }
+    .section h2 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-xs);
+      border-bottom: 2px solid var(--border);
+    }
+    .section p, .section li { color: var(--text-light); line-height: 1.8; font-size: 0.95rem; }
+    .section ul { padding-left: 1.5rem; margin: 0.5rem 0; }
+    .section li { margin-bottom: 0.3rem; }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-sm);
+      margin: var(--space-sm) 0;
+    }
+    .partner-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-md);
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .partner-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .partner-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .partner-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--text); }
+    .partner-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-sm) 0;
+    }
+    .diff-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-md);
+      border-left: 4px solid var(--secondary);
+    }
+    .diff-item h4 { font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
+    .diff-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+    .contact-box {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: var(--space-xl);
+      border-radius: var(--radius-xl);
+      text-align: center;
+      margin: var(--space-xl) 0;
+    }
+    .contact-box h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: var(--space-sm); }
+    .contact-box .email-link {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0.75rem 2rem;
+      border-radius: var(--radius-full);
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background var(--transition);
+      margin: var(--space-sm) 0;
+    }
+    .contact-box .email-link:hover { background: rgba(255,255,255,0.3); }
+    .contact-box .sub { opacity: 0.8; font-size: 0.9rem; }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-sm) 0;
+      font-size: 0.9rem;
+    }
+    .info-table th, .info-table td {
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .info-table th {
+      background: var(--bg-alt);
+      font-weight: 600;
+      width: 30%;
+      color: var(--text);
+    }
+    .info-table td { color: var(--text-light); }
+
+    .policy-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+    .badge.yes { background: #dcfce7; color: #166534; }
+    .badge.no { background: #fef2f2; color: #991b1b; }
+    [data-theme="dark"] .badge.yes { background: #064e3b; color: #6ee7b7; }
+    [data-theme="dark"] .badge.no { background: #450a0a; color: #fca5a5; }
+
+    .legal-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .legal-footer p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+
+    @media (max-width: 768px) {
+      .partner-hero { padding: var(--space-lg) var(--space-md); }
+      .partner-hero h1 { font-size: 1.5rem; }
+      .stats-row { grid-template-columns: 1fr; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .partner-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="partner-page">
+    <div class="partner-hero">
+      <h1>국민계산기와 함께 성장하세요</h1>
+      <p>대한민국 금융 계산기 35종을 운영하는 국민계산기는 전략적 파트너를 찾고 있습니다.</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="num">35종</div>
+        <div class="label">금융 계산기</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">6개</div>
+        <div class="label">카테고리 (근로/세금/부동산/금융/보험/생활)</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">무료</div>
+        <div class="label">API 연계 제공</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>국민계산기만의 차별점</h2>
+      <div class="diff-grid">
+        <div class="diff-item">
+          <h4>AI 맞춤 인사이트</h4>
+          <p>단순 계산 결과를 넘어, 상황별 맞춤 해석과 절세 팁을 AI가 분석해 제공합니다.</p>
+        </div>
+        <div class="diff-item">
+          <h4>올인원 35종 계산기</h4>
+          <p>근로, 세금, 부동산, 금융, 보험, 생활까지 모든 금융 계산을 한 곳에서 제공합니다.</p>
+        </div>
+        <div class="diff-item">
+          <h4>개발자 친화 API</h4>
+          <p>JavaScript SDK, iframe, URL 파라미터 3가지 방식의 무료 API를 제공합니다.</p>
+        </div>
+        <div class="diff-item">
+          <h4>모던 UX + 다크모드</h4>
+          <p>직관적이고 깔끔한 UI, 실시간 계산, 모바일 최적화, 다크모드를 지원합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>제휴 가능 영역</h2>
+      <div class="partner-grid">
+        <div class="partner-card">
+          <div class="icon">📺</div>
+          <h3>디스플레이 광고</h3>
+          <p>CPM 기반 배너 광고</p>
+        </div>
+        <div class="partner-card">
+          <div class="icon">🔗</div>
+          <h3>API 연계</h3>
+          <p>계산기 기능 임베드 (무료)</p>
+        </div>
+        <div class="partner-card">
+          <div class="icon">📝</div>
+          <h3>콘텐츠 제휴</h3>
+          <p>유튜브, 블로그, 언론사 협업</p>
+        </div>
+        <div class="partner-card">
+          <div class="icon">🏢</div>
+          <h3>비즈니스 제휴</h3>
+          <p>공동 서비스 개발, 데이터 연계</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>제휴 문의 시 필요 정보</h2>
+      <p>원활한 제휴 검토를 위해 아래 정보를 포함하여 이메일로 보내주세요.</p>
+      <table class="info-table">
+        <tr><th>회사 정보</th><td>상호명, 업종, 사업자등록번호</td></tr>
+        <tr><th>서비스 정보</th><td>서비스명, 홈페이지 URL, 월간 방문자 수</td></tr>
+        <tr><th>제휴 분야</th><td>디스플레이 광고, API 연계, 콘텐츠 제휴 등</td></tr>
+        <tr><th>제안 내용</th><td>구체적인 제휴 내용 및 기대 효과</td></tr>
+        <tr><th>담당자</th><td>성함, 직책, 이메일, 연락처</td></tr>
+      </table>
+    </div>
+
+    <div class="contact-box">
+      <h3>제휴 문의</h3>
+      <a href="mailto:help@kukmincalc.com" class="email-link">help@kukmincalc.com</a>
+      <p class="sub">영업일 기준 2일 이내 답변드립니다</p>
+    </div>
+
+    <div class="section">
+      <h2>광고 정책</h2>
+      <div class="policy-item"><span class="badge yes">가능</span> CPM 고정형 배너 광고</div>
+      <div class="policy-item"><span class="badge yes">가능</span> 금융/부동산/보험 관련 광고 (우대)</div>
+      <div class="policy-item"><span class="badge yes">가능</span> 브랜디드 콘텐츠 (네이티브 광고)</div>
+      <div class="policy-item"><span class="badge yes">가능</span> 스폰서십 (계산기 페이지 후원)</div>
+      <div class="policy-item"><span class="badge no">불가</span> SDK 설치 필요 광고</div>
+      <div class="policy-item"><span class="badge no">불가</span> 팝업/팝언더/전면 광고</div>
+      <div class="policy-item"><span class="badge no">불가</span> 성인/도박/불법 콘텐츠</div>
+    </div>
+
+    <div class="section">
+      <h2>API 무료 제공</h2>
+      <p>귀사의 웹사이트나 앱에 국민계산기의 35개 계산 기능을 무료로 임베드할 수 있습니다.</p>
+      <ul>
+        <li><strong>JavaScript SDK</strong> &mdash; <code>CalcCore</code> 객체로 직접 함수 호출</li>
+        <li><strong>iframe</strong> &mdash; 계산기 페이지를 그대로 삽입</li>
+        <li><strong>URL 파라미터</strong> &mdash; REST-like 방식으로 JSON 결과 반환</li>
+      </ul>
+      <p>상세한 API 문서는 <a href="../docs/api.html">API 문서 페이지</a>에서 확인하세요.</p>
+    </div>
+
+    <div class="section">
+      <h2>콘텐츠 활용 안내</h2>
+      <p>유튜브, 블로그, 저서 등 콘텐츠에 국민계산기를 소개하고 활용하고자 하시는 분은 자유롭게 스크린샷을 사용하실 수 있습니다. 출처 표기(kukmincalc.com)만 부탁드립니다.</p>
+    </div>
+
+    <div class="legal-footer">
+      <p style="margin-top: 1rem;">
+        <a href="../index.html">홈으로 돌아가기</a> |
+        <a href="disclaimer.html">법적 고지</a> |
+        <a href="privacy.html">개인정보처리방침</a>
+      </p>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script src="../assets/js/common.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+  </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>산재보험료 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 산재보험료 계산기. 업종별 요율을 적용하여 산업재해보상보험료를 자동 계산합니다. 전액 사업주 부담으로 근로자 추가 부담은 없습니다.">
+  <meta property="og:title" content="산재보험료 계산기 - 국민계산기">
+  <meta property="og:description" content="업종별 요율 기반 산재보험료를 자동 계산합니다. 전액 사업주 부담.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/industrial-insurance">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/industrial-insurance">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "산재보험료 계산기",
+    "description": "2026년 업종별 산업재해보상보험료 계산기. 전액 사업주 부담.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#insurance">보험</a> &gt;
+      <span>산재보험료 계산기</span>
+    </nav>
+
+    <h1>⛑️ 산재보험료 계산기 2026</h1>
+    <p class="page-subtitle">업종별 요율을 적용한 산업재해보상보험료를 계산하세요 (전액 사업주 부담)</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="monthlySalary">근로자 월 급여 (원)</label>
+        <input type="text" id="monthlySalary" value="3,500,000" placeholder="월 급여 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="2500000" data-target="monthlySalary">250만</button>
+          <button class="preset-btn active" data-set="3500000" data-target="monthlySalary">350만</button>
+          <button class="preset-btn" data-set="5000000" data-target="monthlySalary">500만</button>
+          <button class="preset-btn" data-set="7000000" data-target="monthlySalary">700만</button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="industryRate">업종별 보험료율 (%)</label>
+        <select id="industryRate">
+          <option value="0.7">0.7% - 금융·보험·사무직</option>
+          <option value="1.0" selected>1.0% - 도소매·음식숙박</option>
+          <option value="1.5">1.5% - 제조업(일반)</option>
+          <option value="2.0">2.0% - 건설업(일반)</option>
+          <option value="3.0">3.0% - 광업·임업 등 고위험</option>
+          <option value="custom">직접 입력</option>
+        </select>
+        <small>업종에 따라 0.6%~18.6%까지 다양합니다. 정확한 요율은 근로복지공단에서 확인하세요.</small>
+      </div>
+
+      <div class="input-group" id="customRateGroup" style="display:none;">
+        <label for="customRate">보험료율 직접 입력 (%)</label>
+        <input type="text" id="customRate" value="1.0" placeholder="보험료율 입력">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="0.7" data-target="customRate">0.7%</button>
+          <button class="preset-btn" data-set="1.0" data-target="customRate">1.0%</button>
+          <button class="preset-btn" data-set="1.5" data-target="customRate">1.5%</button>
+          <button class="preset-btn" data-set="3.0" data-target="customRate">3.0%</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-result" id="result"></section>
+
+    <section class="ai-insight" id="aiInsight"></section>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <section class="explanation">
+      <h2>산재보험료 계산 완벽 가이드</h2>
+      <p>산재보험(산업재해보상보험)은 근로자가 업무상 재해(사고, 질병)를 당했을 때 치료비, 휴업급여, 장해급여, 유족급여 등을 보장하는 사회보험입니다. 4대 사회보험 중 유일하게 전액 사업주가 부담하므로, 근로자의 급여에서 공제되지 않습니다.</p>
+
+      <h3>보험료 산정 방식</h3>
+      <p>산재보험료는 '보수총액(연간 임금총액) x 업종별 보험료율'로 산정됩니다. 월 기준으로는 '월 급여 x 보험료율'로 간단히 계산할 수 있습니다. 보험료율은 업종의 재해 위험도에 따라 0.6%에서 최대 18.6%까지 다양하게 설정되며, 근로복지공단에서 매년 고시합니다.</p>
+
+      <h3>업종별 요율 예시</h3>
+      <p>사무직·금융업 등 위험도가 낮은 업종은 0.6~0.7% 수준이며, 도소매·음식숙박업은 0.9~1.0%, 일반 제조업은 1.0~2.0%, 건설업은 1.5~3.5%, 광업·임업 등 고위험 업종은 3.0~18.6%까지 적용됩니다. 같은 업종이라도 사업장의 재해율(경험요율)에 따라 최대 ±40% 범위에서 조정될 수 있습니다.</p>
+
+      <h3>경험요율 제도</h3>
+      <p>상시근로자 20인 이상 사업장은 최근 3년간의 재해율을 기준으로 보험료율이 조정되는 경험요율 제도가 적용됩니다. 산재 발생이 적은 사업장은 보험료가 인하되고, 산재가 많은 사업장은 인상됩니다. 따라서 안전관리를 철저히 하면 보험료를 절감할 수 있습니다.</p>
+
+      <h3>산재보험의 보장 내용</h3>
+      <p>산재보험으로 보장받을 수 있는 급여에는 요양급여(치료비 전액), 휴업급여(평균임금의 70%), 장해급여(장해등급별), 간병급여, 유족급여, 장의비 등이 있습니다. 업무상 재해 인정 여부는 근로복지공단에서 판단하며, 출퇴근 재해도 2018년부터 산재보험 보장 범위에 포함되었습니다.</p>
+
+      <h3>특수형태근로종사자 산재보험</h3>
+      <p>2026년 현재 택배기사, 퀵서비스기사, 학습지교사, 골프장 캐디, 배달라이더, 대리운전기사 등 특수형태근로종사자도 산재보험 적용 대상입니다. 이 경우 보험료의 50%는 사업주가, 50%는 종사자 본인이 부담합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "산재보험료는 근로자가 내나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "아닙니다. 산재보험료는 전액 사업주가 부담합니다. 4대 사회보험 중 유일하게 근로자 부담이 없는 보험입니다. 단, 특수형태근로종사자의 경우 50%를 본인이 부담합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "우리 회사 업종의 정확한 요율은 어떻게 확인하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "근로복지공단 홈페이지(kcomwel.or.kr) 또는 고용산재보험 토탈서비스에서 사업장의 정확한 산재보험료율을 확인할 수 있습니다. 업종 분류는 한국표준산업분류에 따릅니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "출퇴근 중 사고도 산재로 인정되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "네, 2018년부터 출퇴근 재해도 산재보험 보장 범위에 포함됩니다. 다만 합리적인 경로와 방법으로 출퇴근하던 중 발생한 사고에 한하며, 경로 이탈·중단은 제외될 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "1인 사업장도 산재보험에 가입해야 하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "근로자 1인 이상 고용한 모든 사업장은 산재보험 의무가입 대상입니다. 사업주 본인은 중소기업사업주 특별가입 제도를 통해 임의가입할 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "산재보험료를 절감하는 방법이 있나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "산재 예방 활동을 통해 재해율을 낮추면 경험요율 적용으로 보험료가 인하됩니다. 또한 산재 예방시설 투자에 대한 융자, 산재예방요율제도 등을 활용할 수 있습니다."
+            }
+          }
+        ]
+      }
+      </script>
+      <details><summary>Q1. 산재보험료는 근로자가 내나요?</summary><p>아닙니다. 산재보험료는 전액 사업주가 부담합니다. 4대 사회보험 중 유일하게 근로자 부담이 없는 보험입니다. 단, 특수형태근로종사자의 경우 50%를 본인이 부담합니다.</p></details>
+      <details><summary>Q2. 우리 회사 업종의 정확한 요율은 어떻게 확인하나요?</summary><p>근로복지공단 홈페이지(kcomwel.or.kr) 또는 고용산재보험 토탈서비스에서 사업장의 정확한 산재보험료율을 확인할 수 있습니다. 업종 분류는 한국표준산업분류에 따릅니다.</p></details>
+      <details><summary>Q3. 출퇴근 중 사고도 산재로 인정되나요?</summary><p>네, 2018년부터 출퇴근 재해도 산재보험 보장 범위에 포함됩니다. 다만 합리적인 경로와 방법으로 출퇴근하던 중 발생한 사고에 한하며, 경로 이탈·중단은 제외될 수 있습니다.</p></details>
+      <details><summary>Q4. 1인 사업장도 산재보험에 가입해야 하나요?</summary><p>근로자 1인 이상 고용한 모든 사업장은 산재보험 의무가입 대상입니다. 사업주 본인은 중소기업사업주 특별가입 제도를 통해 임의가입할 수 있습니다.</p></details>
+      <details><summary>Q5. 산재보험료를 절감하는 방법이 있나요?</summary><p>산재 예방 활동을 통해 재해율을 낮추면 경험요율 적용으로 보험료가 인하됩니다. 또한 산재 예방시설 투자에 대한 융자, 산재예방요율제도 등을 활용할 수 있습니다.</p></details>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="health-insurance.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>건강보험료 계산기</h4>
+          <p>건강·장기요양보험료</p>
+        </a>
+        <a href="employment-insurance.html" class="related-card">
+          <div class="icon">👷</div>
+          <h4>고용보험료 계산기</h4>
+          <p>고용보험 부담액 계산</p>
+        </a>
+        <a href="pension.html" class="related-card">
+          <div class="icon">🏦</div>
+          <h4>국민연금 계산기</h4>
+          <p>월 보험료 계산</p>
+        </a>
+        <a href="take-home-pay.html" class="related-card">
+          <div class="icon">💵</div>
+          <h4>연봉 실수령액</h4>
+          <p>세후 월급 계산</p>
+        </a>
+        <a href="severance-pay.html" class="related-card">
+          <div class="icon">🎒</div>
+          <h4>퇴직금 계산기</h4>
+          <p>퇴직금 자동 산출</p>
+        </a>
+        <a href="unemployment.html" class="related-card">
+          <div class="icon">🏥</div>
+          <h4>실업급여 계산기</h4>
+          <p>수급액·기간 산출</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-slot">광고 영역</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    // Toggle custom rate input
+    document.getElementById('industryRate').addEventListener('change', function() {
+      const customGroup = document.getElementById('customRateGroup');
+      if (this.value === 'custom') {
+        customGroup.style.display = 'block';
+      } else {
+        customGroup.style.display = 'none';
+      }
+    });
+
+    function calculate() {
+      const salary = parseInput(document.getElementById('monthlySalary').value);
+      const rateSelect = document.getElementById('industryRate').value;
+      let ratePercent;
+
+      if (rateSelect === 'custom') {
+        ratePercent = parseFloat(document.getElementById('customRate').value) || 1.0;
+      } else {
+        ratePercent = parseFloat(rateSelect) || 1.0;
+      }
+
+      if (salary <= 0) {
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('aiInsight').innerHTML = '';
+        return;
+      }
+
+      const rateDecimal = ratePercent / 100;
+      const r = CalcCore.industrialInsurance(salary, rateDecimal);
+
+      const annualPremium = r.premium * 12;
+
+      // Compare different rates
+      const r07 = CalcCore.industrialInsurance(salary, 0.007);
+      const r10 = CalcCore.industrialInsurance(salary, 0.01);
+      const r15 = CalcCore.industrialInsurance(salary, 0.015);
+      const r30 = CalcCore.industrialInsurance(salary, 0.03);
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>산재보험료 계산 결과</h3>
+          <div class="result-item primary">
+            <span>월 산재보험료 (사업주 전액 부담)</span>
+            <strong>${formatNumber(r.premium)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>적용 보험료율</span>
+            <strong>${ratePercent}%</strong>
+          </div>
+          <div class="result-item">
+            <span>근로자 월 급여</span>
+            <strong>${formatNumber(salary)}원</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>연간 산재보험료</span>
+            <strong>${formatNumber(annualPremium)}원</strong>
+          </div>
+          <div class="result-item" style="background:rgba(34,197,94,0.2);">
+            <span>근로자 부담</span>
+            <strong>0원 (면제)</strong>
+          </div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('월급 ${formatKRW(salary)} / 요율 ${ratePercent}% → 산재보험료 ${formatNumber(r.premium)}원/월 (전액 사업주 부담) - 국민계산기')">📋 복사</button>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--space-md);">
+          <h3 style="color:var(--primary);margin-bottom:var(--space-sm);font-size:1.1rem;">업종별 요율 비교 (월급 ${formatKRW(salary)} 기준)</h3>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>업종 유형</th>
+                <th>요율</th>
+                <th>월 보험료</th>
+                <th>연 보험료</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>사무직·금융</td>
+                <td>0.7%</td>
+                <td>${formatNumber(r07.premium)}원</td>
+                <td>${formatNumber(r07.premium * 12)}원</td>
+              </tr>
+              <tr>
+                <td>도소매·음식</td>
+                <td>1.0%</td>
+                <td>${formatNumber(r10.premium)}원</td>
+                <td>${formatNumber(r10.premium * 12)}원</td>
+              </tr>
+              <tr>
+                <td>제조업(일반)</td>
+                <td>1.5%</td>
+                <td>${formatNumber(r15.premium)}원</td>
+                <td>${formatNumber(r15.premium * 12)}원</td>
+              </tr>
+              <tr>
+                <td>광업·임업(고위험)</td>
+                <td>3.0%</td>
+                <td>${formatNumber(r30.premium)}원</td>
+                <td>${formatNumber(r30.premium * 12)}원</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      // 4대보험 총 비용 (사업주 입장)
+      const pension = Math.round(Math.min(salary * 0.045, 265500));
+      const health = Math.round(salary * 0.03545);
+      const longTerm = Math.round(health * 0.1295);
+      const employment = CalcCore.employmentInsurance(salary, 'small');
+      const totalEmployerCost = pension + health + longTerm + employment.employer + r.premium;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card">
+          <h3>🤖 AI 분석 인사이트</h3>
+          <div class="insight-item">
+            <span class="icon">📊</span>
+            <div>
+              <strong>사업주 4대보험 총 부담: 월 ${formatNumber(totalEmployerCost)}원</strong>
+              <p>근로자 1인(월 ${formatKRW(salary)}) 기준 사업주의 4대보험 총 부담액은 월 ${formatNumber(totalEmployerCost)}원입니다. 국민연금 ${formatNumber(pension)}원, 건강+요양 ${formatNumber(health + longTerm)}원, 고용 ${formatNumber(employment.employer)}원, 산재 ${formatNumber(r.premium)}원으로 구성됩니다.</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">🛡️</span>
+            <div>
+              <strong>산재보험은 근로자 무부담</strong>
+              <p>산재보험료는 전액 사업주가 부담하므로 근로자의 급여에서 공제되지 않습니다. 업무상 재해 시 치료비 전액, 휴업급여(평균임금 70%), 장해급여 등을 보장받을 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="insight-item">
+            <span class="icon">💡</span>
+            <div>
+              <strong>보험료 절감 팁</strong>
+              <p>산재 예방 투자로 재해율을 낮추면 경험요율 적용을 통해 보험료를 최대 40% 인하받을 수 있습니다. 안전보건관리체계를 구축하고, 근로복지공단의 산재예방 지원사업을 적극 활용하세요.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>
