@@ -1,5 +1,16 @@
 /* ===== common.js - 공통 유틸리티 ===== */
 
+/* ===== common.js - 공통 유틸리티 ===== */
+
+// 애드센스 Auto Ads 자동 주입
+(function() {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6481387413747515';
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+})();
+
 // 숫자 포맷 (콤마)
 function formatNumber(num) {
   if (num === null || num === undefined || isNaN(num)) return '0';
