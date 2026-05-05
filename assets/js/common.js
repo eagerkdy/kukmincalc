@@ -1,7 +1,5 @@
 /* ===== common.js - 공통 유틸리티 ===== */
 
-/* ===== common.js - 공통 유틸리티 ===== */
-
 // 애드센스 Auto Ads 자동 주입
 (function() {
   var s = document.createElement('script');
