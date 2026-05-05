@@ -1,6 +1,36 @@
 /* ===== calculator-core.js - 35개 계산 함수 모듈 ===== */
+/* 2026 기준값은 window.KR_RATES_2026 / window.getRatesByDate / window.KR_ROUNDING_RULES 에서 가져온다.
+ * constants 스크립트(/assets/js/constants/*.js, /assets/js/utils/*.js)가 먼저 로드되어 있어야 함.
+ * 호출 시그니처는 backward-compat 유지 (옵션은 마지막 인자에 객체로 추가). */
 
 const CalcCore = {
+
+  // ----- 내부 헬퍼: 기준값 조회 (constants 미로드 시 안전한 fallback) -----
+  _rates() {
+    return (typeof window !== 'undefined' && window.KR_RATES_2026) || {};
+  },
+  _ratesAt(date, scope) {
+    if (typeof window !== 'undefined' && typeof window.getRatesByDate === 'function') {
+      return window.getRatesByDate(date, scope);
+    }
+    return null;
+  },
+  _round(amount, ruleKey) {
+    if (typeof window !== 'undefined' && typeof window.roundByRule === 'function') {
+      return window.roundByRule(amount, ruleKey);
+    }
+    return Math.round(amount);
+  },
+  _appliedRates(scope, date, extra) {
+    var r = this._ratesAt(date, scope);
+    if (!r) return null;
+    return Object.assign({
+      rateVersion: r.rateVersion,
+      appliedDate: r.appliedDate,
+      lastVerifiedAt: r.lastVerifiedAt,
+      warnings: r.warnings || []
+    }, extra || {});
+  },
 
   // ========== 1. 대출이자 ==========
   loanEqualPayment(principal, rate, months, grace = 0) {
@@ -89,15 +119,31 @@ const CalcCore = {
   },
 
   // ========== 4. 연봉 실수령액 ==========
-  takeHomePay(annualSalary, dependents = 1, childUnder20 = 0, nonTaxable = 200000) {
+  takeHomePay(annualSalary, dependents = 1, childUnder20 = 0, nonTaxable, opts) {
+    const rates = this._rates();
+    const ratesAt = this._ratesAt((opts && opts.date) || null, 'take-home-pay');
+    const meal = rates.mealAllowanceTaxFree || { monthlyLimit: 200000 };
+    if (nonTaxable === undefined || nonTaxable === null) nonTaxable = meal.monthlyLimit;
+
     const monthly = annualSalary / 12;
     const taxable = monthly - nonTaxable;
 
-    // 4대보험
-    const nationalPension = Math.round(Math.min(taxable * 0.045, 265500)); // 상한
-    const healthInsurance = Math.round(taxable * 0.03545);
-    const longTermCare = Math.round(healthInsurance * 0.1295);
-    const employmentIns = Math.round(taxable * 0.009);
+    // 4대보험 — 2026 기준값
+    const pensionRate = (rates.pension && rates.pension.employeeRate) != null ? rates.pension.employeeRate : 0.0475;
+    const healthRate = (rates.healthInsurance && rates.healthInsurance.employeeRate) != null ? rates.healthInsurance.employeeRate : 0.03595;
+    const longTermRate = (rates.longTermCare && rates.longTermCare.rateOnHealthInsurance) != null ? rates.longTermCare.rateOnHealthInsurance : 0.1314;
+    const employmentRate = (rates.employmentInsurance && rates.employmentInsurance.employeeRate) != null ? rates.employmentInsurance.employeeRate : 0.009;
+
+    // 국민연금 기준소득월액 clamp (기준월별)
+    const pensionLimit = ratesAt && ratesAt.pensionIncomeLimit;
+    const pensionFloor = pensionLimit ? pensionLimit.floor : 400000;
+    const pensionCeiling = pensionLimit ? pensionLimit.ceiling : 6370000;
+    const pensionBase = Math.min(Math.max(taxable, pensionFloor), pensionCeiling);
+
+    const nationalPension = this._round(pensionBase * pensionRate, 'pension_won_rule');
+    const healthInsurance = this._round(taxable * healthRate, 'health_insurance_won_rule');
+    const longTermCare = this._round(healthInsurance * longTermRate, 'long_term_care_won_rule');
+    const employmentIns = this._round(taxable * employmentRate, 'employment_insurance_rule');
     const totalInsurance = nationalPension + healthInsurance + longTermCare + employmentIns;
 
     // 소득세 (간이세액표 근사)
@@ -125,7 +171,9 @@ const CalcCore = {
       monthly, takeHome, totalDeduction,
       nationalPension, healthInsurance, longTermCare, employmentIns,
       incomeTax: monthlyIncomeTax, localTax,
-      annualTakeHome: takeHome * 12
+      annualTakeHome: takeHome * 12,
+      pensionBase: pensionBase,
+      appliedRates: this._appliedRates('take-home-pay', opts && opts.date)
     };
   },
 
@@ -398,29 +446,91 @@ const CalcCore = {
   },
 
   // ========== 21. 국민연금 ==========
-  pension(monthlySalary) {
-    const base = Math.min(Math.max(monthlySalary, 370000), 5900000); // 2026년 기준
-    const employee = Math.round(base * 0.045);
-    const employer = Math.round(base * 0.045);
-    return { base, employee, employer, total: employee + employer };
+  pension(monthlySalary, opts) {
+    const rates = this._rates();
+    const ratesAt = this._ratesAt(opts && opts.date, 'pension');
+    const employeeRate = (rates.pension && rates.pension.employeeRate) != null ? rates.pension.employeeRate : 0.0475;
+    const employerRate = (rates.pension && rates.pension.employerRate) != null ? rates.pension.employerRate : 0.0475;
+
+    const limit = ratesAt && ratesAt.pensionIncomeLimit;
+    const floor = limit ? limit.floor : 400000;
+    const ceiling = limit ? limit.ceiling : 6370000;
+    const base = Math.min(Math.max(monthlySalary, floor), ceiling);
+
+    const employee = this._round(base * employeeRate, 'pension_won_rule');
+    const employer = this._round(base * employerRate, 'pension_won_rule');
+    return {
+      base,
+      floor,
+      ceiling,
+      period: limit ? limit.period : null,
+      employee,
+      employer,
+      total: employee + employer,
+      appliedRates: this._appliedRates('pension', opts && opts.date)
+    };
   },
 
   // ========== 22. 건강보험료 ==========
-  healthInsurance(monthlySalary) {
-    const health = Math.round(monthlySalary * 0.03545);
-    const longTerm = Math.round(health * 0.1295);
-    const employeeHealth = Math.round(health / 2);
-    const employeeLong = Math.round(longTerm / 2);
-    return { health, longTerm, employeeHealth, employeeLong, employeeTotal: employeeHealth + employeeLong };
+  healthInsurance(monthlySalary, opts) {
+    const rates = this._rates();
+    const totalRate = (rates.healthInsurance && rates.healthInsurance.totalRate) != null ? rates.healthInsurance.totalRate : 0.0719;
+    const halfRate = (rates.healthInsurance && rates.healthInsurance.employeeRate) != null ? rates.healthInsurance.employeeRate : 0.03595;
+    const longTermRate = (rates.longTermCare && rates.longTermCare.rateOnHealthInsurance) != null ? rates.longTermCare.rateOnHealthInsurance : 0.1314;
+
+    const health = this._round(monthlySalary * totalRate, 'health_insurance_won_rule');
+    const longTerm = this._round(health * longTermRate, 'long_term_care_won_rule');
+    const employeeHealth = this._round(monthlySalary * halfRate, 'health_insurance_won_rule');
+    const employeeLong = this._round(employeeHealth * longTermRate, 'long_term_care_won_rule');
+    return {
+      health,
+      longTerm,
+      employeeHealth,
+      employeeLong,
+      employeeTotal: employeeHealth + employeeLong,
+      appliedRates: this._appliedRates('health-insurance', opts && opts.date)
+    };
   },
 
   // ========== 23. 고용보험료 ==========
-  employmentInsurance(monthlySalary, companySize = 'small') {
-    const employeeRate = 0.009;
-    const employerRates = { small: 0.0125, medium: 0.0145, large: 0.0165 };
-    const employee = Math.round(monthlySalary * employeeRate);
-    const employer = Math.round(monthlySalary * (employerRates[companySize] || 0.0125));
-    return { employee, employer, total: employee + employer };
+  /* 사업장 규모별 추가요율을 분리하여, 근로자 부담(0.9% 만)과 사업주 부담(0.9% + 추가요율)을 구분 반환.
+   * companySize 는 spec 의 5단계 라벨을 받지만, 기존 small/medium/large 도 backward-compat alias 로 동작. */
+  employmentInsurance(monthlySalary, companySize = 'under_150', opts) {
+    const rates = this._rates();
+    const ei = rates.employmentInsurance || {};
+    const employeeRate = ei.employeeRate != null ? ei.employeeRate : 0.009;
+    const employerBaseRate = ei.employerRate != null ? ei.employerRate : 0.009;
+
+    // 추가요율 lookup
+    const list = ei.employerAdditionalRates || [];
+    const aliasMap = {
+      small: 'under_150',
+      medium: 'over_150_under_1000',
+      large: 'over_1000_or_public'
+    };
+    const sizeKey = aliasMap[companySize] || companySize;
+    let additional = 0;
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].type === sizeKey) { additional = list[i].rate; break; }
+    }
+    if (!additional && list.length > 0) additional = list[0].rate;
+
+    const employee = this._round(monthlySalary * employeeRate, 'employment_insurance_rule');
+    const employerBase = this._round(monthlySalary * employerBaseRate, 'employment_insurance_rule');
+    const employerAdditional = this._round(monthlySalary * additional, 'employment_insurance_rule');
+    const employer = employerBase + employerAdditional;
+    return {
+      employee,
+      employer,
+      employerBase,
+      employerAdditional,
+      employerAdditionalRate: additional,
+      sizeKey,
+      total: employee + employer,
+      appliedRates: this._appliedRates('employment-insurance', opts && opts.date, {
+        verificationStatus: ei.verificationStatus || 'needs_official_source'
+      })
+    };
   },
 
   // ========== 24. 산재보험료 ==========
@@ -430,15 +540,40 @@ const CalcCore = {
   },
 
   // ========== 25. 월세↔전세 전환 ==========
-  rentToDeposit(monthlyRent, conversionRate = 4.5) {
-    // 전세 = 월세 × 12 / (전환율/100)
-    const deposit = Math.round(monthlyRent * 12 / (conversionRate / 100));
-    return { deposit };
+  /* 전월세 전환율 = min(0.10, latestBaseRate + 0.02). 4.5% 하드코딩 금지.
+   * 호출자는 baseRate(한국은행 기준금리, 사용자 입력)를 percent 단위로 전달해야 한다.
+   * conversionRate 가 직접 주어지면 그 값을 사용. 둘 다 없으면 baseRate=null 로 보고 fallback. */
+  conversionCapRate(baseRatePercent) {
+    const policies = (typeof window !== 'undefined' && window.KR_POLICIES) || {};
+    const policy = (policies.rentJeonsePolicy && policies.rentJeonsePolicy.conversionCapRate) || {};
+    const spread = policy.statutorySpread != null ? policy.statutorySpread : 0.02;
+    const cap = policy.absoluteCap != null ? policy.absoluteCap : 0.10;
+    if (baseRatePercent == null || isNaN(baseRatePercent)) return null;
+    const baseRate = baseRatePercent / 100;
+    return Math.min(cap, baseRate + spread) * 100; // percent 단위 반환
   },
 
-  depositToRent(deposit, conversionRate = 4.5) {
+  rentToDeposit(monthlyRent, conversionRate, opts) {
+    const baseRate = opts && opts.baseRatePercent;
+    if ((conversionRate == null || isNaN(conversionRate)) && baseRate != null) {
+      conversionRate = this.conversionCapRate(baseRate);
+    }
+    if (conversionRate == null || isNaN(conversionRate)) {
+      // 마지막 fallback — baseRate 도 없으면 정책상 cap(10%)을 임시 적용. 호출자에게 경고.
+      conversionRate = 10;
+    }
+    const deposit = Math.round(monthlyRent * 12 / (conversionRate / 100));
+    return { deposit, appliedConversionRate: conversionRate, hasBaseRate: baseRate != null };
+  },
+
+  depositToRent(deposit, conversionRate, opts) {
+    const baseRate = opts && opts.baseRatePercent;
+    if ((conversionRate == null || isNaN(conversionRate)) && baseRate != null) {
+      conversionRate = this.conversionCapRate(baseRate);
+    }
+    if (conversionRate == null || isNaN(conversionRate)) conversionRate = 10;
     const monthlyRent = Math.round(deposit * (conversionRate / 100) / 12);
-    return { monthlyRent };
+    return { monthlyRent, appliedConversionRate: conversionRate, hasBaseRate: baseRate != null };
   },
 
   // ========== 26. 이사비용 ==========

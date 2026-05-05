@@ -194,6 +194,64 @@ function showToast(msg, duration = 2000) {
   setTimeout(() => { toast.style.opacity = '0'; }, duration);
 }
 
+// ===== 적용 기준값 박스 (2026 기준) =====
+// getRatesByDate(date) 결과를 받아 “적용 기준 / 출처 / 마지막 검증일” 박스를 그린다.
+function renderAppliedRatesBox(opts) {
+  opts = opts || {};
+  if (typeof window === 'undefined' || typeof window.getRatesByDate !== 'function') return '';
+  const r = window.getRatesByDate(opts.date || null, opts.calculator || null);
+  const items = [];
+
+  if (r.pension) items.push(`국민연금 ${r.pension.display.totalRate} (근로자 ${r.pension.display.employeeRate})`);
+  if (r.healthInsurance) items.push(`건강보험 ${r.healthInsurance.display.totalRate} (근로자 ${r.healthInsurance.display.employeeRate})`);
+  if (r.longTermCare) items.push(`장기요양 건강보험료의 ${r.longTermCare.display.rateOnHealthInsurance}`);
+  if (r.employmentInsurance) items.push(`고용보험 근로자 ${r.employmentInsurance.display.employeeRate}`);
+  if (r.minimumWage) items.push(`최저임금 ${r.minimumWage.display.hourly} (월 ${r.minimumWage.display.monthly209Hours})`);
+
+  let limitNote = '';
+  if (r.pensionIncomeLimit) {
+    const p = r.pensionIncomeLimit;
+    limitNote = `<div class="rate-limit-note">국민연금 기준소득월액 (${p.effectiveFrom} ~ ${p.effectiveTo}): 하한 ${p.display.floor} / 상한 ${p.display.ceiling}</div>`;
+  }
+
+  let warningHTML = '';
+  if (r.warnings && r.warnings.length > 0) {
+    warningHTML = '<div class="rate-warnings">' + r.warnings.map(w => {
+      const cls = w.status === 'needs_official_source' ? 'needs-source' : (w.status === 'dynamic' ? 'dynamic' : 'other');
+      const label = w.status === 'needs_official_source' ? '공식 기준 확인 중' : (w.status === 'dynamic' ? '동적 정책값' : w.status);
+      return `<span class="rate-badge ${cls}" title="${w.message || ''}">${label}: ${w.key}</span>`;
+    }).join(' ') + '</div>';
+  }
+
+  // 출처 (보건복지부, 고용노동부, 국세청 — verified 항목 출처를 모음)
+  const sources = [];
+  ['pension', 'healthInsurance', 'longTermCare', 'minimumWage'].forEach(k => {
+    const item = r[k];
+    if (item && item.officialSource && item.officialSource.length) {
+      item.officialSource.forEach(s => {
+        if (s && s.name && !sources.find(x => x.name === s.name)) sources.push(s);
+      });
+    }
+  });
+  const sourceHTML = sources.length
+    ? '<div class="rate-source-list">출처: ' + sources.map(s => s.url ? `<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>` : s.name).join(' · ') + '</div>'
+    : '';
+
+  return `
+    <div class="applied-rates-box">
+      <div class="rate-header">
+        <span class="rate-badge verified">적용 기준 ${r.appliedDate || ''}</span>
+        <span class="rate-version">${r.rateVersion || ''}</span>
+      </div>
+      <div class="rate-items">${items.map(i => `<span>${i}</span>`).join('<span class="rate-sep">·</span>')}</div>
+      ${limitNote}
+      ${warningHTML}
+      ${sourceHTML}
+      <div class="rate-verified-at">마지막 검증일: ${r.lastVerifiedAt || '2026-05-05'}</div>
+    </div>
+  `;
+}
+
 // 네비게이션 카테고리 데이터
 const NAV_CATEGORIES = [
   {

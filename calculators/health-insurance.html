@@ -54,7 +54,19 @@
         </div>
         <small>비과세 소득(식대 등)을 제외한 보수월액 기준</small>
       </div>
+
+      <div class="input-group">
+        <label for="calcMonth">계산 기준월</label>
+        <select id="calcMonth">
+          <option value="2026-01">2026년 1월</option>
+          <option value="2026-05" selected>2026년 5월</option>
+          <option value="2026-08">2026년 8월</option>
+          <option value="2026-12">2026년 12월</option>
+        </select>
+      </div>
     </section>
+
+    <div id="appliedRatesBox"></div>
 
     <section class="calculator-result" id="result"></section>
 
@@ -67,13 +79,13 @@
       <p>건강보험은 국민건강보험법에 따라 모든 국민이 의무적으로 가입해야 하는 사회보험입니다. 직장가입자의 건강보험료는 보수월액(월 급여)에 보험료율을 곱하여 산정되며, 근로자와 사업주가 각각 50%씩 부담합니다. 여기에 장기요양보험료가 건강보험료에 비례하여 추가로 부과됩니다.</p>
 
       <h3>2026년 건강보험료율</h3>
-      <p>2026년 직장가입자 건강보험료율은 보수월액의 7.09%(3.545% x 2)입니다. 이 중 근로자와 사업주가 각각 3.545%씩 부담합니다. 건강보험료율은 매년 건강보험정책심의위원회에서 심의·결정하며, 의료비 지출 증가에 따라 최근 수년간 소폭 상승 추세를 보이고 있습니다.</p>
+      <p>2026년 직장가입자 건강보험료율은 보수월액의 <strong>7.19%</strong>(근로자 3.595% + 사용자 3.595%)로 보건복지부에서 결정·고시했습니다. 건강보험료율은 매년 건강보험정책심의위원회에서 심의·결정하며, 의료비 지출 증가에 따라 최근 수년간 소폭 상승 추세를 보이고 있습니다.</p>
 
       <h3>장기요양보험료란?</h3>
-      <p>장기요양보험은 고령이나 노인성 질병으로 일상생활이 어려운 노인에게 신체활동·가사활동 등을 지원하는 제도입니다. 장기요양보험료는 건강보험료의 12.95%(2026년 기준)를 별도로 부과하며, 마찬가지로 근로자와 사업주가 50%씩 부담합니다.</p>
+      <p>장기요양보험은 고령이나 노인성 질병으로 일상생활이 어려운 노인에게 신체활동·가사활동 등을 지원하는 제도입니다. 장기요양보험료는 건강보험료의 <strong>13.14%</strong>(소득 대비 0.9448%, 2026년 기준)를 별도로 부과하며, 마찬가지로 근로자와 사업주가 50%씩 부담합니다.</p>
 
       <h3>보수월액이란?</h3>
-      <p>보수월액은 근로자가 받는 보수(급여)의 월 평균 금액으로, 비과세 소득(식대, 자가운전보조금 등)을 제외한 금액입니다. 연봉제인 경우 연간 총보수를 12로 나눈 금액이 보수월액이 됩니다. 상한액은 월 104,536,000원, 하한액은 월 279,000원입니다.</p>
+      <p>보수월액은 근로자가 받는 보수(급여)의 월 평균 금액으로, 비과세 소득(식대, 자가운전보조금 등)을 제외한 금액입니다. 연봉제인 경우 연간 총보수를 12로 나눈 금액이 보수월액이 됩니다. 보수월액 상·하한은 보건복지부 공식 고시값을 따릅니다(2026년 고시값 확인 후 표시 예정).</p>
 
       <h3>지역가입자와의 차이</h3>
       <p>직장가입자는 보수월액 기반으로 보험료가 산정되지만, 지역가입자(자영업자, 프리랜서 등)는 소득, 재산, 자동차 등을 종합적으로 평가하여 보험료가 결정됩니다. 일반적으로 같은 소득 수준일 때 직장가입자가 유리한 편이며, 이는 사업주가 보험료의 절반을 부담하기 때문입니다.</p>
@@ -94,7 +106,7 @@
             "name": "건강보험료는 어떻게 산정되나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "직장가입자의 건강보험료는 '보수월액 x 보험료율(7.09%)'로 산정됩니다. 이 금액을 근로자와 사업주가 각각 50%씩 부담합니다. 2026년 근로자 부담 보험료율은 3.545%입니다."
+              "text": "직장가입자의 건강보험료는 '보수월액 x 보험료율(7.19%)'로 산정됩니다. 이 금액을 근로자와 사업주가 각각 50%씩 부담합니다. 2026년 근로자 부담 보험료율은 3.595%입니다."
             }
           },
           {
@@ -102,7 +114,7 @@
             "name": "장기요양보험료는 별도로 내야 하나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "네, 장기요양보험료는 건강보험료와 별도로 부과됩니다. 건강보험료의 12.95%(2026년)를 장기요양보험료로 납부하며, 근로자와 사업주가 50%씩 부담합니다."
+              "text": "네, 장기요양보험료는 건강보험료와 별도로 부과됩니다. 건강보험료의 13.14%(2026년)를 장기요양보험료로 납부하며, 근로자와 사업주가 50%씩 부담합니다."
             }
           },
           {
@@ -110,7 +122,7 @@
             "name": "건강보험료 상한액이 있나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "네, 2026년 직장가입자 보수월액 상한은 월 104,536,000원이며, 이에 해당하는 월 보험료 상한은 약 740만원(근로자+사업주 합계)입니다."
+              "text": "네, 직장가입자 보수월액 상·하한이 있으며 2026년 적용 고시값은 보건복지부 공식자료를 따릅니다. 본 페이지에는 공식 확인이 완료된 후 갱신 표시됩니다."
             }
           },
           {
@@ -124,9 +136,9 @@
         ]
       }
       </script>
-      <details><summary>Q1. 건강보험료는 어떻게 산정되나요?</summary><p>직장가입자의 건강보험료는 '보수월액 x 보험료율(7.09%)'로 산정됩니다. 이 금액을 근로자와 사업주가 각각 50%씩 부담합니다. 2026년 근로자 부담 보험료율은 3.545%입니다.</p></details>
-      <details><summary>Q2. 장기요양보험료는 별도로 내야 하나요?</summary><p>네, 장기요양보험료는 건강보험료와 별도로 부과됩니다. 건강보험료의 12.95%(2026년)를 장기요양보험료로 납부하며, 근로자와 사업주가 50%씩 부담합니다.</p></details>
-      <details><summary>Q3. 건강보험료 상한액이 있나요?</summary><p>네, 2026년 직장가입자 보수월액 상한은 월 104,536,000원이며, 이에 해당하는 월 보험료 상한은 약 740만원(근로자+사업주 합계)입니다.</p></details>
+      <details><summary>Q1. 건강보험료는 어떻게 산정되나요?</summary><p>직장가입자의 건강보험료는 '보수월액 x 보험료율(7.19%)'로 산정됩니다. 이 금액을 근로자와 사업주가 각각 50%씩 부담합니다. 2026년 근로자 부담 보험료율은 3.595%입니다.</p></details>
+      <details><summary>Q2. 장기요양보험료는 별도로 내야 하나요?</summary><p>네, 장기요양보험료는 건강보험료와 별도로 부과됩니다. 건강보험료의 13.14%(2026년)를 장기요양보험료로 납부하며, 근로자와 사업주가 50%씩 부담합니다.</p></details>
+      <details><summary>Q3. 건강보험료 상한액이 있나요?</summary><p>네, 직장가입자 보수월액 상·하한이 있으며 2026년 적용 고시값은 보건복지부 공식자료를 따릅니다. 본 페이지에는 공식 확인이 완료된 후 갱신 표시됩니다.</p></details>
       <details><summary>Q4. 퇴직 후 건강보험은 어떻게 되나요?</summary><p>퇴직 시 직장가입자에서 지역가입자로 전환됩니다. 또는 36개월간 임의계속가입이 가능하며, 피부양자(배우자 등) 자격으로 전환할 수도 있습니다.</p></details>
     </section>
 
@@ -171,6 +183,12 @@
 
   <div id="footer"></div>
 
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
   <script src="../assets/js/common.js"></script>
   <script src="../assets/js/calculator-core.js"></script>
   <script>
@@ -179,6 +197,11 @@
 
     function calculate() {
       const salary = parseInput(document.getElementById('monthlySalary').value);
+      const calcMonth = document.getElementById('calcMonth').value;
+
+      document.getElementById('appliedRatesBox').innerHTML = renderAppliedRatesBox({
+        date: calcMonth, calculator: 'health-insurance'
+      });
 
       if (salary <= 0) {
         document.getElementById('result').innerHTML = '';
@@ -186,7 +209,7 @@
         return;
       }
 
-      const r = CalcCore.healthInsurance(salary);
+      const r = CalcCore.healthInsurance(salary, { date: calcMonth });
 
       // Full amounts (total = employer + employee)
       const employerHealth = r.health - r.employeeHealth;
@@ -247,7 +270,7 @@
             <span class="icon">📊</span>
             <div>
               <strong>급여 대비 부담률: ${burdenRate.toFixed(2)}%</strong>
-              <p>월 급여 ${formatKRW(salary)} 대비 건강보험+장기요양 근로자 부담액은 ${formatNumber(r.employeeTotal)}원으로, 급여의 ${burdenRate.toFixed(2)}%에 해당합니다. 건강보험료율 3.545% + 장기요양보험료율이 적용됩니다.</p>
+              <p>월 급여 ${formatKRW(salary)} 대비 건강보험+장기요양 근로자 부담액은 ${formatNumber(r.employeeTotal)}원으로, 급여의 ${burdenRate.toFixed(2)}%에 해당합니다. 건강보험료율 3.595% + 장기요양보험료율이 적용됩니다.</p>
             </div>
           </div>
           <div class="insight-item">

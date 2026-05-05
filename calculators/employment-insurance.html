@@ -55,15 +55,19 @@
       </div>
 
       <div class="input-group">
-        <label for="companySize">사업장 규모</label>
+        <label for="companySize">사업장 규모 / 유형</label>
         <select id="companySize">
-          <option value="small" selected>150인 미만 기업</option>
-          <option value="medium">150인 이상 ~ 1,000인 미만</option>
-          <option value="large">1,000인 이상 / 국가·지자체</option>
+          <option value="priority_support_company">우선지원대상기업</option>
+          <option value="under_150" selected>150인 미만</option>
+          <option value="over_150_priority">150인 이상 우선지원대상기업</option>
+          <option value="over_150_under_1000">150인 이상 1,000인 미만</option>
+          <option value="over_1000_or_public">1,000인 이상 또는 국가·지자체 관련</option>
         </select>
-        <small>사업장 규모에 따라 사업주 부담 보험료율이 달라집니다</small>
+        <small>근로자 부담은 0.9% 고정. 사업주 부담은 0.9%(실업급여) + 사업장 규모별 추가요율로 분리됩니다.</small>
       </div>
     </section>
+
+    <div id="appliedRatesBox"></div>
 
     <section class="calculator-result" id="result"></section>
 
@@ -79,7 +83,7 @@
       <p>고용보험료는 크게 실업급여 부분과 고용안정·직업능력개발 부분으로 나뉩니다. 실업급여 보험료율은 1.8%(근로자 0.9% + 사업주 0.9%)이며 모든 사업장에 동일하게 적용됩니다. 고용안정·직업능력개발 보험료는 사업주만 부담하며, 사업장 규모에 따라 0.25%~0.85% 차등 적용됩니다.</p>
 
       <h3>사업장 규모별 사업주 보험료율</h3>
-      <p>150인 미만 사업장: 실업급여 0.9% + 고용안정 0.25% = 총 1.15%. 150인 이상 1,000인 미만: 실업급여 0.9% + 고용안정 0.45% + 직능개발 0.1% = 총 1.45%. 1,000인 이상 및 국가·지자체: 실업급여 0.9% + 고용안정 0.65% + 직능개발 0.1% = 총 1.65%. 우선지원대상기업은 일부 요율이 감면될 수 있습니다.</p>
+      <p>사업주는 실업급여 보험료 0.9% 외에 고용안정·직업능력개발 보험료를 추가로 부담합니다. 우선지원대상기업·150인 미만 0.25%, 150인 이상 우선지원대상기업 0.45%, 150인 이상 1,000인 미만 0.65%, 1,000인 이상 또는 국가·지자체 관련 0.85%로 차등 적용됩니다. 본 페이지의 요율은 공식 기준 확인 후 갱신될 수 있습니다(verificationStatus: needs_official_source).</p>
 
       <h3>고용보험의 혜택</h3>
       <p>고용보험 가입 시 받을 수 있는 주요 혜택은 다음과 같습니다. 첫째, 비자발적 퇴직 시 실업급여(구직급여)를 받을 수 있습니다. 둘째, 출산전후휴가급여, 육아휴직급여 등 모성보호 급여를 받을 수 있습니다. 셋째, 직업훈련비 지원, 내일배움카드 등 직업능력개발 지원을 받을 수 있습니다. 넷째, 고용유지지원금, 채용장려금 등 사업주 지원 제도도 운영됩니다.</p>
@@ -189,6 +193,12 @@
 
   <div id="footer"></div>
 
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
   <script src="../assets/js/common.js"></script>
   <script src="../assets/js/calculator-core.js"></script>
   <script>
@@ -199,6 +209,10 @@
       const salary = parseInput(document.getElementById('monthlySalary').value);
       const size = document.getElementById('companySize').value;
 
+      document.getElementById('appliedRatesBox').innerHTML = renderAppliedRatesBox({
+        date: '2026-05', calculator: 'employment-insurance'
+      });
+
       if (salary <= 0) {
         document.getElementById('result').innerHTML = '';
         document.getElementById('aiInsight').innerHTML = '';
@@ -207,25 +221,44 @@
 
       const r = CalcCore.employmentInsurance(salary, size);
 
-      const sizeNames = { small: '150인 미만', medium: '150~1,000인', large: '1,000인 이상' };
-      const employerRateDisplay = { small: '1.25%', medium: '1.45%', large: '1.65%' };
+      const sizeNames = {
+        priority_support_company: '우선지원대상기업',
+        under_150: '150인 미만',
+        over_150_priority: '150인 이상 우선지원대상기업',
+        over_150_under_1000: '150인 이상 1,000인 미만',
+        over_1000_or_public: '1,000인 이상 또는 국가·지자체'
+      };
+      const employerRateDisplay = {
+        priority_support_company: '0.9% + 0.25% = 1.15%',
+        under_150: '0.9% + 0.25% = 1.15%',
+        over_150_priority: '0.9% + 0.45% = 1.35%',
+        over_150_under_1000: '0.9% + 0.65% = 1.55%',
+        over_1000_or_public: '0.9% + 0.85% = 1.75%'
+      };
       const annualEmployee = r.employee * 12;
       const annualTotal = r.total * 12;
 
-      // Compare all sizes
-      const rSmall = CalcCore.employmentInsurance(salary, 'small');
-      const rMedium = CalcCore.employmentInsurance(salary, 'medium');
-      const rLarge = CalcCore.employmentInsurance(salary, 'large');
+      // Compare 5 sizes
+      const compareSizes = ['priority_support_company','under_150','over_150_priority','over_150_under_1000','over_1000_or_public'];
+      const compareData = compareSizes.map(s => Object.assign({key:s, label:sizeNames[s]}, CalcCore.employmentInsurance(salary, s)));
 
       document.getElementById('result').innerHTML = `
         <div class="result-card">
-          <h3>고용보험료 계산 결과</h3>
+          <h3>고용보험료 계산 결과 <span class="rate-badge needs-source" style="font-size:0.7rem;vertical-align:middle;">공식 기준 확인 중</span></h3>
           <div class="result-item primary">
-            <span>근로자 부담 (월)</span>
+            <span>근로자 부담 (월, 0.9%)</span>
             <strong>${formatNumber(r.employee)}원</strong>
           </div>
           <div class="result-item">
-            <span>사업주 부담 (월)</span>
+            <span>사업주 부담 — 실업급여 (0.9%)</span>
+            <strong>${formatNumber(r.employerBase)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>사업주 부담 — 고용안정·직능개발 추가</span>
+            <strong>${formatNumber(r.employerAdditional)}원</strong>
+          </div>
+          <div class="result-item">
+            <span>사업주 부담 합계 (월)</span>
             <strong>${formatNumber(r.employer)}원</strong>
           </div>
           <div class="result-item highlight">
@@ -233,15 +266,11 @@
             <strong>${formatNumber(r.total)}원</strong>
           </div>
           <div class="result-item">
-            <span>근로자 보험료율</span>
-            <strong>0.9%</strong>
-          </div>
-          <div class="result-item">
-            <span>사업주 보험료율 (${sizeNames[size]})</span>
+            <span>사업주 적용 요율 (${sizeNames[size]})</span>
             <strong>${employerRateDisplay[size]}</strong>
           </div>
           <div class="share-buttons">
-            <button class="share-btn copy" onclick="copyResult('월급 ${formatKRW(salary)} → 고용보험 근로자부담 ${formatNumber(r.employee)}원/월 (국민계산기)')">📋 복사</button>
+            <button class="share-btn copy" onclick="copyResult('월급 ${formatKRW(salary)} → 고용보험 근로자부담 ${formatNumber(r.employee)}원/월, 사업주 ${formatNumber(r.employer)}원/월 (국민계산기)')">📋 복사</button>
           </div>
         </div>
 
@@ -249,32 +278,17 @@
           <h3 style="color:var(--primary);margin-bottom:var(--space-sm);font-size:1.1rem;">사업장 규모별 비교</h3>
           <table class="compare-table">
             <thead>
-              <tr>
-                <th>구분</th>
-                <th>근로자</th>
-                <th>사업주</th>
-                <th>합계</th>
-              </tr>
+              <tr><th>구분</th><th>근로자</th><th>사업주</th><th>합계</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td>150인 미만</td>
-                <td>${formatNumber(rSmall.employee)}원</td>
-                <td>${formatNumber(rSmall.employer)}원</td>
-                <td>${formatNumber(rSmall.total)}원</td>
-              </tr>
-              <tr>
-                <td>150~1,000인</td>
-                <td>${formatNumber(rMedium.employee)}원</td>
-                <td>${formatNumber(rMedium.employer)}원</td>
-                <td>${formatNumber(rMedium.total)}원</td>
-              </tr>
-              <tr>
-                <td>1,000인 이상</td>
-                <td>${formatNumber(rLarge.employee)}원</td>
-                <td>${formatNumber(rLarge.employer)}원</td>
-                <td>${formatNumber(rLarge.total)}원</td>
-              </tr>
+              ${compareData.map(d => `
+                <tr>
+                  <td>${d.label}</td>
+                  <td>${formatNumber(d.employee)}원</td>
+                  <td>${formatNumber(d.employer)}원</td>
+                  <td>${formatNumber(d.total)}원</td>
+                </tr>
+              `).join('')}
             </tbody>
           </table>
         </div>
@@ -289,7 +303,7 @@
             <span class="icon">📊</span>
             <div>
               <strong>급여 대비 부담률: ${burdenRate.toFixed(2)}%</strong>
-              <p>월 급여 ${formatKRW(salary)} 대비 고용보험 근로자 부담은 ${formatNumber(r.employee)}원(0.9%)입니다. 건강보험(3.545%), 국민연금(4.5%)에 비해 부담이 작은 편입니다.</p>
+              <p>월 급여 ${formatKRW(salary)} 대비 고용보험 근로자 부담은 ${formatNumber(r.employee)}원(0.9%)입니다. 건강보험(근로자 3.595%), 국민연금(근로자 4.75%)에 비해 부담이 작은 편입니다.</p>
             </div>
           </div>
           <div class="insight-item">

@@ -55,10 +55,40 @@
         <small>세전 월 급여 (비과세 제외)</small>
       </div>
 
+      <div class="input-row" style="margin-top: 0.5rem;">
+        <div class="input-group">
+          <label for="calcMonth">계산 기준월</label>
+          <select id="calcMonth">
+            <option value="2026-01">2026년 1월</option>
+            <option value="2026-02">2026년 2월</option>
+            <option value="2026-03">2026년 3월</option>
+            <option value="2026-04">2026년 4월</option>
+            <option value="2026-05" selected>2026년 5월</option>
+            <option value="2026-06">2026년 6월</option>
+            <option value="2026-07">2026년 7월 (기준소득월액 변경)</option>
+            <option value="2026-08">2026년 8월</option>
+            <option value="2026-09">2026년 9월</option>
+            <option value="2026-10">2026년 10월</option>
+            <option value="2026-11">2026년 11월</option>
+            <option value="2026-12">2026년 12월</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="memberType">가입 유형</label>
+          <select id="memberType">
+            <option value="workplace" selected>직장가입자 (근로자 4.75%)</option>
+            <option value="local">지역가입자 (전액 9.5%)</option>
+            <option value="voluntary">임의가입자</option>
+          </select>
+        </div>
+      </div>
+
       <div class="input-display" style="padding: 0.75rem; background: var(--bg-alt); border-radius: var(--radius-sm); margin-top: 0.5rem;">
-        📌 2026년 기준 | 보험료율: 9% (근로자 4.5% + 사업주 4.5%) | 기준소득월액: 37만~590만원
+        📌 2026년 기준 | 보험료율: 9.5% (직장가입자 근로자 4.75% + 사업주 4.75%) | 기준소득월액: 1~6월 40만~637만 / 7~12월 41만~659만
       </div>
     </section>
+
+    <div id="appliedRatesBox"></div>
 
     <section class="calculator-result" id="result"></section>
 
@@ -68,14 +98,31 @@
 
     <section class="explanation">
       <h2>국민연금이란?</h2>
-      <p>국민연금은 대한민국 4대 사회보험 중 하나로, 노후에 소득활동이 어려운 경우 안정적인 소득을 보장하기 위한 공적 연금제도입니다. 국민연금법에 따라 18세 이상 60세 미만의 국내 거주 국민은 의무 가입 대상이며, 근로자와 사업주가 각각 4.5%씩 총 9%의 보험료를 부담합니다.</p>
+      <p>국민연금은 대한민국 4대 사회보험 중 하나로, 노후에 소득활동이 어려운 경우 안정적인 소득을 보장하기 위한 공적 연금제도입니다. 국민연금법에 따라 18세 이상 60세 미만의 국내 거주 국민은 의무 가입 대상이며, <strong>2026년부터는 근로자와 사업주가 각각 4.75%씩 총 9.5%</strong>의 보험료를 부담합니다.</p>
 
-      <h3>보험료 계산 방법</h3>
+      <h3>보험료 계산 방법 (2026년 기준)</h3>
       <div class="method-card">
         <h3>국민연금 보험료</h3>
-        <div class="formula">월 보험료 = 기준소득월액 x 9% (근로자 4.5% + 사업주 4.5%)</div>
+        <div class="formula">월 보험료 = 기준소득월액 x 9.5% (직장가입자: 근로자 4.75% + 사업주 4.75%)</div>
       </div>
-      <p>기준소득월액은 실제 소득에 기반하여 산정되며, 2026년 기준 하한은 월 37만원, 상한은 월 590만원입니다. 소득이 37만원 미만이면 37만원, 590만원 초과이면 590만원으로 산정됩니다. 따라서 근로자 최대 부담액은 월 265,500원(590만 x 4.5%)입니다.</p>
+      <p>기준소득월액 상·하한은 <strong>2026년 1~6월</strong>에는 하한 400,000원·상한 6,370,000원, <strong>2026년 7~12월</strong>에는 하한 410,000원·상한 6,590,000원이 적용됩니다. 상·하한 조정은 매년 7월부터 적용됩니다. 따라서 근로자 최대 부담액은 1~6월 약 302,575원(637만×4.75%), 7~12월 약 313,025원(659만×4.75%) 수준입니다.</p>
+
+      <h3>2026~2033 보험료율 단계 인상 일정</h3>
+      <div class="method-card">
+        <table class="compare-table">
+          <thead><tr><th>연도</th><th>총 보험료율</th><th>직장가입자 본인 부담</th></tr></thead>
+          <tbody>
+            <tr><td>2026</td><td>9.5%</td><td>4.75%</td></tr>
+            <tr><td>2027</td><td>10.0%</td><td>5.0%</td></tr>
+            <tr><td>2028</td><td>10.5%</td><td>5.25%</td></tr>
+            <tr><td>2029</td><td>11.0%</td><td>5.5%</td></tr>
+            <tr><td>2030</td><td>11.5%</td><td>5.75%</td></tr>
+            <tr><td>2031</td><td>12.0%</td><td>6.0%</td></tr>
+            <tr><td>2032</td><td>12.5%</td><td>6.25%</td></tr>
+            <tr><td>2033</td><td>13.0%</td><td>6.5%</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>기준소득월액 결정</h3>
       <p>기준소득월액은 매년 7월에 전년도 소득을 기준으로 재산정됩니다. 전년도 소득신고 내용과 국세청 소득자료를 활용하여 결정하며, 소득 변동 시 정산 과정을 거칩니다. 상·하한액은 물가상승률 등을 반영하여 매년 조정됩니다.</p>
@@ -84,10 +131,10 @@
       <p>국민연금은 최소 10년(120개월) 이상 가입해야 노령연금을 수급할 수 있습니다. 수급 개시 연령은 출생연도에 따라 다르며, 1969년 이후 출생자는 만 65세부터 수급합니다. 조기수령(최대 5년 앞당김) 시 연금액이 감액되고, 연기수령(최대 5년 미룸) 시 연금액이 증가합니다.</p>
 
       <h3>직장가입자 vs 지역가입자</h3>
-      <p>직장가입자는 근로자와 사업주가 각각 4.5%씩 부담하므로 본인 부담은 4.5%입니다. 지역가입자(자영업자, 프리랜서 등)는 9%를 전액 본인이 부담합니다. 임의가입자와 임의계속가입자 제도도 있어, 소득이 없거나 60세 이후에도 가입을 유지할 수 있습니다.</p>
+      <p>직장가입자는 근로자와 사업주가 각각 4.75%씩 부담하므로 본인 부담은 4.75%입니다. 지역가입자(자영업자, 프리랜서 등)는 9.5%를 전액 본인이 부담합니다. 임의가입자와 임의계속가입자 제도도 있어, 소득이 없거나 60세 이후에도 가입을 유지할 수 있습니다.</p>
 
       <h3>국민연금 개혁 동향</h3>
-      <p>국민연금 재정 안정성 확보를 위해 보험료율 인상과 수급 연령 조정 등의 개혁이 논의되고 있습니다. 현재 9%인 보험료율을 단계적으로 인상하는 방안이 검토되고 있으며, 장기적으로 수급 수준과 재정 균형을 맞추기 위한 다양한 제도 변경이 예상됩니다.</p>
+      <p>2026년부터 국민연금 보험료율이 9% → 9.5%로 인상되었으며, 이후 매년 0.5%p씩 단계적으로 인상되어 2033년 13%에 도달할 예정입니다. 재정 안정성 확보를 위한 개혁의 일환이며, 수급 수준과 재정 균형을 맞추기 위한 추가 제도 변경도 예상됩니다.</p>
     </section>
 
     <section class="faq">
@@ -100,12 +147,12 @@
           {
             "@type": "Question",
             "name": "국민연금 보험료율은 몇 퍼센트인가요?",
-            "acceptedAnswer": { "@type": "Answer", "text": "2026년 기준 총 9%이며, 직장가입자는 근로자 4.5% + 사업주 4.5%로 분담합니다. 지역가입자는 9%를 전액 본인이 부담합니다." }
+            "acceptedAnswer": { "@type": "Answer", "text": "2026년 기준 총 9.5%이며, 직장가입자는 근로자 4.75% + 사업주 4.75%로 분담합니다. 지역가입자는 9.5%를 전액 본인이 부담합니다. 2027년부터 매년 0.5%p씩 인상되어 2033년 13%에 도달할 예정입니다." }
           },
           {
             "@type": "Question",
             "name": "국민연금 최대 보험료는 얼마인가요?",
-            "acceptedAnswer": { "@type": "Answer", "text": "2026년 기준소득월액 상한 590만원 기준, 근로자 최대 부담액은 월 265,500원입니다. 사업주 부담분까지 합치면 총 531,000원입니다." }
+            "acceptedAnswer": { "@type": "Answer", "text": "2026년 기준소득월액 상한이 1~6월 6,370,000원·7~12월 6,590,000원으로 분리 적용됩니다. 직장가입자 근로자 최대 부담액은 1~6월 약 302,575원, 7~12월 약 313,025원 수준입니다." }
           },
           {
             "@type": "Question",
@@ -120,8 +167,8 @@
         ]
       }
       </script>
-      <details><summary>Q1. 국민연금 보험료율은 몇 퍼센트인가요?</summary><p>2026년 기준 총 9%이며, 직장가입자는 근로자 4.5% + 사업주 4.5%로 분담합니다. 지역가입자는 9%를 전액 본인이 부담합니다.</p></details>
-      <details><summary>Q2. 국민연금 최대 보험료는 얼마인가요?</summary><p>2026년 기준소득월액 상한 590만원 기준, 근로자 최대 부담액은 월 265,500원입니다. 사업주 부담분까지 합치면 총 531,000원입니다.</p></details>
+      <details><summary>Q1. 국민연금 보험료율은 몇 퍼센트인가요?</summary><p>2026년 기준 총 9.5%이며, 직장가입자는 근로자 4.75% + 사업주 4.75%로 분담합니다. 지역가입자는 9.5%를 전액 본인이 부담합니다. 2027년부터 매년 0.5%p씩 인상되어 2033년 13%에 도달할 예정입니다.</p></details>
+      <details><summary>Q2. 국민연금 최대 보험료는 얼마인가요?</summary><p>2026년 기준소득월액 상한이 1~6월 6,370,000원·7~12월 6,590,000원으로 분리 적용됩니다. 직장가입자 근로자 최대 부담액은 1~6월 약 302,575원, 7~12월 약 313,025원 수준입니다.</p></details>
       <details><summary>Q3. 국민연금은 몇 년 납부해야 받을 수 있나요?</summary><p>최소 10년(120개월) 이상 가입해야 노령연금을 수급할 수 있습니다. 10년 미만 가입 시 반환일시금으로 돌려받습니다.</p></details>
       <details><summary>Q4. 국민연금을 조기에 받을 수 있나요?</summary><p>네, 수급 개시 연령보다 최대 5년 앞당겨 조기노령연금을 받을 수 있습니다. 다만 1년 앞당길 때마다 연금액이 6%씩 감액됩니다.</p></details>
     </section>
@@ -167,6 +214,12 @@
 
   <div id="footer"></div>
 
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
   <script src="../assets/js/common.js"></script>
   <script src="../assets/js/calculator-core.js"></script>
   <script>
@@ -175,6 +228,12 @@
 
     function calculate() {
       const monthlySalary = parseInput(document.getElementById('monthlySalary').value);
+      const calcMonth = document.getElementById('calcMonth').value;
+      const memberType = document.getElementById('memberType').value;
+
+      document.getElementById('appliedRatesBox').innerHTML = renderAppliedRatesBox({
+        date: calcMonth, calculator: 'pension'
+      });
 
       if (monthlySalary <= 0) {
         document.getElementById('result').innerHTML = '';
@@ -182,31 +241,38 @@
         return;
       }
 
-      const r = CalcCore.pension(monthlySalary);
+      const r = CalcCore.pension(monthlySalary, { date: calcMonth });
+      // 지역/임의가입자는 본인이 전액 부담
+      const employeeShare = memberType === 'workplace' ? r.employee : (r.employee + r.employer);
+      const employerShare = memberType === 'workplace' ? r.employer : 0;
 
-      const isUpperCapped = monthlySalary > 5900000;
-      const isLowerCapped = monthlySalary < 370000;
-      const annualEmployee = r.employee * 12;
+      const isUpperCapped = monthlySalary > r.ceiling;
+      const isLowerCapped = monthlySalary < r.floor;
+      const annualEmployee = employeeShare * 12;
       const annualTotal = r.total * 12;
-      const salaryRatio = (r.employee / monthlySalary * 100);
+      const salaryRatio = (employeeShare / monthlySalary * 100);
 
       // 예상 수급액 간이 추정 (20년 가입 기준)
       const estimatedMonthlyPension20 = Math.round(r.base * 0.009 * 20 + 330000 * 0.5);
       const estimatedMonthlyPension30 = Math.round(r.base * 0.009 * 30 + 330000 * 0.5);
 
+      const periodLabel = r.period === 'julDec' ? '7~12월' : '1~6월';
+      const ceilDisplay = r.ceiling.toLocaleString('ko-KR');
+      const floorDisplay = r.floor.toLocaleString('ko-KR');
+
       document.getElementById('result').innerHTML = `
         <div class="result-card">
-          <h3>국민연금 보험료 계산 결과</h3>
+          <h3>국민연금 보험료 계산 결과 (${periodLabel} 기준)</h3>
           <div class="result-item primary">
-            <span>근로자 부담금 (월)</span>
-            <strong>${formatNumber(r.employee)}원</strong>
+            <span>${memberType === 'workplace' ? '근로자 부담금 (월)' : '본인 부담금 (월, 전액)'}</span>
+            <strong>${formatNumber(employeeShare)}원</strong>
           </div>
           <div class="result-item">
             <span>사업주 부담금 (월)</span>
-            <strong>${formatNumber(r.employer)}원</strong>
+            <strong>${formatNumber(employerShare)}원</strong>
           </div>
           <div class="result-item highlight">
-            <span>합계 (월)</span>
+            <span>합계 (월, 9.5%)</span>
             <strong>${formatNumber(r.total)}원</strong>
           </div>
           <div class="result-item">
@@ -215,18 +281,18 @@
           </div>
           <div class="result-item">
             <span>적용 여부</span>
-            <strong>${isUpperCapped ? '상한 적용 (590만원)' : isLowerCapped ? '하한 적용 (37만원)' : '실제 소득 적용'}</strong>
+            <strong>${isUpperCapped ? `상한 적용 (${ceilDisplay}원)` : isLowerCapped ? `하한 적용 (${floorDisplay}원)` : '실제 소득 적용'}</strong>
           </div>
           <div class="result-item">
-            <span>근로자 연간 부담액</span>
+            <span>본인 연간 부담액</span>
             <strong>${formatKRW(annualEmployee)}</strong>
           </div>
           <div class="result-item">
-            <span>총 연간 보험료 (노사 합계)</span>
+            <span>총 연간 보험료</span>
             <strong>${formatKRW(annualTotal)}</strong>
           </div>
           <div class="share-buttons">
-            <button class="share-btn copy" onclick="copyResult('국민연금: 근로자 월 ${formatNumber(r.employee)}원 / 사업주 월 ${formatNumber(r.employer)}원 (기준소득 ${formatNumber(r.base)}원) - 국민계산기')">📋 복사</button>
+            <button class="share-btn copy" onclick="copyResult('국민연금(2026 ${periodLabel}): 본인 월 ${formatNumber(employeeShare)}원 / 사업주 월 ${formatNumber(employerShare)}원 (기준소득 ${formatNumber(r.base)}원) - 국민계산기')">📋 복사</button>
           </div>
         </div>
       `;
@@ -238,7 +304,7 @@
             <span class="icon">📊</span>
             <div>
               <strong>월급 대비 부담률 ${salaryRatio.toFixed(2)}%</strong>
-              <p>월 소득 ${formatNumber(monthlySalary)}원 중 ${salaryRatio.toFixed(2)}%인 ${formatNumber(r.employee)}원이 국민연금으로 공제됩니다. ${isUpperCapped ? '상한액이 적용되어 실제 소득 대비 부담률이 4.5%보다 낮습니다.' : isLowerCapped ? '하한액이 적용되어 실제 소득 대비 부담률이 4.5%보다 높습니다.' : '기준 요율 4.5%가 그대로 적용됩니다.'}</p>
+              <p>월 소득 ${formatNumber(monthlySalary)}원 중 ${salaryRatio.toFixed(2)}%인 ${formatNumber(employeeShare)}원이 국민연금으로 공제됩니다. ${isUpperCapped ? '상한액이 적용되어 실제 소득 대비 부담률이 기준 요율보다 낮습니다.' : isLowerCapped ? '하한액이 적용되어 실제 소득 대비 부담률이 기준 요율보다 높습니다.' : (memberType === 'workplace' ? '직장가입자 기준 요율 4.75%가 그대로 적용됩니다.' : '본인 부담 9.5%가 그대로 적용됩니다.')}</p>
             </div>
           </div>
           <div class="insight-item">
