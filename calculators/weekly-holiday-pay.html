@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주휴수당 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 주휴수당 계산기. 시급과 주 소정근로시간을 입력하면 주휴수당, 주급, 월 예상 급여를 자동 계산합니다. 2026 최저시급 10,320원 기준.">
+  <meta property="og:title" content="주휴수당 계산기 - 국민계산기">
+  <meta property="og:description" content="시급 × 주 근무시간으로 주휴수당 자동 계산.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/weekly-holiday-pay">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/weekly-holiday-pay">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"주휴수당 계산기","description":"2026년 시급/주 근무시간 기반 주휴수당 자동 계산.","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0"}}
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>주휴수당 계산기</span>
+    </nav>
+    <h1>📅 주휴수당 계산기 2026</h1>
+    <p class="page-subtitle">주 15시간 이상 근무하고 소정근로일을 개근한 근로자에게 발생 | 2026 최저시급 10,320원</p>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="hourlyWage">시급 (원)</label>
+        <input type="text" id="hourlyWage" value="10,320">
+        <div class="preset-buttons">
+          <button class="preset-btn active" data-set="10320" data-target="hourlyWage">최저시급</button>
+          <button class="preset-btn" data-set="12000" data-target="hourlyWage">12,000</button>
+          <button class="preset-btn" data-set="15000" data-target="hourlyWage">15,000</button>
+          <button class="preset-btn" data-set="20000" data-target="hourlyWage">20,000</button>
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="weeklyHours">주 소정근로시간</label>
+          <input type="number" id="weeklyHours" value="40" min="0" max="68" step="1">
+          <div class="preset-buttons">
+            <button class="preset-btn" data-set="15" data-target="weeklyHours">15</button>
+            <button class="preset-btn" data-set="20" data-target="weeklyHours">20</button>
+            <button class="preset-btn" data-set="30" data-target="weeklyHours">30</button>
+            <button class="preset-btn active" data-set="40" data-target="weeklyHours">40</button>
+          </div>
+          <small>주 15시간 이상이어야 주휴수당 발생</small>
+        </div>
+        <div class="input-group">
+          <label for="fullAttendance">소정근로일 개근 여부</label>
+          <select id="fullAttendance">
+            <option value="yes" selected>개근 (결근 없음)</option>
+            <option value="no">결근 있음</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div id="appliedRatesBox"></div>
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+    <div class="ad-slot" data-slot-key="calculator-result-bottom"></div>
+
+    <section class="explanation">
+      <h2>왜 이 금액이 나왔나요?</h2>
+      <p><strong>주휴수당</strong>은 1주일에 15시간 이상 근무하고 소정근로일을 개근한 근로자에게 일하지 않은 하루치 임금을 추가로 지급하는 제도입니다.</p>
+      <p>계산식: <code>(주 소정근로시간 / 40) × 8 × 시급</code></p>
+      <p>예: 시급 10,320원, 주 20시간 근무 → (20 ÷ 40) × 8 × 10,320 = <strong>41,280원</strong></p>
+      <p>주 40시간 초과분은 주휴수당 계산에 포함되지 않습니다(상한 40시간).</p>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="hourly-wage.html" class="related-card"><div class="icon">⏰</div><h4>시급 계산기</h4><p>월급↔시급</p></a>
+        <a href="overtime-pay.html" class="related-card"><div class="icon">🌙</div><h4>야근수당</h4><p>연장근로</p></a>
+        <a href="annual-leave-pay.html" class="related-card"><div class="icon">📆</div><h4>연차수당</h4><p>미사용 연차</p></a>
+        <a href="severance-pay.html" class="related-card"><div class="icon">🎒</div><h4>퇴직금</h4><p>퇴직금 산출</p></a>
+        <a href="take-home-pay.html" class="related-card"><div class="icon">💵</div><h4>연봉 실수령액</h4><p>세후 월급</p></a>
+      </div>
+    </section>
+    <div class="ad-slot" data-slot-key="calculator-bottom"></div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    window.KC_SCHEMA = window.KC_SCHEMA || {};
+    window.KC_SCHEMA['weekly-holiday-pay'] = {
+      id: 'weekly-holiday-pay', title: '주휴수당 계산기', category: 'labor',
+      pageType: 'calculator', adCategory: 'labor', officialLinkCategory: 'labor',
+      verificationStatus: 'verified',
+      relatedCalculators: ['hourly-wage','overtime-pay','annual-leave-pay','severance-pay','take-home-pay'],
+      latestBadge: '2026 최신 기준 반영'
+    };
+    window.KC_PAGE_CATEGORY = 'labor';
+    window.KC_CURRENT_SCHEMA = window.KC_SCHEMA['weekly-holiday-pay'];
+
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    let __started = false;
+    function calculate() {
+      const hourlyWage = parseInput(document.getElementById('hourlyWage').value);
+      const weeklyHours = parseFloat(document.getElementById('weeklyHours').value) || 0;
+      const fullAttendance = document.getElementById('fullAttendance').value === 'yes';
+
+      document.getElementById('appliedRatesBox').innerHTML = renderAppliedRatesBox({ date: '2026-05', calculator: 'weekly-holiday-pay' });
+      if (hourlyWage <= 0 || weeklyHours <= 0) { document.getElementById('result').innerHTML=''; document.getElementById('aiInsight').innerHTML=''; return; }
+      if (!__started && window.KukmincalcEvents) { __started=true; window.KukmincalcEvents.track('calculator_started',{calculatorId:'weekly-holiday-pay',category:'labor'}); }
+
+      const r = CalcCore.weeklyHolidayPay(hourlyWage, weeklyHours, { fullAttendance });
+
+      const minWageNote = (window.KR_RATES_2026 && window.KR_RATES_2026.minimumWage) ? window.KR_RATES_2026.minimumWage.hourly : 10320;
+      const isMinWage = hourlyWage < minWageNote;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>주휴수당 계산 결과</h3>
+          ${r.eligible ? `
+            <div class="result-item primary">
+              <span>주휴수당</span>
+              <strong>${formatNumber(r.weeklyHolidayPay)}원</strong>
+            </div>
+            <div class="result-item highlight">
+              <span>주급 (주휴수당 포함)</span>
+              <strong>${formatNumber(r.weeklyWage)}원</strong>
+            </div>
+            <div class="result-item">
+              <span>월 예상 급여 (4.345주)</span>
+              <strong>${formatNumber(r.monthlyWage)}원</strong>
+            </div>
+            <div class="result-item">
+              <span>적용 시간 (40h 상한)</span>
+              <strong>${r.cappedHours}시간</strong>
+            </div>
+          ` : `
+            <div class="result-item warn">
+              <span>주휴수당 발생 안 함</span>
+              <strong>0원</strong>
+            </div>
+            <div class="result-item">
+              <span>사유</span>
+              <strong>${r.reason === 'weeklyHours_below_15' ? '주 15시간 미만' : '소정근로일 미개근'}</strong>
+            </div>
+            <div class="result-item">
+              <span>주급 (주휴수당 미포함)</span>
+              <strong>${formatNumber(r.weeklyWage)}원</strong>
+            </div>
+          `}
+          ${isMinWage ? `
+            <div class="result-item warn">
+              <span>최저임금 미달</span>
+              <strong>현재 시급이 2026년 최저시급(10,320원)보다 낮습니다.</strong>
+            </div>
+          ` : ''}
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('시급 ${formatNumber(hourlyWage)}원 / 주 ${weeklyHours}시간 → 주휴수당 ${formatNumber(r.weeklyHolidayPay)}원 (국민계산기)')">📋 복사</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card"><h3>🤖 AI 분석 인사이트</h3>
+        <div class="insight-item"><span class="icon">⏰</span><div><strong>2026 최저시급 10,320원 / 월 209시간 환산 2,156,880원</strong><p>주휴 포함 월 환산 기준이며, 본 계산기는 ${weeklyHours}시간 근무 기준입니다.</p></div></div>
+        <div class="insight-item"><span class="icon">📌</span><div><strong>주휴수당 조건</strong><p>1주 15시간 이상 근무 + 소정근로일 개근 두 조건을 모두 충족해야 발생합니다. 정규직·비정규직·알바 모두 동일하게 적용됩니다.</p></div></div>
+        </div>
+      `;
+      if (window.KukmincalcEvents) window.KukmincalcEvents.track('calculator_completed',{calculatorId:'weekly-holiday-pay',category:'labor',verificationStatus:'verified'});
+      if (window.KCPopupManager) setTimeout(function(){ window.KCPopupManager.showForResult('labor'); }, 600);
+    }
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

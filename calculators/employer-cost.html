@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사업주 총 인건비 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 사업주 총 인건비 계산기. 직원 1명 채용 시 회사가 부담하는 월/연 총비용을 4대보험·산재보험까지 합산하여 자동 계산합니다.">
+  <meta property="og:title" content="사업주 총 인건비 계산기 - 국민계산기">
+  <meta property="og:description" content="직원 1명당 월/연 총 인건비를 한 번에 계산.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/employer-cost">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/employer-cost">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"사업주 총 인건비 계산기","description":"직원 1명 고용 시 회사 부담 월/연 총비용 자동 계산.","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0"}}
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>사업주 총 인건비 계산기</span>
+    </nav>
+    <h1>🏢 사업주 총 인건비 계산기 2026</h1>
+    <p class="page-subtitle">직원 1명을 채용했을 때 회사가 실제 부담하는 월/연 비용</p>
+
+    <section class="calculator-input">
+      <div class="input-group">
+        <label for="monthlySalary">직원 월 급여 (원)</label>
+        <input type="text" id="monthlySalary" value="3,500,000">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="2500000" data-target="monthlySalary">250만</button>
+          <button class="preset-btn active" data-set="3500000" data-target="monthlySalary">350만</button>
+          <button class="preset-btn" data-set="5000000" data-target="monthlySalary">500만</button>
+          <button class="preset-btn" data-set="7000000" data-target="monthlySalary">700만</button>
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="nonTaxable">월 비과세액</label>
+          <input type="text" id="nonTaxable" value="200,000">
+        </div>
+        <div class="input-group">
+          <label for="calcMonth">계산 기준월</label>
+          <select id="calcMonth">
+            <option value="2026-05" selected>2026년 5월</option>
+            <option value="2026-07">2026년 7월</option>
+            <option value="2026-12">2026년 12월</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="companySize">사업장 규모</label>
+        <select id="companySize">
+          <option value="priority_support_company">우선지원대상기업</option>
+          <option value="under_150" selected>150인 미만</option>
+          <option value="over_150_priority">150인 이상 우선지원대상기업</option>
+          <option value="over_150_under_1000">150인 이상 1,000인 미만</option>
+          <option value="over_1000_or_public">1,000인 이상 또는 국가·지자체</option>
+        </select>
+      </div>
+    </section>
+
+    <div id="appliedRatesBox"></div>
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+    <div class="ad-slot" data-slot-key="calculator-result-bottom"></div>
+
+    <section class="explanation">
+      <h2>왜 이 금액이 나왔나요?</h2>
+      <p>회사가 직원 1명을 고용했을 때 실제 부담하는 비용은 <strong>월 급여 + 사업주 4대보험 부담 + 산재보험</strong> 입니다.</p>
+      <p>국민연금/건강보험/장기요양은 직원과 회사가 절반씩, 고용보험은 회사가 0.9% + 사업장 규모별 추가요율(0.25~0.85%)을 부담합니다. 산재보험은 회사가 전액 부담합니다(평균 1.47%).</p>
+      <p>고용보험 사업주 추가요율은 공식 기준 확인 후 갱신될 수 있습니다.</p>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="social-insurance.html" class="related-card"><div class="icon">🛡️</div><h4>4대보험 통합</h4><p>근로자/사업주 분리</p></a>
+        <a href="paystub.html" class="related-card"><div class="icon">📋</div><h4>월급명세서</h4><p>지급/공제/실수령</p></a>
+        <a href="take-home-pay.html" class="related-card"><div class="icon">💵</div><h4>연봉 실수령액</h4><p>직원 월 실수령</p></a>
+        <a href="severance-pay.html" class="related-card"><div class="icon">🎒</div><h4>퇴직금</h4><p>퇴직금 산출</p></a>
+      </div>
+    </section>
+    <div class="ad-slot" data-slot-key="calculator-bottom"></div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    window.KC_SCHEMA = window.KC_SCHEMA || {};
+    window.KC_SCHEMA['employer-cost'] = {
+      id: 'employer-cost', title: '사업주 총 인건비 계산기', category: 'labor',
+      pageType: 'calculator', adCategory: 'salary', officialLinkCategory: 'salary',
+      verificationStatus: 'needs_official_source',
+      relatedCalculators: ['social-insurance','paystub','take-home-pay','severance-pay'],
+      latestBadge: '공식 기준 확인 중'
+    };
+    window.KC_PAGE_CATEGORY = 'salary';
+    window.KC_CURRENT_SCHEMA = window.KC_SCHEMA['employer-cost'];
+
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    let __started = false;
+    function calculate() {
+      const monthlySalary = parseInput(document.getElementById('monthlySalary').value);
+      const nonTaxable = parseInput(document.getElementById('nonTaxable').value);
+      const calcMonth = document.getElementById('calcMonth').value;
+      const companySize = document.getElementById('companySize').value;
+
+      document.getElementById('appliedRatesBox').innerHTML = renderAppliedRatesBox({
+        date: calcMonth, calculator: 'employer-cost'
+      });
+      if (monthlySalary <= 0) { document.getElementById('result').innerHTML=''; document.getElementById('aiInsight').innerHTML=''; return; }
+      if (!__started && window.KukmincalcEvents) { __started=true; window.KukmincalcEvents.track('calculator_started',{calculatorId:'employer-cost',category:'labor'}); }
+
+      const r = CalcCore.employerCost(monthlySalary, nonTaxable, { date: calcMonth, companySize });
+      const empR = r.employer;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>사업주 총 인건비 계산 결과</h3>
+          <div class="result-item primary">
+            <span>월 총 인건비</span>
+            <strong>${formatKRW(r.totalLaborCost)}</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>연 총 인건비</span>
+            <strong>${formatKRW(r.annualLaborCost)}</strong>
+          </div>
+          <div class="result-item"><span>직원 월 급여</span><strong>${formatNumber(monthlySalary)}원</strong></div>
+          <div class="result-item"><span>직원 예상 월 실수령액</span><strong>${formatNumber(r.employeeNetEstimate)}원</strong></div>
+          <div class="result-item"><span>사업주 4대보험 합계</span><strong>${formatNumber(empR.pension+empR.health+empR.longTerm+empR.employmentInsBase+empR.employmentInsAdditional)}원</strong></div>
+          <div class="result-item"><span>국민연금 (사업주 4.75%)</span><strong>${formatNumber(empR.pension)}원</strong></div>
+          <div class="result-item"><span>건강보험 (사업주 3.595%)</span><strong>${formatNumber(empR.health)}원</strong></div>
+          <div class="result-item"><span>장기요양 (사업주)</span><strong>${formatNumber(empR.longTerm)}원</strong></div>
+          <div class="result-item"><span>고용보험 — 실업급여 (0.9%)</span><strong>${formatNumber(empR.employmentInsBase)}원</strong></div>
+          <div class="result-item"><span>고용보험 — 고용안정·직능</span><strong>${formatNumber(empR.employmentInsAdditional)}원</strong></div>
+          <div class="result-item"><span>산재보험 (평균 1.47%)</span><strong>${formatNumber(empR.industrial)}원</strong></div>
+          <div class="result-item highlight"><span>급여 대비 추가 부담률</span><strong>${r.employerBurdenRatePercent}%</strong></div>
+        </div>
+      `;
+
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card"><h3>🤖 AI 분석 인사이트</h3>
+        <div class="insight-item"><span class="icon">💼</span><div><strong>월 총 인건비 ${formatKRW(r.totalLaborCost)}</strong><p>직원 월 급여 ${formatNumber(monthlySalary)}원 외에 회사가 추가로 부담하는 비용은 약 ${formatNumber(empR.total)}원입니다.</p></div></div>
+        <div class="insight-item"><span class="icon">📅</span><div><strong>연 총 인건비 ${formatKRW(r.annualLaborCost)}</strong><p>직원 1명의 연간 채용 비용입니다. 보너스/퇴직금/복리후생은 별도입니다.</p></div></div>
+        </div>
+      `;
+
+      if (window.KukmincalcEvents) window.KukmincalcEvents.track('calculator_completed',{calculatorId:'employer-cost',category:'labor'});
+      if (window.KCPopupManager) setTimeout(function(){ window.KCPopupManager.showForResult('salary'); }, 600);
+    }
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

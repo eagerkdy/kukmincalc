@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프리랜서 3.3% / 기타소득 8.8% 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 프리랜서 사업소득 3.3%, 기타소득 8.8% 원천징수 계산기. 계약금액에서 소득세·지방소득세를 자동 계산하고 실수령액과 종합소득세 정산 안내를 제공합니다.">
+  <meta property="og:title" content="프리랜서 3.3% / 기타소득 8.8% 계산기 - 국민계산기">
+  <meta property="og:description" content="원천징수 후 실수령액 자동 계산.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/freelancer-tax">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/freelancer-tax">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"프리랜서 3.3% / 기타소득 8.8% 계산기","description":"사업소득 3.3% / 기타소득 8.8% 원천징수 자동 계산.","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0"}}
+  </script>
+  <style>
+    .tab-buttons { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+    .tab-btn {
+      flex: 1; padding: 0.6rem; border: 1px solid var(--border, #e5e7eb);
+      background: var(--bg-card, #fff); cursor: pointer; border-radius: var(--radius-sm, 6px);
+      font-weight: 500; color: var(--text-muted, #6b7280);
+    }
+    .tab-btn.active { background: var(--primary, #2563eb); color: #fff; border-color: var(--primary, #2563eb); }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#tax">세금</a> &gt;
+      <span>프리랜서 / 기타소득 계산기</span>
+    </nav>
+    <h1>💼 프리랜서 3.3% / 기타소득 8.8% 계산기</h1>
+    <p class="page-subtitle">계약금액에서 원천징수액과 실수령액을 자동 계산합니다 | 일반적인 원천징수 기준의 간이 계산</p>
+
+    <section class="calculator-input">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-type="business">사업소득 3.3%</button>
+        <button class="tab-btn" data-type="other">기타소득 8.8%</button>
+      </div>
+
+      <div class="input-group">
+        <label for="amount">계약금액 (원)</label>
+        <input type="text" id="amount" value="1,000,000">
+        <div class="preset-buttons">
+          <button class="preset-btn" data-set="500000" data-target="amount">50만</button>
+          <button class="preset-btn active" data-set="1000000" data-target="amount">100만</button>
+          <button class="preset-btn" data-set="3000000" data-target="amount">300만</button>
+          <button class="preset-btn" data-set="5000000" data-target="amount">500만</button>
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="vatType">부가세 처리</label>
+          <select id="vatType">
+            <option value="exclude" selected>부가세 별도</option>
+            <option value="include">부가세 포함</option>
+          </select>
+          <small>대부분의 프리랜서 계약은 부가세 별도</small>
+        </div>
+        <div class="input-group" id="necessaryGroup" style="display:none;">
+          <label for="necessaryExpense">필요경비 60% 적용</label>
+          <select id="necessaryExpense">
+            <option value="yes" selected>적용 (대부분 기타소득)</option>
+            <option value="no">미적용</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div id="appliedRatesBox"></div>
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+    <div class="ad-slot" data-slot-key="calculator-result-bottom"></div>
+
+    <section class="explanation">
+      <h2>왜 이 금액이 나왔나요?</h2>
+      <p><strong>사업소득 (3.3%)</strong>: 프리랜서/용역 계약에서 지급자가 미리 떼는 원천징수입니다. 소득세 3% + 지방소득세 0.3% = 총 3.3%.</p>
+      <p><strong>기타소득 (8.8%)</strong>: 강연료/원고료/일시적 용역 등에서 적용. 필요경비 60%를 차감한 과세대상의 20% 소득세 + 그 10%의 지방소득세 = 총 8.8%.</p>
+      <p>매년 5월 종합소득세 신고 시 다른 소득과 합산해 정산되며, 미리 낸 원천징수가 많으면 환급받을 수 있습니다.</p>
+      <p>본 계산기는 일반적인 원천징수 기준의 <strong>간이 계산</strong>입니다. 실제 신고 결과는 소득 유형, 필요경비 인정 범위, 다른 소득 상황에 따라 달라집니다. 공식 기준은 국세청·홈택스에서 확인하세요.</p>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="vat.html" class="related-card"><div class="icon">🧾</div><h4>부가가치세</h4><p>VAT 계산</p></a>
+        <a href="income-tax.html" class="related-card"><div class="icon">📊</div><h4>종합소득세</h4><p>5월 신고</p></a>
+        <a href="paystub.html" class="related-card"><div class="icon">📋</div><h4>월급명세서</h4><p>지급/공제</p></a>
+        <a href="take-home-pay.html" class="related-card"><div class="icon">💵</div><h4>연봉 실수령액</h4><p>근로자용</p></a>
+      </div>
+    </section>
+    <div class="ad-slot" data-slot-key="calculator-bottom"></div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    window.KC_SCHEMA = window.KC_SCHEMA || {};
+    window.KC_SCHEMA['freelancer-tax'] = {
+      id: 'freelancer-tax', title: '프리랜서 3.3% / 기타소득 8.8% 계산기', category: 'tax',
+      pageType: 'calculator', adCategory: 'tax', officialLinkCategory: 'tax',
+      verificationStatus: 'needs_official_source',
+      relatedCalculators: ['vat','income-tax','paystub','take-home-pay'],
+      latestBadge: '간이 추정 계산'
+    };
+    window.KC_PAGE_CATEGORY = 'tax';
+    window.KC_CURRENT_SCHEMA = window.KC_SCHEMA['freelancer-tax'];
+
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    let currentType = 'business';
+    let __started = false;
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentType = btn.dataset.type;
+        document.getElementById('necessaryGroup').style.display = currentType === 'other' ? '' : 'none';
+        calculate();
+      });
+    });
+
+    function calculate() {
+      const amount = parseInput(document.getElementById('amount').value);
+      const vatType = document.getElementById('vatType').value;
+      const includeNecessaryExpense = document.getElementById('necessaryExpense').value !== 'no';
+
+      document.getElementById('appliedRatesBox').innerHTML = renderAppliedRatesBox({
+        date: '2026-05', calculator: 'freelancer-tax'
+      });
+      if (amount <= 0) { document.getElementById('result').innerHTML=''; document.getElementById('aiInsight').innerHTML=''; return; }
+      if (!__started && window.KukmincalcEvents) { __started=true; window.KukmincalcEvents.track('calculator_started',{calculatorId:'freelancer-tax',category:'tax'}); }
+
+      const r = CalcCore.freelancerTax(amount, currentType, { vatType, includeNecessaryExpense });
+
+      const typeLabel = currentType === 'business' ? '사업소득 (3.3%)' : '기타소득 (8.8%)';
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>${typeLabel} 원천징수 결과 <span class="rate-badge needs-source" style="font-size:0.7rem;">간이 추정</span></h3>
+          <div class="result-item primary">
+            <span>실수령액 (원천징수 후)</span>
+            <strong>${formatNumber(r.netPay)}원</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>총 원천징수액 (${r.rateDisplay})</span>
+            <strong>-${formatNumber(r.totalWithheld)}원</strong>
+          </div>
+          ${r.vat ? `<div class="result-item"><span>부가세 (분리)</span><strong>${formatNumber(r.vat)}원</strong></div>` : ''}
+          <div class="result-item"><span>공급가액 (과세 대상 금액)</span><strong>${formatNumber(r.supplyAmount)}원</strong></div>
+          ${r.taxableBase ? `<div class="result-item"><span>과세표준 (필요경비 60% 차감 후)</span><strong>${formatNumber(r.taxableBase)}원</strong></div>` : ''}
+          <div class="result-item"><span>소득세</span><strong>-${formatNumber(r.incomeTax)}원</strong></div>
+          <div class="result-item"><span>지방소득세</span><strong>-${formatNumber(r.localTax)}원</strong></div>
+          <div class="result-item"><span>실효세율</span><strong>${(r.totalWithheld / amount * 100).toFixed(2)}%</strong></div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('${typeLabel}: 계약 ${formatNumber(amount)}원 → 실수령 ${formatNumber(r.netPay)}원 (국민계산기)')">📋 복사</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card"><h3>🤖 AI 분석 인사이트</h3>
+        <div class="insight-item"><span class="icon">📅</span><div><strong>매년 5월 종합소득세 신고</strong><p>이번 원천징수액은 종합소득세 신고 시 정산됩니다. 소득이 적거나 공제 항목이 많으면 환급받을 수 있습니다.</p></div></div>
+        <div class="insight-item"><span class="icon">⚠️</span><div><strong>본 계산기는 간이 추정입니다</strong><p>실제 세무 신고 결과는 다른 소득, 필요경비 인정 범위, 공제 항목에 따라 달라집니다. 정확한 신고는 홈택스 또는 세무사 상담을 권장합니다.</p></div></div>
+        </div>
+      `;
+      if (window.KukmincalcEvents) window.KukmincalcEvents.track('calculator_completed',{calculatorId:'freelancer-tax',category:'tax',verificationStatus:'needs_official_source'});
+      if (window.KCPopupManager) setTimeout(function(){ window.KCPopupManager.showForResult('tax'); }, 600);
+    }
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>
