@@ -445,3 +445,101 @@
   .preset-btn { min-width: 50px; font-size: 0.75rem; }
   .share-buttons { flex-direction: column; }
 }
+
+/* ===== 적용 기준값 박스 (2026 기준) ===== */
+.applied-rates-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.applied-rates-box .rate-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+.applied-rates-box .rate-version {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+.applied-rates-box .rate-items {
+  color: var(--text);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+.applied-rates-box .rate-sep { color: var(--text-muted); }
+.applied-rates-box .rate-limit-note {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.applied-rates-box .rate-warnings {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.applied-rates-box .rate-source-list {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.applied-rates-box .rate-source-list a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.applied-rates-box .rate-source-list a:hover { text-decoration: underline; }
+.applied-rates-box .rate-verified-at {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* 검증 상태 배지 */
+.rate-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.rate-badge.verified {
+  background: var(--secondary, #16a34a);
+  color: white;
+}
+.rate-badge.needs-source {
+  background: #f59e0b;
+  color: white;
+}
+.rate-badge.dynamic {
+  background: #3b82f6;
+  color: white;
+}
+.rate-badge.other {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* 광고 슬롯 CLS 방지 */
+.ad-slot {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+  border-radius: var(--radius-md);
+  margin: var(--space-md) 0;
+  font-size: 0.85rem;
+}

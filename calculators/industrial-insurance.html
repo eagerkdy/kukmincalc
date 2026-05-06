@@ -203,6 +203,12 @@
 
   <div id="footer"></div>
 
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
   <script src="../assets/js/common.js"></script>
   <script src="../assets/js/calculator-core.js"></script>
   <script>
@@ -316,11 +322,13 @@
         </div>
       `;
 
-      // 4대보험 총 비용 (사업주 입장)
-      const pension = Math.round(Math.min(salary * 0.045, 265500));
-      const health = Math.round(salary * 0.03545);
-      const longTerm = Math.round(health * 0.1295);
-      const employment = CalcCore.employmentInsurance(salary, 'small');
+      // 4대보험 총 비용 (사업주 입장) — 2026 기준값
+      const pensionCalc = CalcCore.pension(salary, { date: '2026-05-01' });
+      const pension = pensionCalc.employer;
+      const healthCalc = CalcCore.healthInsurance(salary);
+      const health = healthCalc.employeeHealth; // 사업주 부담 = 근로자 부담과 동일(절반)
+      const longTerm = healthCalc.employeeLong;
+      const employment = CalcCore.employmentInsurance(salary, 'under_150');
       const totalEmployerCost = pension + health + longTerm + employment.employer + r.premium;
 
       document.getElementById('aiInsight').innerHTML = `

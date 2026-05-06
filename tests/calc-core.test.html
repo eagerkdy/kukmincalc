@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Kukmincalc — 2026 기준값 테스트 러너</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    h1 { font-size: 1.4rem; }
+    .summary { padding: 0.75rem 1rem; border-radius: 8px; margin: 1rem 0; font-weight: 600; }
+    .pass { background: #dcfce7; color: #166534; }
+    .fail { background: #fee2e2; color: #991b1b; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; border-bottom: 1px solid #e5e7eb; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; font-size: 0.85rem; }
+    td.status { width: 4.5rem; font-weight: 600; }
+    td.status.pass { color: #16a34a; background: transparent; }
+    td.status.fail { color: #dc2626; background: transparent; }
+    code { background: #f3f4f6; padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.85rem; }
+    .desc { font-size: 0.85rem; color: #4b5563; }
+  </style>
+</head>
+<body>
+  <h1>Kukmincalc — 2026 기준값 테스트 러너</h1>
+  <p class="desc">브라우저에서 직접 열어 실행. constants/utils/calculator-core 가 글로벌로 로드된 뒤 단정문이 자동 실행됩니다.</p>
+
+  <div id="summary" class="summary">실행 중...</div>
+  <table id="results">
+    <thead><tr><th>#</th><th>항목</th><th>기대</th><th>실제</th><th>상태</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+
+  <script>
+    const tests = [];
+    function t(name, expected, actual) { tests.push({ name, expected, actual, pass: deepEq(expected, actual) }); }
+    function deepEq(a, b) {
+      if (a === b) return true;
+      if (typeof a === 'number' && typeof b === 'number') return Math.abs(a - b) < 0.5;
+      return false;
+    }
+
+    // ----- 1. 국민연금 -----
+    const p1 = CalcCore.pension(3000000, { date: '2026-05-01' });
+    t('pension(3,000,000) 2026-05 — 근로자 부담 = 3,000,000 × 0.0475', 142500, p1.employee);
+    t('pension(3,000,000) 2026-05 — 사업주 부담 = 3,000,000 × 0.0475', 142500, p1.employer);
+    t('pension(3,000,000) 2026-05 — 합계 = 9.5%', 285000, p1.total);
+
+    // clamp 1~6월
+    t('pension clamp upper Jan-Jun: 7,000,000 → 6,370,000', 6370000, CalcCore.pension(7000000, { date: '2026-03-01' }).base);
+    t('pension clamp lower Jan-Jun: 300,000 → 400,000', 400000, CalcCore.pension(300000, { date: '2026-03-01' }).base);
+    // clamp 7~12월
+    t('pension clamp upper Jul-Dec: 7,000,000 → 6,590,000', 6590000, CalcCore.pension(7000000, { date: '2026-08-01' }).base);
+    t('pension clamp lower Jul-Dec: 300,000 → 410,000', 410000, CalcCore.pension(300000, { date: '2026-08-01' }).base);
+
+    // ----- 2. 건강보험 + 장기요양 (10원 단위 floor) -----
+    const hi = CalcCore.healthInsurance(3000000);
+    const expectedHealth = floorToUnit(3000000 * 0.0719, 10);            // 215700
+    const expectedLongTerm = floorToUnit(expectedHealth * 0.1314, 10);   // 28340
+    const expectedEmpHealth = floorToUnit(3000000 * 0.03595, 10);        // 107850
+    const expectedEmpLong = floorToUnit(expectedEmpHealth * 0.1314, 10); // 14170
+    t('healthInsurance(3,000,000) — health = floor10(3,000,000 × 0.0719)', expectedHealth, hi.health);
+    t('healthInsurance(3,000,000) — longTerm = floor10(health × 0.1314)', expectedLongTerm, hi.longTerm);
+    t('healthInsurance(3,000,000) — 근로자 합계', expectedEmpHealth + expectedEmpLong, hi.employeeTotal);
+
+    // ----- 3. 최저임금 -----
+    t('minimumWage hourly = 10,320', 10320, KR_RATES_2026.minimumWage.hourly);
+    t('minimumWage 209h = 2,156,880', 2156880, KR_RATES_2026.minimumWage.hourly * 209);
+    t('minimumWage daily8h = 82,560', 82560, KR_RATES_2026.minimumWage.daily8Hours);
+
+    // ----- 4. 퇴직금 -----
+    // 월 300만 / 3년 = 1095일 → 100,000 × 30 × (1095/365) = 9,000,000
+    const sev = CalcCore.severancePayFromMonthly(3000000, 3, 0);
+    t('severance(월300만, 3년) ≈ 9,000,000', 9000000, sev);
+
+    // ----- 5. 주휴수당 — 시급 10,320 / 주20시간 → 20/40 × 8 × 10,320 = 41,280 -----
+    const weeklyHoliday = (20 / 40) * 8 * 10320;
+    t('주휴수당 (10,320 / 20h) = 41,280', 41280, weeklyHoliday);
+
+    // ----- 6. 식대 비과세 -----
+    t('mealAllowance.monthlyLimit = 200,000', 200000, KR_RATES_2026.mealAllowanceTaxFree.monthlyLimit);
+
+    // ----- 7. 고용보험 — verificationStatus -----
+    t('employmentInsurance.verificationStatus = needs_official_source', 'needs_official_source', KR_RATES_2026.employmentInsurance.verificationStatus);
+
+    // ----- 8. getRatesByDate warnings — 고용보험 needs_official_source 포함 -----
+    const rates = getRatesByDate('2026-05-01', 'take-home-pay');
+    const hasEIWarn = rates.warnings.some(w => w.key === 'employmentInsurance' && w.status === 'needs_official_source');
+    t('getRatesByDate warnings — employmentInsurance needs_official_source 포함', true, hasEIWarn);
+
+    // ----- 9. takeHomePay 기본 동작 -----
+    const th = CalcCore.takeHomePay(50000000, 1, 0, 200000, { date: '2026-05-01' });
+    t('takeHomePay(연5천) — 월 = 4,166,666 (소수절사 후 round)', 4166666.666666667, th.monthly);
+    t('takeHomePay 결과에 appliedRates 포함', true, !!th.appliedRates);
+    t('takeHomePay pensionBase ≤ ceiling(6,370,000)', true, th.pensionBase <= 6370000);
+
+    // ----- 10. 전월세 전환율 — baseRate 1.5% 입력 → cap = min(0.10, 0.015+0.02) = 3.5% -----
+    const conv = CalcCore.conversionCapRate(1.5);
+    t('conversionCapRate(baseRate=1.5%) = 3.5%', 3.5, conv);
+    t('conversionCapRate(baseRate=10%) ≤ 10% (absoluteCap)', true, CalcCore.conversionCapRate(10) <= 10.0001);
+
+    // ----- 11. 국민연금 단계 인상 -----
+    t('pensionRateSchedule[2033] = 0.130', 0.130, KR_RATES_2026.pensionRateSchedule.schedule[7].totalRate);
+
+    // ----- 12. roundingRule — 10원 단위 floor -----
+    t('roundByRule(12345, pension_won_rule) = 12340 (floor 10원)', 12340, roundByRule(12345, 'pension_won_rule'));
+
+    // ----- 13. 산재보험 근로자 부담 = 0 -----
+    t('industrialAccidentInsurance.employeeRate = 0', 0, KR_RATES_2026.industrialAccidentInsurance.employeeRate);
+
+    // ----- 14. 건강보험 officialSource = 보건복지부 -----
+    const hiSrc = (KR_RATES_2026.healthInsurance.officialSource[0] || {}).name;
+    t('healthInsurance.officialSource[0].name = "보건복지부"', '보건복지부', hiSrc);
+
+    // ===== 렌더 =====
+    const tbody = document.querySelector('#results tbody');
+    let pass = 0;
+    tests.forEach((t, i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${i + 1}</td><td>${t.name}</td><td><code>${JSON.stringify(t.expected)}</code></td><td><code>${JSON.stringify(t.actual)}</code></td><td class="status ${t.pass ? 'pass' : 'fail'}">${t.pass ? 'PASS' : 'FAIL'}</td>`;
+      tbody.appendChild(tr);
+      if (t.pass) pass++;
+    });
+    const sum = document.getElementById('summary');
+    sum.textContent = `${pass} / ${tests.length} passed`;
+    sum.className = 'summary ' + (pass === tests.length ? 'pass' : 'fail');
+  </script>
+</body>
+</html>
