@@ -1,7 +1,7 @@
 {
   "name": "국민계산기 - 금융 계산기",
   "short_name": "국민계산기",
-  "description": "대한민국 금융 계산기 40종 모음 - 연봉, 세금, 대출, 부동산, 보험",
+  "description": "월급·세금·보험료를 공식 기준으로 쉽게 계산하는 생활금융 도구 허브. 연봉 실수령액, 4대보험, 주휴수당, 프리랜서 3.3%, 대출 DSR까지.",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#f8fafc",
