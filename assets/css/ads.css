@@ -1,0 +1,73 @@
+/* ===== ads.css — 광고 슬롯 + fallback 카드 ===== */
+
+/* 슬롯 컨테이너: AdSense / fallback 모두 들어가는 공통 그릇 */
+.ad-slot,
+.kc-ad-slot {
+  display: block;
+  min-height: 100px;
+  margin: var(--space-md, 1rem) 0;
+  background: transparent;
+  font-size: 0;            /* placeholder 텍스트 잔재 무력화 */
+  line-height: 0;
+}
+.ad-slot[data-kc-empty="1"] {
+  display: none;
+}
+.ad-slot[data-kc-fallback="1"] {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: var(--bg-alt, #f8fafc);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-md, 8px);
+  padding: var(--space-md, 1rem);
+}
+
+/* fallback 카드 — 공식 사이트 바로가기 */
+.kc-fallback-card {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text, #1f2937);
+}
+.kc-fallback-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--secondary, #16a34a);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.02em;
+}
+.kc-fallback-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted, #6b7280);
+  margin-bottom: 0.5rem;
+}
+.kc-fallback-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.kc-fallback-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-sm, 6px);
+  color: var(--primary, #2563eb);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.kc-fallback-link:hover {
+  background: var(--primary, #2563eb);
+  color: #fff;
+}
+
+/* 가이드 페이지 전용 H2-after 슬롯 — 살짝 들여쓰기 */
+.kc-ad-slot-h2 {
+  margin: 1.25rem 0;
+}
+
+/* 모바일 사이드바 광고 숨김 */
+@media (max-width: 768px) {
+  .ad-slot[data-slot-key="desktop-sidebar"] { display: none; }
+}

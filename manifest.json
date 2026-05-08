@@ -1,7 +1,7 @@
 {
   "name": "국민계산기 - 금융 계산기",
   "short_name": "국민계산기",
-  "description": "대한민국 금융 계산기 35종 모음 - 연봉, 세금, 대출, 부동산, 보험",
+  "description": "대한민국 금융 계산기 40종 모음 - 연봉, 세금, 대출, 부동산, 보험",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#f8fafc",

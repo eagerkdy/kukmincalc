@@ -702,5 +702,202 @@ const CalcCore = {
     const d = new Date(startDate);
     d.setDate(d.getDate() + days);
     return d.toISOString().split('T')[0];
+  },
+
+  // ================================================================
+  // ====================== Phase 2 신규 함수 ======================
+  // ================================================================
+
+  // ========== 36. 4대보험 통합 ==========
+  // (월 급여, 비과세액, opts={date, companySize, useAvgIndustrialRate}) → 근로자/사업주 분리
+  socialInsurance(monthlySalary, nonTaxable = 0, opts = {}) {
+    const date = opts.date;
+    const companySize = opts.companySize || 'under_150';
+    const taxable = Math.max(0, monthlySalary - nonTaxable);
+    const rates = this._rates();
+    const ratesAt = this._ratesAt(date, 'social-insurance');
+
+    // 국민연금 — 기준소득월액 clamp
+    const pensionLimit = ratesAt && ratesAt.pensionIncomeLimit;
+    const pensionFloor = pensionLimit ? pensionLimit.floor : 400000;
+    const pensionCeil = pensionLimit ? pensionLimit.ceiling : 6370000;
+    const pensionBase = Math.min(Math.max(taxable, pensionFloor), pensionCeil);
+    const pensionEmployee = this._round(pensionBase * 0.0475, 'pension_won_rule');
+    const pensionEmployer = this._round(pensionBase * 0.0475, 'pension_won_rule');
+
+    // 건강보험 + 장기요양
+    const healthRate = (rates.healthInsurance && rates.healthInsurance.employeeRate) || 0.03595;
+    const longTermRate = (rates.longTermCare && rates.longTermCare.rateOnHealthInsurance) || 0.1314;
+    const healthEmployee = this._round(taxable * healthRate, 'health_insurance_won_rule');
+    const healthEmployer = this._round(taxable * healthRate, 'health_insurance_won_rule');
+    const longTermEmployee = this._round(healthEmployee * longTermRate, 'long_term_care_won_rule');
+    const longTermEmployer = this._round(healthEmployer * longTermRate, 'long_term_care_won_rule');
+
+    // 고용보험 — 근로자 0.9%, 사업주 0.9% + 추가요율 (사업장 규모별)
+    const ei = CalcCore.employmentInsurance(taxable, companySize, { date });
+    const empInsEmployee = ei.employee;
+    const empInsEmployerBase = ei.employerBase;
+    const empInsEmployerAdditional = ei.employerAdditional;
+
+    // 산재보험 — 근로자 0, 사업주 평균 1.47% (KR_RATES_2026.industrialAccidentInsurance)
+    const industrialAvgRate = (rates.industrialAccidentInsurance && rates.industrialAccidentInsurance.averageEmployerRate) || 0.0147;
+    const industrialEmployer = opts.useAvgIndustrialRate !== false
+      ? this._round(taxable * industrialAvgRate, 'industrial_accident_insurance_rule')
+      : 0;
+
+    const employeeTotal = pensionEmployee + healthEmployee + longTermEmployee + empInsEmployee;
+    const employerTotal = pensionEmployer + healthEmployer + longTermEmployer +
+                          empInsEmployerBase + empInsEmployerAdditional + industrialEmployer;
+    const totalLaborCost = monthlySalary + employerTotal;
+
+    return {
+      monthlySalary,
+      taxable,
+      pensionBase,
+      employee: {
+        pension: pensionEmployee,
+        health: healthEmployee,
+        longTerm: longTermEmployee,
+        employmentIns: empInsEmployee,
+        total: employeeTotal
+      },
+      employer: {
+        pension: pensionEmployer,
+        health: healthEmployer,
+        longTerm: longTermEmployer,
+        employmentInsBase: empInsEmployerBase,
+        employmentInsAdditional: empInsEmployerAdditional,
+        industrial: industrialEmployer,
+        total: employerTotal
+      },
+      totalLaborCost,
+      employeeNetEstimate: monthlySalary - employeeTotal,
+      appliedRates: this._appliedRates('social-insurance', date)
+    };
+  },
+
+  // ========== 37. 사업주 총 인건비 ==========
+  employerCost(monthlySalary, nonTaxable = 0, opts = {}) {
+    const r = this.socialInsurance(monthlySalary, nonTaxable, opts);
+    const annual = r.totalLaborCost * 12;
+    const burdenRate = monthlySalary > 0 ? (r.employer.total / monthlySalary) * 100 : 0;
+    return Object.assign({}, r, {
+      annualLaborCost: annual,
+      employerBurdenRatePercent: Math.round(burdenRate * 10) / 10
+    });
+  },
+
+  // ========== 38. 월급명세서 ==========
+  // 지급 항목 + 공제 항목 + 차인지급액. 근로소득세는 간이 추정.
+  paystub(input, opts = {}) {
+    const basic = input.basic || 0;
+    const meal = input.meal || 0;
+    const bonus = input.bonus || 0;
+    const allowance = input.allowance || 0;
+    const nonTaxable = input.nonTaxable != null ? input.nonTaxable : 200000;
+    const dependents = input.dependents || 1;
+    const children = input.children || 0;
+
+    const grossPay = basic + meal + bonus + allowance;
+    const monthly = grossPay;
+    const annualSalary = monthly * 12;
+
+    // takeHomePay 재사용 (간이 소득세 + 4대보험)
+    const th = this.takeHomePay(annualSalary, dependents, children, nonTaxable, opts);
+
+    return {
+      payments: {
+        basic,
+        meal,
+        bonus,
+        allowance,
+        gross: grossPay
+      },
+      deductions: {
+        nationalPension: th.nationalPension,
+        healthInsurance: th.healthInsurance,
+        longTermCare: th.longTermCare,
+        employmentIns: th.employmentIns,
+        incomeTax: th.incomeTax,
+        localTax: th.localTax,
+        total: th.totalDeduction
+      },
+      netPay: th.takeHome,
+      deductionRatePercent: monthly > 0 ? Math.round((th.totalDeduction / monthly) * 1000) / 10 : 0,
+      annualNet: th.annualTakeHome,
+      appliedRates: th.appliedRates
+    };
+  },
+
+  // ========== 39. 주휴수당 ==========
+  // 시급 + 주 소정근로시간 → 주휴수당
+  weeklyHolidayPay(hourlyWage, weeklyHours, opts = {}) {
+    const fullAttendance = opts.fullAttendance !== false;
+    const eligible = weeklyHours >= 15 && fullAttendance;
+    if (!eligible) {
+      return { eligible: false, weeklyHolidayPay: 0, weeklyWage: hourlyWage * weeklyHours,
+               monthlyWage: 0, reason: weeklyHours < 15 ? 'weeklyHours_below_15' : 'absence' };
+    }
+    const cappedHours = Math.min(weeklyHours, 40);
+    const pay = (cappedHours / 40) * 8 * hourlyWage;
+    const weeklyWage = hourlyWage * weeklyHours + pay;
+    const monthlyWage = weeklyWage * 4.345;
+    return {
+      eligible: true,
+      weeklyHolidayPay: Math.round(pay),
+      weeklyWage: Math.round(weeklyWage),
+      monthlyWage: Math.round(monthlyWage),
+      cappedHours
+    };
+  },
+
+  // ========== 40. 프리랜서 / 기타소득 원천징수 ==========
+  // type: 'business' (3.3%) | 'other' (8.8%)
+  freelancerTax(amount, type = 'business', opts = {}) {
+    const vatType = opts.vatType || 'exclude';            // 'include' | 'exclude'
+    const includeNecessaryExpense = opts.includeNecessaryExpense !== false;
+
+    let supplyAmount = amount;
+    let vat = 0;
+    if (vatType === 'include') {
+      supplyAmount = Math.round(amount / 1.1);
+      vat = amount - supplyAmount;
+    }
+
+    if (type === 'business') {
+      const incomeTax = Math.floor(supplyAmount * 0.03);
+      const localTax = Math.floor(supplyAmount * 0.003);
+      const totalWithheld = incomeTax + localTax;
+      return {
+        type: 'business',
+        contractAmount: amount,
+        supplyAmount,
+        vat,
+        incomeTax,
+        localTax,
+        totalWithheld,
+        netPay: supplyAmount - totalWithheld,
+        rateDisplay: '3.3%'
+      };
+    }
+    // other (기타소득 8.8%) — 필요경비 60% 적용 전제
+    const necessaryExpenseRate = includeNecessaryExpense ? 0.60 : 0;
+    const taxableBase = supplyAmount * (1 - necessaryExpenseRate);
+    const incomeTax = Math.floor(taxableBase * 0.20);     // 소득세 20% × 과세대상
+    const localTax = Math.floor(incomeTax * 0.10);        // 지방소득세 = 소득세 10%
+    const totalWithheld = incomeTax + localTax;
+    return {
+      type: 'other',
+      contractAmount: amount,
+      supplyAmount,
+      vat,
+      necessaryExpenseRate,
+      taxableBase: Math.round(taxableBase),
+      incomeTax,
+      localTax,
+      totalWithheld,
+      netPay: supplyAmount - totalWithheld,
+      rateDisplay: '8.8%'
+    };
   }
 };

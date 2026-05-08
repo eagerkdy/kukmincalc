@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="P0ECefwY4-EMNQpWRkH4xw6wR6dLhLHVjYYq19-HQ18" />
+  <meta name="google-site-verification" content="xGXrKSywL-il96OpcUY3PiLTsaM7_eoQdmkINPbTH-g" />
+  <meta name="naver-site-verification" content="2be9e3e4e73da2079cebe703c35d9c0cc386a993" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>월급명세서 계산기 2026 | 국민계산기</title>
+  <meta name="description" content="2026년 월급명세서 계산기. 기본급/식대/상여/수당 등 지급 항목과 4대보험·소득세 공제 항목을 명세서 형식으로 자동 계산합니다.">
+  <meta property="og:title" content="월급명세서 계산기 - 국민계산기">
+  <meta property="og:description" content="지급/공제/실수령액을 명세서 형식으로 자동 계산.">
+  <meta property="og:url" content="https://kukmincalc.com/calculators/paystub">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kukmincalc.com/calculators/paystub">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"월급명세서 계산기","description":"지급/공제/실수령액을 명세서 형식으로 자동 계산.","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0"}}
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="calculator-page">
+    <nav class="breadcrumb">
+      <a href="../index.html">홈</a> &gt;
+      <a href="../index.html#labor">근로·급여</a> &gt;
+      <span>월급명세서 계산기</span>
+    </nav>
+    <h1>📋 월급명세서 계산기 2026</h1>
+    <p class="page-subtitle">지급 항목, 공제 항목, 실수령액을 명세서 형식으로 한눈에 확인</p>
+
+    <section class="calculator-input">
+      <div class="input-row">
+        <div class="input-group">
+          <label for="basic">기본급 (원)</label>
+          <input type="text" id="basic" value="3,000,000">
+        </div>
+        <div class="input-group">
+          <label for="meal">식대 (원)</label>
+          <input type="text" id="meal" value="200,000">
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="bonus">상여금 (원)</label>
+          <input type="text" id="bonus" value="0">
+        </div>
+        <div class="input-group">
+          <label for="allowance">기타 수당 (원)</label>
+          <input type="text" id="allowance" value="0">
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="nonTaxable">월 비과세액 (원)</label>
+          <input type="text" id="nonTaxable" value="200,000">
+          <small>식대 비과세 한도 등</small>
+        </div>
+        <div class="input-group">
+          <label for="dependents">부양가족 (본인 포함)</label>
+          <input type="number" id="dependents" value="1" min="1" max="20">
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="children">8~20세 자녀 수</label>
+          <input type="number" id="children" value="0" min="0" max="10">
+        </div>
+        <div class="input-group">
+          <label for="calcMonth">계산 기준월</label>
+          <select id="calcMonth">
+            <option value="2026-05" selected>2026년 5월</option>
+            <option value="2026-07">2026년 7월</option>
+            <option value="2026-12">2026년 12월</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div id="appliedRatesBox"></div>
+    <section class="calculator-result" id="result"></section>
+    <section class="ai-insight" id="aiInsight"></section>
+    <div class="ad-slot" data-slot-key="calculator-result-bottom"></div>
+
+    <section class="explanation">
+      <h2>왜 이 금액이 나왔나요?</h2>
+      <p><strong>지급 총액</strong> = 기본급 + 식대 + 상여 + 수당 으로 계산됩니다.</p>
+      <p><strong>공제 항목</strong> = 4대보험(국민연금 4.75%, 건강보험 3.595%, 장기요양 13.14%×건강, 고용보험 0.9%) + 근로소득세(간이세액표 기반 추정) + 지방소득세(소득세의 10%).</p>
+      <p><strong>차인지급액(실수령액)</strong> = 지급 총액 − 공제 합계.</p>
+      <p>본 계산기의 근로소득세는 간이세액표 기반 추정값입니다. 2026-03-01 시행 간이세액표 원본 데이터의 80/100/120% 정확 매핑은 추후 반영 예정입니다.</p>
+    </section>
+
+    <section class="related-calculators">
+      <h2>관련 계산기</h2>
+      <div class="related-grid">
+        <a href="take-home-pay.html" class="related-card"><div class="icon">💵</div><h4>연봉 실수령액</h4><p>연 단위 계산</p></a>
+        <a href="social-insurance.html" class="related-card"><div class="icon">🛡️</div><h4>4대보험 통합</h4><p>분리 표시</p></a>
+        <a href="employer-cost.html" class="related-card"><div class="icon">🏢</div><h4>사업주 인건비</h4><p>회사 부담</p></a>
+        <a href="severance-pay.html" class="related-card"><div class="icon">🎒</div><h4>퇴직금</h4><p>퇴직금 산출</p></a>
+      </div>
+    </section>
+    <div class="ad-slot" data-slot-key="calculator-bottom"></div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script>
+    window.KC_SCHEMA = window.KC_SCHEMA || {};
+    window.KC_SCHEMA['paystub'] = {
+      id: 'paystub', title: '월급명세서 계산기', category: 'labor',
+      pageType: 'calculator', adCategory: 'salary', officialLinkCategory: 'salary',
+      verificationStatus: 'estimated',
+      relatedCalculators: ['take-home-pay','social-insurance','employer-cost','severance-pay'],
+      latestBadge: '간이 추정 계산'
+    };
+    window.KC_PAGE_CATEGORY = 'salary';
+    window.KC_CURRENT_SCHEMA = window.KC_SCHEMA['paystub'];
+
+    document.getElementById('header').innerHTML = getHeaderHTML();
+    document.getElementById('footer').innerHTML = getFooterHTML();
+
+    let __started = false;
+    function calculate() {
+      const input = {
+        basic: parseInput(document.getElementById('basic').value),
+        meal: parseInput(document.getElementById('meal').value),
+        bonus: parseInput(document.getElementById('bonus').value),
+        allowance: parseInput(document.getElementById('allowance').value),
+        nonTaxable: parseInput(document.getElementById('nonTaxable').value),
+        dependents: parseInt(document.getElementById('dependents').value) || 1,
+        children: parseInt(document.getElementById('children').value) || 0
+      };
+      const calcMonth = document.getElementById('calcMonth').value;
+      document.getElementById('appliedRatesBox').innerHTML = renderAppliedRatesBox({
+        date: calcMonth, calculator: 'paystub'
+      });
+      if (input.basic + input.meal + input.bonus + input.allowance <= 0) {
+        document.getElementById('result').innerHTML='';
+        document.getElementById('aiInsight').innerHTML='';
+        return;
+      }
+      if (!__started && window.KukmincalcEvents) { __started=true; window.KukmincalcEvents.track('calculator_started',{calculatorId:'paystub',category:'labor'}); }
+
+      const r = CalcCore.paystub(input, { date: calcMonth });
+      const p = r.payments, d = r.deductions;
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-card">
+          <h3>월급명세서 <span class="rate-badge other" style="font-size:0.7rem;">간이 추정</span></h3>
+          <div class="result-item primary">
+            <span>차인지급액 (월 실수령)</span>
+            <strong>${formatNumber(r.netPay)}원</strong>
+          </div>
+          <div class="result-item highlight">
+            <span>지급 총액</span>
+            <strong>${formatNumber(p.gross)}원</strong>
+          </div>
+          <div class="result-item warn">
+            <span>공제 합계 (${r.deductionRatePercent}%)</span>
+            <strong>-${formatNumber(d.total)}원</strong>
+          </div>
+          <hr>
+          <div class="result-item"><span>① 기본급</span><strong>${formatNumber(p.basic)}원</strong></div>
+          <div class="result-item"><span>② 식대</span><strong>${formatNumber(p.meal)}원</strong></div>
+          <div class="result-item"><span>③ 상여금</span><strong>${formatNumber(p.bonus)}원</strong></div>
+          <div class="result-item"><span>④ 수당</span><strong>${formatNumber(p.allowance)}원</strong></div>
+          <hr>
+          <div class="result-item"><span>국민연금 (4.75%)</span><strong>-${formatNumber(d.nationalPension)}원</strong></div>
+          <div class="result-item"><span>건강보험 (3.595%)</span><strong>-${formatNumber(d.healthInsurance)}원</strong></div>
+          <div class="result-item"><span>장기요양</span><strong>-${formatNumber(d.longTermCare)}원</strong></div>
+          <div class="result-item"><span>고용보험 (0.9%)</span><strong>-${formatNumber(d.employmentIns)}원</strong></div>
+          <div class="result-item"><span>근로소득세</span><strong>-${formatNumber(d.incomeTax)}원</strong></div>
+          <div class="result-item"><span>지방소득세</span><strong>-${formatNumber(d.localTax)}원</strong></div>
+          <div class="result-item"><span>연간 실수령액 (예상)</span><strong>${formatKRW(r.annualNet)}</strong></div>
+          <div class="share-buttons">
+            <button class="share-btn copy" onclick="copyResult('월급 ${formatNumber(p.gross)}원 → 차인지급액 ${formatNumber(r.netPay)}원 (국민계산기 월급명세서)')">📋 복사</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('aiInsight').innerHTML = `
+        <div class="ai-card"><h3>🤖 AI 분석 인사이트</h3>
+        <div class="insight-item"><span class="icon">📊</span><div><strong>실수령률 ${(100 - r.deductionRatePercent).toFixed(1)}%</strong><p>월 지급 총액 ${formatNumber(p.gross)}원 중 ${(100 - r.deductionRatePercent).toFixed(1)}%인 ${formatNumber(r.netPay)}원이 실수령액입니다.</p></div></div>
+        <div class="insight-item"><span class="icon">💡</span><div><strong>비과세 활용 팁</strong><p>식대(월 20만원), 자가운전보조금(월 20만원) 등 비과세 항목을 최대한 반영하면 4대보험·소득세 부담이 줄어 실수령액이 늘어납니다.</p></div></div>
+        </div>
+      `;
+      if (window.KukmincalcEvents) window.KukmincalcEvents.track('calculator_completed',{calculatorId:'paystub',category:'labor',verificationStatus:'estimated'});
+      if (window.KCPopupManager) setTimeout(function(){ window.KCPopupManager.showForResult('salary'); }, 600);
+    }
+    bindCalculation(calculate);
+  </script>
+</body>
+</html>

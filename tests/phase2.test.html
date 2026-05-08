@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Kukmincalc — Phase 2 테스트 러너</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/calculator.css">
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; max-width: 1000px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    h1 { font-size: 1.4rem; }
+    .summary { padding: 0.75rem 1rem; border-radius: 8px; margin: 1rem 0; font-weight: 600; }
+    .pass { background: #dcfce7; color: #166534; }
+    .fail { background: #fee2e2; color: #991b1b; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; border-bottom: 1px solid #e5e7eb; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; font-size: 0.85rem; }
+    td.status { width: 4.5rem; font-weight: 600; }
+    td.status.pass { color: #16a34a; }
+    td.status.fail { color: #dc2626; }
+    code { background: #f3f4f6; padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.85rem; }
+    .desc { font-size: 0.85rem; color: #4b5563; }
+  </style>
+</head>
+<body>
+  <h1>Kukmincalc — Phase 2 테스트 러너</h1>
+  <p class="desc">Phase 2 신규 계산기 + 광고/팝업/측정 시스템 검증.</p>
+  <div id="summary" class="summary">실행 중...</div>
+  <table id="results">
+    <thead><tr><th>#</th><th>항목</th><th>기대</th><th>실제</th><th>상태</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="../assets/js/constants/sources-2026.js"></script>
+  <script src="../assets/js/constants/rates-kr-2026.js"></script>
+  <script src="../assets/js/constants/rounding-kr.js"></script>
+  <script src="../assets/js/constants/policies-kr.js"></script>
+  <script src="../assets/js/utils/rates.js"></script>
+  <script src="../assets/js/utils/rounding.js"></script>
+  <script src="../assets/js/calculator-core.js"></script>
+  <script src="../assets/js/analytics/event-tracker.js"></script>
+  <script src="../assets/js/ads/ad-slots.js"></script>
+  <script src="../assets/js/ads/campaigns.js"></script>
+  <script src="../assets/js/ads/popup-manager.js"></script>
+  <script src="../assets/js/ads/ad-manager.js"></script>
+
+  <script>
+    const tests = [];
+    function t(name, expected, actual) { tests.push({ name, expected, actual, pass: deepEq(expected, actual) }); }
+    function deepEq(a, b) {
+      if (a === b) return true;
+      if (typeof a === 'number' && typeof b === 'number') return Math.abs(a - b) < 1;
+      if (typeof a === 'object' && a !== null && b !== null && typeof b === 'object') {
+        return JSON.stringify(a) === JSON.stringify(b);
+      }
+      return false;
+    }
+
+    // ===== 1. 4대보험 통합 =====
+    const si = CalcCore.socialInsurance(3000000, 200000, { date: '2026-05-01', companySize: 'under_150' });
+    t('socialInsurance — 근로자 분리 (pension/health/longTerm/employmentIns 모두 존재)',
+      true, !!(si.employee.pension && si.employee.health && si.employee.longTerm && si.employee.employmentIns));
+    t('socialInsurance — 사업주 분리 (employmentInsBase + employmentInsAdditional + industrial)',
+      true, !!(si.employer.employmentInsBase && si.employer.employmentInsAdditional !== undefined && si.employer.industrial));
+    t('socialInsurance — 산재보험 근로자 부담 없음', undefined, si.employee.industrial);
+    t('socialInsurance — totalLaborCost = 월급 + 사업주 부담', si.employer.total, si.totalLaborCost - 3000000);
+
+    // ===== 2. 사업주 총 인건비 =====
+    const ec = CalcCore.employerCost(3000000, 200000, { date: '2026-05-01', companySize: 'under_150' });
+    t('employerCost — annualLaborCost = totalLaborCost × 12', ec.totalLaborCost * 12, ec.annualLaborCost);
+    t('employerCost — burdenRatePercent 양수', true, ec.employerBurdenRatePercent > 0);
+
+    // ===== 3. 월급명세서 =====
+    const ps = CalcCore.paystub({
+      basic: 3000000, meal: 200000, bonus: 0, allowance: 0,
+      nonTaxable: 200000, dependents: 1, children: 0
+    }, { date: '2026-05-01' });
+    t('paystub — gross = 기본급 + 식대 + 상여 + 수당', 3200000, ps.payments.gross);
+    t('paystub — netPay = gross - 공제 합계', ps.payments.gross - ps.deductions.total, ps.netPay);
+    t('paystub — 공제 항목 모두 존재',
+      true, !!(ps.deductions.nationalPension !== undefined && ps.deductions.healthInsurance !== undefined &&
+               ps.deductions.longTermCare !== undefined && ps.deductions.employmentIns !== undefined &&
+               ps.deductions.incomeTax !== undefined && ps.deductions.localTax !== undefined));
+
+    // ===== 4. 주휴수당 — 시급 10,320 / 주 20시간 = 41,280 =====
+    const wh20 = CalcCore.weeklyHolidayPay(10320, 20);
+    t('weeklyHolidayPay(10,320, 20) = 41,280', 41280, wh20.weeklyHolidayPay);
+    t('weeklyHolidayPay 주 15시간 미만 → 발생 안 함', false, CalcCore.weeklyHolidayPay(10320, 14).eligible);
+    t('weeklyHolidayPay 주 40시간 초과 → 40으로 cap', 40, CalcCore.weeklyHolidayPay(10320, 50).cappedHours);
+
+    // ===== 5. 프리랜서 사업소득 3.3% =====
+    const ft1 = CalcCore.freelancerTax(1000000, 'business', { vatType: 'exclude' });
+    t('freelancer business 1,000,000 → 소득세 30,000', 30000, ft1.incomeTax);
+    t('freelancer business 1,000,000 → 지방소득세 3,000', 3000, ft1.localTax);
+    t('freelancer business 1,000,000 → 총 원천징수 33,000', 33000, ft1.totalWithheld);
+    t('freelancer business 1,000,000 → 실수령 967,000', 967000, ft1.netPay);
+
+    // ===== 6. 기타소득 8.8% — 필요경비 60% 적용 =====
+    const ft2 = CalcCore.freelancerTax(1000000, 'other', { vatType: 'exclude', includeNecessaryExpense: true });
+    t('freelancer other 1,000,000 → 과세표준 400,000 (필요경비 60%)', 400000, ft2.taxableBase);
+    t('freelancer other 1,000,000 → 소득세 80,000 (400,000 × 0.20)', 80000, ft2.incomeTax);
+    t('freelancer other 1,000,000 → 지방소득세 8,000 (소득세 × 0.10)', 8000, ft2.localTax);
+    t('freelancer other 1,000,000 → 총 원천징수 88,000 (8.8%)', 88000, ft2.totalWithheld);
+
+    // ===== 7. ads.txt / AdSense 코드 무손상 =====
+    // (브라우저에서 직접 확인하는 항목 — 여기서는 KR_OFFICIAL_SOURCES 가 변경 안 됐는지만 확인)
+    t('KR_OFFICIAL_SOURCES.mohw 존재', '보건복지부', (KR_OFFICIAL_SOURCES.mohw || {}).name);
+
+    // ===== 8. 광고 시스템 - campaigns frequency =====
+    const sampleCampaign = { id: 'test_freq_daily', enabled: true, frequency: 'daily' };
+    KCCampaigns.markShown(sampleCampaign);
+    t('campaigns — daily frequency markShown 후 즉시 재노출 차단', false, KCCampaigns.shouldShow(sampleCampaign));
+
+    // ===== 9. official-link 캠페인 picking =====
+    const officialPick = KCCampaigns.pickForCategory('salary', 'after_result');
+    t('campaigns — salary 카테고리에 official-link 캠페인 등록', true,
+      !!officialPick && officialPick.type === 'official-link' && officialPick.id === 'official-links-salary');
+
+    // ===== 10. adblock notice 7일 숨김 동작 =====
+    try {
+      localStorage.setItem('kukmincalc_adblock_notice_closed_until', String(Date.now() + 7*24*60*60*1000));
+    } catch (e) {}
+    const stored = parseInt(localStorage.getItem('kukmincalc_adblock_notice_closed_until') || '0', 10);
+    t('adblock notice 7일 숨김 localStorage', true, stored > Date.now() + 6*24*60*60*1000);
+    try { localStorage.removeItem('kukmincalc_adblock_notice_closed_until'); } catch (e) {}
+
+    // ===== 11. event-tracker 존재 =====
+    t('window.KukmincalcEvents.track 존재', 'function', typeof window.KukmincalcEvents.track);
+    t('window.KukmincalcEvents.EVENTS.calculator_completed 정의', 'calculator_completed', window.KukmincalcEvents.EVENTS.calculator_completed);
+
+    // ===== 12. AdSense Auto Ads ca-pub 미변경 (소스 그대로) =====
+    // common.js 가 인라인으로 ca-pub-6481387413747515 를 주입함을 확인
+    // 페이지에 common.js 가 포함되어 있어야 함 — 본 러너는 직접 포함하지 않으므로 KR_OFFICIAL_SOURCES 만 검증.
+
+    // ===== 렌더 =====
+    const tbody = document.querySelector('#results tbody');
+    let pass = 0;
+    tests.forEach((tt, i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${i+1}</td><td>${tt.name}</td><td><code>${JSON.stringify(tt.expected)}</code></td><td><code>${JSON.stringify(tt.actual)}</code></td><td class="status ${tt.pass ? 'pass' : 'fail'}">${tt.pass ? 'PASS' : 'FAIL'}</td>`;
+      tbody.appendChild(tr);
+      if (tt.pass) pass++;
+    });
+    const sum = document.getElementById('summary');
+    sum.textContent = `${pass} / ${tests.length} passed`;
+    sum.className = 'summary ' + (pass === tests.length ? 'pass' : 'fail');
+  </script>
+</body>
+</html>

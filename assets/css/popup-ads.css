@@ -1,0 +1,158 @@
+/* ===== popup-ads.css — 팝업 / 광고차단 안내 모달 ===== */
+
+.kc-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.kc-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+.kc-popup-card {
+  position: relative;
+  background: var(--bg-card, #fff);
+  color: var(--text, #1f2937);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35);
+  padding: 1.5rem 1.25rem;
+  max-width: 480px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: left;
+}
+.kc-popup-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: 0;
+  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: var(--text-muted, #6b7280);
+  border-radius: 999px;
+}
+.kc-popup-close:hover { background: var(--bg-alt, #f3f4f6); }
+
+.kc-popup-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+.kc-popup-label.ad      { background: #f59e0b; color: #fff; }      /* 광고 */
+.kc-popup-label.official{ background: #16a34a; color: #fff; }      /* 공식 사이트 */
+.kc-popup-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+.kc-popup-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted, #4b5563);
+  margin: 0 0 1rem 0;
+  line-height: 1.55;
+}
+.kc-popup-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md, 8px);
+  margin-bottom: 1rem;
+}
+
+/* official-link 카드 형태 링크 목록 */
+.kc-popup-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.kc-popup-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-alt, #f8fafc);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-sm, 6px);
+  text-decoration: none;
+  color: var(--text, #1f2937);
+  font-size: 0.88rem;
+  transition: all 0.15s;
+}
+.kc-popup-link:hover {
+  border-color: var(--primary, #2563eb);
+  background: var(--bg-card, #fff);
+}
+.kc-popup-link-go { color: var(--primary, #2563eb); font-weight: 500; font-size: 0.8rem; }
+
+@media (max-width: 480px) {
+  .kc-popup-links { grid-template-columns: 1fr; }
+}
+
+/* sponsor / affiliate CTA */
+.kc-popup-cta {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  text-align: center;
+  background: var(--primary, #2563eb);
+  color: #fff;
+  border-radius: var(--radius-md, 8px);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.kc-popup-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.kc-popup-actions-bottom {
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--border, #e5e7eb);
+  padding-top: 0.75rem;
+  justify-content: flex-end;
+}
+.kc-popup-btn {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  background: var(--bg-alt, #f3f4f6);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text, #1f2937);
+  font-weight: 500;
+}
+.kc-popup-btn:hover { background: var(--bg-card, #fff); }
+.kc-popup-btn.ghost {
+  background: transparent;
+  color: var(--text-muted, #6b7280);
+  border-color: transparent;
+}
+
+/* 광고차단 모달 — 빨간 강조 없이 안내 톤 유지 */
+.kc-popup-adblock .kc-popup-label {
+  background: var(--text-muted, #6b7280);
+  color: #fff;
+}
+
+/* 모바일: 화면 높이 80% 제한 */
+@media (max-height: 600px) {
+  .kc-popup-card { max-height: 90vh; }
+}

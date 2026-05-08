@@ -1,12 +1,45 @@
 /* ===== common.js - 공통 유틸리티 ===== */
 
-// 애드센스 Auto Ads 자동 주입
+// 애드센스 Auto Ads 자동 주입 (변경 금지 — ca-pub-6481387413747515)
 (function() {
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6481387413747515';
   s.crossOrigin = 'anonymous';
   document.head.appendChild(s);
+})();
+
+// ===== Phase 2: 광고/팝업/측정 시스템 자동 로딩 =====
+// common.js 가 로드되는 모든 페이지에 광고 fallback / 팝업 / 측정 훅이 따라온다.
+// 광고 placeholder 텍스트를 사용자 화면에서 즉시 무력화 + ad-manager 가 fallback 처리.
+(function () {
+  function pathPrefix() {
+    // /calculators/foo.html -> ../assets, / 또는 /index.html -> assets
+    var p = location.pathname || '/';
+    if (/\/(calculators|guides|blog|articles|legal|docs|tests|api)\//i.test(p)) return '../';
+    return '';
+  }
+  var base = pathPrefix() + 'assets/';
+  function appendLink(href) {
+    if (document.querySelector('link[href$="' + href.replace(base, '') + '"]')) return;
+    var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = href;
+    document.head.appendChild(l);
+  }
+  function appendScript(src) {
+    if (document.querySelector('script[src$="' + src.replace(base, '') + '"]')) return;
+    var s = document.createElement('script'); s.src = src; s.defer = true;
+    document.head.appendChild(s);
+  }
+  appendLink(base + 'css/ads.css');
+  appendLink(base + 'css/popup-ads.css');
+  // 분석/광고 모듈 — 의존 순서: event-tracker → ad-slots → campaigns → popup → ad-manager → adblock → inserter
+  appendScript(base + 'js/analytics/event-tracker.js');
+  appendScript(base + 'js/ads/ad-slots.js');
+  appendScript(base + 'js/ads/campaigns.js');
+  appendScript(base + 'js/ads/popup-manager.js');
+  appendScript(base + 'js/ads/ad-manager.js');
+  appendScript(base + 'js/ads/adblock-detector.js');
+  appendScript(base + 'js/ads/in-content-ad-inserter.js');
 })();
 
 // 숫자 포맷 (콤마)
@@ -257,7 +290,11 @@ const NAV_CATEGORIES = [
   {
     label: '근로·급여', items: [
       { name: '연봉 실수령액', id: 'take-home-pay' },
+      { name: '월급명세서', id: 'paystub' },
+      { name: '4대보험 통합', id: 'social-insurance' },
+      { name: '사업주 총 인건비', id: 'employer-cost' },
       { name: '시급 계산기', id: 'hourly-wage' },
+      { name: '주휴수당 계산기', id: 'weekly-holiday-pay' },
       { name: '야근수당 계산기', id: 'overtime-pay' },
       { name: '연차수당 계산기', id: 'annual-leave-pay' },
       { name: '퇴직금 계산기', id: 'severance-pay' },
@@ -269,6 +306,7 @@ const NAV_CATEGORIES = [
     label: '세금', items: [
       { name: '종합소득세', id: 'income-tax' },
       { name: '부가가치세', id: 'vat' },
+      { name: '프리랜서/기타소득', id: 'freelancer-tax' },
       { name: '양도소득세', id: 'capital-gains-tax' },
       { name: '증여세', id: 'gift-tax' },
       { name: '상속세', id: 'inheritance-tax' },
