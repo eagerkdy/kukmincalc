@@ -682,6 +682,21 @@
       <h1>월급·세금·보험료를<br><span class="accent">공식 기준으로 계산하세요</span></h1>
       <p class="hero-desc">연봉 실수령액, 4대보험, 주휴수당, 프리랜서 3.3% 세금까지 — 최신 기준으로 1분 만에 확인합니다</p>
 
+      <div class="hero-ctas">
+        <a class="hero-cta primary" href="calculators/take-home-pay.html" data-kc-action="hero-cta" data-cta="take-home-pay">
+          <span class="hero-cta-icon">💵</span>
+          내 실수령액 확인하기
+        </a>
+        <a class="hero-cta" href="calculators/social-insurance.html" data-kc-action="hero-cta" data-cta="social-insurance">
+          <span class="hero-cta-icon">🛡️</span>
+          월급에서 빠지는 4대보험 보기
+        </a>
+        <a class="hero-cta" href="calculators/freelancer-tax.html" data-kc-action="hero-cta" data-cta="freelancer-tax">
+          <span class="hero-cta-icon">💼</span>
+          프리랜서 세금 계산하기
+        </a>
+      </div>
+
       <div class="hero-search" style="position:relative;">
         <span class="icon">🔍</span>
         <input type="text" id="searchInput" placeholder="계산기 검색 (예: 퇴직금, 대출이자, 양도소득세...)">
@@ -918,6 +933,20 @@
 
   <script src="assets/js/common.js"></script>
   <script>document.getElementById('header').innerHTML = getHomeHeaderHTML();</script>
+  <script>
+    // Hero CTA 클릭 추적 — event-tracker 가 로드되면 사용, 없으면 silent
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a.hero-cta');
+      if (!a) return;
+      if (window.KukmincalcEvents && typeof window.KukmincalcEvents.track === 'function') {
+        window.KukmincalcEvents.track('hero_cta_clicked', {
+          cta: a.getAttribute('data-cta') || '',
+          href: a.getAttribute('href'),
+          source: 'home_hero'
+        });
+      }
+    });
+  </script>
   <script>
     const calculators = [
       // 근로·급여
