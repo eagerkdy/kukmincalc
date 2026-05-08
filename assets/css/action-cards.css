@@ -1,0 +1,155 @@
+/* ===== action-cards.css — 결과 후 다음 행동 카드 ===== */
+
+.action-cards {
+  margin: var(--space-md, 1rem) 0 var(--space-lg, 1.5rem);
+  padding: 0;
+}
+.action-cards-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem 0;
+  color: var(--text, #1f2937);
+  letter-spacing: -0.01em;
+}
+.action-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+@media (min-width: 720px) {
+  .action-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .action-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.action-card {
+  display: block;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-md, 8px);
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  color: var(--text, #1f2937);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.action-card:hover {
+  border-color: var(--primary-light, #93c5fd);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
+
+.action-card-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+.action-card-label.internal {
+  background: var(--bg-alt, #f3f4f6);
+  color: var(--text-muted, #4b5563);
+}
+.action-card-label.official {
+  background: #16a34a;
+  color: #fff;
+}
+
+.action-card-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.action-card-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  width: 2.2rem;
+  text-align: center;
+}
+.action-card-body {
+  flex: 1;
+  min-width: 0;
+}
+.action-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.15rem 0;
+  line-height: 1.35;
+  color: var(--text, #1f2937);
+}
+.action-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted, #6b7280);
+  margin: 0;
+  line-height: 1.45;
+}
+.action-card-go {
+  font-size: 1.1rem;
+  color: var(--primary, #2563eb);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* 공식 사이트 카드 — 살짝 색조 강조 */
+.action-card.official {
+  border-color: rgba(22,163,74,0.3);
+  background: rgba(22,163,74,0.04);
+}
+.action-card.official:hover {
+  border-color: #16a34a;
+}
+.action-card.official .action-card-go {
+  color: #16a34a;
+}
+
+/* ===== Hero 직속 CTA 3개 (홈 hero 영역) ===== */
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  max-width: 720px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+.hero-cta:hover {
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.45);
+  transform: translateY(-1px);
+  color: #fff;
+}
+.hero-cta .hero-cta-icon {
+  font-size: 1rem;
+}
+.hero-cta.primary {
+  background: #fff;
+  color: var(--primary, #2563eb);
+  border-color: #fff;
+}
+.hero-cta.primary:hover {
+  background: #f8fafc;
+}
+@media (max-width: 480px) {
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-cta { justify-content: center; }
+}
