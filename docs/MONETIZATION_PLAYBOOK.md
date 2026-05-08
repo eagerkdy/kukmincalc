@@ -212,7 +212,32 @@ KPI 후보:
 
 ---
 
-## 9. Phase 3-1 적용 범위
+## 9. GPTS/Gems 운영 체인 매핑 (Kukmincalc 선별)
+
+> 첨부한 애드센스팜 GPTS/Gems 운영 가이드 중 **계산기·도구형 사이트의 수익화 흐름에만** 직접 적용.
+
+### 9-1. 즉시 반영 (Phase 3-1)
+| 운영 흐름 | Kukmincalc 적용 | 위치 |
+|---|---|---|
+| AdSense 슬롯 위치 룰 | 결과 아래/본문 하단/H2-after 가이드 | §1 AdSense |
+| 광고/제휴 라벨 분리 | sponsor / affiliate / official-link 5분리 | §0 카테고리 정의 |
+| 공식기관 사칭 금지 | "공식 사이트" 라벨만 | §4 official-link |
+
+### 9-2. Kukmincalc 에 부분 참조 (Kukmincalc-fit 등장 시)
+- **대출 비교 / 신용점수 조회 / 급여통장 / 적금 비교** — salary 카테고리 affiliate 후보 (캠페인 등록 시 활성화)
+- **세무신고 서비스 / 세무사 상담** — tax 카테고리 affiliate 후보
+- **자동차보험 비교** — car 카테고리 affiliate 후보
+
+### 9-3. 의도적 제외 (Kukmincalc 에 해당 안 됨)
+- 쿠팡/쇼핑 전환 콘텐츠 — 쇼핑 카테고리 X (위 9-2 의 부분 참조 예외)
+- 여행 / 실버 채널 / 감성 콘텐츠 광고 — 타깃·톤 불일치
+- 네이버 애드포스트 — 운영 안 함
+
+자세한 제외 목록은 `docs/MULTICHANNEL_EXPANSION_PLAN.md` §6-3 참조.
+
+---
+
+## 10. Phase 3-1 적용 범위
 
 이번 Phase 에서는 **정의 + 홈/푸터/카드 표현만** 정리. 실제 sponsor/affiliate 캠페인 활성화는 광고주가 등장한 다음 Phase.
 
