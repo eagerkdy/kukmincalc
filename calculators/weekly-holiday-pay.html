@@ -181,6 +181,21 @@
         </div>
       `;
       if (window.KukmincalcEvents) window.KukmincalcEvents.track('calculator_completed',{calculatorId:'weekly-holiday-pay',category:'labor',verificationStatus:'verified'});
+      // Phase 3-3A: 최근 계산 저장 + 피드백
+      try {
+        if (window.KCRecentCalculations) {
+          window.KCRecentCalculations.save({
+            calculatorId: 'weekly-holiday-pay',
+            calculatorName: '주휴수당',
+            summaryTitle: `시급 ${formatNumber(hourlyWage)}원 · 주 ${weeklyHours}시간`,
+            summaryValue: r.eligible ? `주휴수당 ${formatNumber(r.weeklyHolidayPay)}원` : '주휴수당 발생 안 함',
+            subText: r.eligible ? `주급 ${formatNumber(r.weeklyWage)}원 · 월 예상 ${formatNumber(r.monthlyWage)}원` : (r.reason === 'weeklyHours_below_15' ? '주 15시간 미만' : '소정근로일 미개근'),
+            href: '/calculators/weekly-holiday-pay.html',
+            type: 'labor'
+          });
+          window.KCRecentCalculations.renderSavedFeedback(document.getElementById('result'), '주휴수당');
+        }
+      } catch (e) {}
       if (window.KCPopupManager) setTimeout(function(){ window.KCPopupManager.showForResult('labor'); }, 600);
     }
     bindCalculation(calculate);

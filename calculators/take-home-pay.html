@@ -338,6 +338,22 @@
           </div>
         </div>
       `;
+
+      // Phase 3-3A: 최근 계산 저장 + 피드백 (실패 시 silent)
+      try {
+        if (window.KCRecentCalculations) {
+          window.KCRecentCalculations.save({
+            calculatorId: 'take-home-pay',
+            calculatorName: '연봉 실수령액',
+            summaryTitle: `연봉 ${formatKRW(annualSalary)} 실수령액`,
+            summaryValue: `월 ${formatNumber(r.takeHome)}원`,
+            subText: `공제액 ${formatNumber(r.totalDeduction)}원 · 참고용 계산`,
+            href: '/calculators/take-home-pay.html',
+            type: 'salary'
+          });
+          window.KCRecentCalculations.renderSavedFeedback(document.getElementById('result'), '연봉 실수령액');
+        }
+      } catch (e) {}
     }
 
     bindCalculation(calculate);
