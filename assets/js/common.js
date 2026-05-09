@@ -194,6 +194,12 @@ function bindCalculation(calcFn) {
   });
   // 초기 계산
   calcFn();
+  // Phase 3-3A fix: defer 로 주입되는 모듈(recent-calculations.js 등)이
+  // 첫 calcFn() 호출 시점엔 미로드 상태일 수 있어, window.load 후 한번 더 호출해
+  // 첫 자동 계산 결과의 localStorage 저장 누락을 보정한다. calcFn 은 idempotent.
+  if (document.readyState !== 'complete') {
+    window.addEventListener('load', function () { setTimeout(calcFn, 50); }, { once: true });
+  }
 }
 
 // 결과 공유 - 클립보드 복사
