@@ -33,7 +33,9 @@
   appendLink(base + 'css/ads.css');
   appendLink(base + 'css/popup-ads.css');
   appendLink(base + 'css/action-cards.css');
-  // 분석/광고 모듈 — 의존 순서: event-tracker → ad-slots → campaigns → popup → ad-manager → adblock → inserter → action-cards
+  appendLink(base + 'css/recent-calculations.css');
+  // 분석/광고/UX 모듈 — 의존 순서:
+  //   event-tracker → ad-slots → campaigns → popup → ad-manager → adblock → inserter → action-cards → recent-calculations
   appendScript(base + 'js/analytics/event-tracker.js');
   appendScript(base + 'js/ads/ad-slots.js');
   appendScript(base + 'js/ads/campaigns.js');
@@ -42,6 +44,7 @@
   appendScript(base + 'js/ads/adblock-detector.js');
   appendScript(base + 'js/ads/in-content-ad-inserter.js');
   appendScript(base + 'js/action-cards.js');
+  appendScript(base + 'js/recent-calculations.js');
 })();
 
 // 숫자 포맷 (콤마)

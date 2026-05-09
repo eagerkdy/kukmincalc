@@ -325,6 +325,22 @@
           </div>
         </div>
       `;
+
+      // Phase 3-3A: 최근 계산 저장 + 피드백
+      try {
+        if (window.KCRecentCalculations) {
+          window.KCRecentCalculations.save({
+            calculatorId: 'pension',
+            calculatorName: '국민연금',
+            summaryTitle: `월 소득 ${formatNumber(monthlySalary)}원 국민연금 (${periodLabel})`,
+            summaryValue: `본인 부담 월 ${formatNumber(employeeShare)}원`,
+            subText: `기준소득월액 ${formatNumber(r.base)}원 · 2026 ${periodLabel}`,
+            href: '/calculators/pension.html',
+            type: 'salary'
+          });
+          window.KCRecentCalculations.renderSavedFeedback(document.getElementById('result'), '국민연금');
+        }
+      } catch (e) {}
     }
 
     bindCalculation(calculate);

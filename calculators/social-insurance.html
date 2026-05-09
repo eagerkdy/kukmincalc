@@ -203,6 +203,21 @@
       if (window.KukmincalcEvents) window.KukmincalcEvents.track('calculator_completed', {
         calculatorId: 'social-insurance', category: 'labor', verificationStatus: 'needs_official_source'
       });
+      // Phase 3-3A: 최근 계산 저장 + 피드백
+      try {
+        if (window.KCRecentCalculations) {
+          window.KCRecentCalculations.save({
+            calculatorId: 'social-insurance',
+            calculatorName: '4대보험 통합',
+            summaryTitle: `월 ${formatNumber(monthlySalary)}원 4대보험`,
+            summaryValue: `근로자 ${formatNumber(empE.total)}원 / 사업주 ${formatNumber(empR.total)}원`,
+            subText: `총 인건비 ${formatKRW(r.totalLaborCost)} · 참고용 계산`,
+            href: '/calculators/social-insurance.html',
+            type: 'salary'
+          });
+          window.KCRecentCalculations.renderSavedFeedback(document.getElementById('result'), '4대보험 통합');
+        }
+      } catch (e) {}
       // 결과 직후 공식 사이트 팝업 (Ogilvy + Sejong)
       if (window.KCPopupManager) setTimeout(function(){ window.KCPopupManager.showForResult('salary'); }, 600);
     }

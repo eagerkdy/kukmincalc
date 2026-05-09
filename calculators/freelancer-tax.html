@@ -181,6 +181,21 @@
         </div>
       `;
       if (window.KukmincalcEvents) window.KukmincalcEvents.track('calculator_completed',{calculatorId:'freelancer-tax',category:'tax',verificationStatus:'needs_official_source'});
+      // Phase 3-3A: 최근 계산 저장 + 피드백
+      try {
+        if (window.KCRecentCalculations) {
+          window.KCRecentCalculations.save({
+            calculatorId: 'freelancer-tax',
+            calculatorName: typeLabel,
+            summaryTitle: `${typeLabel} 계약금액 ${formatNumber(amount)}원`,
+            summaryValue: `실수령 ${formatNumber(r.netPay)}원`,
+            subText: `원천징수 ${formatNumber(r.totalWithheld)}원 (${r.rateDisplay}) · 간이 추정`,
+            href: '/calculators/freelancer-tax.html',
+            type: 'tax'
+          });
+          window.KCRecentCalculations.renderSavedFeedback(document.getElementById('result'), typeLabel);
+        }
+      } catch (e) {}
       if (window.KCPopupManager) setTimeout(function(){ window.KCPopupManager.showForResult('tax'); }, 600);
     }
     bindCalculation(calculate);
