@@ -192,6 +192,33 @@ introSummary (예: 연봉 3000):
 
 ---
 
+## Phase 3-4 발행 완료 (2026-05-09)
+
+질문형 SEO 랜딩 페이지 P0 12개를 `guides/` 에 발행함. 각 페이지는 표준 12단계 공정(`docs/CONTENT_PRODUCTION_PIPELINE.md`)을 따랐고, BreadcrumbList + FAQPage JSON-LD, 결과형 H1, 1분 계산 예시, 계산기 CTA 3회, 관련 계산기/공식 사이트 카드 패턴을 적용함.
+
+| # | URL | targetKeyword | targetCalculator | verificationStatus |
+|---|---|---|---|---|
+| 1 | `/guides/salary-3000-take-home.html` | 연봉 3000 실수령액 | take-home-pay | verified |
+| 2 | `/guides/salary-4000-take-home.html` | 연봉 4000 실수령액 | take-home-pay | verified |
+| 3 | `/guides/salary-5000-take-home.html` | 연봉 5000 실수령액 | take-home-pay | verified |
+| 4 | `/guides/monthly-300-social-insurance.html` | 월급 300 4대보험 | social-insurance | verified |
+| 5 | `/guides/social-insurance-rate-2026.html` | 2026 4대보험 요율 | social-insurance | verified |
+| 6 | `/guides/weekly-holiday-pay-20-hours.html` | 주 20시간 주휴수당 | weekly-holiday-pay | verified |
+| 7 | `/guides/min-wage-monthly-2026.html` | 2026 최저임금 월급 | hourly-wage | verified |
+| 8 | `/guides/freelancer-tax-100.html` | 프리랜서 100만 3.3% | freelancer-tax | estimated |
+| 9 | `/guides/other-income-tax-8-8.html` | 기타소득 8.8% | freelancer-tax | estimated |
+| 10 | `/guides/severance-pay-300-3years.html` | 월 300 3년 퇴직금 | severance-pay | verified |
+| 11 | `/guides/non-taxable-meal-200k.html` | 식대 비과세 20만 | take-home-pay | verified |
+| 12 | `/guides/national-pension-2026.html` | 국민연금 2026 보험료 | pension | verified |
+
+`sitemap.xml` 에 12개 URL 추가 (lastmod 2026-05-09, priority 0.8~0.9).
+
+후속:
+- 발행 후 외부유입 루틴(`docs/EXTERNAL_TRAFFIC_PLAYBOOK.md`) 가동
+- 1주 사이클 측정 후 P1 / P2 우선순위 재정렬
+
+---
+
 ## Phase 3-1 적용 범위
 
 이 문서는 Phase 3-1에서 **클러스터 정의 + P0 우선순위만** 확정한다. 실제 가이드 페이지 발행은 3-2 이후.

@@ -1,0 +1,201 @@
+/* ===== guides.css — 질문형 SEO 랜딩 페이지 ===== */
+
+.guide-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+  line-height: 1.65;
+}
+
+.guide-page h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0.5rem 0 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.guide-page h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 1.6rem 0 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+.guide-page p { margin: 0 0 0.7rem; color: var(--text, #1f2937); }
+.guide-page strong { color: var(--text, #1f2937); }
+
+.guide-page .breadcrumb {
+  font-size: 0.82rem;
+  color: var(--text-muted, #6b7280);
+  margin-bottom: 0.4rem;
+}
+.guide-page .breadcrumb a {
+  color: var(--text-muted, #6b7280);
+  text-decoration: none;
+}
+.guide-page .breadcrumb a:hover { color: var(--primary, #2563eb); }
+
+/* 요약 답변 박스 */
+.guide-summary {
+  background: var(--bg-alt, #f8fafc);
+  border-left: 4px solid var(--primary, #2563eb);
+  border-radius: var(--radius-md, 8px);
+  padding: 1rem 1.1rem;
+  margin: 0.5rem 0 1.2rem;
+}
+.guide-summary p { margin: 0; font-size: 0.95rem; line-height: 1.6; }
+.guide-summary strong { color: var(--primary, #2563eb); }
+
+/* 1분 계산 예시 박스 */
+.guide-example {
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-md, 8px);
+  padding: 1rem 1.1rem;
+  margin: 0.5rem 0 1.2rem;
+  font-size: 0.92rem;
+}
+.guide-example .label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--secondary, #16a34a);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.guide-example code, .guide-example .formula {
+  display: block;
+  background: var(--bg-alt, #f3f4f6);
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius-sm, 6px);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.86rem;
+  margin: 0.4rem 0;
+  color: var(--text, #1f2937);
+}
+.guide-example .answer {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* CTA */
+.guide-cta {
+  display: inline-block;
+  margin: 0.4rem 0 1.4rem;
+  padding: 0.7rem 1.1rem;
+  background: var(--primary, #2563eb);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius-md, 8px);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.guide-cta:hover { background: #1d4ed8; color: #fff; }
+.guide-cta-block { display: block; text-align: center; }
+.guide-cta-block .guide-cta { display: inline-block; }
+
+/* 적용 기준 / 출처 박스 */
+.guide-source {
+  background: var(--bg-alt, #f8fafc);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-md, 8px);
+  padding: 0.75rem 0.9rem;
+  margin: 0.5rem 0 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #4b5563);
+}
+.guide-source .badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-right: 0.4rem;
+}
+.guide-source .badge.verified { background: var(--secondary, #16a34a); color: #fff; }
+.guide-source .badge.dynamic { background: #3b82f6; color: #fff; }
+.guide-source .badge.estimated { background: #6b7280; color: #fff; }
+
+/* 관련 계산기 / 공식 사이트 카드 */
+.guide-related, .guide-official {
+  margin: 1.5rem 0;
+}
+.guide-related h2, .guide-official h2 { margin-bottom: 0.6rem; }
+.guide-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+.guide-card {
+  display: block;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-md, 8px);
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  color: var(--text, #1f2937);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.guide-card:hover {
+  border-color: var(--primary-light, #93c5fd);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.guide-card .name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.guide-card .desc {
+  font-size: 0.82rem;
+  color: var(--text-muted, #6b7280);
+  margin: 0;
+  line-height: 1.45;
+}
+.guide-card .label-official {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: #16a34a;
+  color: #fff;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+/* FAQ */
+.guide-faq { margin: 1.5rem 0; }
+.guide-faq details {
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-md, 8px);
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.guide-faq summary {
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text, #1f2937);
+}
+.guide-faq summary:hover { color: var(--primary, #2563eb); }
+.guide-faq details[open] summary { margin-bottom: 0.5rem; }
+.guide-faq p { font-size: 0.88rem; color: var(--text-muted, #4b5563); margin: 0; line-height: 1.6; }
+
+/* 하단 안내 */
+.guide-disclaimer {
+  font-size: 0.78rem;
+  color: var(--text-muted, #9ca3af);
+  text-align: center;
+  margin: 1.5rem 0 0;
+  padding: 0.7rem;
+  background: var(--bg-alt, #f8fafc);
+  border-radius: var(--radius-md, 8px);
+}
+
+@media (max-width: 480px) {
+  .guide-page { padding: 1rem 0.85rem 2.5rem; }
+  .guide-page h1 { font-size: 1.4rem; }
+  .guide-cards-grid { grid-template-columns: 1fr; }
+}
