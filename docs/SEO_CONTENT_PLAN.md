@@ -219,6 +219,37 @@ introSummary (예: 연봉 3000):
 
 ---
 
+## Phase 3-5A 측정/외부유입 세팅 (2026-05-15)
+
+Phase 3-4 발행 후 1차 라이브 회귀 PASS (main `71b7bac`). 외부유입 + 측정 체계 정리.
+
+새로 추가된 문서:
+- `docs/SEO_LAUNCH_CHECKLIST.md` — Search Console / 네이버 서치어드바이저 / Bing 1회성 등록·제출 체크리스트
+- `docs/GUIDE_DISTRIBUTION_PLAN.md` — 12개 가이드 ↔ 채널 매핑, 주차별 한도, 답변 템플릿 골격, 주차 측정 기록표
+- `docs/ANALYTICS_EVENT_PLAN.md` — GA4 이벤트 사전 정의 (구현은 Phase 3-5B 별도 PR)
+
+운영자 1회 작업 (코드 무변경):
+1. Search Console 자산 등록 + `sitemap.xml` 제출 + P0 7개 색인 요청
+2. 네이버 서치어드바이저 사이트 등록 + sitemap 제출 + P0 7개 수집 요청
+3. Bing Webmaster Tools 등록 + sitemap 제출
+4. 7일 후(D+7: **2026-05-16**) 측정 시작 — `GUIDE_DISTRIBUTION_PLAN.md` Week 1 표 기입
+
+7일 후 판단 룰 (요약 — 상세는 `GUIDE_DISTRIBUTION_PLAN.md` §5):
+| 패턴 | 액션 |
+|---|---|
+| Impr 충분 + CTR < 1% | title/meta 수정 |
+| CTR 정상 + 계산기 CTA 클릭 < 5% | CTA 위치·문구 강화 |
+| 체류 < 30s | guide-summary 결론 압축 |
+| 특정 키워드 CTR > 3% | 유사 키워드 가이드 추가 (Phase 3-4B) |
+| Impr 부족 (< 50/주) | URL 재요청 + 키워드 변형 검토 |
+
+다음 단계 분기:
+- **Phase 3-4B (조건부)** — 7일 측정 결과 상위 3개 키워드에서 파생 가이드 1~3개 추가
+- **Phase 3-5B (실행 결정 D+30)** — GA4 스니펫 + `KCAnalytics.track` wrapper 구현
+- **Phase 3-3B / 3-3C (별 트랙)** — 체크리스트 팩 / 결과 공유 카드 (측정과 병렬 가능)
+
+---
+
 ## Phase 3-1 적용 범위
 
 이 문서는 Phase 3-1에서 **클러스터 정의 + P0 우선순위만** 확정한다. 실제 가이드 페이지 발행은 3-2 이후.
