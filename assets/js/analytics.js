@@ -131,10 +131,43 @@
     };
   }
 
+  /* ---------- 페이지 단위 dedupe 가드 (Phase 3-5B follow-up) ---------- */
+  // 일부 이벤트는 같은 페이지 안에서 둘 이상의 진입점(인라인 호출 + KCAnalytics 자동 hook)에서
+  // 호출될 수 있어 GA4 카운트가 부풀어진다. 아래 정책 테이블에 등록된 이벤트는
+  // (eventName, dedupeKey) 단위로 페이지 로드당 1회만 송신한다.
+  //
+  // dedupeKey 우선순위:
+  //   1) URL 추정 calculator_id (가장 안정 — 키 이름 다름에도 동일 페이지면 동일 key)
+  //   2) params.calculator_id (snake_case)
+  //   3) params.calculatorId  (camelCase, 기존 인라인 호출 호환)
+  //   4) '__'                  (식별 불가 시 페이지 단일 키)
+  var ONCE_PER_PAGE = { calculator_started: true };
+  var _firedOncePerPage = {};
+
+  function dedupeKeyOf(params) {
+    var fromPath;
+    try { fromPath = detectCalcId(location.pathname || ''); } catch (e) { fromPath = ''; }
+    if (fromPath) return fromPath;
+    if (params && (params.calculator_id || params.calculatorId)) {
+      return params.calculator_id || params.calculatorId;
+    }
+    return '__';
+  }
+
+  function shouldDedupe(eventName, params) {
+    if (!ONCE_PER_PAGE[eventName]) return false;
+    var key = dedupeKeyOf(params);
+    if (!_firedOncePerPage[eventName]) _firedOncePerPage[eventName] = {};
+    if (_firedOncePerPage[eventName][key]) return true;
+    _firedOncePerPage[eventName][key] = true;
+    return false;
+  }
+
   /* ---------- 송신 ---------- */
 
   function track(eventName, params) {
     if (!eventName) return;
+    if (shouldDedupe(eventName, params)) return;
     var clean = sanitize(params || {});
     var merged = {};
     var cp = commonParams();
