@@ -9,6 +9,31 @@
   document.head.appendChild(s);
 })();
 
+// Google Analytics 4 자동 주입 (Phase 3-5B — G-DRYL72PPZ0)
+// AdSense 와 독립. dataLayer/gtag 정의 + config 1회.
+// 중복 삽입 방지: window.__kc_ga4_loaded 가드.
+(function () {
+  if (typeof window === 'undefined') return;
+  if (window.__kc_ga4_loaded) return;
+  window.__kc_ga4_loaded = true;
+  var GA_ID = 'G-DRYL72PPZ0';
+  // dataLayer + gtag shim (스크립트 도착 전에도 큐잉 가능)
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  // 미들웨어 효과: 모든 gtag('event', ...) 호출 시 KCAnalytics 가 있으면 sanitize 통과 후 재호출.
+  // 단, KCAnalytics 도 내부에서 gtag 를 호출하므로 dedupe 가 필요 — KCAnalytics 호출은
+  // dataLayer 직접 푸시(gtag 원형)가 아니라 그대로 흐른다. 여기서는 단순히 큐만 만든다.
+  window.gtag('js', new Date());
+  window.gtag('config', GA_ID, {
+    anonymize_ip: true,
+    send_page_view: true
+  });
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
+})();
+
 // ===== Phase 2: 광고/팝업/측정 시스템 자동 로딩 =====
 // common.js 가 로드되는 모든 페이지에 광고 fallback / 팝업 / 측정 훅이 따라온다.
 // 광고 placeholder 텍스트를 사용자 화면에서 즉시 무력화 + ad-manager 가 fallback 처리.
@@ -35,7 +60,9 @@
   appendLink(base + 'css/action-cards.css');
   appendLink(base + 'css/recent-calculations.css');
   // 분석/광고/UX 모듈 — 의존 순서:
-  //   event-tracker → ad-slots → campaigns → popup → ad-manager → adblock → inserter → action-cards → recent-calculations
+  //   analytics(KCAnalytics) → event-tracker(KukmincalcEvents) → ad-slots → campaigns → popup → ad-manager → adblock → inserter → action-cards → recent-calculations
+  // Phase 3-5B: analytics.js 가 event-tracker.js 보다 먼저 와야 KukmincalcEvents.track 위임이 첫 호출부터 동작한다.
+  appendScript(base + 'js/analytics.js');
   appendScript(base + 'js/analytics/event-tracker.js');
   appendScript(base + 'js/ads/ad-slots.js');
   appendScript(base + 'js/ads/campaigns.js');

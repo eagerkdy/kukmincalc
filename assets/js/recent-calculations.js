@@ -102,7 +102,18 @@
   function clear() {
     var s = safeStorage();
     if (!s) return false;
-    try { s.removeItem(STORAGE_KEY); return true; } catch (e) { return false; }
+    var prevCount = 0;
+    try { prevCount = readAll().length; } catch (e) {}
+    var ok = false;
+    try { s.removeItem(STORAGE_KEY); ok = true; } catch (e) {}
+    if (ok && global.KukmincalcEvents && typeof global.KukmincalcEvents.track === 'function') {
+      try {
+        global.KukmincalcEvents.track('recent_calculations_cleared', {
+          count_bucket: prevCount === 0 ? '0' : (prevCount < 3 ? '1_2' : (prevCount < 6 ? '3_5' : '6_plus'))
+        });
+      } catch (e) {}
+    }
+    return ok;
   }
 
   function escapeHtml(s) {

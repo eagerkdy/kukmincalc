@@ -42,8 +42,11 @@
     for (var i = 0; i < listeners.length; i++) {
       try { listeners[i](ev); } catch (e) {}
     }
-    // GA4 전역 호환 (선택)
-    if (typeof global.gtag === 'function') {
+    // Phase 3-5B: GA4 송신은 KCAnalytics 단일 게이트웨이로 위임 (PII/원문금액 가드 + 공통 page 파라미터).
+    // KCAnalytics 미로드 환경에서는 기존 동작(gtag 직접 호출) 유지.
+    if (global.KCAnalytics && typeof global.KCAnalytics.track === 'function') {
+      try { global.KCAnalytics.track(eventName, payload || {}); } catch (e) {}
+    } else if (typeof global.gtag === 'function') {
       try { global.gtag('event', eventName, payload || {}); } catch (e) {}
     }
   }
